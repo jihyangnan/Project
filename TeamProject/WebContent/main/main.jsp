@@ -564,7 +564,7 @@
                 </div>
                 <div class="col-md-5 grid_5">
                     <div class="banner2">
-                        <a class="btn2" href="#">click here</a>
+                        <a class="btn2" href="index.jsp?page=main/company.jsp">click here</a>
                         <h3>
                             NiZip NeZip <br>
                             Company Intro 
