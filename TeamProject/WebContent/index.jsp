@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header">
 	<div class="col-xs-4">
 	  <div class="logo">
-		<a href="index.html"><img src="images/logo.png" alt=""/></a>
+		<a href="index.jsp"><img src="images/logo.png" alt=""/></a>
 	  </div>
 	</div>
 	<div class="col-xs-8 header_right">
@@ -88,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="about.html"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
 					<li><a href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a></li>
 					<li><a href="gallery.html"><i class="fa fa-comments"></i><b>고객의 소리</b></a></li>
-					<li><a href="join.html"><i class="fa fa-user"></i><b>로그인</b></a></li>
+					<li><a href="index.jsp?page=join/join.jsp"><i class="fa fa-user"></i><b>로그인</b></a></li>
 					<div class="clearfix"></div>
 				</ul>
 			 </div>

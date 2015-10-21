@@ -225,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <input type=button value="이전" id="join" class="btn">
 		 &nbsp;&nbsp;&nbsp;
 		 <a href="nezipInsert3.html">
-		<input type=button value="다음" id="join"></a>
+		<input type=button value="다음" id="join" class="btn"></a>
 		 </div>		 
 	</div>
 </div>
