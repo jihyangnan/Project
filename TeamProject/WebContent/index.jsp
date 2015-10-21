@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%
 	String strPage = request.getParameter("page");
 	if(strPage == null){
 		strPage = "main/main.jsp";
 	}
-	
+	int pageNum = 0;
+	switch(strPage){
+		case "nezip/nezipInsert2.jsp" : 
+			pageNum = 1;
+			break;
+		case "join/join.jsp" : 
+			pageNum = 5;
+			break;
+	}
+	request.setAttribute("pageNum", pageNum);
 %>    
 <!--A Design by W3layouts
 Author: W3layout
@@ -93,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a  href="index.jsp?page=nezip/nezipInsert2.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a href="index.jsp?page=nezip/nezipInsert2.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
 					<li><a href="about.html"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
 					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
 						<ul class="dropdown-menu" style="min-width: 130px;">
@@ -131,12 +141,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  });
 				});
 				
+				// 드롭다운 메뉴 색상 변경
 				$("ul.dropdown-menu").hover(function() {
 					$(this).parent().css('background-color', '#F94B4B');
 				}, function(){
 					$(this).parent().css('background-color', 'white');
 				});
 				
+				// 메뉴 색상 변경하기
+				$('div.top-menu > ul > li:nth-child(' + "${requestScope.pageNum}" + ') a').addClass('active');
 			</script>
 			<!-- script for menu -->
 	</div>
