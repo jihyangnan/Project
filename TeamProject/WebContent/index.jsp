@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a class="active scroll" href="index.html"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a class="active scroll" href="index.jsp?page=nezip/nezipInsert2.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
 					<li><a href="about.html"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
 					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
 						<ul class="dropdown-menu" style="min-width: 130px;">
@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#">1:1문의</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="contact.html"><i class="fa fa-user"></i><b>로그인</b></a>
+					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="contact.html"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
 							<li><a href="#">찜하기</a></li>
 							<li><a href="#">마이페이지</a></li>
@@ -150,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    
 	<div class="copy" style="padding-bottom: 5em">
 		<p>© 2015 All Rights Reseverd Template by 
-		<a href="index.html"><font color="#f94b4b">NiJip NeJip</font></a> </p>
+		<a href="index.jsp?page=main/company.jsp"><font color="#f94b4b">NiJip NeJip</font></a> </p>
 	</div>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
