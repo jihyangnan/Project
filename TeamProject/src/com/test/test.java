@@ -7,7 +7,6 @@ public class test {
 		System.out.println("수정22");
 		System.out.println("수정3");
 		System.out.println("수정4");
-		System.out.println("수정5");
 	}
 
 }
