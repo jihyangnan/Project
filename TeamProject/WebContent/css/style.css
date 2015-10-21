@@ -37,16 +37,16 @@ body a{
 .top-menu{
 	margin-left: 30%;
 }
-.top-menu ul{
+.top-menu > ul{
 	padding:0;
 	margin:0;
 	list-style:none;
 }
-.top-menu ul li{
+.top-menu > ul > li{
 	display:inline-block;
 	float:left;
 }
-.top-menu ul li a{
+.top-menu > ul > li > a{
 	text-decoration: none;
     color:#555;
     text-transform: uppercase;
@@ -113,7 +113,11 @@ body a{
 		color:#000;
 		display: block;
 		width: 100%;
+		float: none;
 		padding: 0.5em 0em;
+	}
+	ul.dropdown-menu {
+		position: relative;
 	}
 }
 .header_right{
@@ -1230,7 +1234,7 @@ p.single_desc{
 .details {
   position: absolute;
   width: 100%;
-  top:227px;
+  top:440px;
 }
 }
 @media (max-width:1366px){
@@ -1259,7 +1263,7 @@ p.single_desc{
 .details {
   position: absolute;
   width: 100%;
-  top: 272px;
+  top: 360px;
 }
 }
 @media (max-width:1024px){
@@ -1387,7 +1391,7 @@ li.selector {
 }
 .details {
   position: absolute;
-  top: 119px;
+  top: 150px;
   width: 100%;
 }
 }

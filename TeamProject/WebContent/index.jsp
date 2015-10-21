@@ -71,7 +71,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 <script src="js/bootstrap-datepicker.min.js"></script>
-<script src="js/bootstrap-datepicker.kr.min.js"></script> 	
+<script src="js/bootstrap-datepicker.kr.min.js"></script>
+<style>
+	@media screen and (min-width: 800px) {
+		li.dropdown:hover > ul.dropdown-menu{     
+			display: block;     
+			margin: 0;  
+		}
+	}
+</style> 	
 </head>
 <body>
 <div class="header">
@@ -81,14 +89,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  </div>
 	</div>
 	<div class="col-xs-8 header_right">
-	  <span class="menu"></span>
+	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a href="index.jsp?page=nezip/nezipInsert2.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a class="active scroll" href="index.html"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
 					<li><a href="about.html"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
-					<li><a href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a></li>
-					<li><a href="gallery.html"><i class="fa fa-comments"></i><b>고객의 소리</b></a></li>
-					<li><a href="join.html"><i class="fa fa-user"></i><b>로그인</b></a></li>
+					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
+						<ul class="dropdown-menu" style="min-width: 130px;">
+							<li><a href="#">서울</a></li>
+							<li><a href="#">경기</a></li>
+							<li><a href="#">인천</a></li>
+							<li><a href="#">강원</a></li>
+							<li><a href="#">충청</a></li>
+							<li><a href="#">전라</a></li>
+							<li><a href="#">경상</a></li>
+							<li><a href="#">제주</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="gallery.html"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
+						<ul class="dropdown-menu" style="min-width: 110px;">
+							<li><a href="#">자유게시판</a></li>
+							<li><a href="#">1:1문의</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="contact.html"><i class="fa fa-user"></i><b>로그인</b></a>
+						<ul class="dropdown-menu" style="min-width: 100px;">
+							<li><a href="#">찜하기</a></li>
+							<li><a href="#">마이페이지</a></li>
+							<li><a href="#">로그아웃</a></li>
+						</ul>
+					</li>
 					<div class="clearfix"></div>
 				</ul>
 			 </div>
@@ -99,6 +129,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				    // Animation complete.
 				  });
 				});
+				
+				$("ul.dropdown-menu").hover(function() {
+					$(this).parent().css('background-color', '#F94B4B');
+				}, function(){
+					$(this).parent().css('background-color', 'white');
+				});
+				
 			</script>
 			<!-- script for menu -->
 	</div>
@@ -111,9 +148,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
    <jsp:include page="<%=strPage %>"></jsp:include>
    
-   <div class="copy" style="padding-bottom: 5em">
-			<p>© 2015 All Rights Reseverd Template by 
-			<a href="index.html"><font color="#f94b4b">NiJip NeJip</font></a> </p>
-	    </div>
+	<div class="copy" style="padding-bottom: 5em">
+		<p>© 2015 All Rights Reseverd Template by 
+		<a href="index.html"><font color="#f94b4b">NiJip NeJip</font></a> </p>
+	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>		

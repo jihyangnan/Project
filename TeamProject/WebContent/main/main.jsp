@@ -34,61 +34,69 @@
 			 </li>
 	      </ul>
 	 </div>
-</div>
-
-<div class="details" style="top:440px;">
-			     <div class="container">
-	    	     <div class="col-xs-10 dropdown-buttons">   
-            	  <div class="col-xs-4 dropdown-button" style="width:20%;">           			
-            		<div class="section_room">
-						 <select id="country" onchange="change_country(this.value)" class="frm-field required">
+	 
+	 
+	 
+	 <div class="details">
+		<div class="container">
+			<div class="col-xs-10 dropdown-buttons">
+				<div class="col-xs-4 dropdown-button" style="width: 20%;">
+					<div class="section_room">
+						<select id="country" onchange="change_country(this.value)"
+							class="frm-field required">
 							<option>지역선택</option>
 							<option value="서울">서울</option>
-							<option value="강원">인천</option>         
+							<option value="강원">인천</option>
 							<option value="경기">경기</option>
 							<option value="경남">강원</option>
-							<option value="인천">충청</option>         
+							<option value="인천">충청</option>
 							<option value="전남">전라</option>
 							<option value="전북">제주</option>
-							<option value="제주">경상</option>   
-						 </select>
-					  </div>
+							<option value="제주">경상</option>
+						</select>
 					</div>
-				    <div class="col-xs-4 dropdown-button" style="width:20%;">
-					  <div class="section_room">
-						 <select id="country" onchange="change_country(this.value)" class="frm-field required">
+				</div>
+				<div class="col-xs-4 dropdown-button" style="width: 20%;">
+					<div class="section_room">
+						<select id="country" onchange="change_country(this.value)"
+							class="frm-field required">
 							<option value="null">집유형</option>
-							<option value="null">아파트</option>         
+							<option value="null">아파트</option>
 							<option value="AX">단독주택</option>
 							<option value="AX">게스트하우스</option>
 							<option value="AX">빌라</option>
 							<option value="AX">호텔</option>
 							<option value="AX">기타</option>
-						 </select>
-					  </div>
-					 </div>
-					<div class="col-xs-4 dropdown-button" style="width:30%;">
-					  <div class="section_room">
-						 <input type="text" placeholder="year/month/day" class="datepicker checkin_out" name=day1 >
-					  	&nbsp;<b>체크인</b>
-					  </div>
-					 </div>
-					 <div class="col-xs-4 dropdown-button" style="width:30%;">
-					  <div class="section_room">
-						 <input type="text" placeholder="year/month/day" class="datepicker checkin_out" name=day2 >
-					  	&nbsp;<b>체크아웃</b>
-					  </div>
-					 </div>
-					</div> 
-				   <div class="col-xs-2 submit_button"> 
-				   	  <form>
-				   	     <input type="submit" value="Search">
-				   	  </form>
-				   </div>
-				   <div class="clearfix"> </div>
+						</select>
+					</div>
+				</div>
+				<div class="col-xs-4 dropdown-button" style="width: 30%;">
+					<div class="section_room">
+						<input type="text" placeholder="year/month/day"
+							class="datepicker checkin_out" name=day1> &nbsp;<b>체크인</b>
+					</div>
+				</div>
+				<div class="col-xs-4 dropdown-button" style="width: 30%;">
+					<div class="section_room">
+						<input type="text" placeholder="year/month/day"
+							class="datepicker checkin_out" name=day2> &nbsp;<b>체크아웃</b>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2 submit_button">
+				<form>
+					<input type="submit" value="Search">
+				</form>
+			</div>
+			<div class="clearfix"></div>
 		</div>
+	</div>
+	 
+	 
 </div>
-				   
+
+
+
 
 <div class="content_top">
    <div class="container">
