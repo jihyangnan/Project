@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a class="active scroll" href="index.html"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a c:if class="active" href="index.html"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
 					<li><a href="about.html"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
 					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
 						<ul class="dropdown-menu" style="min-width: 130px;">
