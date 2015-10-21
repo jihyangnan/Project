@@ -149,7 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 				
 				// 메뉴 색상 변경하기
-				$('div.top-menu > ul > li:nth-child(' + "${requestScope.pageNum}" + ') a').addClass('active');
+				$('div.top-menu > ul > li:nth-child(' + "${requestScope.pageNum}" + ') > a').addClass('active');
 			</script>
 			<!-- script for menu -->
 	</div>
