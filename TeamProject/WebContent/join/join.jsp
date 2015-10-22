@@ -164,7 +164,9 @@
 		 <a href="index.jsp?page=join/joinResult.jsp">
 		 <input type=submit value="회원가입" id="join"></a>
 		 &nbsp;&nbsp;&nbsp;
+		 
 		<input type=reset value="취소" id="join">
+		
 		 </div>
 	   </div>
      </div>

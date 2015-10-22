@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+@media ( min-width : 1025px) {
+	.siteline {
+		list-style: none;
+		float: right;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-size: 10pt;
+	}
+	#select_house_form {
+		float: left;
+		
+		/* background-color: #EAEAEA; */
+		width: 880px;
+		height: 700px;
+		/* border-radius: 20px;*/
+		/* border: 1px solid #555; */
+	}
+	#select_house_form h3 {
+		width: 230px;
+		height: 35px;
+		background-color: #7DFE74;
+		padding-top: 5px;
+		padding-left: 5px;
+		margin-left: 10px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	
+	.list-group-item > span:not(.col-sm-6), .panel-heading > div {
+		text-align: center;
+	}
+	
+	.pagination > .active > a, .pagination > .active > a:hover {
+		background-color: #87d54d;
+   		border-color: #87d54d;
+	}
+	
+	span.content {
+		font-size: 0.8em;
+    	padding-left: 0;
+    	color: #888;
+	}
+	
+	.search-btn {
+		background-color: #F94B4B;
+		color: #ffffff;
+	}
+	
+	.search-btn:hover {
+		background-color: #333;
+		color: #ffffff;
+	}
+	
+	#aaa .row {
+		margin-left: 0px;
+		margin-right: 0px;
+		
+	}
+	
+	#aaa .col-sm-1{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+</style>
