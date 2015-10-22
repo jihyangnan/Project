@@ -78,9 +78,9 @@
 </div>
 </div>	
 
-<div style="float:right; margin-right:50px; margin-bottom:50px;">
-<img src="images/list.jpg" style="float: right; width:30%; margin-right:60px;"> 
-</div>
+
+<div class="joinup">
+<a href="index.jsp?page=mypage/profile_up.jsp"><input type=button value="목록으로" id="join" class="btn"></a>
 
    
 	 
