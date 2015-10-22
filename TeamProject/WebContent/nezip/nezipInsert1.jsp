@@ -97,14 +97,13 @@
     </div>
   </div>
 </div>
- <div class="joinup"> 
+  
+</div>
+</div>
+    <div class="joinup"> 
  <a href="index.jsp?page=nezip/nezipInsert2.jsp">
  <input type=button value="´ÙÀ½" id="join" class="btn"></a>
-</div>
-
-  </div>
-       
-</div>
+</div>   
 </div>
 </div>
 	
