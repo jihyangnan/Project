@@ -37,11 +37,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- link href="css/bootstrap.css" rel='stylesheet' type='text/css' /-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>\
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<<<<<<< HEAD
 <link href="css/board.css" rel='stylesheet' type='text/css' />
 <link href="css/reserve.css" rel='stylesheet' type='text/css' />
+=======
+<link href="css/nezip.css" rel='stylesheet' type='text/css' />
+>>>>>>> branch 'master' of https://github.com/jihyangnan/Project.git
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
 <!-- Menu -->
@@ -111,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a href="index.jsp?page=nezip/nezipInsert2.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a href="index.jsp?page=nezip/nezipInsert1.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
 					<li><a href="index.jsp?page=reserve/list.jsp"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
 					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
 						<ul class="dropdown-menu" style="min-width: 130px;">
@@ -134,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/join.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
 							<li><a href="#">찜하기</a></li>
-							<li><a href="#">마이페이지</a></li>
+							<li><a href="index.jsp?page=mypage/profile.jsp">마이페이지</a></li>
 							<li><a href="#">로그아웃</a></li>
 						</ul>
 					</li>
