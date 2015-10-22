@@ -30,7 +30,10 @@ HOME < 경상도
       	<ul style="display: inline-block;">
       	<li> <h3 style="margin-left: 60px;margin-top:25px;margin-bottom: 10px;">불국사</h3></li>
      <li style="margin-left: 60px;margin-top: 8px;">경상북도 경주시 진현동 위치, 대한불교 조계종 제 11교구 본사, 사진 및 영상 제공.</li>
-     <li style="margin-left: 70px;margin-top: 8px;"><i class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i class="fa fa-pencil">&nbsp;&nbsp;작성일:  2015-10-12</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="상세보기">
+     <li style="margin-left: 70px;margin-top: 8px;"><i class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i class="fa fa-pencil">&nbsp;&nbsp;작성일:  2015-10-12</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <a href="index.jsp?page=town/town_1.jsp">
+     <input type="submit" value="상세보기">
+     </a>
      	</ul>
       	</div>
       </li>
@@ -45,7 +48,10 @@ HOME < 경상도
       	<ul style="display: inline-block;">
       	<li> <h3 style="margin-left: 60px;margin-top:25px;margin-bottom: 10px;">불국사</h3></li>
      <li style="margin-left: 60px;margin-top: 8px;">경상북도 경주시 진현동 위치, 대한불교 조계종 제 11교구 본사, 사진 및 영상 제공.</li>
-     <li style="margin-left: 70px;margin-top: 8px;"><i class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i class="fa fa-pencil">&nbsp;&nbsp;작성일:  2015-10-12</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="상세보기">
+     <li style="margin-left: 70px;margin-top: 8px;"><i class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i class="fa fa-pencil">&nbsp;&nbsp;작성일:  2015-10-12</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <a href="index.jsp?page=town/town_2.jsp">
+     <input type="submit" value="상세보기">
+     </a>
      	</ul>
       	</div>
       </li>
