@@ -126,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/join.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
 							<li><a href="#">찜하기</a></li>
-							<li><a href="#">마이페이지</a></li>
+							<li><a href="index.jsp?page=mypage/profile.jsp">마이페이지</a></li>
 							<li><a href="#">로그아웃</a></li>
 						</ul>
 					</li>
