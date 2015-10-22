@@ -196,7 +196,4 @@
 		<input type=button value="다음" id="join" class="btn">
 		 </div>
 	</div>
-</div>
-		
-</body>
-</html>		
+</div>	
