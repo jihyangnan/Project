@@ -13,7 +13,7 @@
        <div class="about">	 
        	 <h2 class="blog_head" align="center"><b>회원 가입</b></h2>
        	 <form action="">
-       	 <div class="jumbotron" style="padding-top:20px;">
+       	 <div class="jumbotron" style="padding-top:20px; background-color: #fff">
 		 <div class="join" align="center">
 		 	<ul>
 		 	<li><img src="images/id.png" alt="">

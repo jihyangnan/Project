@@ -170,15 +170,13 @@
 		 </li>
        	 </ul>
        	 </div>
-       	 
-       	 
-       	 
-       	 
+   	 
        	  <div class="joinup">
-		 <input type=button value="이전" id="join" class="btn">
+       	   <a href="index.jsp?page=nezip/nezipInsert1.jsp">
+		 <input type=button value="이전" id="join" class="btn"></a>
 		 &nbsp;&nbsp;&nbsp;
 		 <a href="index.jsp?page=nezip/nezipInsert3.jsp">
-		<input type=button value="다음" id="join"></a>
+		<input type=button value="다음" id="join" class="btn"></a>
 		 </div>		 
 	</div>
 </div>
