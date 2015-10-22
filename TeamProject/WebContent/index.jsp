@@ -40,12 +40,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-1.11.1.min.js"></script>\
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<<<<<<< HEAD
 <link href="css/board.css" rel='stylesheet' type='text/css' />
 <link href="css/reserve.css" rel='stylesheet' type='text/css' />
-=======
 <link href="css/nezip.css" rel='stylesheet' type='text/css' />
->>>>>>> branch 'master' of https://github.com/jihyangnan/Project.git
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
 <!-- Menu -->
