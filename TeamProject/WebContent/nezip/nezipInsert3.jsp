@@ -188,12 +188,14 @@
        		</div>
        	 </li>
        	 </ul>
-       	 </div>      	     	 
-       	  <div class="joinup">
-       	  <a href="index.jsp?page=nezip/nezipInsert2.jsp">
-		 <input type=button value="이전" id="join" class="btn"></a>
-		 &nbsp;&nbsp;&nbsp;
-		<input type=button value="다음" id="join" class="btn">
-		 </div>
+       	 </div>
+		<div class="joinup">
+			<a href="index.jsp?page=nezip/nezipInsert2.jsp"> 
+				<input type=button value="이전" id="join" class="btn">
+			</a>
+			&nbsp;&nbsp;&nbsp; <a href="#">
+				<input type=button value="다음" id="join" class="btn">
+			</a>
+		</div>
 	</div>
 </div>	
