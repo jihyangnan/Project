@@ -45,6 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/nezip.css" rel='stylesheet' type='text/css' />
 <link href="css/login.css" rel='stylesheet' type='text/css' />
 <link href="css/idSearch.css" rel='stylesheet' type='text/css' />
+<link href="css/jimList.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
 <!-- Menu -->
@@ -136,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/login.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
-							<li><a href="#">찜하기</a></li>
+							<li><a href="index.jsp?page=mypage/jimList.jsp">찜하기</a></li>
 							<li><a href="index.jsp?page=mypage/profile.jsp">마이페이지</a></li>
 							<li><a href="#">로그아웃</a></li>
 						</ul>
