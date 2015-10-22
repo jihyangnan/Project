@@ -7,13 +7,11 @@
 		strPage = "main/main.jsp";
 	}
 	int pageNum = 0;
-	switch(strPage){
-		case "nezip/nezipInsert2.jsp" : 
-			pageNum = 1;
-			break;
-		case "join/join.jsp" : 
-			pageNum = 5;
-			break;
+	
+	if(strPage.startsWith("nezip")){
+		pageNum = 1;
+	} else if(strPage.startsWith("join")){
+		pageNum = 5;
 	}
 	request.setAttribute("pageNum", pageNum);
 %>    
