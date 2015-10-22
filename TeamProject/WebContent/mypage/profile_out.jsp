@@ -34,7 +34,7 @@
 		
 		 
 		  <div class="joinup">
-		 <input type=button value="Å»ÅðÇÏ±â" id="join" class="btn">
+		 <input type=submit value="Å»ÅðÇÏ±â" id="join" class="btn">
 		 </div>		 
 		 
 	</div>

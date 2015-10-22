@@ -117,7 +117,7 @@
 		 </div>
 		 
 		  <div class="joinup">
-		 <input type=button value="수정완료" id="join" class="btn">
+		 <input type=submit value="수정완료" id="join" class="btn">
 		 </div>		 
 	</div>
      </div>
