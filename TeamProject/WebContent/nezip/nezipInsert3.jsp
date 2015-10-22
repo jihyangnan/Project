@@ -193,7 +193,7 @@
 			<a href="index.jsp?page=nezip/nezipInsert2.jsp"> 
 				<input type=button value="이전" id="join" class="btn">
 			</a>
-			&nbsp;&nbsp;&nbsp; <a href="#">
+			&nbsp;&nbsp;&nbsp; <a href="index.jsp?page=nezip/nezipInsert4.jsp">
 				<input type=button value="다음" id="join" class="btn">
 			</a>
 		</div>
