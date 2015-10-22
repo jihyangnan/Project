@@ -12,13 +12,13 @@
        <div class="about">	 
        	 <h2 class="blog_head" align="left"><b>내집 등록 - 1단계</b></h2>
        	
-       	 <div style="margin-left:30px;margin-top:15px;">
+       	 <div style="margin-left:40px;margin-top:15px;">
        	 
        	에어비앤비에 숙소를 등록하고 호스팅을 시작하세요. 
        	 
        	 </div>
        	        	 
-       	 <div style="float:left;margin-left:20px;margin-top:30px;">
+       	 <div style="float:left;margin-left:40px;margin-top:30px;">
        	 
   <div style="border:2px solid #f94b4b;border-radius:10px;padding:20px;">
     <div>
@@ -96,12 +96,10 @@
       </ul>
     </div>
   </div>
-  
+</div>
  <div class="joinup"> 
  <a href="index.jsp?page=nezip/nezipInsert2.jsp">
  <input type=button value="다음" id="join" class="btn"></a>
-</div>
-
 </div>
 
   </div>
@@ -109,5 +107,4 @@
 </div>
 </div>
 </div>
-</body>
-</html>		
+	
