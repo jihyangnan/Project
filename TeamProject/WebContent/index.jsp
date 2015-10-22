@@ -32,10 +32,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.11.1.min.js"></script>\
+<script src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/nezip.css" rel='stylesheet' type='text/css' />
+<link href="css/login.css" rel='stylesheet' type='text/css' />
+<link href="css/idSearch.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
 <!-- Menu -->
@@ -122,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#">1:1문의</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/join.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
+					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/login.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
 							<li><a href="#">찜하기</a></li>
 							<li><a href="#">마이페이지</a></li>
