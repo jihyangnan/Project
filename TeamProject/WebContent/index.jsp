@@ -10,7 +10,6 @@
 	
 	if(strPage.startsWith("nezip")){
 		request.setAttribute("insertPage", strPage.substring(6));
-		System.out.println(strPage.substring(6));
 		strPage = "nezip/nezipinsertmenu.jsp";
 		pageNum = 1;
 	} else if(strPage.startsWith("reserve")){
