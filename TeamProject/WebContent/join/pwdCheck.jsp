@@ -9,24 +9,24 @@
 			</div>
 			<div class="about">
 				<br>
-				<h1 class="blog_head">비밀번호찾기</h1>
+				<h1 class="blog_head_login">비밀번호찾기</h1>
 
 				<div class="c_pwd_form">
-					<label style="padding: 15px 15px 0px 235px; font-size: 20px">비밀번호
+					<label style="margin: 3% 3% 1% 40%; font-size: 20px">비밀번호
 						찾기</label> <br> <label
-						style="padding: 0px 15px 15px 130px; font-size: 13px; color: #5D5D5D">
+						style="margin: 0 3% 3% 22%; font-size: 13px; color: #5D5D5D">
 						고객님의 정보와 일치하는 아이디와 비밀번호 일부 입니다. </label>
 
-					<div style="text-align: left; margin-left: 130px">
+					<div style="text-align: left; margin-left: 22%">
 						<ul>
-							<li><strong> <!-- <input type="radio" name="select" id="select0"/> -->
-									<label style="width: 100px">아이디</label> <label
-									style="width: 100px">hats01</label>
+							<li>
+									<label style="width: 22%">아이디</label> <label
+									style="width: 22%"><strong> hats01</strong></label>
 
-							</strong> <span>가입 : 2007.04.15</span></li>
-							<li><strong> <label style="width: 100px">비밀번호</label>
-									<label style="width: 100px">asd****</label>
-							</strong></li>
+							 <span>가입 : 2007.04.15</span></li>
+							<li> <label style="width: 22%">비밀번호</label>
+									<label style="width: 22%"><strong>asd****</strong></label>
+							</li>
 						</ul>
 					</div>
 					<br>
