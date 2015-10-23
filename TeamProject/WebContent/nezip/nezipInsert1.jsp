@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 
 <div class="about_top">
-    <div class="container">
+   <div class="container">
     	<div>
        	 <ul>
        	 <li class="siteline">
@@ -100,7 +100,8 @@
   
 </div>
 </div>
-    <div class="joinup"> 
+
+     <div class="joinup"> 
  <a href="index.jsp?page=nezip/nezipInsert2.jsp">
  <input type=button value="´ÙÀ½" id="join" class="btn"></a>
 </div>   
