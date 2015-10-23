@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+   <div>
+       <div>	 
 
-    <div>
        	 <h2 class="blog_head" align="left"><b>내집 등록 - 1단계</b></h2>
        	
        	 <div style="margin-left:40px;margin-top:15px;">
@@ -92,7 +93,8 @@
   
 </div>
 </div>
-    <div class="joinup"> 
+
+     <div class="joinup"> 
  <a href="index.jsp?page=nezip/nezipInsert2.jsp">
  <input type=button value="다음" id="join" class="btn"></a>
 </div>   
