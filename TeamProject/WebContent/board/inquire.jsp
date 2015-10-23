@@ -14,6 +14,13 @@
     <div class="container">
 
 			<div style="border-top: 1px solid #E2E2E2; border-bottom: 1px solid #E2E2E2;">
+				<div class="row text-right">
+					<ol class="breadcrumb" style="background-color: #fff">
+					  <li><a href="#">Home</a></li>
+					  <li><a href="#">고객의 소리</a></li>
+					  <li class="active">자유게시판</li>
+					</ol>
+				</div>
 				<div class="jumbotron" style="background-color: #fff">
 					<h3 class="m_3" style="margin-bottom: 50px;">1:1 문의하기</h3>
 					<form class="form-horizontal">
@@ -28,7 +35,7 @@
 					      <div class="col-sm-4">
 					      	<input type="text" class="form-control" id="inputPhone" placeholder="휴대전화">
 					      </div>
-					      <label for="inputEmail" class="control-label col-sm-2">이메일</label>
+					      <label for="inputEmail" class="control-label col-sm-2" style="text-align: center;">이메일</label>
 					      <div class="col-sm-4">
 					      	<input type="text" class="form-control" id="inputEmail" placeholder="이메일">
 					      </div>

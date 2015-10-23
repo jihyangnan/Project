@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<div class="about_top">
-	<div class="container">
+	<div>
+		
 		<div>
-       	 <ul>
-       	 <li class="siteline" >
-       	 <img src="images/homelink.png" style="vertical-align:top;"> 내집 등록</li>
-       	 </ul>
-       	 </div>
-		<div class="about">
 			<h2 class="blog_head" align="left">
 				<b>내집 등록 - 5단계</b>
 			</h2>
@@ -23,7 +17,7 @@
 			
 			<div class="service_grid"
 				style="border: 1px #CFC7D6; margin-top: 20px; border-radius: 10px; margin-bottom: initial;">
-				<div class="col-md-6 service_box" style="width:45%; margin-left:25px;">
+				<div class="col-md-6 service_box" style="width:63.9%; margin-left:25px;">
 
 					<p>
 						<label style="font-size: 23px; padding-top: 15px;">기본요금</label>
@@ -74,7 +68,7 @@
 				<div class="clearfix"></div>
 
 			</div>
-			<div class="col-md-6 service_box" style="width:45%; margin-left:40px;">
+			<div class="col-md-6 service_box" style="width:62.3%; margin-left:40px;">
 
 				<p style="">
 					<label style="font-size: 21px; padding-top: 15px;">장기 숙박 요금</label>
@@ -145,4 +139,3 @@
 	</div>
 
 
-</div>

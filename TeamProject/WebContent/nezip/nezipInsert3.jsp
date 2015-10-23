@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="about_top">
-    <div class="container">
-    	<div>
-       	 <ul>
-       	 <li class="siteline" >
-       	 <img src="images/homelink.png" style="vertical-align:top;"> 내집 등록</li>
-       	 </ul>
-       	 </div>
-       <div class="about">	 
+    <div >
+    	
+       <div>	 
        	 <h2 class="blog_head" align="left"><b>내집 등록 - 3단계</b></h2>
        	 <!-- 작업 시작  -->
 	 </div>
@@ -198,4 +192,3 @@
 			</a>
 		</div>
 	</div>
-</div>	
