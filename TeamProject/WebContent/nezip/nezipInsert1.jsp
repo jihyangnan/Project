@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 
-    <div class="container">
-    	<div>
-       	 <ul>
-       	 <li class="siteline">
-       	  <img src="images/homelink.png" style="vertical-align:top;"> 내집 등록</li>
-       	 </ul>
-       	 </div>
-       <div>	 
+    <div>
        	 <h2 class="blog_head" align="left"><b>내집 등록 - 1단계</b></h2>
        	
        	 <div style="margin-left:40px;margin-top:15px;">
