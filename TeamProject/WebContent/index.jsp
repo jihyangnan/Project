@@ -10,11 +10,13 @@
 	
 	if(strPage.startsWith("nezip")){
 		request.setAttribute("insertStep", strPage.substring("nezip/nezipinsert".length(), strPage.lastIndexOf(".jsp")));
-		request.setAttribute("insertPage", strPage.substring(6));
+		request.setAttribute("insertPage", strPage.substring("nezip/".length()));
 		strPage = "nezip/nezipinsertmenu.jsp";
 		pageNum = 1;
 	} else if(strPage.startsWith("reserve")){
 		pageNum = 2;
+	} else if(strPage.startsWith("town")){
+		pageNum = 3;
 	} else if(strPage.startsWith("board")){
 		pageNum = 4;
 	} else if(strPage.startsWith("join")){
