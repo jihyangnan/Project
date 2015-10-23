@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<div class="container">
-		<div>
+	<div>
+		<!-- <div>
 			<ul>
 				<li class="siteline"><img src="images/homelink.png"
 					style="vertical-align: top;"> 내집 등록</li>
 			</ul>
-		</div>
+		</div> -->
 		<div>
 			<h2 class="blog_head" align="left">
 				<b>내집 등록 - 6단계</b>
@@ -48,12 +48,14 @@
 							style="padding-top: 20px; width: 100%;">
 					</p>
 					<p>
-						<label style="padding-left: 10px;"> 시작날짜 </label> <label
-							style="padding-left: 120px;">종료날짜</label>
+						<label style="padding-left: 10px;"> 시작날짜 
+						<input type=date style="width: 100%;"> 
+						</label> 
+						<label
+							style="padding-left: 10px;">종료날짜
+						<input type=date style="width: 100%;">	
+						</label>
 					</p>
-					<input type=date style="width: 80%;"> 
-					<input type=date style="width: 80%;">
-
 					<P>
 						<label style="padding-top: 3%;"> 항상 예약 가능 </label>
 					</p>
@@ -70,12 +72,14 @@
 							style="padding-top: 20px; width: 100%;">
 					</p>
 					<p>
-						<label style="padding-left: 10px;"> 시작날짜 </label> <label
-							style="padding-left: 120px;">종료날짜</label>
+						<label style="padding-left: 10px;"> 시작날짜 
+						<input type=date style="width: 100%;"> 
+						</label> 
+						<label
+							style="padding-left: 10px;">종료날짜
+						<input type=date style="width: 100%;">	
+						</label>
 					</p>
-					<input type=date style="width: 80%;"> 
-					<input type=date style="width: 80%;">
-
 					<P>
 						<label style="padding-top: 3%;"> 예약 가능한 날짜를 표시하세요 </label>
 					</p>
@@ -92,12 +96,14 @@
 							style="padding-top: 20px; width: 100%;">
 					</p>
 					<p>
-						<label style="padding-left: 10px;"> 시작날짜 </label> <label
-							style="padding-left: 120px;">종료날짜</label>
+						<label style="padding-left: 10px;"> 시작날짜 
+						<input type=date style="width: 100%;"> 
+						</label> 
+						<label
+							style="padding-left: 10px;">종료날짜
+						<input type=date style="width: 100%;">	
+						</label>
 					</p>
-					<input type=date style="width: 80%;"> 
-					<input type=date style="width: 80%;">
-
 					<P>
 						<label style="padding-top: 3%;"> 특정 날짜에만 예약 가능 </label>
 					</p>
