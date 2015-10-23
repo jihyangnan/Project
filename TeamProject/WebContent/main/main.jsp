@@ -552,7 +552,7 @@
 								<div class="clearfix"> </div>
 					        </ul>
 		                 </li>
-					 	<div class="clearfix"> </div>
+					 	<li class="clearfix"> </li>
 					 </ul>
 			    </div>
 		</div>
@@ -655,30 +655,37 @@ function setWeather(location, woeid) {
     window.parent.postMessage("resize", "*");
   }
 </script>
-        	<div style="width:25%; padding-top:90px; padding-left: 95px;" class="col-md-2" >
-        		<ul><li><b>사이트맵</b></li></ul>
-        		<ul class="list_2" style="font-size:13px;">
-                        <li style="color:#f94b4b;"><b>니집 등록</b> </li>
-                        <li style="color:#f94b4b;"><b>내집 예약</b> </li>
-                        <li style="color:#f94b4b;"><b>우리 동네 소개 [지역별]</b></li>
-						<li style="color:#f94b4b;"><b>회사 소개</b>
+        	
+        	
+        	<div class="col-md-3" >
+				<h3 style="margin-bottom: 10px;">사이트맵</h3>
+				<ul class="list_2" style="font-size: 13px;">
+					<li style="color: #f94b4b; padding-bottom: 5px;"><b>니집 등록</b></li>
+					<li style="color: #f94b4b; padding-bottom: 5px;"><b>내집 예약</b></li>
+					<li style="color: #f94b4b; padding-bottom: 5px;"><b>우리 동네 소개 [지역별]</b></li>
+					<li style="color: #f94b4b; padding-bottom: 5px;">
+						<b>회사 소개</b>
 						<p>▶ 연혁 및 회사소개, 찾아오는 길</p>
-						</li>   
-                           
-                </ul>
-        	</div>
-        	<div style="width:25%; padding-top:90px; padding-left: 55px;" class="col-md-2">
-        		<ul><li><b>&nbsp;</b></li></ul>
-        		<ul class="list_2" style="font-size:13px;">
-						<li style="color:#f94b4b;"><b>고객의 소리</b>
-                        <p>▶ 자유게시판, 1:1문의하기</p> </li>   
-                        <li style="color:#f94b4b;"><b>로그인</b> 
-                        <p>▶ 회원가입, 로그아웃, ID/PW 찾기</p></li>
-                        <li style="color:#f94b4b;"><b>마이페이지</b> 
-                        <p>▶ 회원 수정/탈퇴 하기, 찜내역, 게시판내역</p></li> 
-                </ul>
-        	</div>
-        	<div class="clearfix"> </div>
+
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<ul style="margin-bottom: 10px;">
+					<li><b>&nbsp;</b></li>
+				</ul>
+				<ul class="list_2" style="font-size: 13px;">
+					<li style="color: #f94b4b; padding-bottom: 5px;"><b>고객의 소리</b>
+						<p>▶ 자유게시판, 1:1문의하기</p></li>
+					<li style="color: #f94b4b; padding-bottom: 5px;"><b>로그인</b>
+						<p>▶ 회원가입, 로그아웃, ID/PW 찾기</p></li>
+					<li style="color: #f94b4b; padding-bottom: 5px;"><b>마이페이지</b>
+						<p>▶ 회원 수정/탈퇴 하기, 찜내역, 게시판내역</p></li>
+				</ul>
+			</div>
+
+
+			<div class="clearfix"> </div>
         </div>
 	</div>
 </div>

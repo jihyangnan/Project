@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+@media ( min-width : 1025px) {
+	.siteline {
+		list-style: none;
+		float: right;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-size: 10pt;
+	}
+	.c_pwd_form {
+		background-color: #EAEAEA;
+		width: 51%;
+		height: 230px;
+		border-radius: 20px;
+		margin: 0 auto;
+		margin-bottom: 100px;
+	}
+	.id_c_submit input[type="submit"] {
+		background-color: #87d54d;
+		border: 2px solid #f94b4b;
+		padding: 5px 25px;
+		border-radius: 10px;
+		
+		color: #f94b4b;
+		font-weight: 700;
+	}
+}

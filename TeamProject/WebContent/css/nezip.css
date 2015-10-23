@@ -1,0 +1,102 @@
+@CHARSET "utf-8";
+
+@media screen and (min-width: 1025px) {
+	.h_regi {
+		float: left;
+		
+		/* background-color: #EAEAEA; */
+		width: 800px;
+		/* height: 700px; */
+		/* border-radius: 20px;
+		border: 1px solid #555; */
+	}
+	.head_h3 {
+		width: 140px;
+		height: 35px;
+		background-color: #87d54d;
+		padding-top: 5px;
+		padding-left: 5px;
+		margin-left: 10px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		border-radius: 10px;
+	}
+	.regi_form {
+		margin: 0px;
+		margin-left:40px;
+		width: 100%;
+		/* height: 600px; */
+		/* border: 1px solid #555;
+		border-radius: 10px;  */
+	}
+	.regi_level {
+		float: right;
+		font-size: 20px;
+		background-color: #87d54d;
+		width: 61px;
+		padding-left: 5px;
+		margin: 8px 8px 8px 8px;
+		border-radius: 10px;
+	}
+	.regi_form input[type="button"] {
+		padding-top: 2px;
+		margin-top: 10px;
+		margin-left: 80px;
+		margin-bottom: 0px;
+		width: 160px;
+		height: 35px;
+		font-size: 20px;
+		/* font-color:#FF0000; */
+		/*  font-family:나눔고딕,휴먼매직체;  */
+		/* border: none; */
+		/* border-radius: 10px; */
+		background-color: #89FF82;
+	}
+	.image_box{
+	
+	margin-left:75px;
+	margin-top:5px;
+		width:423px;
+		height:135px;
+		border: 1px solid #87d54d;
+	}
+	.regi_image {
+		margin: 5px 5px 5px 5px;
+		float: left;
+		height: 120px;
+		width: 130px;
+		border: 1px solid #555;
+	}
+	
+	.regi_form input[type="submit"] {
+		/*  font-size:20px; 
+		margin-top: 20px;
+		margin-left: 2px;
+		background-color: #89FF82;
+		 font-family:나눔고딕,휴먼매직체; 
+		 border: 1px solid #555; 
+		/* border-radius: 3px; */ 
+		width: 60px;
+		height:30px;
+		background-color: #87d54d;
+		border: 2px solid #f94b4b;
+		padding: 5px auto;
+		border-radius: 10px;
+		color: #f94b4b;
+		font-weight: 700;
+	}
+	
+	#check_box{
+		width:500px;
+		height:95px;
+		margin-left:40px;
+		margin-top:10px;
+		padding-left:10px;
+		padding-top:5px;
+		background-color: #D5D5D5;
+		border-radius: 10px; 
+	}
+	#check_box input[type=checkbox]{
+		margin-left:20px;
+	}
+}

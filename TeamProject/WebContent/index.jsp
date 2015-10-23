@@ -9,7 +9,14 @@
 	int pageNum = 0;
 	
 	if(strPage.startsWith("nezip")){
+		request.setAttribute("insertStep", strPage.substring("nezip/nezipinsert".length(), strPage.lastIndexOf(".jsp")));
+		request.setAttribute("insertPage", strPage.substring(6));
+		strPage = "nezip/nezipinsertmenu.jsp";
 		pageNum = 1;
+	} else if(strPage.startsWith("reserve")){
+		pageNum = 2;
+	} else if(strPage.startsWith("board")){
+		pageNum = 4;
 	} else if(strPage.startsWith("join")){
 		pageNum = 5;
 	}
@@ -30,16 +37,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Realist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- link href="css/bootstrap.css" rel='stylesheet' type='text/css' /-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="css/weather.css">
+<link href="css/board.css" rel='stylesheet' type='text/css' />
+<link href="css/reserve.css" rel='stylesheet' type='text/css' />
+<link href="css/nezip.css" rel='stylesheet' type='text/css' />
+<link href="css/login.css" rel='stylesheet' type='text/css' />
+<link href="css/idSearch.css" rel='stylesheet' type='text/css' />
+<link href="css/idCheck.css" rel='stylesheet' type='text/css' />
+<link href="css/pwdCheck.css" rel='stylesheet' type='text/css' />
+<link href="css/jimList.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
 <!-- Menu -->
 <script src="js/responsiveslides.min.js"></script>
+<script src="dist/summernote.min.js"></script>
+<link href="dist/summernote.css" rel="stylesheet">
+<script src="dist/summernote-ko-KR.js"></script>
 <script>
     $(function () {
       $("#slider").responsiveSlides({
@@ -102,9 +121,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a href="index.jsp?page=nezip/nezipInsert2.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
-					<li><a href="about.html"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
-					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="services.html"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
+					<li><a href="index.jsp?page=nezip/nezipInsert1.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a href="index.jsp?page=reserve/list.jsp"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
+					<li class="dropdown"><a data-target="index.jsp?page=town/town.jsp" data-toggle="dropdown" href="index.jsp?page=town/town.jsp"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
 						<ul class="dropdown-menu" style="min-width: 130px;">
 							<li><a href="#">서울</a></li>
 							<li><a href="#">경기</a></li>
@@ -116,16 +135,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#">제주</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="gallery.html"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
+					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="#"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
 						<ul class="dropdown-menu" style="min-width: 110px;">
-							<li><a href="#">자유게시판</a></li>
-							<li><a href="#">1:1문의</a></li>
+							<li><a href="index.jsp?page=board/list.jsp">자유게시판</a></li>
+							<li><a href="index.jsp?page=board/inquire.jsp">1:1문의</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/join.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
+					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/login.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
-							<li><a href="#">찜하기</a></li>
-							<li><a href="#">마이페이지</a></li>
+							<li><a href="index.jsp?page=mypage/jimList.jsp">찜하기</a></li>
+							<li><a href="index.jsp?page=mypage/profile.jsp">마이페이지</a></li>
 							<li><a href="#">로그아웃</a></li>
 						</ul>
 					</li>
