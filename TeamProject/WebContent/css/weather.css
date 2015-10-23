@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+#container2 {
+  height: 320px;
+  width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid white;
+}
+
+/*Contains the icons.*/
+#weather-icon-holder {
+  height: 280px;
+  width: 230px;
+  background-color: #588c73;
+  float:left;
+  border-right:1px solid white;
+  padding-top: 40px;
+  padding-left: 50px;
+}
+
+/*Contains the city name, description of weather, click me for location permission.*/
+#city {
+  height:175px;
+  width: 190px;
+  background-color:	#f2ae72;
+  float: left;
+}
+
+#city-name {
+  color: white;
+  text-align: center;
+  font-size: 37px;
+  font-family: "Roboto";
+  font-weight: 700;
+  padding-top: 30px;
+}
+
+#weather-info {
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  font-family: "Roboto";
+  font-weight: 500;
+  margin-top:-40px;
+}
+
+#click-me {
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+}
+/*End of city divs.*/
+
+/*Temperature div and text.*/
+#tempurature {
+  height: 105px;
+  width: 115px;
+  background-color: #8c4646;
+  float:left;
+  border-top:1px solid white;
+}
+
+#temp-text {
+  color: white;
+  font-family: Roboto;
+  font-size: 37px;
+  font-weight: 700;
+  text-align: center;
+}
+/*End of temp div and text.*/
+
+/*Wind speed and humidity percent.*/
+#wind {
+  height: 105px;
+  width: 75px;
+  background-color: #d96459;
+  float:left;
+  border-right:1px solid white;
+  border-top:1px solid white;
+}
+
+#wind-speed {
+  color:white;
+  text-align:center;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+#wind-icon {
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+#humid-icon {
+  margin-left: 30px;
+  margin-bottom: -15px;
+}
+
+#humid-percent {
+  color:white;
+  text-align:center;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+}
+/*End of the wind sped and humidty percent.*/

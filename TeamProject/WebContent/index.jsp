@@ -43,6 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="css/weather.css">
 <link href="css/board.css" rel='stylesheet' type='text/css' />
 <link href="css/reserve.css" rel='stylesheet' type='text/css' />
 <link href="css/nezip.css" rel='stylesheet' type='text/css' />
