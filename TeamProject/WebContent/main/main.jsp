@@ -552,7 +552,7 @@
 								<div class="clearfix"> </div>
 					        </ul>
 		                 </li>
-					 	<div class="clearfix"> </div>
+					 	<li class="clearfix"> </li>
 					 </ul>
 			    </div>
 		</div>
@@ -574,18 +574,90 @@
                 </div>
                 <div class="clearfix"> </div>
         </div>
-        <div class="grid_7">
-        	<div class="col-md-4 box_4">
-        		<h4>니집내집</h4>
-        		<p>니집내집에서 새로운 친구들 만들어 보아요!</p>
-        		<p>국내, 국외 친구들을 모두 우리 집으로 초대!!</p><br>
-        		<p><font style="color:#f94b4b; font-size:45px; font-weight:700;">
-        		GO_GO!</font></p>
-        	   
-        	</div>
+       <div class="grid_7">
+        	<div class="col-md-4" id="container2">
+    
+    <div id="weather-icon-holder">
+      <img id="weather-icon" src="http://i.imgur.com/yv9XBD0.png" width="150px;"height="200px;">
+    </div>
+    
+    <div id="city">
+      <p id="city-name"></p><br><br>
+      <p id="weather-info"></p><br>
+      <p id="click-me">Click me!</p><br>
+    </div>
+    
+    <div id="wind">
+      <img id="wind-icon" src="http://i.imgur.com/UwezSz9.png"width="25px;"height="25px;"><br><br>
+      <p id="wind-speed"></p>
+      <img id="humid-icon" src="http://i.imgur.com/ztLdI0I.png"width="20px;"height="20px;" style="margin-top: -15px;">
+      <p id="humid-percent">&nbsp;</p>
+    </div>
+    
+    <div id="tempurature"><br>
+      <p id="temp-text"></p>
+    </div>
+    
+  </div><!--End of container div.-->
+ 
+
+      <script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-f961f59a28ef4fd551736b43f94620b5.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+
+        <script>
+      $(document).ready(function () {
+    setWeather('Seoul', '');
+});
+$('#city').on('click', function () {
+    $('#click-me').hide();
+    navigator.geolocation.getCurrentPosition(function (pos) {
+        setWeather(pos.coords.latitude + ',' + pos.coords.longitude);
+    });
+});
+function getCodeIcon(num) {
+    if (num === 5 || num === 6 || num === 7 || num === 8 || num === 13 || num === 14 || num === 16 || num === 15 || num === 17 || num === 18 || num === 41 || num === 42 || num === 43 || num === 46) {
+        return 'http://i.imgur.com/niVCkmi.png';
+    } else if (num === 24 || num === 25 || num === 32 || num === 34 || num === 36) {
+        return 'http://i.imgur.com/VyKV8LL.png';
+    } else if (num === 26 || num === 27 || num === 29) {
+        return 'http://i.imgur.com/DCziFYV.png';
+    } else if (num === 28 || num === 30 || num === 44) {
+        return 'http://i.imgur.com/yv9XBD0.png';
+    } else if (num === 31 || num === 33) {
+        return 'http://i.imgur.com/yOVHFNf.png';
+    } else {
+        return 'http://i.imgur.com/HRV3uly.png';
+    }
+}
+function setWeather(location, woeid) {
+    $.simpleWeather({
+        location: location,
+        woeid: woeid,
+        unit: 'c',
+        success: function (weather) {
+            $('#temp-text').text(weather.temp + weather.units.temp);
+            $('#weather-info').text(weather.currently);
+            $('#city-name').text(weather.city);
+            $('#wind-speed').text(weather.wind.speed + 'MPH');
+            $('#humid-percent').text(weather.humidity + '%');
+            $('#weather-icon').attr('src', getCodeIcon(parseInt(weather.code)));
+        }
+    });
+}
+      //@ sourceURL=pen.js
+    </script>
+
+    
+    <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
         	
         	
-        	<div class="col-md-4" >
+        	<div class="col-md-3" >
 				<h3 style="margin-bottom: 10px;">사이트맵</h3>
 				<ul class="list_2" style="font-size: 13px;">
 					<li style="color: #f94b4b; padding-bottom: 5px;"><b>니집 등록</b></li>
@@ -594,6 +666,7 @@
 					<li style="color: #f94b4b; padding-bottom: 5px;">
 						<b>회사 소개</b>
 						<p>▶ 연혁 및 회사소개, 찾아오는 길</p>
+
 					</li>
 				</ul>
 			</div>

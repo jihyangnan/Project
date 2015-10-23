@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
-
-@media ( min-width : 1025px) {
+@media ( min-width : 300px) {
 	.siteline {
 		list-style: none;
 		float: right;
@@ -8,25 +7,27 @@
 		margin-bottom: 20px;
 		font-size: 10pt;
 	}
-	.form {
-	background-image:url('images/login.png');
-	
-	background-repeat: no-repeat;
-		/* background-color: #EAEAEA; */
-		width: 700px;
-		height: 250px;
-		border-radius: 20px;
-		margin-left: 230px;
-		margin-bottom: 100px;
+	.blog_head_login {
+		color: #87d54d;
+	font: 300 50px/30px 'Roboto', sans-serif;
+	text-align: center;
+	margin-bottom: 1.5em;
 	}
-	.form2 {
-		width: 700px;
+	.form_l{
+	
+	border: 2px solid #F6F6F6;
+	background-repeat: no-repeat;
+	width: 40%;
+	margin: 0 auto;
+	margin-bottom: 100px;
+	}
+	.form2_l {
+		width: 86%;
 		min-width: 320px;
-		height: 100px;
-		margin-left: 55px;
+		margin-left: 8%;
 		padding-top:35px;
 	}
-	.form2 input[type=button] {
+	.form2_l input[type=button] {
 		background-color: #87d54d;
 		border: 2px solid #F6F6F6;
 		border-radius: 10px;
@@ -34,36 +35,31 @@
 		font-weight: 700;
 		
 		height: 60px;
-		width: 80px;
-		margin-left: 10px;
+		width: 120%;
+		
 		
 	}
-	.form3 {
+	.form3_l {
 		float: left;
-		margin-left:200px;
-	}
-	.form3 label {
-		width: 80px;
-		height: 20px;
+		width:77%;
+			}
+	.form3_l label {
+		width: 30%;
 		float: left;
 	}
-	.form6 {
-		padding: 0px 0px 0px 0px;
+	.form6_l {
+		margin-left:5%;
+		margin-top:20px;
+		
 	}
-	.form6 input[type="submit"] {
+	.form6_l input[type="submit"] {
 		background-color: #87d54d;
 		border: 2px solid #F6F6F6;
 		padding: 5px 25px;
 		border-radius: 10px;
 		color: #4C4C4C;
 		font-weight: 700;
+		margin:0 auto;
 		
 	}
-	/* background-color: #87d54d;
-   border: 2px solid #f94b4b;
-   padding: 5px 25px;
-   border-radius:10px;
-   font-size: 14x;
-   color: #f94b4b;
-   font-weight:700  */
 }
