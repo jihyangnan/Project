@@ -86,10 +86,10 @@
 					  <div class="form-group">
 					    <label class="col-sm-2 control-label" style="text-align: left">날짜</label>
 					    <div class="col-sm-3">
-					      <input type="text" class="form-control" placeholder="체크인">
+					      <input type="text" class="form-control datepicker" placeholder="체크인">
 					    </div>
 					    <div class="col-sm-3">
-					      <input type="text" class="form-control" placeholder="체크아웃">
+					      <input type="text" class="form-control datepicker" placeholder="체크아웃">
 					    </div>
 					    <div class="col-sm-4">
 					      <select class="form-control">

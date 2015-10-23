@@ -11,8 +11,6 @@
         <br><br><br><br>
         <h1 class="blog_head" style="margin-left:500px">로그인</h1>
         <br><br>
-       		
-		    
 		    <div class="form">
 		    	
 				<!-- <label style="padding: 15px 15px 8px 190px; font-size: 20px">로그인</label> -->
