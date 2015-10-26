@@ -31,12 +31,12 @@
 						<div class="clear"></div>
 						<label> 
 							<a href="index.jsp?page=join/idCheck.jsp">
-						 	<input type="button" value="확인">
+						 	<input type="button" value="확인" id="join">
 							</a>
 						</label>
 						<div class="s_form6">
 							<label> 
-							<a href="index.jsp?page=join/login.jsp"> <input type="submit"value="로그인"></a>
+							<a href="index.jsp?page=join/login.jsp"> <input type="submit"value="로그인" id="join"></a>
 							</label>
 						</div>
 					</div>
@@ -73,13 +73,13 @@
 
 
 						<label> <a href="index.jsp?page=join/pwdCheck.jsp"> 
-						<input type="button"style="margin-top:10px"value="확인">
+						<input type="button"style="margin-top:10px"value="확인" id="join">
 						</a>
 						</label>
 						<div class="s_form6">
 							<label> 
 								<a href="index.jsp?page=join/login.jsp"> 
-								<input type="submit"style="margin-top:10px" value="로그인">
+								<input type="submit"style="margin-top:10px" value="로그인" id="join">
 								</a>
 							</label>
 						</div>

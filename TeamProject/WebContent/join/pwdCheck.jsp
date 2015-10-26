@@ -10,9 +10,9 @@
 		</div>
 			<div class="about">
 				<br>
-				<h1 class="blog_head_login">비밀번호찾기</h1>
+				<h1 class="blog_head_login" >비밀번호찾기</h1>
 
-				<div class="c_pwd_form">
+				<div class="c_pwd_form" style="margin-top:40px;">
 					<label style="margin: 3% 3% 1% 40%; font-size: 20px">비밀번호
 						찾기</label> <br> <label
 						style="margin: 0 3% 3% 22%; font-size: 13px; color: #5D5D5D">
@@ -33,11 +33,11 @@
 					<br>
 					<div class="id_c_submit">
 						<label> <a href="index.jsp?page=join/login.jsp"> <input type="submit"
-								style="margin-left: 170px" value="로그인">
+								style="margin-left: 170px" value="로그인" id="join">
 						</a>
 
 						</label> <label> <a href="index.jsp?page=join/idSearch.jsp"> <input
-								type="submit" style="margin-left: 10px" value="아이디 찾기"></a>
+								type="submit" style="margin-left: 10px" value="아이디 찾기" id="join"></a>
 						</label>
 					</div>
 				</div>

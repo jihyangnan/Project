@@ -9,13 +9,13 @@
 	}
 	.blog_head_login {
 		color: #87d54d;
-	font: 300 50px/30px 'Roboto', sans-serif;
+	font: 300 50px/30px '나눔고딕', sans-serif;
 	text-align: center;
-	margin-bottom: 1.5em;
+	margin-bottom: 0.5em;
 	}
 	.form_l{
 	
-	border: 2px solid #F6F6F6;
+	border: 2px solid #d2d2d2;
 	background-repeat: no-repeat;
 	width: 40%;
 	margin: 0 auto;
@@ -26,10 +26,11 @@
 		min-width: 320px;
 		margin-left: 8%;
 		padding-top:35px;
+		padding-bottom:35px;
 	}
 	.form2_l input[type=button] {
 		background-color: #87d54d;
-		border: 2px solid #F6F6F6;
+		border: 2px solid #d2d2d2;
 		border-radius: 10px;
 		color: #4C4C4C;
 		font-weight: 700;
@@ -54,7 +55,7 @@
 	}
 	.form6_l input[type="submit"] {
 		background-color: #87d54d;
-		border: 2px solid #F6F6F6;
+		border: 2px solid #d2d2d2;
 		padding: 5px 25px;
 		border-radius: 10px;
 		color: #4C4C4C;
