@@ -3,10 +3,11 @@
 <div class="about_top">
     <div class="container">
     	<div>
-         	<ul>
-         		<li class="siteline">로그인 </li>
-         	</ul>
-    	</div>
+			<ul>
+				<li class="siteline"><img src="images/homelink.png"
+					style="vertical-align: top;"> 로그인</li>
+			</ul>
+		</div>
         <div class="about">
         <br><br><br><br>
         <h1 class="blog_head_login">로그인</h1>

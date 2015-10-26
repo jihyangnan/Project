@@ -61,10 +61,15 @@
 <div class="about_top">
     <div class="container" style="border-top: 1px solid #E2E2E2; ">
 		
+		<div>
+			<ul>
+				<li class="siteline"><img src="images/homelink.png"
+					style="vertical-align: top;"> 니집 예약</li>
+			</ul>
+		</div>
+
 			<div class="row text-right">
 				<ol class="breadcrumb" style="background-color: #fff">
-				  <li><a href="#">Home</a></li>
-				  <li class="active">니집예약</li>
 				</ol>
 			</div>
 		

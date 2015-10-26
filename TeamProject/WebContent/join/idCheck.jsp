@@ -2,11 +2,12 @@
 	pageEncoding="EUC-KR"%>
 <div class="about_top">
     <div class="container">
-    <div>
-         <ul>
-         	<li class="siteline">로그인 -> 아이디/비밀번호 찾기 -> 아이디 찾기</li>
-         </ul>
-    </div>
+   		<div>
+			<ul>
+				<li class="siteline"><img src="images/homelink.png"
+					style="vertical-align: top;"> 로그인 / 아이디&비밀번호 찾기 / 아이디 찾기</li>
+			</ul>
+		</div>
        <div class="about">
        <br>
        	 	<h1 class="blog_head_login">아이디찾기</h1>

@@ -7,7 +7,7 @@
        	 <ul>
        	 <li class="siteline">
        	<img src="images/homelink.png" style="vertical-align:top;"> 
-       	 로그인 -> 회원가입</li>
+       	 로그인 / 회원가입</li>
        	 </ul>
        	 </div>
        <div class="about">	 
