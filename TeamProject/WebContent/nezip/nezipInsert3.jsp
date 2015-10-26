@@ -9,7 +9,7 @@
 	 </div>
 	 <div style="padding-left:40px;">
        	 <ul >
-       	 <li style="float:left; padding:20px 20px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
+       	 <li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
        		기본 편의 시설
        		<div style="font-size: 13px; padding-top:10px;">
        		<ul>
@@ -61,7 +61,7 @@
        		</ul>
        		</div>
        	 </li>
-       	 <li style="float:left; padding:20px 20px 20px 80px; font-size:18px; font-weight:600; color:#565a5c;">
+       	 <li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
        		추가적인 편의 시설
        		<div style="font-size: 13px; padding-top:10px;">
        		<ul>
@@ -133,7 +133,7 @@
        		</ul>
        		</div>
        	 </li>
-       	 <li style="float:left; padding:20px 20px 20px 80px; font-size:18px; font-weight:600; color:#565a5c;">
+       	 <li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
        		특별 시설
        		<div>
        		<ul>

@@ -9,7 +9,7 @@
 					style="vertical-align: top;"> 내집 등록</li>
 			</ul>
 		</div>
-		<div class="about row">
+		<div class="about">
 		
 			<div class="col-sm-2 aside" style="background: #E2DBDB; padding-left: 0; padding-right: 0">
 				<p style="padding: 15px">

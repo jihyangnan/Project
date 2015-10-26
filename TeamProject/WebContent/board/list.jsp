@@ -51,7 +51,9 @@ function resizeBoard(){
 				  <li class="active">자유게시판</li>
 				</ol>
 			</div>
+			<div align=center>
 			<img class="img-responsive" src="images/freeboard.jpg">
+			</div>
 			<!--h3 class="m_3" style="margin-top: 50px; margin-bottom:50px; text-align: center; font-weight: bold;">자유 게시판</h3-->
 			<div class="list-group panel panel-default" style="border: 0">	
 				<div class="row mhide panel-heading">
