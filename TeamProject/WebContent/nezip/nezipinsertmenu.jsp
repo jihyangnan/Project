@@ -13,7 +13,7 @@
 		
 			<div class="col-sm-2 aside" style="background: #E2DBDB; padding-left: 0; padding-right: 0">
 				<p style="padding: 15px">
-					기본설정<i class="fa fa-check" style="float: right"></i>
+					기본설정
 				</p>
 				<p style="padding: 15px">
 					주소등록
@@ -41,6 +41,8 @@
 				if(matchMedia('screen and (min-width: 768px)').matches){
 					$('div.aside').css('height', $('div.article').css('height'));
 				}
+				
+				$('div.aside p:nth-child(' + "${requestScope.insertStep}" + ')').append('<i class="fa fa-check" style="float: right"></i>');
 			</script>
 			<div class="clearfix"></div>
 		</div>

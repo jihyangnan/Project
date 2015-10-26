@@ -9,11 +9,14 @@
 	int pageNum = 0;
 	
 	if(strPage.startsWith("nezip")){
-		request.setAttribute("insertPage", strPage.substring(6));
+		request.setAttribute("insertStep", strPage.substring("nezip/nezipinsert".length(), strPage.lastIndexOf(".jsp")));
+		request.setAttribute("insertPage", strPage.substring("nezip/".length()));
 		strPage = "nezip/nezipinsertmenu.jsp";
 		pageNum = 1;
 	} else if(strPage.startsWith("reserve")){
 		pageNum = 2;
+	} else if(strPage.startsWith("town")){
+		pageNum = 3;
 	} else if(strPage.startsWith("board")){
 		pageNum = 4;
 	} else if(strPage.startsWith("join")){
@@ -42,11 +45,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="css/weather.css">
 <link href="css/board.css" rel='stylesheet' type='text/css' />
 <link href="css/reserve.css" rel='stylesheet' type='text/css' />
 <link href="css/nezip.css" rel='stylesheet' type='text/css' />
 <link href="css/login.css" rel='stylesheet' type='text/css' />
 <link href="css/idSearch.css" rel='stylesheet' type='text/css' />
+<link href="css/idCheck.css" rel='stylesheet' type='text/css' />
+<link href="css/pwdCheck.css" rel='stylesheet' type='text/css' />
 <link href="css/jimList.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>

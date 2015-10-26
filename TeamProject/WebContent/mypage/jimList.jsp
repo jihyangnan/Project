@@ -9,11 +9,13 @@
     	</div>
         <div class="about">       		
 		    <div id="select_house_form">
-		    	<h3>내가 저장한 찜 목록</h3>
+		    	<h3 class="row mhide panel-heading" style="border-bottom:1px;">내가 저장한 찜 목록</h3>
+		    	
 		    	<ul>
 					<li style="font-size:15px; margin-left:20px;">
 						<strong>☞ <span style="color:#87d54d;">하태성</span>님이 찜!하신  목록입니다.</strong>
 					</li>
+					<br>
 				</ul>
 				<h3 style="margin-bottom:20px;width:60px;">목록</h3>
 				<div id="aaa" style="border-top: 1px solid #E2E2E2; border-bottom: 1px solid #E2E2E2;">
@@ -51,7 +53,7 @@
 					
 				</div>
 				<div class="row list-group-item">
-					<span class="col-sm-1 mhide "style="width:40px;margin-top:25px;">2</span>
+					<span class="col-sm-1 mhide "style="width:40px;margin-top:25px;">3</span>
 					<span class="col-sm-6 col-xs-12"style="width: 370px; padding-left: 15px;">
 						<img src="images/s12.jpg"style="float:left;width:90px;height:80px;height:80px;margin-right:17px;">
 						<div style="margin-top:15px;">
@@ -70,7 +72,7 @@
 					
 				</div>
 				<div class="row list-group-item">
-					<span class="col-sm-1 mhide "style="width:40px;margin-top:25px;">1</span>
+					<span class="col-sm-1 mhide "style="width:40px;margin-top:25px;">3</span>
 					<span class="col-sm-6 col-xs-12"style="width: 370px; padding-left: 15px;">
 						<img src="images/s12.jpg"style="float:left;width:90px;height:80px;height:80px;margin-right:17px;">
 						<div style="margin-top:15px;">
@@ -119,3 +121,4 @@
 		    </div>
 		</div>
      </div>
+      
