@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nizipnezip.dao.town-mapper">
+	<select id="townListByCategory" resultType="Town" parameterType="java.util.Map">
+		SELECT tw_No, tw_Name, tw_Date, tw_Hit, tw_Addr, tw_Cont, (SELECT twp_file
+                                                           		   FROM town_photo
+                                                           		   WHERE twp_twNo = tw_No AND rownum = 1) photolist
+		FROM town
+		WHERE rownum lte #{start} AND rownum gte #{end}
+	</select>
+	<select id="townDetail" resultType="Town" parameterType="int">
+		SELECT tw_No, tw_Name, tw_Date, tw_Hit, tw_Addr, tw_Cont, (SELECT LISTAGG(twp_file, ',') WITHIN GROUP (ORDER BY twp_No) "photolist"
+                                                           		   FROM town_photo
+                                                           		   WHERE twp_twNo = tw_No
+                                                           		   GROUP BY twp_twNo)
+		FROM town
+		WHERE tw_No = #{no}
+	</select>
+</mapper>
