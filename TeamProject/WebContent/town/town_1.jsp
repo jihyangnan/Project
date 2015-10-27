@@ -20,7 +20,8 @@
 
 							<li style="padding-bottom: 1%; padding-top: 1%; ">
 							       <i class="fa fa-check">
-									조회수 30 </i> 작성일 2015-10-12</li>
+									<strong style="font-size: 18px;font-family: 나눔고딕;">조회수 30</strong> </i>
+									<strong style="font-size: 18px;font-family: 나눔고딕;"> 작성일 2015-10-12</strong></li>
 							<li style="padding-bottom: 1%; padding-top: 1%;"><i class="fa fa-map-marker">경상북도
 									경주시 진현동 위치,</i></li>
 							<li style="padding-bottom: 1%; padding-top: 1%;">
@@ -92,8 +93,8 @@
 								for="button-4" class="sp-arrow sp-a4"></label> <label
 								for="button-5" class="sp-arrow sp-a5"></label>
 
-							<div class="sp-content">
-								<div class="sp-parallax-bg"></div>
+							<div class="sp-content" style="border-radius: 20px;">
+								<div class="sp-parallax-bg"  style=" background-color: rgb(169, 220, 131);"></div>
 								<ul class="sp-slider clearfix">
 									<li style="padding-left: 10px; padding-right: 10px;">
 									<img src="images/bool.jpg" alt="image02"
