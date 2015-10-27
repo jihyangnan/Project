@@ -2,7 +2,7 @@ package com.nizipnezip.town.dao;
 
 import java.util.Date;
 
-public class TownDTO {
+public class TownDTO2 {
 
 	private int tw_No;
 	private String tw_Name;
