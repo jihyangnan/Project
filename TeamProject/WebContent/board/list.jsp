@@ -59,8 +59,9 @@ function resizeBoard(){
 			<!--h3 class="m_3" style="margin-top: 50px; margin-bottom:50px; text-align: center; font-weight: bold;">자유 게시판</h3-->
 			<div class="list-group panel panel-default" style="border: 0">	
 				<div class="row mhide panel-heading">
+					<div class="col-sm-1">말머리</div>
 					<div class="col-sm-1">번호</div>
-					<div class="col-sm-6">제목</div>
+					<div class="col-sm-5">제목</div>
 					<div class="col-sm-2">작성자</div>
 					<div class="col-sm-2">작성일</div>
 					<div class="col-sm-1">조회</div>
@@ -68,122 +69,16 @@ function resizeBoard(){
 				
 				<div class="row list-group-item">
 					<span class="col-sm-1 mhide"><img src="images/ico-list-notice.gif"></span>
-					<span class="col-sm-6 col-xs-12">
+					<span class="col-sm-1">1</span>
+					<span class="col-sm-5 col-xs-10">
 					  <i></i>
 					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
 					  <sup><img src="images/neo_new.gif"></sup>
-					  <span class="content col-xs-12"></span>
 					</span>
 					<span class="col-sm-2 mhide writer">홍길동</span>
 					<span class="col-sm-2 mhide date">2015-09-22</span>
 					<span class="col-sm-1 mhide hit">3</span>
 				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide"><img src="images/ico-list-notice.gif"></span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>	
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-					  <sup><img src="images/neo_new.gif"></sup>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">가나다</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">10</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">8</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-					  <sup><img src="images/neo_new.gif"></sup>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">7</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jspl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">6</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">5</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					  <span style="color: #ff4e00; font-weight: bold; font-size: .8em">[5]</span>
-					  </a>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">4</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					  <span style="color: #ff4e00; font-weight: bold; font-size: .8em">[8]</span>
-					  </a>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">3</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">2</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
-				</div>
-				<div class="row list-group-item">
-					<span class="col-sm-1 mhide">1</span>
-					<span class="col-sm-6 col-xs-12">
-					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-					  <span class="content col-xs-12"></span>
-					</span>
-					<span class="col-sm-2 mhide writer">홍두깨</span>
-					<span class="col-sm-2 mhide date">2015-09-10</span>
-					<span class="col-sm-1 mhide hit">1</span>
-				</div>
-				
 			</div>		
 			
 			<div class="row text-right">
@@ -192,7 +87,7 @@ function resizeBoard(){
 			
 			
 			<div id="writeModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
-			    <div class="modal-dialog modal-lg">
+			    <div class="modal-dialog modal-lg" style="margin:120px auto;">
 			      <div class="modal-content">
 			        <div class="modal-header">
 			          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
