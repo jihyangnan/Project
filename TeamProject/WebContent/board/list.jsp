@@ -32,6 +32,10 @@ function resizeBoard(){
 		
 		$('#writeModal').on('shown.bs.modal', function (e) {
 			$('#summernote').summernote({
+				onBlur : function(e) {
+					alert('ddd');
+		            $('#summercontent').html($('#summernote').code());
+		        },
 		        height : 450,
 		        minHeight: null,
 		        maxHeight: null,
@@ -105,8 +109,8 @@ function resizeBoard(){
 								</div>
 							</div>
 							<div class="form-group">
-								<div id="summernote">
-								</div>
+								<div id="summernote"></div>
+								<textarea name="ss" id="summercontent" style="display: none;"></textarea>
 							</div>
 						</form>
 			            
