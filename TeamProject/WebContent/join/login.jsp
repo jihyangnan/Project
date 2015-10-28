@@ -3,10 +3,11 @@
 <div class="about_top">
     <div class="container">
     	<div>
-         	<ul>
-         		<li class="siteline">로그인 </li>
-         	</ul>
-    	</div>
+			<ul>
+				<li class="siteline"><img src="images/homelink.png"
+					style="vertical-align: top;"> 로그인</li>
+			</ul>
+		</div>
         <div class="about">
         <br><br><br><br>
         <h1 class="blog_head_login">로그인</h1>
@@ -23,17 +24,17 @@
 					<div class="clear"></div>
 					<label>
 					<a href="http://localhost:8080/TeamProject/index.jsp">
-					<input type="button" value="로그인" >
+					<input type="button" value="로그인" id="join" style="padding:5px;">
 					</a>
 					</label>
 					<div class="form6_l">
 						<label>
 						<a href="index.jsp?page=join/join.jsp">
-						<input type="submit"value="회원가입"></a>
+						<input type="submit"value="회원가입" id="join"></a>
 						</label> 
 						<label>
 						<a href="index.jsp?page=join/idSearch.jsp">
-						<input type="submit" style="margin-left:5%"value="아이디/비밀번호 찾기"></a>
+						<input type="submit" style="margin-left:5%"value="아이디/비밀번호 찾기" id="join"></a>
 						</label>
 					</div>
 				</div>

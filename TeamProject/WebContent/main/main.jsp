@@ -575,6 +575,7 @@
                 <div class="clearfix"> </div>
         </div>
        <div class="grid_7">
+       
         	<div class="col-md-4" id="container2">
     
     <div id="weather-icon-holder">
@@ -603,7 +604,7 @@
 
       <script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-f961f59a28ef4fd551736b43f94620b5.js"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
 
         <script>

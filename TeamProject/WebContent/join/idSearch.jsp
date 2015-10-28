@@ -3,10 +3,11 @@
 <div class="about_top">
 		<div class="container">
 			<div>
-				<ul>
-					<li class="siteline">로그인 -> 아이디/비밀번호찾기</li>
-				</ul>
-			</div>
+			<ul>
+				<li class="siteline"><img src="images/homelink.png"
+					style="vertical-align: top;"> 로그인 / 아이디&비밀번호 찾기</li>
+			</ul>
+		</div>
 			<div class="about">
 				<br>
 				<h1 class="blog_head_login">아이디/비밀번호 찾기</h1>
@@ -30,12 +31,12 @@
 						<div class="clear"></div>
 						<label> 
 							<a href="index.jsp?page=join/idCheck.jsp">
-						 	<input type="button" value="확인">
+						 	<input type="button" value="확인" id="join">
 							</a>
 						</label>
 						<div class="s_form6">
 							<label> 
-							<a href="index.jsp?page=join/login.jsp"> <input type="submit"value="로그인"></a>
+							<a href="index.jsp?page=join/login.jsp"> <input type="submit"value="로그인" id="join"></a>
 							</label>
 						</div>
 					</div>
@@ -72,13 +73,13 @@
 
 
 						<label> <a href="index.jsp?page=join/pwdCheck.jsp"> 
-						<input type="button"style="margin-top:10px"value="확인">
+						<input type="button"style="margin-top:10px"value="확인" id="join">
 						</a>
 						</label>
 						<div class="s_form6">
 							<label> 
 								<a href="index.jsp?page=join/login.jsp"> 
-								<input type="submit"style="margin-top:10px" value="로그인">
+								<input type="submit"style="margin-top:10px" value="로그인" id="join">
 								</a>
 							</label>
 						</div>

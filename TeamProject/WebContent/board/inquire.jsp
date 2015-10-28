@@ -12,13 +12,15 @@
 </script>
 <div class="about_top inquire">
     <div class="container">
-
+			<div>
+			<ul>
+				<li class="siteline"><img src="images/homelink.png"
+					style="vertical-align: top;"> 고객의 소리 / 1:1 문의</li>
+			</ul>
+			</div>
 			<div style="border-top: 1px solid #E2E2E2; border-bottom: 1px solid #E2E2E2;">
 				<div class="row text-right">
 					<ol class="breadcrumb" style="background-color: #fff">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">고객의 소리</a></li>
-					  <li class="active">자유게시판</li>
 					</ol>
 				</div>
 				<div class="jumbotron" style="background-color: #fff">

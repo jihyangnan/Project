@@ -4,7 +4,7 @@
 	<div class="container" style="margin: 400;">
 		<div class="jumbotron">
 			<div class="row">
-				<div>
+				<div align=center>
 					<a href="gallery.html"><img src="images/freeboard.jpg"
 						class="img-responsive"></a>
 				</div>

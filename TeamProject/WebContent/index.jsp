@@ -10,11 +10,13 @@
 	
 	if(strPage.startsWith("nezip")){
 		request.setAttribute("insertStep", strPage.substring("nezip/nezipinsert".length(), strPage.lastIndexOf(".jsp")));
-		request.setAttribute("insertPage", strPage.substring(6));
+		request.setAttribute("insertPage", strPage.substring("nezip/".length()));
 		strPage = "nezip/nezipinsertmenu.jsp";
 		pageNum = 1;
 	} else if(strPage.startsWith("reserve")){
 		pageNum = 2;
+	} else if(strPage.startsWith("town")){
+		pageNum = 3;
 	} else if(strPage.startsWith("board")){
 		pageNum = 4;
 	} else if(strPage.startsWith("join")){
@@ -135,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#">제주</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-target="#" data-toggle="dropdown" href="#"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
+					<li class="dropdown"><a data-target="index.jsp?page=board/list.jsp" data-toggle="dropdown" href="index.jsp?page=board/list.jsp"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
 						<ul class="dropdown-menu" style="min-width: 110px;">
 							<li><a href="index.jsp?page=board/list.jsp">자유게시판</a></li>
 							<li><a href="index.jsp?page=board/inquire.jsp">1:1문의</a></li>
