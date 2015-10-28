@@ -103,6 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 <script src="js/bootstrap-datepicker.min.js"></script>
 <script src="js/bootstrap-datepicker.kr.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style>
 	@media screen and (min-width: 800px) {
 		li.dropdown:hover > ul.dropdown-menu{     
@@ -125,7 +126,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul>
 					<li><a href="index.jsp?page=nezip/nezipInsert1.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
 					<li><a href="index.jsp?page=reserve/list.jsp"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
-					<li class="dropdown"><a data-target="index.jsp?page=town/town.jsp" data-toggle="dropdown" href="index.jsp?page=town/town.jsp"><i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
+					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='index.jsp?page=town/town_list_test.jsp'" >
+						<i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
 						<ul class="dropdown-menu" style="min-width: 130px;">
 							<li><a href="#">서울</a></li>
 							<li><a href="#">경기</a></li>
@@ -137,13 +139,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="#">제주</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-target="index.jsp?page=board/list.jsp" data-toggle="dropdown" href="index.jsp?page=board/list.jsp"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
+					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='index.jsp?page=board/list.jsp'"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
 						<ul class="dropdown-menu" style="min-width: 110px;">
 							<li><a href="index.jsp?page=board/list.jsp">자유게시판</a></li>
 							<li><a href="index.jsp?page=board/inquire.jsp">1:1문의</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-target="index.jsp?page=join/join.jsp" data-toggle="dropdown" href="index.jsp?page=join/login.jsp"><i class="fa fa-user"></i><b>로그인</b></a>
+					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='index.jsp?page=join/login.jsp'"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
 							<li><a href="index.jsp?page=mypage/jimList.jsp">찜하기</a></li>
 							<li><a href="index.jsp?page=mypage/profile.jsp">마이페이지</a></li>
@@ -154,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			 </div>
 			<!-- script for menu -->
-				<script>
+			<script>
 				$( "span.menu" ).click(function() {
 				  $( ".top-menu" ).slideToggle( "slow", function() {
 				    // Animation complete.
@@ -186,6 +188,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<p>© 2015 All Rights Reseverd Template by 
 		<a href="index.jsp?page=main/company.jsp"><font color="#f94b4b">NiJip NeJip</font></a> </p>
 	</div>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
 </body>
 </html>		

@@ -10,8 +10,7 @@
 			</ul>
 		</div>
 		<div class="about">
-			<dl align="center"
-				style="float: right; margin-right: 30px; margin-bottom: -50px; margin-top: 10px;">
+			<dl style="float: right; text-align:center; margin-right: 30px; margin-bottom: -50px; margin-top: 10px;">
 				<dd>
 					<label><input type="text" placeholder="지역을 입력하세요" size=30>
 					</label> <input type="submit" value="검색">
@@ -149,3 +148,4 @@
 
 		</div>
 	</div>
+</div>
