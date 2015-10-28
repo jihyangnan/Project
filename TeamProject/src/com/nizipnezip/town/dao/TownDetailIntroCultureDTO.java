@@ -14,7 +14,15 @@ public class TownDetailIntroCultureDTO {
 	private String useTime;			// 이용시간
 	private String scale;			// 규모
 	private String spendTime;		// 관람 소요시간
+	private String infoCenter;		// 문의 및 안내
 	
+	
+	public String getInfoCenter() {
+		return infoCenter;
+	}
+	public void setInfoCenter(String infoCenter) {
+		this.infoCenter = infoCenter;
+	}
 	public String getAccoumCount() {
 		return accoumCount;
 	}

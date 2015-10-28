@@ -2,10 +2,10 @@ package com.nizipnezip.town.dao;
 
 public class TownDetailIntroCourseDTO {
 	
-	private String distance;	// 코스 총거리
 	private String infoCenter;	// 문의 및 안내
-	private String schedule;	// 코스 일정
+	private String distance;	// 코스 총거리
 	private String takeTime;	// 코스 총 소요시간
+	private String schedule;	// 코스 일정
 	private String theme;		// 코스 테마
 	
 	public String getDistance() {

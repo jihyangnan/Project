@@ -2,20 +2,20 @@ package com.nizipnezip.town.dao;
 
 public class TownDetailIntroLeportsDTO {
 	
-	private String accoumCount;		// 수용인원
-	private String chkBabyCarriage;	// 유모차 대여 여부
-	private String chkCreditCard;	// 신용카드 가능 여부
-	private String chkPet;			// 애완동물 가능 여부
-	private String expAgeRange;		// 체험가능 연령
 	private String infoCenter;		// 문의 및 안내
 	private String openPeriod;		// 개장기간
-	private String parkingFee;		// 주차요금
-	private String parking;			// 주차시설
-	private String reservation;		// 예약안내
 	private String restDate;		// 쉬는날
 	private String scale;			// 규모
-	private String useFee;			// 입장료
+	private String expAgeRange;		// 체험가능 연령
+	private String accoumCount;		// 수용인원
 	private String useTime;			// 이용시간
+	private String useFee;			// 입장료
+	private String reservation;		// 예약안내
+	private String parkingFee;		// 주차요금
+	private String parking;			// 주차시설
+	private String chkBabyCarriage;	// 유모차 대여 여부
+	private String chkPet;			// 애완동물 가능 여부
+	private String chkCreditCard;	// 신용카드 가능 여부
 	
 	public String getAccoumCount() {
 		return accoumCount;

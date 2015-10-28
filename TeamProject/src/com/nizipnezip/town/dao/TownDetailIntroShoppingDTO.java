@@ -2,21 +2,21 @@ package com.nizipnezip.town.dao;
 
 public class TownDetailIntroShoppingDTO {
 	
+	private String infoCenter;		// 문의 및 안내
+	private String scale;			// 규모
+	private String saleItem;		// 판매 품목
+	private String saleItemcost;	// 판매 품목별 가격
+	private String fairday;			// 장서는 날
+	private String openDate;		// 개장일
+	private String openTime;		// 영업시간
+	private String restDate;		// 쉬는날
+	private String shopguide;		// 매장안내
+	private String parking;			// 주차시설
+	private String restroom;		// 화장실 설명
 	private String chkBabyCarriage;	// 유모차 대여 여부
 	private String chkCreditCard;	// 신용카드 가능 여부
 	private String chkPet;			// 애완동물 가능 여부
 	private String cultureCenter;	// 문화센터 바로가기
-	private String fairday;			// 장서는 날
-	private String infoCenter;		// 문의 및 안내
-	private String openDate;		// 개장일
-	private String openTime;		// 영업시간
-	private String parking;			// 주차시설
-	private String restDate;		// 쉬는날
-	private String restroom;		// 화장실 설명
-	private String saleItem;		// 판매 품목
-	private String saleItemcost;	// 판매 품목별 가격
-	private String scale;			// 규모
-	private String shopguide;		// 매장안내
 	
 	public String getChkBabyCarriage() {
 		return chkBabyCarriage;

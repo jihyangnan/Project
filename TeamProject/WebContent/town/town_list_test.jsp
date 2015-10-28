@@ -1,3 +1,4 @@
+<%@page import="com.nizipnezip.town.dao.TownCodeDTO"%>
 <%@page import="com.nizipnezip.town.dao.TownListDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.nizipnezip.town.dao.TownListSearchValues"%>
@@ -13,6 +14,9 @@
 	values.setContentTypeId("12");
 	List<TownListDTO> list = TownDAO.getTownList(values);
 	request.setAttribute("list", list);
+	List<TownCodeDTO> areaCodeList = TownDAO.getAreaCodeList("");
+	request.setAttribute("areaCodeList", areaCodeList);
+	
 %>
 <div class="about_top">
 	<div class="container">
@@ -23,13 +27,120 @@
 			</ul>
 		</div>
 		<div class="about">
-			<dl style="float: right; text-align:center; margin-right: 30px; margin-bottom: -50px; margin-top: 10px;">
+			<!-- <dl style="float: right; text-align:center; margin-right: 30px; margin-bottom: -50px; margin-top: 10px;">
 				<dd>
 					<label><input type="text" placeholder="지역을 입력하세요" size=30>
 					</label> <input type="submit" value="검색">
 				</dd>
-			</dl>
-			<br> <br> <br>
+			</dl> -->
+			<div >
+				<div class="form-horizontal">
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">관광타입</label>
+				    <div class="col-sm-3">
+				      <select class="form-control" id="typeSelect">
+				      	<option value="">타입선택</option>
+				      	<option value="12">관광지</option>
+				      	<option value="14">문화시설</option>
+				      	<option value="15">행사/공연/축제</option>
+				      	<option value="25">여행코스</option>
+				      	<option value="28">레포츠</option>
+				      	<option value="38">쇼핑</option>
+				      	<option value="39">음식점</option>
+				      </select>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">서비스분류</label>
+				   	<div class="col-sm-3">
+				      <select class="form-control" id="cat1Select">
+				      	<option value="">대분류</option>
+				      </select>
+				    </div>
+				   	<div class="col-sm-3">
+				      <select class="form-control" id="cat2Select">
+				      	<option value="">중분류</option>
+				      </select>
+				    </div>
+				   	<div class="col-sm-4">
+				      <select class="form-control" id="cat3Select">
+				      	<option value="">소분류</option>
+				      </select>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">지역</label>
+				   	<div class="col-sm-3">
+				      <select class="form-control" id="areaSelect">
+				      	<option value="0">지역선택</option>
+				      	<c:forEach var="areaCode" items="${requestScope.areaCodeList}">
+				      		<option value="${areaCode.code}">${areaCode.name}</option>
+				      	</c:forEach>
+				      </select>
+				    </div>
+				    <div class="col-sm-3">
+				      <select class="form-control" id="sigunguSelect">
+				      	<option value="0">시군구 선택</option>
+				      </select>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button type="submit" class="btn btn-default">검색</button>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			<script>
+				$('#areaSelect').change(function(){
+					if($(this).val() == 0){
+						$('#sigunguSelect').html('<option value="0">시군구 선택</option>');
+						return;
+					}
+					$.ajax({
+						url: "town/areaCodeAjax.jsp?areaCode=" + $(this).val(),
+						type: "get",
+						dataType: "html",
+						success: function(result){
+							$('#sigunguSelect').html(result);
+						}
+					});
+				});
+				
+				$('#typeSelect').change(function(){
+					$.ajax({
+						url: "town/categoryCodeAjax.jsp?contentTypeId=" + $('#typeSelect').val(),
+						type: "get",
+						dataType: "html",
+						success: function(result){
+							$('#cat1Select').html(result);
+						}
+					});
+				});
+				$('#cat1Select').change(function(){
+					$.ajax({
+						url: "town/categoryCodeAjax.jsp?contentTypeId=" + $('#typeSelect').val()
+							+ "&cat1=" + $('#cat1Select').val(),
+						type: "get",
+						dataType: "html",
+						success: function(result){
+							$('#cat2Select').html(result);
+						}
+					});
+				});
+				$('#cat2Select').change(function(){
+					$.ajax({
+						url: "town/categoryCodeAjax.jsp?contentTypeId=" + $('#typeSelect').val()
+							+ "&cat1=" + $('#cat1Select').val()  
+							+ "&cat2=" + $('#cat2Select').val(),
+						type: "get",
+						dataType: "html",
+						success: function(result){
+							$('#cat3Select').html(result);
+						}
+					});
+				});
+			</script>
 
 			<div style="margin-bottom: 30px; margin-top: 40px;">
 				<ul style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
@@ -84,7 +195,8 @@
 								</div>
 								<div class="col-sm-5">
 									<input type="button" value="상세보기" class="btn btn-success btn-sm" 
-									 style="background-color: #87d54d; border-color:#87d54d" onclick="location.href='index.jsp?page=town/town_detail.jsp' ">
+									 style="background-color: #87d54d; border-color:#87d54d" 
+									 onclick="location.href='index.jsp?page=town/town_detail.jsp&contentId=${town.contentId}&contentTypeId=${town.contentTypeId}' ">
 								</div>
 							</div>
 						</div>

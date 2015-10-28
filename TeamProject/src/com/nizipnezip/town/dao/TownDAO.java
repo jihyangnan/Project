@@ -19,6 +19,65 @@ public class TownDAO {
 		parser = new SAXBuilder();
 		parser.setIgnoringElementContentWhitespace(true);
 	}
+	 
+	public static List<TownCodeDTO> getAreaCodeList(String areaCode){
+		List<TownCodeDTO> list = new ArrayList<>();
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?ServiceKey=" + serviceKey
+				+ "&areaCode=" + areaCode
+				+ "&MobileOS=ETC&MobileApp=TourAPI3.0_Guide";
+		
+		try {
+			Document doc = parser.build(url);
+			Element root = doc.getRootElement();
+			String totalCount = root.getChild("body").getChildText("totalCount");
+			url += "&numOfRows=" + totalCount;
+			doc = parser.build(url);
+			root = doc.getRootElement();
+			List<Element> itemList = root.getChild("body").getChild("items").getChildren();
+			itemList.forEach(e -> {
+				TownCodeDTO dto = new TownCodeDTO();
+				dto.setCode(e.getChildText("code"));
+				dto.setName(e.getChildText("name"));
+				dto.setMum(e.getChildText("mum"));
+				list.add(dto);
+			});
+		} catch (JDOMException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public static List<TownCodeDTO> getCategoryCodeList(String contentTypeId, String cat1, String cat2){
+		List<TownCodeDTO> list = new ArrayList<>();
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/categoryCode?ServiceKey=" + serviceKey
+				+ "&contentTypeId=" + contentTypeId
+				+ "&cat1=" + cat1
+				+ "&cat2=" + cat2
+				+ "&MobileOS=ETC&MobileApp=TourAPI3.0_Guide";
+		
+		
+		try {
+			Document doc = parser.build(url);
+			Element root = doc.getRootElement();
+			String totalCount = root.getChild("body").getChildText("totalCount");
+			url += "&numOfRows=" + totalCount;
+			doc = parser.build(url);
+			root = doc.getRootElement();
+			List<Element> itemList = root.getChild("body").getChild("items").getChildren();
+			itemList.forEach(e -> {
+				TownCodeDTO dto = new TownCodeDTO();
+				dto.setCode(e.getChildText("code"));
+				dto.setName(e.getChildText("name"));
+				dto.setMum(e.getChildText("mum"));
+				list.add(dto);
+			});
+		} catch (JDOMException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 	
 	public static List<TownListDTO> getTownList(TownListSearchValues values){
 		List<TownListDTO> list = new ArrayList<>();
@@ -44,6 +103,7 @@ public class TownDAO {
 				dto.setAddr2(e.getChildText("addr2"));
 				dto.setImage(e.getChildText("firstimage"));
 				dto.setContentId(e.getChildText("contentid"));
+				dto.setContentTypeId(e.getChildText("contenttypeid"));
 				dto.setReadCount(e.getChildText("readcount"));
 				dto.setTel(e.getChildText("tel"));
 				String modifiedTime = e.getChildText("modifiedtime");
@@ -140,7 +200,7 @@ public class TownDAO {
 			dto.setChkCreditCard(item.getChildText("chkcreditcardculture"));
 			dto.setChkPet(item.getChildText("chkpetculture"));
 			dto.setDiscountInfo(item.getChildText("discountinfo"));
-			dto.setDiscountInfo(item.getChildText("infocenterculture"));
+			dto.setInfoCenter(item.getChildText("infocenterculture"));
 			dto.setParking(item.getChildText("parkingculture"));
 			dto.setParkingFee(item.getChildText("parkingfee"));
 			dto.setRestDate(item.getChildText("restdateculture"));
@@ -329,7 +389,7 @@ public class TownDAO {
 			itemList.forEach(e -> {
 				TownDetailImageDTO dto = new TownDetailImageDTO();
 				dto.setImageName(e.getChildText("imagename"));
-				dto.setOriginalURL(e.getChildText("originalurl"));
+				dto.setOriginalURL(e.getChildText("originimgurl"));
 				dto.setSerialNum(e.getChildText("serialnum"));
 				dto.setSmallImageURL(e.getChildText("smallimageurl"));
 				list.add(dto);

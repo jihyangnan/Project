@@ -2,21 +2,21 @@ package com.nizipnezip.town.dao;
 
 public class TownDetailIntroFoodDTO {
 	
-	private String chkCreditCard;	// 신용카드 가능 여부
-	private String discountInfo;	// 할인정보
-	private String firstmenu;		// 대표 메뉴
 	private String infoCenter;		// 문의 및 안내
-	private String kidsfacility;	// 어린이 놀이방
-	private String openDate;		// 개업일
-	private String openTime;		// 영업시간
-	private String packing;			// 포장 가능 여부
-	private String parking;			// 주차시설
-	private String reservation;		// 예약안내
-	private String restDate;		// 쉬는날
 	private String scale;			// 규모
 	private String seat;			// 좌석수
-	private String smoking;			// 금연/흡연 여부
+	private String parking;			// 주차시설
+	private String openTime;		// 영업시간
+	private String restDate;		// 쉬는날
+	private String reservation;		// 예약안내
+	private String discountInfo;	// 할인정보
+	private String firstmenu;		// 대표 메뉴
 	private String treatmenu;		// 취급 메뉴
+	private String smoking;			// 금연/흡연 여부
+	private String chkCreditCard;	// 신용카드 가능 여부
+	private String packing;			// 포장 가능 여부
+	private String kidsfacility;	// 어린이 놀이방
+	private String openDate;		// 개업일
 	
 	public String getChkCreditCard() {
 		return chkCreditCard;

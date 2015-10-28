@@ -7,10 +7,17 @@ public class TownListDTO {
 	public String addr2;		// 상세 주소
 	public String image;		// 대표 이미지
 	public String contentId;	// 컨텐트 ID
+	public String contentTypeId;// 컨텐트타입 ID
 	public String readCount;	// 조회수 
 	public String tel;			// 전화번호
 	public String modDay;		// 최근수정일
 	
+	public String getContentTypeId() {
+		return contentTypeId;
+	}
+	public void setContentTypeId(String contentTypeId) {
+		this.contentTypeId = contentTypeId;
+	}
 	public String getTitle() {
 		return title;
 	}
