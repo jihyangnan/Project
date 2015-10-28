@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="main" class="com.main.model.MainModel"/>
+	<bean id="list" class="com.board.model.BoardListModel"/>
+	<bean id="board_insert" class="com.board.model.BoardInsertModel"/>
+	<bean id="board_insert_ok" class="com.board.model.BoardInsertOkModel"/>
+   	<bean id="board_content" class="com.board.model.BoardContentModel"/>
+	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
+	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
+</beans>

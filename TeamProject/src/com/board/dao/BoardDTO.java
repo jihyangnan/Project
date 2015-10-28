@@ -24,7 +24,21 @@ public class BoardDTO {
 	private int b_renum;
 	private Date b_date;
 	private String b_delete;
-	
+	private int sa_no;
+	private String dbday;
+	   
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
+	public int getSa_no() {
+		return sa_no;
+	}
+	public void setSa_no(int sa_no) {
+		this.sa_no = sa_no;
+	}
 	public int getB_no() {
 		return b_no;
 	}

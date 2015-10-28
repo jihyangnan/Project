@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3 -mapper.dtd"> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.dao.board_mapper">
+<!--  목록 -->
+<select id="boardListData" resultType="Board" parameterType="java.util.Map">
+	SELECT sa_name, b_no, b_title, b_id, dbday, b_hit, num
+	FROM (SELECT b_no, b_title, b_id, To_char(b_date,'YYYY-MM-DD')as dbday
+			, b_hit, rownum as num
+	FROM (SELECT b_no, b_title, b_id, b_date, b_hit
+	FROM p_board ORDER BY b_no DESC)) b JOIN b_Word w
+	ON b.b_no=w.sa_no
+	WHERE num BETWEEN #{start} AND #{end} 
+</select>
+<!-- 총페이지 구하기 -->
+<select id="boardRowCount" resultType="int">
+	SELECT COUNT(*) FROM board
+</select>
+</mapper>

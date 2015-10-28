@@ -28,12 +28,11 @@ public class DispatcherServlet extends HttpServlet {
 				String cmd=request.getRequestURI();
 				
 				cmd=cmd.substring(request.getContextPath().length()+1, cmd.lastIndexOf('.'));
-				
 				//Model클래스 가져옴
 				Model model=wc.getBean(cmd);
-				
 				String jsp=model.hanlerRequest(request, response);
 				String temp=jsp.substring(jsp.lastIndexOf('.')+1);
+				
 				if(temp.equals("do"))
 				{
 					response.sendRedirect(jsp);

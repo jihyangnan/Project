@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>    
 function resizeBoard(){
 		$("span.content").html(function(){
@@ -71,19 +72,26 @@ function resizeBoard(){
 					<div class="col-sm-1">조회</div>
 				</div>
 				
+				<c:forEach var="dto" items="${list }">
 				<div class="row list-group-item">
 					<span class="col-sm-1 mhide"><img src="images/ico-list-notice.gif"></span>
-					<span class="col-sm-1">1</span>
+					<!-- <img src="images/ico-list-notice.gif"> -->
+					<span class="col-sm-1">${dto.b_no }</span>
 					<span class="col-sm-5 col-xs-10">
 					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+					  <a href="index.jsp?page=board/detail.jsp">
+					  ${dto.b_title }</a>
+					  <c:if test="${today==dto.dbday }">
 					  <sup><img src="images/neo_new.gif"></sup>
+					  </c:if>
 					</span>
-					<span class="col-sm-2 mhide writer">홍길동</span>
-					<span class="col-sm-2 mhide date">2015-09-22</span>
-					<span class="col-sm-1 mhide hit">3</span>
+					<span class="col-sm-2 mhide writer">${dto.b_id }</span>
+					<span class="col-sm-2 mhide date">${dto.dbday }</span>
+					<span class="col-sm-1 mhide hit">${dto.b_hit }</span>
 				</div>
+				</c:forEach>
 			</div>		
+			
 			
 			<div class="row text-right">
 				<button type="button" class="btn search-btn" data-toggle="modal" data-target="#writeModal">글쓰기</button>
