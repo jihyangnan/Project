@@ -16,6 +16,8 @@
 	request.setAttribute("list", list);
 	List<TownCodeDTO> areaCodeList = TownDAO.getAreaCodeList("");
 	request.setAttribute("areaCodeList", areaCodeList);
+	List<TownCodeDTO> categoryCodeList = TownDAO.getCategoryCodeList("", "", "");
+	request.setAttribute("categoryCodeList", categoryCodeList);
 	
 %>
 <div class="about_top">
@@ -55,6 +57,9 @@
 				   	<div class="col-sm-3">
 				      <select class="form-control" id="cat1Select">
 				      	<option value="">대분류</option>
+				      	<c:forEach var="categoryCode" items="${categoryCodeList}">
+				      		<option value="${categoryCode.code}">${categoryCode.name}</option>
+				      	</c:forEach>
 				      </select>
 				    </div>
 				   	<div class="col-sm-3">
@@ -109,22 +114,30 @@
 				
 				$('#typeSelect').change(function(){
 					$.ajax({
-						url: "town/categoryCodeAjax.jsp?contentTypeId=" + $('#typeSelect').val(),
+						url: "town/categoryCodeAjax.jsp?contentTypeId=" + $('#typeSelect').val()
+							+ "&cat1=" + ""  
+							+ "&cat2=" + "",
 						type: "get",
 						dataType: "html",
 						success: function(result){
-							$('#cat1Select').html(result);
+							$('#cat1Select option:first-child').nextAll().remove();
+							$('#cat1Select').append(result);
+							$('#cat2Select option:first-child').nextAll().remove();
+							$('#cat3Select option:first-child').nextAll().remove();
 						}
 					});
 				});
 				$('#cat1Select').change(function(){
 					$.ajax({
 						url: "town/categoryCodeAjax.jsp?contentTypeId=" + $('#typeSelect').val()
-							+ "&cat1=" + $('#cat1Select').val(),
+							+ "&cat1=" + $('#cat1Select').val()  
+							+ "&cat2=" + "",
 						type: "get",
 						dataType: "html",
 						success: function(result){
-							$('#cat2Select').html(result);
+							$('#cat2Select option:first-child').nextAll().remove();
+							$('#cat2Select').append(result);
+							$('#cat3Select option:first-child').nextAll().remove();
 						}
 					});
 				});
@@ -136,7 +149,8 @@
 						type: "get",
 						dataType: "html",
 						success: function(result){
-							$('#cat3Select').html(result);
+							$('#cat3Select option:first-child').nextAll().remove();
+							$('#cat3Select').append(result);
 						}
 					});
 				});
@@ -144,24 +158,6 @@
 
 			<div style="margin-bottom: 30px; margin-top: 40px;">
 				<ul style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
-					<!-- <li class="row" style="padding-left: 10px; padding-right: 10px">
-						<div class="col-sm-4">
-							<img src="images/s2.jpg" class="img-responsive">
-						</div>
-						<div class="col-sm-8">
-							<h3 style="margin-top: 25px; margin-bottom: 10px;">불국사</h3>
-							<p style="margin-top: 8px;">경상북도 경주시
-								진현동 위치, 대한불교 조계종 제 11교구 본사, 사진 및 영상 제공.</p>
-							<p style="margin-top: 8px;">
-								<i class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; 
-								<i class="fa fa-pencil">&nbsp;&nbsp;작성일: 2015-10-12</i>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-								<a href="index.jsp?page=town/town_1.jsp"> 
-									<input type="button" value="상세보기" id="join" class="btn">
-								</a>
-							</p>
-						</div>
-					</li> -->
 					
 					
 					<c:forEach var="town" items="${list}">
@@ -205,107 +201,6 @@
 					</c:forEach>
 				</ul>
 			</div>
-
-			<!-- <div style="margin-bottom: 30px; margin-top: 40pxp; float: left;">
-				<ul>
-					<li style="text-align: left; float: left;"><img
-						src="images/s3.jpg"
-						style="float: left; width: 20%; height: 20%; margin-left: 60px;">
-						<div style="margin: 0 auto; float: left;">
-							<ul style="display: inline-block;">
-								<li>
-									<h3
-										style="margin-left: 60px; margin-top: 25px; margin-bottom: 10px;">불국사</h3>
-								</li>
-								<li style="margin-left: 60px; margin-top: 8px;">경상북도 경주시
-									진현동 위치, 대한불교 조계종 제 11교구 본사, 사진 및 영상 제공.</li>
-								<li style="margin-left: 70px; margin-top: 8px;"><i
-									class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i
-									class="fa fa-pencil">&nbsp;&nbsp;작성일: 2015-10-12</i>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-									<a href="index.jsp?page=town/town_1.jsp"> 
-										<input type=button value="상세보기" id="join" class="btn">
-									</a>
-							</ul>
-						</div></li>
-				</ul>
-			</div>
-
-
-			<div style="margin-bottom: 30px; margin-top: 40pxp; float: left;">
-				<ul>
-					<li style="text-align: left; float: left;"><img
-						src="images/s4.jpg"
-						style="float: left; width: 20%; height: 20%; margin-left: 60px;">
-						<div style="margin: 0 auto; float: left;">
-							<ul style="display: inline-block;">
-								<li>
-									<h3
-										style="margin-left: 60px; margin-top: 25px; margin-bottom: 10px;">불국사</h3>
-								</li>
-								<li style="margin-left: 60px; margin-top: 8px;">경상북도 경주시
-									진현동 위치, 대한불교 조계종 제 11교구 본사, 사진 및 영상 제공.</li>
-								<li style="margin-left: 70px; margin-top: 8px;"><i
-									class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i
-									class="fa fa-pencil">&nbsp;&nbsp;작성일: 2015-10-12</i>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<a href="index.jsp?page=town/town_1.jsp"> 
-										<input type=button value="상세보기" id="join" class="btn">
-									</a>
-							</ul>
-						</div></li>
-				</ul>
-			</div>
-
-			<div style="margin-bottom: 30px; margin-top: 40pxp; float: left;">
-				<ul>
-					<li style="text-align: left; float: left;"><img
-						src="images/s6.jpg"
-						style="float: left; width: 20%; height: 20%; margin-left: 60px;">
-						<div style="margin: 0 auto; float: left;">
-							<ul style="display: inline-block;">
-								<li>
-									<h3
-										style="margin-left: 60px; margin-top: 25px; margin-bottom: 10px;">불국사</h3>
-								</li>
-								<li style="margin-left: 60px; margin-top: 8px;">경상북도 경주시
-									진현동 위치, 대한불교 조계종 제 11교구 본사, 사진 및 영상 제공.</li>
-								<li style="margin-left: 70px; margin-top: 8px;"><i
-									class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i
-									class="fa fa-pencil">&nbsp;&nbsp;작성일: 2015-10-12</i>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<a href="index.jsp?page=town/town_1.jsp"> 
-										<input type=button value="상세보기" id="join" class="btn">
-									</a>									
-							</ul>
-						</div></li>
-				</ul>
-			</div>
-
-			<div style="margin-bottom: 100px; margin-top: 40pxp; float: left;">
-				<ul>
-					<li style="text-align: left; float: left;"><img
-						src="images/s5.jpg"
-						style="float: left; width: 20%; height: 20%; margin-left: 60px;">
-						<div style="margin: 0 auto; float: left;">
-							<ul style="display: inline-block;">
-								<li>
-									<h3
-										style="margin-left: 60px; margin-top: 20px; margin-bottom: 10px;">불국사</h3>
-								</li>
-								<li style="margin-left: 60px; margin-top: 8px;">경상북도 경주시
-									진현동 위치, 대한불교 조계종 제 11교구 본사, 사진 및 영상 제공.</li>
-								<li style="margin-left: 70px; margin-top: 8px;"><i
-									class="fa fa-star"> &nbsp;조회수: 30</i> &nbsp;&nbsp; <i
-									class="fa fa-pencil">&nbsp;&nbsp;작성일: 2015-10-12</i>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<a href="index.jsp?page=town/town_1.jsp"> 
-										<input type=button value="상세보기" id="join" class="btn">
-									</a>									
-							</ul>
-						</div></li>
-				</ul>
-			</div> -->
 
 
 		</div>

@@ -7,7 +7,6 @@
 	String contentTypeId = request.getParameter("contentTypeId");
 	String cat1 = request.getParameter("cat1");
 	String cat2 = request.getParameter("cat2");
-	System.out.println("contentTypeId: " + contentTypeId + ", cat1: " + cat1 + ", cat2: " + cat2);
 	List<TownCodeDTO> categoryCodeList = TownDAO.getCategoryCodeList(contentTypeId, cat1, cat2);
 	
 	for(TownCodeDTO dto : categoryCodeList){

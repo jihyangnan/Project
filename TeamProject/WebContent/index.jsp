@@ -179,8 +179,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 			 
-   <%-- <jsp:include page="<%=strPage %>"></jsp:include> --%>
-   <jsp:include page="${jsp}"></jsp:include>
+   <jsp:include page="<%=strPage %>"></jsp:include>
+   <%-- <jsp:include page="${jsp}"></jsp:include> --%>
    
 	<div class="copy" style="padding-bottom: 5em">
 		<p>© 2015 All Rights Reseverd Template by 
