@@ -2,7 +2,9 @@ package com.nizipnezip.town.dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -94,9 +96,10 @@ public class TownDAO {
 	/**
 	 * 관광정보 조회
 	 * @param values - TownListSearchValues(여러 검색 타입을 저장하기 위한 클래스)
-	 * @return - 관광정보(TownListDTO) 리스트
+	 * @return - 관광정보(TownListDTO) 리스트, 전체 결과수, 페이지번호, 한페이지 결과수 가 포함된 Map
 	 */
-	public static List<TownListDTO> getTownList(TownListSearchValues values){
+	public static Map<String, Object> getTownsMap(TownListSearchValues values){
+		Map<String, Object> returnMap = new HashMap<>();
 		List<TownListDTO> list = new ArrayList<>();
 		
 		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=" + serviceKey
@@ -113,6 +116,9 @@ public class TownDAO {
 		try {
 			Document doc = parser.build(url);
 			Element root = doc.getRootElement();
+			Integer totalCount = Integer.parseInt(root.getChild("body").getChildText("totalCount"));
+			Integer pageNo = Integer.parseInt(root.getChild("body").getChildText("pageNo"));
+			Integer numOfRows = Integer.parseInt(root.getChild("body").getChildText("numOfRows"));
 			List<Element> itemList = root.getChild("body").getChild("items").getChildren();
 			itemList.forEach(e -> {
 				TownListDTO dto = new TownListDTO();
@@ -129,10 +135,14 @@ public class TownDAO {
 				dto.setModDay(modifiedTime); // YYYY-MM-DD 식으로 변경한 값 저장
 				list.add(dto);
 			});
+			returnMap.put("totalCount", totalCount);
+			returnMap.put("pageNo", pageNo);
+			returnMap.put("numOfRows", numOfRows);
+			returnMap.put("list", list);
 		} catch (JDOMException | IOException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return returnMap;
 	}
 	
 	/**

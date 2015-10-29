@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="com.nizipnezip.town.dao.TownCodeDTO"%>
 <%@page import="com.nizipnezip.town.dao.TownListDTO"%>
 <%@page import="java.util.List"%>
@@ -37,7 +38,14 @@
 	if(cat3 != null){
 		values.setCat3(cat3);
 	}
-	List<TownListDTO> list = TownDAO.getTownList(values);
+	Map<String, Object> returnMap = TownDAO.getTownsMap(values);
+	List<TownListDTO> list = (List<TownListDTO>)returnMap.get("list");
+	int totalCount = (int)returnMap.get("totalCount");
+	int pageNo = (int)returnMap.get("pageNo");
+	int numOfRows = (int)returnMap.get("numOfRows");
+	int totalPage = (int)Math.ceil((totalCount/(numOfRows*1.0)));
+	int blockSize = 5;
+	request.setAttribute("pageNo", pageNo);
 	request.setAttribute("list", list);
 	List<TownCodeDTO> areaCodeList = TownDAO.getAreaCodeList("");
 	request.setAttribute("areaCodeList", areaCodeList);
@@ -224,7 +232,6 @@
 							</div>
 						</div>
 					</li>
-					
 					</c:forEach>
 				</ul>
 			</div>
@@ -236,11 +243,14 @@
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				    </li>
-				    <li class="active"><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
+				    <c:forEach var="i" begin="1" end="<%=(totalCount > blockSize) ? blockSize : totalCount %>">
+				    	<c:if test="${i == requestScope.pageNo }">
+				    		<li class="active"><a href="#">${i}</a></li>
+				    	</c:if>
+				    	<c:if test="${i != requestScope.pageNo }">
+				    		<li><a href="#">${i}</a></li>
+				    	</c:if>
+				    </c:forEach>
 				    <li>
 				      <a href="#" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
