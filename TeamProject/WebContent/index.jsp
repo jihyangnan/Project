@@ -178,9 +178,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="clearfix"> </div>
 </div>
 
-			 
-   <jsp:include page="<%=strPage %>"></jsp:include>
-   <%-- <jsp:include page="${jsp}"></jsp:include> --%>
+   <c:if test="${empty jsp }">
+   	<jsp:include page="<%=strPage %>"></jsp:include>
+   </c:if>			 
+   <c:if test="${not empty jsp }">
+   	<jsp:include page="${jsp}"></jsp:include>
+   </c:if>
    
 	<div class="copy" style="padding-bottom: 5em">
 		<p>© 2015 All Rights Reseverd Template by 
