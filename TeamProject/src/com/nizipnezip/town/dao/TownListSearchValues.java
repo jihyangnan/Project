@@ -8,8 +8,9 @@ public class TownListSearchValues {
 	private String cat1; 
 	private String cat2; 
 	private String cat3; 
-	private int currPage;
-	private int countPerPage;
+	private String currPage;
+	private String countPerPage;
+	private String arrange;
 	
 	public TownListSearchValues(){
 		areaCode = "";
@@ -18,8 +19,9 @@ public class TownListSearchValues {
 		cat1 = "";
 		cat2 = "";
 		cat3 = "";
-		currPage = 1;
-		countPerPage = 10;
+		currPage = "1";
+		countPerPage = "10";
+		arrange = "P";
 	}
 
 	public String getAreaCode() {
@@ -70,20 +72,28 @@ public class TownListSearchValues {
 		this.cat3 = cat3;
 	}
 
-	public int getCurrPage() {
+	public String getCurrPage() {
 		return currPage;
 	}
 
-	public void setCurrPage(int currPage) {
+	public void setCurrPage(String currPage) {
 		this.currPage = currPage;
 	}
 
-	public int getCountPerPage() {
+	public String getCountPerPage() {
 		return countPerPage;
 	}
 
-	public void setCountPerPage(int countPerPage) {
+	public void setCountPerPage(String countPerPage) {
 		this.countPerPage = countPerPage;
+	}
+
+	public String getArrange() {
+		return arrange;
+	}
+
+	public void setArrange(String arrange) {
+		this.arrange = arrange;
 	}
 	
 }

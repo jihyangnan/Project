@@ -7,11 +7,36 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+	String areaCode = request.getParameter("areaCode");
+	String sigunguCode = request.getParameter("sigunguCode");
+	String currPage = request.getParameter("currPage");
+	String contentTypeId = request.getParameter("contentTypeId");
+	String cat1 = request.getParameter("cat1");
+	String cat2 = request.getParameter("cat2");
+	String cat3 = request.getParameter("cat3");
+
 	TownListSearchValues values = new TownListSearchValues();
-	values.setAreaCode("1");
-	values.setCurrPage(1);
-	values.setContentTypeId("10");
-	values.setContentTypeId("12");
+	if(areaCode != null && !(areaCode.equals("0"))){
+		values.setAreaCode(areaCode);
+	}
+	if(sigunguCode != null){
+		values.setSigunguCode(sigunguCode);
+	}
+	if(currPage != null){
+		values.setCurrPage(currPage);
+	}
+	if(contentTypeId != null){
+		values.setContentTypeId(contentTypeId);
+	}
+	if(cat1 != null){
+		values.setCat1(cat1);
+	}
+	if(cat2 != null){
+		values.setCat2(cat2);
+	}
+	if(cat3 != null){
+		values.setCat3(cat3);
+	}
 	List<TownListDTO> list = TownDAO.getTownList(values);
 	request.setAttribute("list", list);
 	List<TownCodeDTO> areaCodeList = TownDAO.getAreaCodeList("");
@@ -40,7 +65,7 @@
 				  <div class="form-group">
 				    <label class="col-sm-2 control-label">관광타입</label>
 				    <div class="col-sm-3">
-				      <select class="form-control" id="typeSelect">
+				      <select name="contentTypeId" class="form-control" id="typeSelect">
 				      	<option value="">타입선택</option>
 				      	<option value="12">관광지</option>
 				      	<option value="14">문화시설</option>
@@ -55,7 +80,7 @@
 				  <div class="form-group">
 				    <label class="col-sm-2 control-label">서비스분류</label>
 				   	<div class="col-sm-3">
-				      <select class="form-control" id="cat1Select">
+				      <select name="cat1" class="form-control" id="cat1Select">
 				      	<option value="">대분류</option>
 				      	<c:forEach var="categoryCode" items="${categoryCodeList}">
 				      		<option value="${categoryCode.code}">${categoryCode.name}</option>
@@ -63,12 +88,12 @@
 				      </select>
 				    </div>
 				   	<div class="col-sm-3">
-				      <select class="form-control" id="cat2Select">
+				      <select name="cat2" class="form-control" id="cat2Select">
 				      	<option value="">중분류</option>
 				      </select>
 				    </div>
 				   	<div class="col-sm-4">
-				      <select class="form-control" id="cat3Select">
+				      <select name="cat3" class="form-control" id="cat3Select">
 				      	<option value="">소분류</option>
 				      </select>
 				    </div>
@@ -76,22 +101,22 @@
 				  <div class="form-group">
 				    <label class="col-sm-2 control-label">지역</label>
 				   	<div class="col-sm-3">
-				      <select class="form-control" id="areaSelect">
-				      	<option value="0">지역선택</option>
+				      <select name="areaCode" class="form-control" id="areaSelect">
+				      	<option value="">지역선택</option>
 				      	<c:forEach var="areaCode" items="${requestScope.areaCodeList}">
 				      		<option value="${areaCode.code}">${areaCode.name}</option>
 				      	</c:forEach>
 				      </select>
 				    </div>
 				    <div class="col-sm-3">
-				      <select class="form-control" id="sigunguSelect">
-				      	<option value="0">시군구 선택</option>
+				      <select name="sigunguCode" class="form-control" id="sigunguSelect">
+				      	<option value="">시군구 선택</option>
 				      </select>
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-2 col-sm-10">
-				      <button type="submit" class="btn btn-default">검색</button>
+				      <button id="searchBtn" type="submit" class="btn btn-default">검색</button>
 				    </div>
 				  </div>
 				</div>
@@ -107,7 +132,8 @@
 						type: "get",
 						dataType: "html",
 						success: function(result){
-							$('#sigunguSelect').html(result);
+							$('#sigunguSelect option:first-child').nextAll().remove();
+							$('#sigunguSelect').append(result);
 						}
 					});
 				});
@@ -154,10 +180,11 @@
 						}
 					});
 				});
+				
 			</script>
 
 			<div style="margin-bottom: 30px; margin-top: 40px;">
-				<ul style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
+				<ul id="townListUl" style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
 					
 					
 					<c:forEach var="town" items="${list}">
@@ -167,7 +194,7 @@
 							<img src="images/noImage.gif" style="width:100%" class="img-responsive">
 						</c:if>
 						<c:if test="${not empty town.image }">
-							<img src="${town.image}" class="img-responsive">
+							<img src="${town.image}" class="img-responsive" style="max-height: 236px" />
 						</c:if>
 						</div>
 						<div class="col-sm-8">
@@ -201,7 +228,44 @@
 					</c:forEach>
 				</ul>
 			</div>
-
+			
+			<div class="text-center">
+				<ul class="pagination">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li class="active"><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				 </ul>
+			</div>
+			
+			<script>
+				$('#searchBtn').click(function(){
+					$.ajax({
+						url: "town/townListAjax.jsp?contentTypeId=" + $('#typeSelect').val()
+							+ "&cat1=" + $('#cat1Select').val()  
+							+ "&cat2=" + $('#cat2Select').val()
+							+ "&cat3=" + $('#cat3Select').val()
+							+ "&areaCode=" + $('#areaSelect').val()
+							+ "&sigunguCode=" + $('#sigunguSelect').val(),
+						dataType: 'html',
+						success: function(result){
+							console.log("성공");
+							$('#townListUl').html(result);
+						}
+					});
+				});
+			</script>
 
 		</div>
 	</div>
