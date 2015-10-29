@@ -26,7 +26,6 @@ function resizeBoard(){
 	$(document).ready(function(){
 		resizeBoard();
 		
-		
 		$(window).resize(function(){
 			resizeBoard();
 		});
@@ -34,7 +33,7 @@ function resizeBoard(){
 		$('#writeModal').on('shown.bs.modal', function (e) {
 			$('#summernote').summernote({
 				onBlur : function(e) {
-					alert('ddd');
+					/* alert('ddd'); */
 		            $('#summercontent').html($('#summernote').code());
 		        },
 		        height : 450,
@@ -43,6 +42,24 @@ function resizeBoard(){
 		        lang: 'ko-KR'
 		    });
 		})
+		
+		$('#btnSub').click(function(){
+			var sub=$('#inputSubject').val();
+			if(sub=="")
+			{
+				alert('제목을 입력해주세요');
+				$('#inputSubject').focus();
+				return;
+			}
+			var cont=$('#summercontent').val();
+			if(cont=="")
+			{
+				alert('내용을 입력해주세요');
+				$('#summercontent').focus();
+				return;
+			} 
+			$('writeForm').submit();
+		});
 	});
 </script>
 <div class="about_top">
@@ -74,7 +91,11 @@ function resizeBoard(){
 				
 				<c:forEach var="dto" items="${list }">
 				<div class="row list-group-item">
-					<span class="col-sm-1 mhide"><img src="images/ico-list-notice.gif"></span>
+					<span class="col-sm-1 mhide">
+						<c:if test="${not empty dto.sa_img}">
+						<img src="images/${dto.sa_img }" /> 
+						</c:if>
+					</span>
 					<!-- <img src="images/ico-list-notice.gif"> -->
 					<span class="col-sm-1">${dto.b_no }</span>
 					<span class="col-sm-5 col-xs-10">
@@ -94,7 +115,9 @@ function resizeBoard(){
 			
 			
 			<div class="row text-right">
+			 <!-- <a href="board_insert.do"> -->
 				<button type="button" class="btn search-btn" data-toggle="modal" data-target="#writeModal">글쓰기</button>
+			<!--  </a> -->
 			</div>	
 			
 			
@@ -108,27 +131,30 @@ function resizeBoard(){
 			        <div class="modal-body">
 			          <div class="container-fluid">
 			            
-			            <form class="form-horizontal">
+			            <form class="form-horizontal" method="post" action="board_insert.do" id="writeForm">
 							<div class="form-group">
+								<c:if test="${dto.b_id == admin}" >
+								</c:if>
 								<!-- label for="inputSubject" class="col-sm-2 control-label" style="text-align: left">제목</label-->
 								<div class="col-sm-12" style="padding-left: 0; padding-right: 0">
-									<input type="password" class="form-control" id="inputSubject"
+									<input type="text" class="form-control" id="inputSubject" name="b_title"
 										placeholder="제목을 입력하세요.">
 								</div>
 							</div>
 							<div class="form-group">
 								<div id="summernote"></div>
-								<textarea name="ss" id="summercontent" style="display: none;"></textarea>
+								<textarea name="b_content" id="summercontent" style="display: none;"></textarea>
 							</div>
-						</form>
+						
 			            
 			            
 			          </div>
 			        </div>
 			        <div class="modal-footer">
 			          <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-			          <button type="button" class="btn btn-primary">확인</button>
+			          <button type="submit" class="btn btn-primary" id="btnSub">확인</button>
 			        </div>
+			        </form>
 			      </div><!-- /.modal-content -->
 			    </div><!-- /.modal-dialog -->
 			  </div><!-- /.modal -->

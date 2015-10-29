@@ -30,6 +30,7 @@ public class DispatcherServlet extends HttpServlet {
 				cmd=cmd.substring(request.getContextPath().length()+1, cmd.lastIndexOf('.'));
 				//Model클래스 가져옴
 				Model model=wc.getBean(cmd);
+				System.out.println("model: " + model);
 				String jsp=model.hanlerRequest(request, response);
 				String temp=jsp.substring(jsp.lastIndexOf('.')+1);
 				
