@@ -67,5 +67,33 @@ public class BoardDAO {
 		}
 		return total;
 	}
-
+	
+	//»ðÀÔ
+	public static void boardInsert(BoardDTO d)
+	{
+		SqlSession session=null;
+		try
+		{
+			System.out.println(d.getB_no());
+			System.out.println(d.getB_title());
+			System.out.println(d.getB_id());
+			System.out.println(d.getB_content());
+			System.out.println(d.getB_delete());
+			System.out.println(d.getB_hit());
+			System.out.println(d.getB_date());
+			System.out.println(d.getB_renum());
+			System.out.println(d.getB_sano());
+			session=ssf.openSession(true);
+			session.insert("boardInsert",d);
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+		finally
+		{
+			if(session!=null)
+				session.close();
+		}
+	}
 }

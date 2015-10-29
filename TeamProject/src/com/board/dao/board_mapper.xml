@@ -2,17 +2,30 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.board.dao.board_mapper">
 <!--  목록 -->
+
 <select id="boardListData" resultType="Board" parameterType="java.util.Map">
-	SELECT sa_name, b_no, b_title, b_id, dbday, b_hit, num
-	FROM (SELECT b_no, b_title, b_id, To_char(b_date,'YYYY-MM-DD')as dbday
+	SELECT sa_img, b_no, b_title, b_id, dbday, b_hit, num
+	FROM (SELECT b_no, b_title, b_id, To_char(b_date,'YYYY-MM-DD')as dbday, b_sano
 			, b_hit, rownum as num
-	FROM (SELECT b_no, b_title, b_id, b_date, b_hit
-	FROM p_board ORDER BY b_no DESC)) b JOIN b_Word w
-	ON b.b_no=w.sa_no
-	WHERE num BETWEEN #{start} AND #{end} 
+	FROM (SELECT b_no, b_title, b_id, b_date, b_hit, b_sano
+	FROM p_board)) b LEFT OUTER JOIN b_Word w
+	ON b.b_sano=w.sa_no
+	WHERE num BETWEEN #{start} AND #{end} ORDER BY b_no DESC 
 </select>
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
 	SELECT COUNT(*) FROM board
 </select>
+
+<insert id="boardInsert">
+	<selectKey keyProperty="b_no" resultType="int" order="BEFORE">
+		 SELECT NVL(MAX(b_no)+1,1) as b_no FROM p_board
+	</selectKey>
+	insert into p_board values(#{b_no},null,#{b_title},#{b_content}
+			,0,0,SYSDATE,'y',#{b_sano})
+</insert>
+<!-- 반복 수행 태그 -->
+<sql id="where-no">
+	WHERE no=#{no}
+</sql>
 </mapper>
