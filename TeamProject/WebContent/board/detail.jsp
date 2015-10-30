@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="frm" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<div class="about_top">
+<div class="about_top" >
 	<div class="container" style="margin: 400;">
 		<div class="jumbotron">
 			<div class="row">
@@ -53,7 +53,7 @@
 				<div style=" text-align: right;">
 				<span style="padding: 7px; font-size: 9pt; color: #f08080">수정</span>
 				<span style="padding: 7px; font-size: 9pt; color: #f08080">삭제</span>
-				<a href="list.do?page=${page }"><span
+				<a href="board_list.do?page=${page }"><span
 					style="padding: 7px; font-size: 9pt; color: #f08080">목록</span></a>
 				</div>
 				</li>
@@ -66,7 +66,7 @@
 			</div>
 			<div class="row">
 				<div style="padding-left:30px; padding-right:30px;">
-					<span class="col-md-11"> <textarea
+					<span class="col-md-10"> <textarea
 							name="reply"
 							onclick="if(this.value==this.defaultValue){this.value=''}"
 							onblur="if (this.value == '') { this.value = this.defaultValue; }"
@@ -74,7 +74,7 @@
 					</span> 
 					<span class="col-md-2"> 
 					<input type="button" value="댓글 입력"
-						style="width: 80px; height: 50px; font-size: 9pt; color: #f08080">
+						style="float:right; width: 80px; height: 50px; font-size: 9pt; color: #f08080">
 					</span> <span class="col-md-2"></span>
 				</div>
 			</div>
