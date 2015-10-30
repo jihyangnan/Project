@@ -28,6 +28,7 @@ public class DispatcherServlet extends HttpServlet {
 				String cmd=request.getRequestURI();
 				
 				cmd=cmd.substring(request.getContextPath().length()+1, cmd.lastIndexOf('.'));
+				System.out.println(cmd);
 				//Model클래스 가져옴
 				Model model=wc.getBean(cmd);
 				String jsp=model.hanlerRequest(request, response);
@@ -36,6 +37,7 @@ public class DispatcherServlet extends HttpServlet {
 				if(temp.equals("do"))
 				{
 					response.sendRedirect(jsp);
+					
 				}
 				else
 				{
@@ -45,7 +47,7 @@ public class DispatcherServlet extends HttpServlet {
 		}
 		catch(Exception ex)
 		{
-			System.out.println(ex.getMessage());
+			ex.printStackTrace();
 		}
 	}
 }

@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%
-	String strPage = request.getParameter("page");
+	String strPage = (request.getParameter("page") == null) ? (String)request.getAttribute("page") : request.getParameter("page");
 	if(strPage == null){
 		strPage = "main/main.jsp";
 	}
 	int pageNum = 0;
+	
 	
 	if(strPage.startsWith("nezip")){
 		request.setAttribute("insertStep", strPage.substring("nezip/nezipinsert".length(), strPage.lastIndexOf(".jsp")));
@@ -21,7 +22,8 @@
 		pageNum = 4;
 	} else if(strPage.startsWith("join")){
 		pageNum = 5;
-	}
+	} 
+ 	
 	request.setAttribute("pageNum", pageNum);
 %>    
 <!--A Design by W3layouts

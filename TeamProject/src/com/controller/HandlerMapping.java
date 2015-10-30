@@ -4,6 +4,8 @@ import java.util.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import com.common.Model;
 //파싱함
 public class HandlerMapping extends DefaultHandler{
 	Map map=new HashMap();
@@ -25,11 +27,12 @@ public class HandlerMapping extends DefaultHandler{
 				
 				//저장
 				map.put(id, obj);
-				
 			}
 		}
 		catch(Exception ex){}
 		
 	}
+	
+	
 	
 }
