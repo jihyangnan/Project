@@ -44,10 +44,13 @@ int pageNo = (int)returnMap.get("pageNo");
 int numOfRows = (int)returnMap.get("numOfRows");
 int totalPage = (int)Math.ceil((totalCount/(numOfRows*1.0)));
 int blockSize = 5;
+int pageStartNum = (pageNo-1)/5*5+1;
+int pageEndNum = pageStartNum + blockSize - 1;
 request.setAttribute("pageNo", pageNo);
 request.setAttribute("list", list);
 
 %>  
+<ul style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
 <c:forEach var="town" items="${list}">
 
 	<li class="row"
@@ -89,26 +92,26 @@ request.setAttribute("list", list);
 	</li>
 
 </c:forEach>
-
-			<div class="text-center">
-				<ul class="pagination">
-				    <li>
-				      <a href="#" aria-label="Previous">
-				        <span aria-hidden="true">&laquo;</span>
-				      </a>
-				    </li>
-				    <c:forEach var="i" begin="1" end="<%=(totalCount > blockSize) ? blockSize : totalCount %>">
-				    	<c:if test="${i == requestScope.pageNo }">
-				    		<li class="active"><a href="#">${i}</a></li>
-				    	</c:if>
-				    	<c:if test="${i != requestScope.pageNo }">
-				    		<li><a href="#">${i}</a></li>
-				    	</c:if>
-				    </c:forEach>
-				    <li>
-				      <a href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
-				 </ul>
-			</div>
+</ul>
+<div class="text-center">
+	<ul class="pagination">
+	    <li>
+	      <a href="#" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+	    </li>
+	    <c:forEach var="i" begin="<%=pageStartNum %>" end="<%=(totalCount > pageEndNum) ? pageEndNum : totalCount %>">
+	    	<c:if test="${i == requestScope.pageNo }">
+	    		<li class="active"><a href="#">${i}</a></li>
+	    	</c:if>
+	    	<c:if test="${i != requestScope.pageNo }">
+	    		<li><a href="#">${i}</a></li>
+	    	</c:if>
+	    </c:forEach>
+	    <li>
+	      <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	 </ul>
+</div>

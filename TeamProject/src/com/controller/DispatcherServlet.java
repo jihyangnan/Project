@@ -17,8 +17,13 @@ public class DispatcherServlet extends HttpServlet {
 	
 	private WebApplicationContext wc;
 	public void init(ServletConfig config) throws ServletException {
-		String path=config.getInitParameter("xmlPath");
-		wc=new WebApplicationContext(path);
+		/*String path=config.getInitParameter("xmlPath");
+		wc=new WebApplicationContext(path);*/ // 경로가 컴퓨터 마다 다르므로 다른방법으로 했음
+		try(InputStream is = getClass().getResource("../../../applicationContext.xml").openStream();) {
+			wc = new WebApplicationContext(is);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
 	}
 
 

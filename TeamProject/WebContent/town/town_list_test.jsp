@@ -45,6 +45,8 @@
 	int numOfRows = (int)returnMap.get("numOfRows");
 	int totalPage = (int)Math.ceil((totalCount/(numOfRows*1.0)));
 	int blockSize = 5;
+	int pageStartNum = (pageNo-1)/5*5+1;
+	int pageEndNum = pageStartNum + blockSize - 1;
 	request.setAttribute("pageNo", pageNo);
 	request.setAttribute("list", list);
 	List<TownCodeDTO> areaCodeList = TownDAO.getAreaCodeList("");
@@ -191,9 +193,8 @@
 				
 			</script>
 
-			<div style="margin-bottom: 30px; margin-top: 40px;">
-				<ul id="townListUl" style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
-					
+			<div id="townList" style="margin-bottom: 30px; margin-top: 40px;">
+				<ul style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
 					
 					<c:forEach var="town" items="${list}">
 					<li class="row" style="padding-left: 10px; padding-right: 10px; margin-bottom: 10px;">
@@ -234,30 +235,33 @@
 					</li>
 					</c:forEach>
 				</ul>
+				
+				<div class="text-center">
+					<ul class="pagination">
+					    <li>
+					      <a href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <c:forEach var="i" begin="<%=pageStartNum %>" end="<%=(totalCount > pageEndNum) ? pageEndNum : totalCount %>">
+					    	<c:if test="${i == requestScope.pageNo }">
+					    		<li class="active"><a href="#">${i}</a></li>
+					    	</c:if>
+					    	<c:if test="${i != requestScope.pageNo }">
+					    		<li><a href="#">${i}</a></li>
+					    	</c:if>
+					    </c:forEach>
+					    <li>
+					      <a href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					 </ul>
+				</div>
+				
 			</div>
 			
-			<div class="text-center">
-				<ul class="pagination">
-				    <li>
-				      <a href="#" aria-label="Previous">
-				        <span aria-hidden="true">&laquo;</span>
-				      </a>
-				    </li>
-				    <c:forEach var="i" begin="1" end="<%=(totalCount > blockSize) ? blockSize : totalCount %>">
-				    	<c:if test="${i == requestScope.pageNo }">
-				    		<li class="active"><a href="#">${i}</a></li>
-				    	</c:if>
-				    	<c:if test="${i != requestScope.pageNo }">
-				    		<li><a href="#">${i}</a></li>
-				    	</c:if>
-				    </c:forEach>
-				    <li>
-				      <a href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
-				 </ul>
-			</div>
+			
 			
 			<script>
 				$('#searchBtn').click(function(){
@@ -270,8 +274,7 @@
 							+ "&sigunguCode=" + $('#sigunguSelect').val(),
 						dataType: 'html',
 						success: function(result){
-							console.log("성공");
-							$('#townListUl').html(result);
+							$('#townList').html(result);
 						}
 					});
 				});
