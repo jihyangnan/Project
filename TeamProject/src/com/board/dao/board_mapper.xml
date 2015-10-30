@@ -4,28 +4,40 @@
 <!--  목록 -->
 
 <select id="boardListData" resultType="Board" parameterType="java.util.Map">
-	SELECT sa_img, b_no, b_title, b_id, dbday, b_hit, num
+	SELECT sa_img, b_no, b_title, b_id, dbday, b_hit, b_delete, num
 	FROM (SELECT b_no, b_title, b_id, To_char(b_date,'YYYY-MM-DD')as dbday, b_sano
-			, b_hit, rownum as num
-	FROM (SELECT b_no, b_title, b_id, b_date, b_hit, b_sano
+			, b_hit, b_delete, rownum as num
+	FROM (SELECT b_no, b_title, b_id, b_date, b_hit, b_delete, b_sano
 	FROM p_board)) b LEFT OUTER JOIN b_Word w
 	ON b.b_sano=w.sa_no
-	WHERE num BETWEEN #{start} AND #{end} ORDER BY b_no DESC 
+	WHERE b_delete='n' AND num BETWEEN #{start} AND #{end}  ORDER BY b_no DESC 
 </select>
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
 	SELECT COUNT(*) FROM board
 </select>
-
+<!-- 삽입 -->
 <insert id="boardInsert">
 	<selectKey keyProperty="b_no" resultType="int" order="BEFORE">
 		 SELECT NVL(MAX(b_no)+1,1) as b_no FROM p_board
 	</selectKey>
 	insert into p_board values(#{b_no},null,#{b_title},#{b_content}
-			,0,0,SYSDATE,'y',#{b_sano})
+			,0,0,SYSDATE,'n',#{b_sano})
 </insert>
 <!-- 반복 수행 태그 -->
-<sql id="where-no">
-	WHERE no=#{no}
+<sql id="where-b_no">
+	WHERE b_no=#{b_no}
 </sql>
+
+<!-- 상세보기 -->
+<!-- 조회수 증가 -->
+<update id="boardHitIncrement" parameterType="int">
+	UPDATE p_board SET b_hit=b_hit+1 <include refid="where-b_no"/>
+</update>
+<!-- 내용보기 -->
+<select id="boardContentData" resultType="Board" parameterType="int">
+	SELECT b_no,b_id,b_title,b_date,b_hit,b_content
+	FROM p_board
+	<include refid="where-b_no"/> 
+</select>
 </mapper>
