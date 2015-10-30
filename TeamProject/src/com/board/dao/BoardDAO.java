@@ -88,12 +88,38 @@ public class BoardDAO {
 		}
 		catch(Exception ex)
 		{
-			System.out.println(ex.getMessage());
+			/*System.out.println(ex.getMessage());*/
+			ex.printStackTrace();
 		}
 		finally
 		{
 			if(session!=null)
 				session.close();
 		}
+	}
+	
+	//상세보기
+	public static BoardDTO boardContentData(int b_no)
+	{
+		SqlSession session=null;
+		BoardDTO d=new BoardDTO();
+		try
+		{
+			//조회수 증가
+			session=ssf.openSession(true);
+			session.update("boardHitIncrement",b_no);
+			//내용보기 값 보내기
+			d=session.selectOne("boardContentData",b_no);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+				session.close();
+		}
+		return d;
 	}
 }

@@ -37,6 +37,7 @@ public class DispatcherServlet extends HttpServlet {
 				Model model=wc.getBean(cmd);
 				System.out.println("model: " + model);
 				String jsp=model.hanlerRequest(request, response);
+				System.out.println("¸ðµ¨ ³¡³²" );
 				String temp=jsp.substring(jsp.lastIndexOf('.')+1);
 				
 				if(temp.equals("do"))
@@ -51,7 +52,7 @@ public class DispatcherServlet extends HttpServlet {
 		}
 		catch(Exception ex)
 		{
-			System.out.println(ex.getMessage());
+			ex.printStackTrace();
 		}
 	}
 }
