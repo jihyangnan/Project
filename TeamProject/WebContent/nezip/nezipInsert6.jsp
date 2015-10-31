@@ -114,7 +114,7 @@
 			</div>
 			
 			<div class="joinup">
-			<a href="index.jsp?page=nezip/nezipInsert5.jsp"> 
+			<a href="nezip_nezipInsert.do?step=5"> 
 				<input type=button value="ÀÌÀü" id="join" class="btn">
 			</a>
 			&nbsp;&nbsp;&nbsp; 

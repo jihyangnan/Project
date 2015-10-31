@@ -126,21 +126,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a href="nezip_nezipInsert.do?step=1"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
-					<li><a href="reserve_list.do"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
-					<li class="dropdown"><a href="town_list.do" >
+					<li><a href="index.jsp?page=nezip/nezipInsert1.jsp"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a href="index.jsp?page=reserve/list.jsp"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
+					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='index.jsp?page=town/town_list_test.jsp'" >
 						<i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
+						<ul class="dropdown-menu" style="min-width: 130px;">
+							<li><a href="#">서울</a></li>
+							<li><a href="#">경기</a></li>
+							<li><a href="#">인천</a></li>
+							<li><a href="#">강원</a></li>
+							<li><a href="#">충청</a></li>
+							<li><a href="#">전라</a></li>
+							<li><a href="#">경상</a></li>
+							<li><a href="#">제주</a></li>
+						</ul>
 					</li>
-					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='board_list.do'"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
+					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='index.jsp?page=board/list.jsp'"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
 						<ul class="dropdown-menu" style="min-width: 110px;">
-							<li><a href="board_list.do">자유게시판</a></li>
+							<li><a href="index.jsp?page=board/list.jsp">자유게시판</a></li>
 							<li><a href="index.jsp?page=board/inquire.jsp">1:1문의</a></li>
 						</ul>
 					</li>
-					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='join_login.do'"><i class="fa fa-user"></i><b>로그인</b></a>
+					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='index.jsp?page=join/login.jsp'"><i class="fa fa-user"></i><b>로그인</b></a>
 						<ul class="dropdown-menu" style="min-width: 100px;">
-							<li><a href="mypage_jimList.do">찜하기</a></li>
-							<li><a href="mypage_profile.do">마이페이지</a></li>
+							<li><a href="index.jsp?page=mypage/jimList.jsp">찜하기</a></li>
+							<li><a href="index.jsp?page=mypage/profile.jsp">마이페이지</a></li>
 							<li><a href="#">로그아웃</a></li>
 						</ul>
 					</li>

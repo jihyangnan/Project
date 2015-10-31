@@ -1,58 +1,6 @@
-<%@page import="com.nizipnezip.town.dao.TownDetailImageDTO"%>
-<%@page import="java.util.List"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailRepeatInfoDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailIntroFoodDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailIntroShoppingDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailIntroLeportsDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailIntroCourseDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailIntroFestivalDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailIntroCultureDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailIntroTourSpotDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDetailCommonDTO"%>
-<%@page import="com.nizipnezip.town.dao.TownDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%
-	//String contentId = "126508";
-	//String contentType = "12";
-	String contentId = request.getParameter("contentId");
-	String contentType = request.getParameter("contentTypeId");
-	request.setAttribute("contentId", contentId);
-	request.setAttribute("contentType", contentType);
-	
-	TownDetailCommonDTO common = TownDAO.getTownDetailCommon(contentId, contentType);
-	request.setAttribute("common", common);
-	
-	if(contentType.equals("12")){ 			// 관광지
-		TownDetailIntroTourSpotDTO spot = TownDAO.getTownDetailIntroTourSpot(contentId, contentType);
-		request.setAttribute("spot", spot);
-	} else if(contentType.equals("14")){	// 문화시설
-		TownDetailIntroCultureDTO culture = TownDAO.getTownDetailIntroCulture(contentId, contentType);
-		request.setAttribute("culture", culture);
-	} else if(contentType.equals("15")){	// 행사/공연/축제
-		TownDetailIntroFestivalDTO festival = TownDAO.getTownDetailIntroFestival(contentId, contentType);
-		request.setAttribute("festival", festival);
-	} else if(contentType.equals("25")){	// 여행코스
-		TownDetailIntroCourseDTO course = TownDAO.getTownDetailIntroCourse(contentId, contentType);
-		request.setAttribute("course", course);
-	} else if(contentType.equals("28")){	// 레포츠
-		TownDetailIntroLeportsDTO leports = TownDAO.getTownDetailIntroLeports(contentId, contentType);
-		request.setAttribute("leports", leports);
-	} else if(contentType.equals("38")){	// 쇼핑
-		TownDetailIntroShoppingDTO shopping = TownDAO.getTownDetailIntroShopping(contentId, contentType);
-		request.setAttribute("shopping", shopping);
-	} else if(contentType.equals("39")){	// 음식점
-		TownDetailIntroFoodDTO food = TownDAO.getTownDetailIntroFood(contentId, contentType);
-		request.setAttribute("food", food);
-	}
-	
-	List<TownDetailRepeatInfoDTO> repeatList = TownDAO.getTownDetailRepeatInfo(contentId, contentType);
-	request.setAttribute("repeatList", repeatList);
-	
-	List<TownDetailImageDTO> imageList = TownDAO.getTownDetailImage(contentId, contentType);
-	request.setAttribute("imageList", imageList);
-%>    
 <div class="about_top">
 	<div class="container">
 		<div style="margin-top: 20px;">

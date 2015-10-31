@@ -43,8 +43,8 @@
 		
 		 
 		   <div class="joinup">
-		<a href="index.jsp?page=mypage/profile_up.jsp"><input type=button value="¼öÁ¤ÇÏ±â" id="join" class="btn"></a> 
-		<a href="index.jsp?page=mypage/profile_out.jsp"><input type=button value="Å»ÅðÇÏ±â" id="join" class="btn"></a>
+		<a href="mypage_profileUp.do"><input type=button value="¼öÁ¤ÇÏ±â" id="join" class="btn"></a> 
+		<a href="mypage_profileOut.do"><input type=button value="Å»ÅðÇÏ±â" id="join" class="btn"></a>
 		 </div>		 
 	</div>
      </div>
