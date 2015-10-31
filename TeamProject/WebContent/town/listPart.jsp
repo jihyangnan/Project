@@ -36,7 +36,7 @@
 				<div class="col-sm-5">
 					<input type="button" value="상세보기" class="btn btn-success btn-sm"
 						style="background-color: #87d54d; border-color: #87d54d"
-						onclick="location.href='index.jsp?page=town/town_detail.jsp&contentId=${town.contentId}&contentTypeId=${town.contentTypeId}' ">
+						onclick="location.href='town_detail.do?contentId=${town.contentId}&contentTypeId=${town.contentTypeId}' ">
 				</div>
 			</div>
 		</div>
