@@ -75,8 +75,8 @@ function resizeBoard(){
 				<ol class="breadcrumb" style="background-color: #fff">
 				</ol>
 			</div>
-			<div align=center>
-			<img class="img-responsive" src="images/freeboard.jpg">
+			<div align=center style="padding-bottom:30px">
+			<img class="img-responsive" src="images/freeboard.jpg" style="border:2px solid;">
 			</div>
 			<!--h3 class="m_3" style="margin-top: 50px; margin-bottom:50px; text-align: center; font-weight: bold;">자유 게시판</h3-->
 			<div class="list-group panel panel-default" style="border: 0">	
@@ -100,12 +100,13 @@ function resizeBoard(){
 					<span class="col-sm-1">${dto.b_no }</span>
 					<span class="col-sm-5 col-xs-10">
 					  <i></i>
-					  <a href="index.jsp?page=board/detail.jsp">
+					  <a href="board_content.do?b_no=${dto.b_no}&page=${curpage}">
 					  ${dto.b_title }</a>
 					  <c:if test="${today==dto.dbday }">
 					  <sup><img src="images/neo_new.gif"></sup>
 					  </c:if>
 					</span>
+					
 					<span class="col-sm-2 mhide writer">${dto.b_id }</span>
 					<span class="col-sm-2 mhide date">${dto.dbday }</span>
 					<span class="col-sm-1 mhide hit">${dto.b_hit }</span>
@@ -133,8 +134,17 @@ function resizeBoard(){
 			            
 			            <form class="form-horizontal" method="post" action="board_insert.do" id="writeForm">
 							<div class="form-group">
-								<c:if test="${dto.b_id == admin}" >
+								<c:if test="${dto.b_id == 'admin'}" >
+									<div >
+									<font style="font-weight: 700";>말머리</font>&nbsp;&nbsp;&nbsp;
+									<label style="font-size:14px;">
+										<input type="radio" name=word value=1>&nbsp; 공지 &nbsp; &nbsp; &nbsp;
+										<input type="radio" name=word value=2>&nbsp; 이벤트 &nbsp; &nbsp; &nbsp;
+										<input type="radio" name=word value=3>&nbsp; 기타
+									</label>
+									</div>
 								</c:if>
+								
 								<!-- label for="inputSubject" class="col-sm-2 control-label" style="text-align: left">제목</label-->
 								<div class="col-sm-12" style="padding-left: 0; padding-right: 0">
 									<input type="text" class="form-control" id="inputSubject" name="b_title"

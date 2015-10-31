@@ -23,6 +23,13 @@ body a{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+	text-decoration: none;
+}
+body a:HOVER
+{
+	text-decoration: none;
+	font-weight: 800;
+	
 }
 .header{
 	position:relative;
@@ -1286,7 +1293,7 @@ p.single_desc{
   right: 4px;
 } 
 .top-menu {
-  margin-left: 22%;
+  margin-left: 15%;
 }
 .details {
   top: 215px;

@@ -184,10 +184,10 @@
        	 </ul>
        	 </div>
 		<div class="joinup">
-			<a href="index.jsp?page=nezip/nezipInsert2.jsp"> 
+			<a href="nezip_nezipInsert.do?step=2"> 
 				<input type=button value="이전" id="join" class="btn">
 			</a>
-			&nbsp;&nbsp;&nbsp; <a href="index.jsp?page=nezip/nezipInsert4.jsp">
+			&nbsp;&nbsp;&nbsp; <a href="nezip_nezipInsert.do?step=4">
 				<input type=button value="다음" id="join" class="btn">
 			</a>
 		</div>
