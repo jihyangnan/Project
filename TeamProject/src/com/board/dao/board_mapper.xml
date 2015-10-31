@@ -14,7 +14,7 @@
 </select>
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
-	SELECT COUNT(*) FROM board
+	SELECT COUNT(*) FROM p_board
 </select>
 
 <insert id="boardInsert">
@@ -22,7 +22,7 @@
 		 SELECT NVL(MAX(b_no)+1,1) as b_no FROM p_board
 	</selectKey>
 	insert into p_board values(#{b_no},null,#{b_title},#{b_content}
-			,0,0,SYSDATE,'y',#{b_sano})
+			,0,0,SYSDATE,'y',4)
 </insert>
 <!-- 반복 수행 태그 -->
 <sql id="where-no">
