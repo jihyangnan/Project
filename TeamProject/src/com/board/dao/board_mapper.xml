@@ -10,7 +10,7 @@
 	FROM (SELECT b_no, b_title, b_id, b_date, b_hit, b_delete, b_sano
 	FROM p_board)) b LEFT OUTER JOIN b_Word w
 	ON b.b_sano=w.sa_no
-	WHERE b_delete='n' AND num BETWEEN #{start} AND #{end}  ORDER BY b_no DESC 
+	WHERE b_delete='y' AND num BETWEEN #{start} AND #{end}  ORDER BY b_no DESC 
 </select>
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
