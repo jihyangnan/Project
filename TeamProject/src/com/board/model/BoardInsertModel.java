@@ -17,9 +17,7 @@ public class BoardInsertModel implements Model{
 		String b_content=req.getParameter("b_content");
 		String b_id=req.getParameter("b_id");
 		String b_sano=req.getParameter("b_sano");
-		
-		
-		
+
 		BoardDTO d=new BoardDTO();
 		d.setB_title(b_title);
 		d.setB_content(b_content);

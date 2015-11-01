@@ -27,7 +27,14 @@ public class BoardDTO {
 	private int b_sano;
 	private String dbday;
 	private String sa_img;
+	private int replyCount;
 	
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
 	public int getB_no() {
 		return b_no;
 	}
@@ -94,4 +101,5 @@ public class BoardDTO {
 	public void setSa_img(String sa_img) {
 		this.sa_img = sa_img;
 	}
+
 }

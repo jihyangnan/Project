@@ -9,6 +9,13 @@
    	<bean id="board_content" class="com.board.model.BoardContentModel"/>
 	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
 	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
+	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
+	
+	<!-- 게시판 댓글 -->
+	<bean id="reply_new_insert" class="com.board.model.ReplyNewInsertModel"/>
+    <bean id="reply_re_insert" class="com.board.model.ReplyReInsertModel"/>
+    <bean id="reply_re_update" class="com.board.model.ReplyReUpdateModel"/>
+    <bean id="reply_delete" class="com.board.model.ReplyDeleteModel"/>
 	
 	<!-- 내집 등록 관련 -->
 	<bean id="nezip_nezipInsert" class="com.nezip.model.NezipInsertModel"/>

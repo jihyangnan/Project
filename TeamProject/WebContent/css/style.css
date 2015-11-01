@@ -28,8 +28,8 @@ body a{
 body a:HOVER
 {
 	text-decoration: none;
-	font-weight: 800;
-	
+	font-weight: 600;
+	color:#87d54d;
 }
 .header{
 	position:relative;
@@ -947,7 +947,7 @@ ul.list_2 {
 }
 h3.m_3, .about_grid1 h3, .about_grid2 h3{
 	color: #F94B4B;
-  font: 300 30px/20px 'Roboto', sans-serif;
+  font: 300 30px/20px '나눔고딕', sans-serif;
   margin-bottom: 1em;
 }
 .about_grid1{
@@ -1970,3 +1970,8 @@ li.selector {
 .control-group.success .fileupload .uneditable-input{color:#468847;border-color:#468847;}
 .control-group.success .fileupload .fileupload-preview{color:#468847;}
 .control-group.success .fileupload .thumbnail{border-color:#468847;}
+
+.jumbotron
+{
+	background-color: #f8f8f8;
+}
