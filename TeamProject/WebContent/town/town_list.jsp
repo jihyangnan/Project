@@ -12,7 +12,7 @@
 		<div class="about">
 			
 			<div >
-				<div class="form-horizontal">
+				<form id="searchForm" class="form-horizontal" method="post" action="town_list.do">
 				  <div class="form-group">
 				    <label class="col-sm-2 control-label">관광타입</label>
 				    <div class="col-sm-3">
@@ -26,6 +26,13 @@
 				      	<option value="38">쇼핑</option>
 				      	<option value="39">음식점</option>
 				      </select>
+				      <script>
+				      	$('select#contentTypeId option').each(function(){
+				      		if($(this).val() == '${contentTypeId}'){
+				      			$(this).attr('selected', 'selected');
+				      		}
+				      	});
+				      </script>
 				    </div>
 				  </div>
 				  <div class="form-group">
@@ -33,19 +40,40 @@
 				   	<div class="col-sm-3">
 				      <select name="cat1" class="form-control" id="cat1Select">
 				      	<option value="">대분류</option>
-				      	<c:forEach var="categoryCode" items="${categoryCodeList}">
-				      		<option value="${categoryCode.code}">${categoryCode.name}</option>
+				      	<c:forEach var="cat1Code" items="${cat1CodeList}">
+				      		<c:if test="${cat1Code.code == cat1}">
+				      		<option value="${cat1Code.code}" selected>${cat1Code.name}</option>
+				      		</c:if>
+				      		<c:if test="${cat1Code.code != cat1 && cat1Code.name != '숙박'}">
+				      		<option value="${cat1Code.code}">${cat1Code.name}</option>
+				      		</c:if>
 				      	</c:forEach>
 				      </select>
 				    </div>
 				   	<div class="col-sm-3">
 				      <select name="cat2" class="form-control" id="cat2Select">
 				      	<option value="">중분류</option>
+				      	<c:forEach var="cat2Code" items="${cat2CodeList}">
+				      		<c:if test="${cat2Code.code == cat2}">
+				      		<option value="${cat2Code.code}" selected>${cat2Code.name}</option>
+				      		</c:if>
+				      		<c:if test="${cat2Code.code != cat2}">
+				      		<option value="${cat2Code.code}">${cat2Code.name}</option>
+				      		</c:if>
+				      	</c:forEach>
 				      </select>
 				    </div>
 				   	<div class="col-sm-4">
 				      <select name="cat3" class="form-control" id="cat3Select">
 				      	<option value="">소분류</option>
+				      	<c:forEach var="cat3Code" items="${cat3CodeList}">
+				      		<c:if test="${cat3Code.code == cat3}">
+				      		<option value="${cat3Code.code}" selected>${cat3Code.name}</option>
+				      		</c:if>
+				      		<c:if test="${cat3Code.code != cat3}">
+				      		<option value="${cat3Code.code}">${cat3Code.name}</option>
+				      		</c:if>
+				      	</c:forEach>
 				      </select>
 				    </div>
 				  </div>
@@ -54,25 +82,39 @@
 				   	<div class="col-sm-3">
 				      <select name="areaCode" class="form-control" id="areaSelect">
 				      	<option value="">지역선택</option>
-				      	<c:forEach var="areaCode" items="${requestScope.areaCodeList}">
-				      		<option value="${areaCode.code}">${areaCode.name}</option>
+				      	<c:forEach var="area" items="${areaCodeList}">
+				      		<c:if test="${area.code == areaCode}">
+				      		<option value="${area.code}" selected>${area.name}</option>
+				      		</c:if>
+				      		<c:if test="${area.code != areaCode}">
+				      		<option value="${area.code}">${area.name}</option>
+				      		</c:if>
 				      	</c:forEach>
 				      </select>
 				    </div>
 				    <div class="col-sm-3">
 				      <select name="sigunguCode" class="form-control" id="sigunguSelect">
 				      	<option value="">시군구 선택</option>
+				      	<c:forEach var="sigungu" items="${sigunguCodeList}">
+				      		<c:if test="${sigungu.code == sigunguCode}">
+				      		<option value="${sigungu.code}" selected>${sigungu.name}</option>
+				      		</c:if>
+				      		<c:if test="${sigungu.code != sigunguCode}">
+				      		<option value="${sigungu.code}">${sigungu.name}</option>
+				      		</c:if>
+				      	</c:forEach>
 				      </select>
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <div class="col-sm-offset-2 col-sm-10">
-				      <button id="searchBtn" type="submit" class="btn btn-default">검색</button>
+				    <div class="col-sm-offset-2 col-sm-10 ">
+				      <button id="searchBtn" type="submit" class="btn btn-success">검색</button>
 				    </div>
 				  </div>
-				</div>
+				</form>
 			</div>
 			<script>
+			
 				$('#areaSelect').change(function(){
 					if($(this).val() == 0){
 						$('#sigunguSelect').html('<option value="0">시군구 선택</option>');
@@ -207,7 +249,7 @@
 			
 			
 			<script>
-				$('#searchBtn').click(function(){
+				/* $('#searchBtn').click(function(){
 					$.ajax({
 						url: "town_list.do?reqeustType=ajax&contentTypeId=" + $('#typeSelect').val()
 							+ "&cat1=" + $('#cat1Select').val()  
@@ -220,7 +262,7 @@
 							$('#townList').html(result);
 						}
 					});
-				});
+				}); */
 			</script>
 
 		</div>

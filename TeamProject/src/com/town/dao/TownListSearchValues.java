@@ -11,6 +11,7 @@ public class TownListSearchValues {
 	private String currPage;
 	private String countPerPage;
 	private String arrange;
+	private String keyword;
 	
 	public TownListSearchValues(){
 		areaCode = "";
@@ -22,6 +23,7 @@ public class TownListSearchValues {
 		currPage = "1";
 		countPerPage = "10";
 		arrange = "P";
+		keyword = "";
 	}
 
 	public String getAreaCode() {
@@ -94,6 +96,14 @@ public class TownListSearchValues {
 
 	public void setArrange(String arrange) {
 		this.arrange = arrange;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 	
 }

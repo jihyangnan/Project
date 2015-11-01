@@ -11,12 +11,40 @@ div.desc li:FIRST-CHILD {
 div.list .col-sm-8, div.list .col-sm-8 {
 	padding-top: 10px;
 	padding-bottom: 10px;
-} 		
+} 	
+
+
+
+/* 우리동네 소개 부분 */	
 @media screen and (min-width: 768px) {
 	div.desc {
 		padding-left: 0;
 	}
+	img.townListImg {
+		width: 100%;
+		max-height: 110px;
+	}
 }
+@media screen and (min-width: 992px) {
+	img.townListImg {
+		width: 100%;
+		max-height: 180px;
+	}
+}
+#searchForm .btn-success {
+	color: #fff;
+    background-color: #87d54d;
+    border-color: #87d54d;
+}
+
+#searchForm .btn-success:hover {
+	color: #fff;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
+
+
 .affix{
 	top: 0;
 	width: 457px;

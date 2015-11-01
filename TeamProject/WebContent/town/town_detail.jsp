@@ -94,8 +94,8 @@
 										</li>
 									</c:if>
 									<c:if test="${contentType == '25' }">
-										<li class="row" style="margin-bottom: 10px">
-											<h3>${repeat.subName}</h3>
+										<li class="row" style="margin-bottom: 15px">
+											<h3 style="margin-bottom: 10px">${repeat.subName}</h3>
 											<p>
 												<img src="${repeat.subDetailimg}" style="width:100%" class="img-responsive">
 											</p>
@@ -226,7 +226,7 @@
 						
 						<p>${common.overview }</p>
 
-						<input type="button" id="join" class="btn" value="목록 보기" onclick="location.href='index.jsp?page=town/town.jsp'">
+						<input type="button" id="join" class="btn" value="목록 보기" onclick="history.back();">
 					</div>
 					<div class="clearfix"></div>
 				</div>

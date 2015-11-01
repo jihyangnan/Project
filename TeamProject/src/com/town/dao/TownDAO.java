@@ -23,16 +23,16 @@ public class TownDAO {
 	}
 	
 	/**
-	 * 지역 코드, 시군구 코드 검색
-	 * @param areaCode - 시군구 코드를 검색할때 사용하는 지역 코드
-	 * @return 지역, 시군구 코드(TownCodeDTO) 리스트
+	 * 지역 코드 or 시군구 코드 검색
+	 * @param areaCode - 시군구 코드를 검색할때 사용하는 지역 코드, 빈문자열("")일 경우 지역코드를 리턴한다.
+	 * @return 지역 or 시군구 코드(TownCodeDTO) 리스트
 	 */
 	public static List<TownCodeDTO> getAreaCodeList(String areaCode){
 		List<TownCodeDTO> list = new ArrayList<>();
 		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?ServiceKey=" + serviceKey
 				+ "&areaCode=" + areaCode
 				+ "&MobileOS=ETC&MobileApp=TourAPI3.0_Guide";
-		
+		System.out.println("검색 url: " + url);
 		try {
 			Document doc = parser.build(url);
 			Element root = doc.getRootElement();
@@ -71,7 +71,7 @@ public class TownDAO {
 				+ "&cat1=" + cat1
 				+ "&cat2=" + cat2
 				+ "&numOfRows=50&MobileOS=ETC&MobileApp=TourAPI3.0_Guide";	// getAreaCodeList()처럼 총 개수 받아서 다시 요청하지 않고 50개로 잡았음
-		
+		System.out.println("검색 url: " + url);
 		try {
 			Document doc = parser.build(url);
 			Element root = doc.getRootElement();
@@ -158,7 +158,7 @@ public class TownDAO {
 				+ "&contentTypeId=" + contentType
 				+ "&contentId=" + contentId
 				+ "&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&defaultYN=Y&firstImageYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y";
-		
+		System.out.println("검색 url: " + url);
 		try {
 			Document doc = parser.build(url);
 			Element root = doc.getRootElement();
@@ -199,6 +199,7 @@ public class TownDAO {
 				+ "&contentTypeId=" + contentType
 				+ "&contentId=" + contentId
 				+ "&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&introYN=Y";
+		System.out.println("검색 url: " + url);
 		Document doc = parser.build(url);
 		return doc.getRootElement();
 	}
@@ -440,6 +441,7 @@ public class TownDAO {
 				+ "&contentTypeId=" + contentType
 				+ "&contentId=" + contentId
 				+ "&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&listYN=Y";
+		System.out.println("검색 url: " + url);
 		try {
 			Document doc = parser.build(url);
 			Element root = doc.getRootElement();
@@ -480,6 +482,7 @@ public class TownDAO {
 				+ "&contentTypeId=" + contentType
 				+ "&contentId=" + contentId
 				+ "&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&imageYN=Y";
+		System.out.println("검색 url: " + url);
 		try {
 			Document doc = parser.build(url);
 			Element root = doc.getRootElement();

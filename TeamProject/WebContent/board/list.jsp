@@ -33,7 +33,6 @@ function resizeBoard(){
 		$('#writeModal').on('shown.bs.modal', function (e) {
 			$('#summernote').summernote({
 				onBlur : function(e) {
-					/* alert('ddd'); */
 		            $('#summercontent').html($('#summernote').code());
 		        },
 		        height : 450,
@@ -41,6 +40,8 @@ function resizeBoard(){
 		        maxHeight: null,
 		        lang: 'ko-KR'
 		    });
+			$('span.note-current-fontsize').text(12);
+			$('div.note-editable p').css('font-size', '12px');
 		})
 		
 		$('#btnSub').click(function(){
