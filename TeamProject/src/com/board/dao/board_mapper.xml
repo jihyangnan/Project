@@ -10,7 +10,7 @@
 	FROM (SELECT b_no, b_title, b_id, b_date, b_hit, b_delete, b_sano
 	FROM p_board)) b LEFT OUTER JOIN b_Word w
 	ON b.b_sano=w.sa_no
-	WHERE b_delete='y' AND num BETWEEN #{start} AND #{end}  ORDER BY b_no DESC 
+	WHERE b_delete='n' AND num BETWEEN #{start} AND #{end} ORDER BY b_no DESC
 </select>
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
@@ -21,8 +21,7 @@
 	<selectKey keyProperty="b_no" resultType="int" order="BEFORE">
 		 SELECT NVL(MAX(b_no)+1,1) as b_no FROM p_board
 	</selectKey>
-	insert into p_board values(#{b_no},null,#{b_title},#{b_content}
-			,0,0,SYSDATE,'n',#{b_sano})
+	INSERT INTO p_board values(#{b_no},null,#{b_title},#{b_content},0,0,SYSDATE,'n',#{b_sano})
 </insert>
 <!-- 반복 수행 태그 -->
 <sql id="where-b_no">
@@ -39,5 +38,33 @@
 	SELECT b_no,b_id,b_title,b_date,b_hit,b_content
 	FROM p_board
 	<include refid="where-b_no"/> 
+</select>
+
+<!-- 수정하기 -->
+<update id="boardUpdate" parameterType="Board">
+	UPDATE p_board SET
+	b_title=#{b_title},b_content=#{b_content},b_date=SYSDATE
+	<include refid="where-b_no"/>
+</update>
+
+<!-- 삭제하기 -->
+<update id="boardDelete" parameterType="Board">
+	UPDATE p_board SET
+	b_delete='y'
+	<include refid="where-b_no"/>
+</update>
+
+<!-- 댓글형 게시판 -->
+<!-- 댓글 갯수 -->
+<select id="boardReplyCount" resultType="int" parameterType="int">
+	SELECT COUNT(*) FROM re_board WHERE rw_bno=#{rw_bno}
+</select>
+<!-- 댓글 게시판 목록 -->
+<select id="replyListData" resultType="Reply" parameterType="int">
+	SELECT rw_no,rw_id,rw_content,TO_CHAR(rw_date,'YYYY-MM-DD HH24:MI:SS') as dbday,rw_delete
+	FROM re_board
+	WHERE rw_bno=#{rw_bno}
+	ORDER BY rw_no DESC
+
 </select>
 </mapper>

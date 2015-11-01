@@ -33,7 +33,6 @@ function resizeBoard(){
 		$('#writeModal').on('shown.bs.modal', function (e) {
 			$('#summernote').summernote({
 				onBlur : function(e) {
-					/* alert('ddd'); */
 		            $('#summercontent').html($('#summernote').code());
 		        },
 		        height : 450,
@@ -41,6 +40,8 @@ function resizeBoard(){
 		        maxHeight: null,
 		        lang: 'ko-KR'
 		    });
+			$('span.note-current-fontsize').text(12);
+			$('div.note-editable p').css('font-size', '12px');
 		})
 		
 		$('#btnSub').click(function(){
@@ -56,6 +57,7 @@ function resizeBoard(){
 			{
 				alert('내용을 입력해주세요');
 				$('#summercontent').focus();
+
 				return;
 			} 
 			$('writeForm').submit();
@@ -81,27 +83,33 @@ function resizeBoard(){
 			<!--h3 class="m_3" style="margin-top: 50px; margin-bottom:50px; text-align: center; font-weight: bold;">자유 게시판</h3-->
 			<div class="list-group panel panel-default" style="border: 0">	
 				<div class="row mhide panel-heading">
-					<div class="col-sm-1">말머리</div>
-					<div class="col-sm-1">번호</div>
-					<div class="col-sm-5">제목</div>
-					<div class="col-sm-2">작성자</div>
-					<div class="col-sm-2">작성일</div>
-					<div class="col-sm-1">조회</div>
+					
+					<div class="col-sm-1" style="font-weight: 600">번호</div>
+					<div class="col-sm-1" style="font-weight: 600">말머리</div>
+					<div class="col-sm-5" style="font-weight: 600">제목</div>
+					<div class="col-sm-2" style="font-weight: 600">작성자</div>
+					<div class="col-sm-2" style="font-weight: 600">작성일</div>
+					<div class="col-sm-1" style="font-weight: 600">조회</div>
 				</div>
 				
 				<c:forEach var="dto" items="${list }">
 				<div class="row list-group-item">
+					
+					<!-- <img src="images/ico-list-notice.gif"> -->
+					<span class="col-sm-1">${dto.b_no }</span>
 					<span class="col-sm-1 mhide">
 						<c:if test="${not empty dto.sa_img}">
 						<img src="images/${dto.sa_img }" /> 
 						</c:if>
 					</span>
-					<!-- <img src="images/ico-list-notice.gif"> -->
-					<span class="col-sm-1">${dto.b_no }</span>
-					<span class="col-sm-5 col-xs-10">
+					<span class="col-sm-5 col-xs-10" style="text-align:left;">
 					  <i></i>
 					  <a href="board_content.do?b_no=${dto.b_no}&page=${curpage}">
 					  ${dto.b_title }</a>
+					  <c:if test="${dto.replyCount!=0 }">
+					  	<font style="color:#f94b4b;font-size:13px; font-weight:500">
+					  	[${dto.replyCount }]</font>
+					  </c:if>
 					  <c:if test="${today==dto.dbday }">
 					  <sup><img src="images/neo_new.gif"></sup>
 					  </c:if>
@@ -176,20 +184,24 @@ function resizeBoard(){
 			</span-->
 			   <ul class="pagination">
 			    <li>
-			      <a href="#" aria-label="Previous">
+			      <a href="board_list.do?page=${curpage>1?curpage-1:curpage }" aria-label="Previous">
 			        <span aria-hidden="true">&laquo;</span>
 			      </a>
 			    </li>
-			    <li class="active"><a href="#">1</a></li>
+			   <!--  <li class="active"><a href="#">1</a></li>
 			    <li><a href="#">2</a></li>
 			    <li><a href="#">3</a></li>
 			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
+			    <li><a href="#">5</a></li> -->
+			    <li class="active"><a href="board_list.do">처음으로</a></li>
 			    <li>
-			      <a href="#" aria-label="Next">
+			      <a href="board_list.do?page=${curpage<totalpage?curpage+1:curpage }" aria-label="Next">
 			        <span aria-hidden="true">&raquo;</span>
 			      </a>
 			    </li>
+			  </ul>
+			  <ul class="pagination" style="font-size: 12px;">
+			  	<li style="float:right;">${curpage } / ${totalpage }</li>
 			  </ul>
 			</div>
 			<div class="row" style="margin-bottom: 30px">
