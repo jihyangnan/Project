@@ -153,10 +153,10 @@ public String getH_Id() {
 public void setH_Id(String h_Id) {
 	this.h_Id = h_Id;
 }
-public String getH_close() {
+public String getH_Close() {
 	return h_Close;
 }
-public void setH_close(String h_Close) {
+public void setH_Close(String h_Close) {
 	this.h_Close = h_Close;
 	
 }
