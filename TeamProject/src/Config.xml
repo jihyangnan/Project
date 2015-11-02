@@ -6,6 +6,12 @@
 		<typeAlias type="com.board.dao.BoardDTO" alias="Board"/>
 		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
 		<typeAlias type="com.nezip.dao.ZipRegDTO" alias="ZipReg"/>
+		<typeAlias type="com.nezip.dao.Room_categoryDTO" alias="Room_category"/>
+		<typeAlias type="com.nezip.dao.Fac_kindDTO" alias="Fac_kind"/>
+		<typeAlias type="com.nezip.dao.Fac_regDTO" alias="Fac_reg"/>
+		<typeAlias type="com.nezip.dao.Home_categoryDTO" alias="Home_category"/>
+		<typeAlias type="com.nezip.dao.Home_facDTO" alias="Home_fac"/>
+		<typeAlias type="com.nezip.dao.Home_photoDTO" alias="Home_photo"/>
 	</typeAliases>
 	<!-- 개발환경 -->
 	<environments default="development">
@@ -21,5 +27,6 @@
 	</environments>
 	<mappers>
 	<mapper resource="com/board/dao/board_mapper.xml"/>
+	<mapper resource="com/nezip/dao/nezip_mapper.xml"/>
 	</mappers>
 </configuration>

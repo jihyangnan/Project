@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 	
 <form action="nezip_insert1process.do" method="post">
 <div>
@@ -20,12 +21,15 @@
 						<div>
 							<h4 style="margin-bottom: 10px;">집 유형</h4>
 							<select name="houseStyle" class="form-control">
-								<option value=1 selected>아파트
-								<option value=2>단독주택
-								<option value=3>게스트하우스
-								<option value=4>빌라
-								<option value=5>호텔
-								<option value=6>기타
+							<c:forEach var="homeCategory" items="${homeCateoryList}">
+								<option value="${homeCategory.ht_No}">${homeCategory.ht_Name}</option>
+							</c:forEach>
+								<!-- <option value="1">아파트</option>
+								<option value="2">단독주택</option>
+								<option value="3">게스트하우스</option>
+								<option value="4">빌라</option>
+								<option value="5">호텔</option>
+								<option value="6">기타</option> -->
 							</select>
 						</div>
 					</li>
@@ -36,9 +40,12 @@
 						<div>
 							<h4 style="margin-bottom: 10px;">숙소 유형</h4>
 							<select name="roomStyle" class="form-control">
-								<option value=1 selected>집전체
-								<option value=2>개인실
-								<option value=3>다인실
+							<c:forEach var="roomCategory" items="${roomCateoryList}">
+								<option value="${roomCategory.hst_No}">${roomCategory.hst_Name}</option>
+							</c:forEach>
+								<!-- <option value="1">집전체</option>
+								<option value="2">개인실</option>
+								<option value="3">다인실</option> -->
 							</select>
 						</div>
 					</li>
