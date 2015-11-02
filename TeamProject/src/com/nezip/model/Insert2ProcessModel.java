@@ -19,7 +19,7 @@ public class Insert2ProcessModel implements Model{
 		String addr2 = req.getParameter("addr2");
 		HttpSession session = req.getSession();
 		
-		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("dto");
+		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("ZipRegDTO");
 		dto.setH_Addr1(addr1);
 		dto.setH_Addr2(addr2);
 		
