@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.board.dao.*;
 import com.common.Model;
@@ -13,7 +14,8 @@ public class BoardContentModel implements Model{
 
 	@Override
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		// TODO Auto-generated method stub
+		
+	 	
 		String rPage=req.getParameter("rPage");
 		int type=0;
 		if(rPage==null)
@@ -42,7 +44,9 @@ public class BoardContentModel implements Model{
 				j++;
 			}
 		}
-		
+		// 세션에 아이디 등록
+		HttpSession session = req.getSession();
+		session.setAttribute("id", "admin");
 		//req.setAttribute("rtotal", rtotal);
 		req.setAttribute("rcurpage", rcurpage);
 		

@@ -205,4 +205,95 @@ public class BoardDAO {
 	}
 	
 	//´ñ±Û »ðÀÔ
+	public static void reboardNewInsert(ReBoardDTO d)
+	{
+		SqlSession session=ssf.openSession(true);
+		System.out.println("rw_no="+d.getRw_no());
+		System.out.println("rw_bno="+d.getRw_bno());
+		System.out.println("rw_id="+d.getRw_id());
+		session.insert("reboardNewInsert",d);
+		session.close();
+	}
+	//´ñ±ÛÀÇ ´ñ±Û»ðÀÔ
+	public static ReBoardDTO reboardParentInfo(int rw_bno)
+	{
+		SqlSession session=ssf.openSession();
+		ReBoardDTO list=session.selectOne("reboardParentInfo",rw_bno);
+		session.close();
+		return list;
+	}
+	public static void reboardStepIncrement(ReBoardDTO d)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.update("reboardStepIncrement",d);
+		session.close();
+	}
+	public static void reboardDethIncrement(int rw_no)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.insert("reboardDethIncrement",rw_no);
+		session.close();
+	}
+	public static void reboardReInsert(ReBoardDTO d)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.insert("reboardReInsert", d);
+		session.close();
+	}
+	
+	//´ñ±Û¼öÁ¤
+	public static void reboardReUpdate(ReBoardDTO d)
+	{
+		SqlSession session=ssf.openSession(true);
+		System.out.println("DAO rw_no="+d.getRw_no());
+		session.update("reboardReUpdate",d);
+		session.close();
+	}
+	//´ñ±Û»èÁ¦
+	public static ReBoardDTO reboardGetDepthRoot(int rw_no)
+	{
+		SqlSession session=ssf.openSession();
+		ReBoardDTO list=session.selectOne("reboardGetDepthRoot",rw_no);
+		session.close();
+		return list;
+	}
+	public static void reboardDepthDecrement(int rw_no)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.update("reboardDepthDecrement",rw_no);
+		session.close();
+	}
+	public static void reboardMsgUpdate(int rw_no)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.update("reboardMsgUpdate",rw_no);
+		session.close();
+	}
+	public static void reboardDelete(ReBoardDTO d)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.insert("reboardDelete",d);
+		} 
+		catch (Exception ex) 
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+				session.close();
+		}
+	}
+	
+	//´ñ±ÛÆäÀÌÁö
+	public static int reboardPageTotalpage(int rw_bno)
+	{
+		SqlSession session=ssf.openSession();
+		int count=session.selectOne("reboardPageTotalpage",rw_bno);
+		session.close();
+		return (int)(Math.ceil(count/5.0));
+	}
 }

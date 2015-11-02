@@ -79,8 +79,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        	<input type="text" id="sample4_postcode" placeholder="우편번호" class="addrsearch">
 		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 		<div style="padding-top:3px;">
-		<input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="width:40%;" class="addrsearch">
-		<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width:30%;" class="addrsearch">
+		<input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="width:40%;" class="addrsearch" name="addr1">
+		<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width:30%;" class="addrsearch" name="addr2">
 		</div>
 		<span id="guide" style="color:#999"></span>
 

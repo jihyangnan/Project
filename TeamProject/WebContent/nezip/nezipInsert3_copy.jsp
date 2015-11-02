@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<form action="nezip_insert3process.do" method="post">
     <div >
     	
@@ -9,29 +8,8 @@
        	 <!-- 작업 시작  -->
 	 </div>
 	 <div style="padding-left:40px;">
-       	<ul>
-	 	<c:forEach var="facKind" items="${facKindList}">
-       		<li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
-	 		${facKind.si_Kind}
-	 		<div style="font-size: 13px; padding-top:10px;">
-	 			<ul>
-	 				<c:forEach var="homeFac" items="${homeFacList}">
-	 					<c:if test="${homeFac.hs_Kind == facKind.si_No}">
-	 					<li class="install">
-			       			<label class="checkbox-inline">
-				 			 <input type="checkbox" id="inlineCheckbox1" name="install1"> ${homeFac.hs_Name} 
-							</label>
-							<c:if test="${homeFac.hs_Content != ' '}">
-							 &nbsp;<img src="images/question.png">
-							</c:if>
-			       		</li>
-			       		</c:if>
-	 				</c:forEach>
-	 			</ul>
-	 		</div>
-	 	</c:forEach>
-	 
-       	 <!-- <li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
+       	 <ul >
+       	 <li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
        		기본 편의 시설
        		<div style="font-size: 13px; padding-top:10px;">
        		<ul>
@@ -202,7 +180,7 @@
        		</li>
        		</ul>
        		</div>
-       		 </li> -->
+       	 </li>
        	 </ul>
        	 </div>
 		<div class="joinup">

@@ -126,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a href="nezip_nezipInsert.do?step=1"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li><a href="nezip_insert1.do"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
 					<li><a href="reserve_list.do"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
 					<li class="dropdown"><a href="town_list.do" >
 						<i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>

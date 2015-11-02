@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<form action="nezip_insert5process.do" method="post">
 	<div>
-		
 		<div>
 			<h2 class="blog_head" align="left">
 				<b>내집 등록 - 5단계</b>
@@ -26,7 +26,7 @@
 						<label style="font-size: 18px; padding-top: 15px;">1박당 가격</label>
 					</p>
 					<p>
-						<label>KWR</label> <input type="text"> <label
+						<label>KWR</label> <input type="text" name="price1"> <%-- "${dto.price1 }" --%> <label
 							style="color: yellowgreen;">추천가격 : 15,000원</label>
 					</p>
 					
@@ -80,15 +80,15 @@
 				<p>
 					<label style="font-size: 18px; padding-top: 15px;">주 단위 요금</label>
 				</p>
-				<p>
-					<label>KWR</label> <input type="text"> <label
+				<p> 
+					<label>KWR</label> <input type="text" ><%-- "${dto.price2 }" --%> <label
 						style="color: yellowgreen;">추천가격 : 60,000원</label>
 				</p>
 				<p style="padding-top: 15px;">
 					<label style="font-size: 18px; padding-top: 15px;">월 단위 요금</label>
 				</p>
 				<p>
-					<label>KWR</label> <input type="text"> <label
+					<label>KWR</label> <input type="text" ><%-- "${dto.price3 }" --%> <label
 						style="color: yellowgreen;">추천가격 : 345,000원</label>
 				</p>
 				<!-- <div style=" text-align:-webkit-center; width: 73%;padding-top: 20px;">
@@ -128,14 +128,12 @@
 
 			</div>
 			<div class="joinup">
-			<a href="nezip_nezipInsert.do?step=4"> 
-				<input type=button value="이전" id="join" class="btn">
-			</a>
-			&nbsp;&nbsp;&nbsp; <a href="nezip_nezipInsert.do?step=6">
-				<input type=button value="다음" id="join" class="btn">
-			</a>
+			<a href="nezip_insert4.do"> 
+				<input type=button value="이전" id="join" class="btn"></a>
+			
+				<input type="submit" value="다음" id="join" class="btn">
 		</div>
 		</div>
 	</div>
-
+	</form>
 

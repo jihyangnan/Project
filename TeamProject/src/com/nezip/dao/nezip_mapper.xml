@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nezip.dao.nezip_mapper">
+<!-- 집등록 -->
+<insert id="zipReg" parameterType="ZipReg">
+	INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nHome,h_hContent,h_Addr1,h_Addr2
+	,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close,h_Rule) 
+	VALUES(#{h_No}, #{h_Type}, #{h_rType},#{h_nPerson},#{h_nRoom},#{h_nBed},#{h_nHome},#{h_hContent},#{h_Addr1}, #{h_Addr2},#{h_Phone},
+	#{h_Money},#{h_Startday},#{h_Endday},#{h_Loc},#{h_Id},#{h_Close},#{h_Rule});
+</insert>
+
+<select id="roomCatetoryList" resultType="Room_category">
+	SELECT hst_No, hst_Name, hst_Content 
+	FROM room_category
+</select>
+
+<select id="facKindList" resultType="Fac_kind">
+	SELECT si_No, si_Kind, si_Content
+	FROM fac_kind
+</select>
+
+<select id="homeFacList" resultType="Home_fac">
+	SELECT hs_No, hs_Kind, hs_Name, hs_Content
+	FROM home_fac
+</select>
+
+<select id="homeCategoryList" resultType="Home_category">
+	SELECT ht_No, ht_Name, ht_Content  
+	FROM home_category
+</select>
+
+</mapper>

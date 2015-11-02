@@ -485,7 +485,7 @@
 					 	  <h4>이나윤</h4>
 					 	    <ul class="admin_desc">
 							    <li class="list_top"><i class="fa fa-phone-square ph"> </i>
-								<p class="m_2">00-5554-3586</p></li>
+								<p class="m_2">010-5554-3586</p></li>
 								<div class="clearfix"> </div>
 								<li class="list_top"><i class="fa fa-envelope ph"> </i>
 								<p class="m_2">mail(at)realist.com</p></li>
