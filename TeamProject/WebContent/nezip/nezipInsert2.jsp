@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
     <div >
-    	<form action="insert2.do" method="post">
+    	<form action="nezip_insert2process.do" method="post">
        <div>	 
        	 <h2 class="blog_head" align="left"><b>내집 등록 - 2단계</b></h2>
        	 <!-- 작업 시작  -->
@@ -167,13 +167,12 @@
        	 </div>
    	 
        	  <div class="joinup">
-       	   <a href="nezip_nezipInsert.do?step=1">
+       	   <a href="nezip_insert1.do">
 		 <input type=button value="이전" id="join" class="btn"></a>
 		 &nbsp;&nbsp;&nbsp;
 
 		
-		 <a href="nezip_nezipInsert.do?step=3">
-		<input type=button value="다음" id="join" class="btn"></a>
+		<input type="submit" value="다음" id="join" class="btn">
 
 		 </div>		 
 	</div>

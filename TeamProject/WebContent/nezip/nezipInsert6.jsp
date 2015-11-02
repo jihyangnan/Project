@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<form action="nezip_insert6process.do" method="post">
 	<div>
 		<!-- <div>
 			<ul>
@@ -114,12 +115,13 @@
 			</div>
 			
 			<div class="joinup">
-			<a href="nezip_nezipInsert.do?step=5"> 
+			<a href="nezip_insert5.do"> 
 				<input type=button value="이전" id="join" class="btn">
 			</a>
 			&nbsp;&nbsp;&nbsp; 
-				<input type=button value="완료" id="join" class="btn">
+				<input type="submit" value="완료" id="join" class="btn">
 			
 		</div>
 		</div>
 	</div>
+	</form>

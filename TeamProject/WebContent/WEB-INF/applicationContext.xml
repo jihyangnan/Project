@@ -10,11 +10,19 @@
 	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
 	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
 
-	<bean id="insert1" class="com.nezip.model.Insert1Model"/>
-	<bean id="insert2" class="com.nezip.model.Insert2Model"/>
-	
-	<bean id="insert5" class="com.nezip.model.Insert4Model"/>
-	<bean id="insert6" class="com.nezip.model.Insert6Model"/>
+	<!-- 내집 등록 관련 -->
+	<bean id="nezip_insert1" class="com.nezip.model.Insert1Model"/>
+	<bean id="nezip_insert1process" class="com.nezip.model.Insert1ProcessModel"/>
+	<bean id="nezip_insert2" class="com.nezip.model.Insert2Model"/>
+	<bean id="nezip_insert2process" class="com.nezip.model.Insert2ProcessModel"/>
+	<bean id="nezip_insert3" class="com.nezip.model.Insert3Model"/>
+	<bean id="nezip_insert3process" class="com.nezip.model.Insert3ProcessModel"/>
+	<bean id="nezip_insert4" class="com.nezip.model.Insert4Model"/>
+	<bean id="nezip_insert4process" class="com.nezip.model.Insert4ProcessModel"/>
+	<bean id="nezip_insert5" class="com.nezip.model.Insert5Model"/>
+	<bean id="nezip_insert5process" class="com.nezip.model.Insert5ProcessModel"/>
+	<bean id="nezip_insert6" class="com.nezip.model.Insert6Model"/>
+	<bean id="nezip_insert6process" class="com.nezip.model.Insert6ProcessModel"/>
 
 	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
 	
@@ -24,8 +32,6 @@
     <bean id="reboard_re_update" class="com.board.model.ReBoardUpdateModel"/>
     <bean id="reboard_delete" class="com.board.model.ReBoardDeleteModel"/>
 	
-	<!-- 내집 등록 관련 -->
-	<bean id="nezip_nezipInsert" class="com.nezip.model.NezipInsertModel"/>
 	
 	<!-- 내집 예약 관련 -->
 	<bean id="reserve_list" class="com.reserve.model.ListModel"/>
