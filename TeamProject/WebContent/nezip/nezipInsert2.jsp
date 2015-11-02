@@ -17,8 +17,8 @@
        	<input type="text" id="sample4_postcode" placeholder="우편번호" class="addrsearch">
 		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 		<div style="padding-top:3px;">
-		<input type="text" id="sample4_roadAddress" name="addr1" placeholder="도로명주소" style="width:40%;" class="addrsearch">
-		<input type="text" id="sample4_jibunAddress" name="addr2" placeholder="지번주소" style="width:30%;" class="addrsearch">
+		<input type="text" id="sample4_roadAddress" name="addr1" placeholder="도로명주소" style="width:40%;" class="addrsearch" value="${Addr1}">
+		<input type="text" id="sample4_jibunAddress" name="addr2" placeholder="지번주소" style="width:30%;" class="addrsearch" value="${Addr2}">
 		</div>
 		<span id="guide" style="color:#999"></span>
 

@@ -42,11 +42,18 @@
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">숙소 유형</h4>
-							<select name="roomStyle" class="form-control">
-								<option value=1 selected>집전체
-								<option value=2>개인실
-								<option value=3>다인실
+							<select id="roomStyle" name="roomStyle" class="form-control">
+								<option value=1 selected>집전체</option>
+								<option value=2>개인실</option>
+								<option value=3>다인실</option>
 							</select>
+							<script>
+								$('#roomStyle option').each(function(){
+									if($(this).val() == '${roomStyle}'){
+										$(this).attr("selected", "selected");
+									}
+								})
+							</script>
 						</div>
 					</li>
 
@@ -54,44 +61,76 @@
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">수용 인원</h4>
-							<select name="people" class="form-control">
-								<option value=1 selected>1
-								<option value=2>2
-								<option value=3>3
+							<select id="people" name="people" class="form-control">
+								<option value=1 selected>1</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
+								<option value=4>4</option>
+								<option value=5>5</option>
+								<option value=6>6</option>
+								<option value=7>7</option>
 							</select>
+							<script>
+								$('#people option').each(function(){
+									if($(this).val() == '${people}'){
+										$(this).attr("selected", "selected");
+									}
+								})
+							</script>
 						</div>
 					</li>
 
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">침실수</h4>
-							<select name="bedroom" class="form-control">
-								<option value=1 selected>1
-								<option value=2>2
-								<option value=3>3
+							<select id="bedroom" name="bedroom" class="form-control">
+								<option value=1 selected>1</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
 							</select>
+							<script>
+								$('#bedroom option').each(function(){
+									if($(this).val() == '${bedroom}'){
+										$(this).attr("selected", "selected");
+									}
+								})
+							</script>
 						</div>
 					</li>
 
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">침대</h4>
-							<select name="bed" class="form-control">
-								<option value=1 selected>1
-								<option value=2>2
-								<option value=3>3
+							<select id="bed" name="bed" class="form-control">
+								<option value=1 selected>1</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
 							</select>
+							<script>
+								$('#bed option').each(function(){
+									if($(this).val() == '${bed}'){
+										$(this).attr("selected", "selected");
+									}
+								})
+							</script>
 						</div>
 					</li>
 
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">욕실</h4>
-							<select name="bathroom" class="form-control">
-								<option value=1 selected>1
-								<option value=2>2
-								<option value=3>3
+							<select id="bathroom" name="bathroom" class="form-control">
+								<option value=1 selected>1</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
 							</select>
+							<script>
+								$('#bathroom option').each(function(){
+									if($(this).val() == '${bathroom}'){
+										$(this).attr("selected", "selected");
+									}
+								})
+							</script>
 						</div>
 					</li>
 
@@ -103,7 +142,7 @@
 				<div style="margin-top: 30px;" class="row">
 
 					<div class="col-sm-6">
-						<div>
+						<!-- <div>
 							<ul style="list-style: none;">
 								<li style="margin-bottom: 5px;"><h4>도시</h4></li>
 								<li class="row">
@@ -112,7 +151,7 @@
 									</div>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 
 						<div>
 							<ul style="list-style: none;">
@@ -120,7 +159,7 @@
 										이름</h4></li>
 								<li class="row">
 									<div class="col-sm-10">
-										<input name="housename"  type="text" class="form-control">
+										<input name="housename" value="${housename}" type="text" class="form-control">
 									</div>
 								</li>
 							</ul>
@@ -131,7 +170,7 @@
 								<li style="margin-bottom: 5px; margin-top: 10px;"><h4>세부사항</h4></li>
 								<li class="row">
 									<div class="col-sm-10">
-										<input name="detail" type="text" class="form-control">
+										<input name="detail" value="${detail}" type="text" class="form-control">
 									</div>
 								</li>
 							</ul>

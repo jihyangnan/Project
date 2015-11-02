@@ -16,7 +16,7 @@ public class Insert1Model implements Model{
 		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("ZipRegDTO");
 		
 		if(dto != null){ // 2단계에서 뒤로 온경우
-			/*String houseStyle = req.getParameter("houseStyle"); //집유형
+			/* String houseStyle = req.getParameter("houseStyle"); //집유형
 			String roomStyle = req.getParameter("roomStyle"); //숙소유형
 			String people = req.getParameter("people"); //수용인원
 			String bedroom = req.getParameter("bedroom"); //침실수
@@ -24,13 +24,17 @@ public class Insert1Model implements Model{
 			String bathroom = req.getParameter("bathroom"); //욕실
 			String city = req.getParameter("city"); //도시
 			String housename = req.getParameter("housename"); //숙소 이름
-			String detail = req.getParameter("detail"); // 세부사항
-*/			
+			String detail = req.getParameter("detail"); // 세부사항 */			
 			req.setAttribute("houseStyle", dto.getH_Type());
+			req.setAttribute("roomStyle", dto.getH_rType());
+			req.setAttribute("people", dto.getH_nPerson());
+			req.setAttribute("bedroom", dto.getH_nRoom());
+			req.setAttribute("bed", dto.getH_nBed());
+			req.setAttribute("bathroom", dto.getH_nBath());
+			/*req.setAttribute("city", dto.getH_Addr1());*/
+			req.setAttribute("housename", dto.getH_nHome());
+			req.setAttribute("detail", dto.getH_hContent());
 		}
-		
-		
-		
 		
 		req.setAttribute("insertStep", 1);
 		req.setAttribute("insertPage", "nezipInsert1.jsp");

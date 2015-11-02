@@ -33,6 +33,13 @@ public class Insert2Model implements Model{
 		System.out.println(dto.getH_hContent());
 		System.out.println(dto.getH_Addr1());
 		System.out.println(dto.getH_Addr2());*/
+		HttpSession session = req.getSession();
+		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("dto");
+		
+		if(dto != null){
+		req.setAttribute("addr1", dto.getH_Addr1());
+		req.setAttribute("addr2", dto.getH_Addr2());
+		}
 		
 		req.setAttribute("insertStep", 2);
 		req.setAttribute("insertPage", "nezipInsert2.jsp");
