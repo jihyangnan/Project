@@ -205,4 +205,18 @@ public class BoardDAO {
 	}
 	
 	//´ñ±Û »ðÀÔ
+	public static void replyNewInsert(ReBoardDTO d)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.insert("replyNewInsert",d);
+		session.close();
+	}
+	
+	public static ReBoardDTO replyParentInfo(int rw_bno)
+	{
+		SqlSession session=ssf.openSession();
+		ReBoardDTO list=session.selectOne("replyParentInfo",rw_bno);
+		session.close();
+		return list;
+	}
 }

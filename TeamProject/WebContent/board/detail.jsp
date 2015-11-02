@@ -45,10 +45,10 @@
 			<div style="text-align: right; list-style: none; padding-left:20px; padding-right:20px;">
 				<ul>
 				<li style="float: left;margin: 0 auto;list-style: none;display: block;">
-				<div style=" text-align: left;">
+				<!-- <div style=" text-align: left;">
 				<span style="padding: 7px; font-size: 9pt; ">이전글</span>
 				<span style="padding: 7px; font-size: 9pt; ">다음글</span>
-				</div>
+				</div> -->
 				</li>
 				<li>
 				<div style=" text-align: right;" >
@@ -98,20 +98,25 @@
 			<p></p>
 			<div style="padding-left: 40px;padding-right: 40px;">
 			<c:forEach var="rDto" items="${rlist }">
+				<c:if test="${rDto.group_tabl!=0 }">
+					<c:forEach var="i" begin=1" end="${rDto.group_tab }" step="1">
+					<img src="images/neo_new.gif">
+					</c:forEach>
+				</c:if>
 				<div class="row" style="border: 1px solid #e6e6e6; border-style: ridge; 
 						padding-top:5px; padding-bottom:5px;">
 					<span class="col-md-1"
-						style="font-size: 10pt; color: #000000;">${rDto.rw_id }</span> 
+						style="font-size: 10pt; color:#f08080; font-weight:700;">${rDto.rw_id }</span> 
 						<span
 						class="col-md-8" style="font-size: 10pt; color: #a9a9a9;">${rDto.rw_content }</span>
-					<span class="col-md-1" style="font-size: 8pt; color: #b0c4de; padding:0px; text-align: right;">
+					<span class="col-md-1" style="font-size: 8pt; color: #337ab7; padding:0px; text-align: right;">
 					${rDto.dbday }</span> 
 						<span class="col-xs-1"
-						style="font-size: 8pt; color: #b0c4de; text-align: right; float:none;">수정</span> 
+						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>수정</b></span> 
 						<span class="col-xs-1"
-						style="font-size: 8pt; color: #b0c4de; text-align: right; float:none;">삭제</span>  
+						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>삭제</b></span>  
 						<span class="col-xs-1"
-						style="font-size: 8pt; color: #b0c4de; text-align: right; float:none;">댓글</span>
+						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>댓글</b></span>
 				</div>
 				</c:forEach>
 			</div>
