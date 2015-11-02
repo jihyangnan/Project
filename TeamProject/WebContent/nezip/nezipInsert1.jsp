@@ -21,14 +21,18 @@
 							<h4 style="margin-bottom: 10px;">집 유형</h4>
 							<select id="houseStyle" name="houseStyle" class="form-control">
 								<option value=1 selected>아파트</option>
-								<option value=2>단독주택</option>
+								<option value=2 >단독주택</option>
 								<option value=3>게스트하우스</option>
 								<option value=4>빌라</option>
 								<option value=5>호텔</option>
 								<option value=6>기타</option>
 							</select>
 							<script>
-								$('#houseStyle option').each(function)
+								$('#houseStyle option').each(function(){
+									if($(this).val() == '${houseStyle}'){
+										$(this).attr("selected", "selected");
+									}
+								})
 							</script>
 						</div>
 					</li>
