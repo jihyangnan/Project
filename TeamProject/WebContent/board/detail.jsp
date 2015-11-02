@@ -32,6 +32,28 @@ $(function(){
 		}
 	});
 });
+function replyBtnClick(no)
+{
+	var msg=$('#rw_content'+no).val();
+	if(msg=="")
+	{
+		alert("댓글 내용 입력하세요");
+		$('#rw_content'+no).focus();
+		return;
+	}
+	$('#re_re_frm'+no).submit();
+}
+function replyUpdateClick(no)
+{
+	var msg=$('#urw_content'+no).val();
+	if(msg=="")
+	{
+		alert("댓글 내용 입력하세요");
+		$('#urw_content'+no).focus();
+		return;
+	}
+	$('#re_update_frm'+no).submit();
+}
 </script>
 <div class="about_top" >
 	<div class="container" style="margin: 400;">
@@ -160,17 +182,19 @@ $(function(){
 						<span class="col-xs-1"
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>수정</b></span> 
 						</a>
-						<a href="#">
+						<a href="reboard_delete.do?rw_no=${rDto.rw_no }&b_no=${dto.b_no }&page=${page}">
 						<span class="col-xs-1"
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>삭제</b></span>  
 						</a>
 						</c:if>
 	
 						<c:if test="${sessionScope.id!=null }">
+						<div style="float:right;">
 						<a class="reRe" href="#" name="${rDto.rw_no }">
 						<span class="col-xs-1"
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>댓글</b></span>
 						</a>
+						</div>
 						</c:if>
 				</div>
 			<div id="re_re_tr${rDto.rw_no }" style="display:none">
@@ -196,23 +220,23 @@ $(function(){
 				</form>
 			</div>
 			
-			<div id="re_update_tr${rDto.rw_no }" style="display:none">
+			<div id="re_update_tr${rDto.rw_no }" style="display:none; margin-top:10px; margin-bottom:10px;">
 			<!-- 아이디있을시 -->
-				<form method="post" action="reply_re_update.do" id="re_update_frm${rDto.rw_no }">
-				<div class="row" style="padding-left:20px; padding-right:20px;">
-					<span class="col-md-11" style="padding-left:20px;"> 
+				<form method="post" action="reboard_re_update.do" id="re_update_frm${rDto.rw_no }">
+				<div class="row">
+					<span class="col-md-11" style="padding:0px;"> 
 					<input type="hidden" name=rw_bno value="${dto.b_no }">
-					<input type="hidden" name=page value=""${page }">
-					<input type=hidden name=pno value="${rDto.rw_no }">
+					<input type="hidden" name=page value="${page }">
+					<input type=hidden name=rw_no value="${rDto.rw_no }">
 					<textarea
-							name="rw_content" id="rw_content${rDto.rw_no }"
+							name="rw_content" id="urw_content${rDto.rw_no }"
 							onclick="if(this.value==this.defaultValue){this.value=''}"
 							onblur="if (this.value == '') { this.value = this.defaultValue; }"
 							style="width: 100%; height: 50px; font-size: 10pt; color:#a9a9a9;"> 댓글을 입력해 주세요</textarea>
 					</span> 
-					<span class="col-md-1"> 
-					<input type="button" value="댓글 입력" id="replyBtn"
-						style="float:right; width: 85px; height: 50px; font-size: 9pt;
+					<span class="col-md-1" style="padding:0px;"> 
+					<input type="button" value="수정하기" id="replyBtn"
+						style="float:right; width: 80px; height: 50px; font-size: 9pt;
 						 color: #f08080; font-weight: 500"  onclick="replyUpdateClick(${rDto.rw_no })">
 					</span>
 				</div>

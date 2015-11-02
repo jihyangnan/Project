@@ -57,22 +57,39 @@
 <!-- 댓글형 게시판 -->
 <!-- 댓글 갯수 -->
 <select id="boardReplyCount" resultType="int" parameterType="int">
-	SELECT COUNT(*) FROM re_board WHERE rw_bno=#{rw_bno}
+	SELECT COUNT(*) FROM re_board WHERE rw_delete='n' AND  rw_bno=#{rw_bno}
 </select>
 <!-- 댓글 게시판 목록 -->
 <select id="replyListData" resultType="Reply" parameterType="int">
 	SELECT rw_no,rw_id,rw_content,TO_CHAR(rw_date,'YYYY-MM-DD HH24:MI:SS') as dbday,rw_delete,group_tab
 	FROM re_board
-	WHERE rw_bno=#{rw_bno}
+	WHERE rw_delete='n' AND rw_bno=#{rw_bno}
 	ORDER BY group_id DESC, group_step ASC
 </select>
 
 <!--새로운 댓글 올리기 -->
-<insert id="replyNewInsert" parameterType="Reply">
+<insert id="reboardNewInsert" parameterType="Reply">
 	<selectKey keyProperty="rw_no" resultType="int" order="BEFORE">
 		 SELECT NVL(MAX(rw_no)+1,1) as rw_no FROM re_board
 	</selectKey>
 	INSERT INTO re_board VALUES(#{rw_no},0,#{rw_content},#{rw_id},SYSDATE,'n',
 	#{rw_bno},(SELECT NVL(MAX(group_id)+1,1) FROM re_board),0,0,0,0)
 </insert>
+
+<!-- 댓글 수정하기 -->
+<update id="reboardReUpdate" parameterType="Reply">
+	UPDATE re_board SET
+	rw_content=#{rw_content}
+	WHERE rw_no=#{rw_no}
+</update>
+<select id="reboardGetDethRoot" resultType="Reply" parameterType="int">
+	SELECT depth, root FROM re_board
+	WHERE rw_no=#{rw_no}
+</select>
+<!--댓글 삭제 -->
+ <update id="reboardDelete" parameterType="Reply">
+	UPDATE re_board SET
+	rw_delete='y'
+	WHERE rw_no=#{rw_no}
+</update> 
 </mapper>

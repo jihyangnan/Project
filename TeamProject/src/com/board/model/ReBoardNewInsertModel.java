@@ -25,7 +25,7 @@ public class ReBoardNewInsertModel implements Model {
 		d.setRw_id(rw_id);
 		d.setRw_content(rw_content);
 		
-		BoardDAO.replyNewInsert(d);
+		BoardDAO.reboardNewInsert(d);
 		req.setAttribute("rw_bno", rw_bno);
 		req.setAttribute("page", page);
 		
