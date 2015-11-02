@@ -82,7 +82,7 @@
 	rw_content=#{rw_content}
 	WHERE rw_no=#{rw_no}
 </update>
-<select id="reboardGetDethRoot" resultType="Reply" parameterType="int">
+<select id="reboardGetDepthRoot" resultType="Reply" parameterType="int">
 	SELECT depth, root FROM re_board
 	WHERE rw_no=#{rw_no}
 </select>
@@ -92,4 +92,41 @@
 	rw_delete='y'
 	WHERE rw_no=#{rw_no}
 </update> 
+<update id="reboardMsgUpdate" parameterType="int">
+	UPDATE re_board SET
+	re_content='관리자에 의해 삭제된 댓글입니다.'
+	WHERE rw_no=#{rw_no}
+</update>
+<update id="reboardDepthDecrement" parameterType="int">
+	UPDATE re_board SET
+	depth=depth-1
+	WHERE rw_no=#{rw_no}
+</update>
+<select id="reboardPageRowCount" resultType="int" parameterType="int">
+	SELECT COUNT(*) FROM re_board
+	WHERE rw_bno=#{rw_bno}
+</select>
+<!-- 댓글의 댓글 -->
+<select id="reboardParentInfo" resultType="Reply" parameterType="int">
+	SELECT group_id,group_step,group_tab
+	FROM re_board
+	WHERE rw_no=#{rw_no}
+</select>
+<update id="reboardStepIncrement" parameterType="int">
+	UPDATE re_board SET
+	group_step=1
+	WHERE group_id=#{group_id} AND group_step>#{group_step}
+</update>
+<insert id="reboardReInsert" parameterType="Reply">
+<selectKey keyProperty="rw_no" resultType="int" order="BEFORE">
+	SELECT NVL(MAX(rw_no)+1,1) as rw_no FROM re_board
+</selectKey>
+	INSERT INTO re_board VALUES(#{rw_no},,0,#{rw_content},#{rw_id},SYSDATE,'n',#{rw_bno},
+	#{group_id},1,1,#{root},0)
+</insert>
+<update id="replyDethIncrement" parameterType="int">
+	UPDATE re_board SET
+	depth=depth+1
+	WHERE rw_no=#{rw_no}
+</update>
 </mapper>
