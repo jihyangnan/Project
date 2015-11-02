@@ -11,7 +11,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.Config;
 
 import java.io.*;
 import java.io.Reader;
-public class ZipRegDAO {
+public class NezipDAO {
 	private static SqlSessionFactory ssf;
 	static
 	{
