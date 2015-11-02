@@ -81,14 +81,14 @@
 					<label style="font-size: 18px; padding-top: 15px;">주 단위 요금</label>
 				</p>
 				<p> 
-					<label>KWR</label> <input type="text" name="price2"><%-- "${dto.price2 }" --%> <label
+					<label>KWR</label> <input type="text" ><%-- "${dto.price2 }" --%> <label
 						style="color: yellowgreen;">추천가격 : 60,000원</label>
 				</p>
 				<p style="padding-top: 15px;">
 					<label style="font-size: 18px; padding-top: 15px;">월 단위 요금</label>
 				</p>
 				<p>
-					<label>KWR</label> <input type="text" name="price3"><%-- "${dto.price3 }" --%> <label
+					<label>KWR</label> <input type="text" ><%-- "${dto.price3 }" --%> <label
 						style="color: yellowgreen;">추천가격 : 345,000원</label>
 				</p>
 				<!-- <div style=" text-align:-webkit-center; width: 73%;padding-top: 20px;">
