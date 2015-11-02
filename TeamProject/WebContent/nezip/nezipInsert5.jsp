@@ -26,7 +26,7 @@
 						<label style="font-size: 18px; padding-top: 15px;">1박당 가격</label>
 					</p>
 					<p>
-						<label>KWR</label> <input type="text"> <label
+						<label>KWR</label> <input type="text" name="price1"> <%-- "${dto.price1 }" --%> <label
 							style="color: yellowgreen;">추천가격 : 15,000원</label>
 					</p>
 					
@@ -80,15 +80,15 @@
 				<p>
 					<label style="font-size: 18px; padding-top: 15px;">주 단위 요금</label>
 				</p>
-				<p>
-					<label>KWR</label> <input type="text"> <label
+				<p> 
+					<label>KWR</label> <input type="text" name="price2"><%-- "${dto.price2 }" --%> <label
 						style="color: yellowgreen;">추천가격 : 60,000원</label>
 				</p>
 				<p style="padding-top: 15px;">
 					<label style="font-size: 18px; padding-top: 15px;">월 단위 요금</label>
 				</p>
 				<p>
-					<label>KWR</label> <input type="text"> <label
+					<label>KWR</label> <input type="text" name="price3"><%-- "${dto.price3 }" --%> <label
 						style="color: yellowgreen;">추천가격 : 345,000원</label>
 				</p>
 				<!-- <div style=" text-align:-webkit-center; width: 73%;padding-top: 20px;">
@@ -128,10 +128,10 @@
 
 			</div>
 			<div class="joinup">
-			<a href="index.jsp?page=nezip/nezipInsert4.jsp"> 
+			<a href="nezip_nezipInsert.do?step=4"> 
 				<input type=button value="이전" id="join" class="btn">
 			</a>
-			&nbsp;&nbsp;&nbsp; <a href="index.jsp?page=nezip/nezipInsert6.jsp">
+			&nbsp;&nbsp;&nbsp; <a href="nezip_nezipInsert.do?step=6">
 				<input type=button value="다음" id="join" class="btn">
 			</a>
 		</div>

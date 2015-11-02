@@ -4,10 +4,16 @@ package com.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 import com.common.*;
 
 public class WebApplicationContext extends DefaultHandler{
@@ -29,6 +35,20 @@ public class WebApplicationContext extends DefaultHandler{
 			System.out.println(ex.getMessage());
 		}	
 	}
+	
+	public WebApplicationContext(InputStream is){
+		SAXParserFactory spf = SAXParserFactory.newInstance();
+		try {
+			SAXParser sp = spf.newSAXParser();
+			HandlerMapping hm = new HandlerMapping();
+			sp.parse(is, hm);
+			clsMap = hm.map;
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	//요청 클래스 전송
 	public Model getBean(String id)
 	{

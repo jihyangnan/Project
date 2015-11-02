@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
+	<bean id="index" class="com.main.model.IndexModel"/>	<!-- 첫화면 -->
 	<bean id="main" class="com.main.model.MainModel"/>
-	<bean id="list" class="com.board.model.BoardListModel"/>
+	
+	<!-- 게시판 관련 -->
+	<bean id="board_list" class="com.board.model.BoardListModel"/>
 	<bean id="board_insert" class="com.board.model.BoardInsertModel"/>
-	<bean id="board_insert_ok" class="com.board.model.BoardInsertOkModel"/>
    	<bean id="board_content" class="com.board.model.BoardContentModel"/>
 	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
 	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
+
 	<bean id="insert1" class="com.zip.model.Insert1Model"/>
 	<bean id="insert2" class="com.zip.model.Insert2Model"/>
 	
 	<bean id="insert5" class="com.zip.model.Insert4Model"/>
 	<bean id="insert6" class="com.zip.model.Insert6Model"/>
+
+	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
+	
+	<!-- 게시판 댓글 -->
+	<bean id="reply_new_insert" class="com.board.model.ReplyNewInsertModel"/>
+    <bean id="reply_re_insert" class="com.board.model.ReplyReInsertModel"/>
+    <bean id="reply_re_update" class="com.board.model.ReplyReUpdateModel"/>
+    <bean id="reply_delete" class="com.board.model.ReplyDeleteModel"/>
+	
+	<!-- 내집 등록 관련 -->
+	<bean id="nezip_nezipInsert" class="com.nezip.model.NezipInsertModel"/>
+	
+	<!-- 내집 예약 관련 -->
+	<bean id="reserve_list" class="com.reserve.model.ListModel"/>
+	<bean id="reserve_detail" class="com.reserve.model.DetailModel"/>
+	
+	<!-- 우리동네 소개 관련 -->
+	<bean id="town_list" class="com.town.model.TownListModel"/>
+	<bean id="town_areaCodeAjax" class="com.town.model.AreaCodeAjaxModel"/>
+	<bean id="town_categoryCodeAjax" class="com.town.model.CategoryCodeAjaxModel"/>
+	<bean id="town_detail" class="com.town.model.TownDetailModel"/>
+	
+	<!-- join 폴더 관련 -->
+	<bean id="join_login" class="com.join.model.LoginModel"/>
+	<bean id="join_join" class="com.join.model.JoinModel"/>
+	<bean id="join_idSearch" class="com.join.model.IdSearchModel"/>
+	
+	<!-- mypage 폴더 관련 -->
+	<bean id="mypage_jimList" class="com.mypage.model.JimListModel"/>
+	<bean id="mypage_profile" class="com.mypage.model.ProfileModel"/>
+	<bean id="mypage_profileUp" class="com.mypage.model.ProfileUpModel"/>
+	<bean id="mypage_profileOut" class="com.mypage.model.ProfileOutModel"/>
+
 </beans>

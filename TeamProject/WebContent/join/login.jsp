@@ -23,17 +23,17 @@
 					</div>
 					<div class="clear"></div>
 					<label>
-					<a href="http://localhost:8080/TeamProject/index.jsp">
+					<a href="index.do">
 					<input type="button" value="로그인" id="join" style="padding:5px;">
 					</a>
 					</label>
 					<div class="form6_l">
 						<label>
-						<a href="index.jsp?page=join/join.jsp">
+						<a href="join_join.do">
 						<input type="submit"value="회원가입" id="join"></a>
 						</label> 
 						<label>
-						<a href="index.jsp?page=join/idSearch.jsp">
+						<a href="join_idSearch.do">
 						<input type="submit" style="margin-left:5%"value="아이디/비밀번호 찾기" id="join"></a>
 						</label>
 					</div>

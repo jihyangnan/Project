@@ -23,6 +23,13 @@ body a{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+	text-decoration: none;
+}
+body a:HOVER
+{
+	text-decoration: none;
+	font-weight: 600;
+	color:#87d54d;
 }
 .header{
 	position:relative;
@@ -940,7 +947,7 @@ ul.list_2 {
 }
 h3.m_3, .about_grid1 h3, .about_grid2 h3{
 	color: #F94B4B;
-  font: 300 30px/20px 'Roboto', sans-serif;
+  font: 300 30px/20px '나눔고딕', sans-serif;
   margin-bottom: 1em;
 }
 .about_grid1{
@@ -1286,7 +1293,7 @@ p.single_desc{
   right: 4px;
 } 
 .top-menu {
-  margin-left: 22%;
+  margin-left: 15%;
 }
 .details {
   top: 215px;
@@ -1963,3 +1970,8 @@ li.selector {
 .control-group.success .fileupload .uneditable-input{color:#468847;border-color:#468847;}
 .control-group.success .fileupload .fileupload-preview{color:#468847;}
 .control-group.success .fileupload .thumbnail{border-color:#468847;}
+
+.jumbotron
+{
+	background-color: #f8f8f8;
+}

@@ -467,11 +467,11 @@
 				  </div>
 				  <div class="row list" data-price="60,000" data-lat="33.450705" data-lng="126.570677">
 					<div class="col-sm-8">
-						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a001.jpg" /></a>		
+						<a href="reserve_detail.do"><img class="img-responsive" src="images/a001.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>한강 옆 게스트 하우스</span></a></li>
+					    <li><a href="reserve_detail.do"><span>한강 옆 게스트 하우스</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >60,000원</span></li>
 					    <li><span>개인실</span></li>
 					    <li><span>중구, 서울</span></li>
@@ -482,11 +482,11 @@
 				  
 				  <div class="row list" data-price="100,000" data-lat="33.450936" data-lng="126.569477">
 					<div class="col-sm-8">
-						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a002.jpg" /></a>		
+						<a href="reserve_detail.do"><img class="img-responsive" src="images/a002.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>도심속 한옥 호텔</span></a></li>
+					    <li><a href="reserve_detail.do"><span>도심속 한옥 호텔</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >100,000원</span></li>
 					    <li><span>집전체</span></li>
 					    <li><span>종로구, 서울</span></li>
@@ -497,11 +497,11 @@
 				  
 				  <div class="row list" data-price="60,000" data-lat="33.450879" data-lng="126.569940">
 					<div class="col-sm-8">
-						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a003.jpg" /></a>		
+						<a href="reserve_detail.do"><img class="img-responsive" src="images/a003.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>한강 옆 게스트 하우스</span></a></li>
+					    <li><a href="reserve_detail.do"><span>한강 옆 게스트 하우스</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >60,000원</span></li>
 					    <li><span>개인실</span></li>
 					    <li><span>중구, 서울</span></li>
@@ -512,11 +512,11 @@
 				  
 				  <div class="row list" data-price="100,000" data-lat="33.451393" data-lng="126.570738">
 					<div class="col-sm-8">
-						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a004.jpg" /></a>		
+						<a href="reserve_detail.do"><img class="img-responsive" src="images/a004.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>도심속 한옥 호텔</span></a></li>
+					    <li><a href="reserve_detail.do"><span>도심속 한옥 호텔</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >100,000원</span></li>
 					    <li><span>집전체</span></li>
 					    <li><span>종로구, 서울</span></li>
@@ -612,8 +612,8 @@
 						var sub2 = $(this).find('li:nth-child(2) span').text() + ' | ' + $(this).find('li:nth-child(3) span').text()
 						         + ' | ' + $(this).find('li:last-child span').text();
 						var iwContent = '<div style="padding:10px; width:240px">'
-						              + '<a href="#"><img class="img-responsive" src="' + imgsrc + '"/></a>'
-						              + '<p style="font-size: .9em; font-weight: bold;"><a href="#">' + sub + '</a></p>'	
+						              + '<a href="reserve_detail.do"><img class="img-responsive" src="' + imgsrc + '"/></a>'
+						              + '<p style="font-size: .9em; font-weight: bold;"><a href="reserve_detail.do">' + sub + '</a></p>'	
 						              + '<p style="font-size: .7em; font-weight: bold; color: #B7B1B1;">' + sub2 + '</p>'	
 									  +	'</div>'; 
 

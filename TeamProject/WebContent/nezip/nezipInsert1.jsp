@@ -165,8 +165,9 @@
 </div>
 </div-->
 
-<div class="joinup">
-	<a href="index.jsp?page=nezip/nezipInsert2.jsp"> <input type="submit"
-		value="다음" id="join" class="btn"></a>
-</div>
-</form>
+     <div class="joinup"> 
+ <a href="nezip_nezipInsert.do?step=2">
+ <input type=button value="다음" id="join" class="btn"></a>
+</div>   
+
+

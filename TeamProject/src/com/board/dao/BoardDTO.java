@@ -24,20 +24,16 @@ public class BoardDTO {
 	private int b_renum;
 	private Date b_date;
 	private String b_delete;
-	private int sa_no;
+	private int b_sano;
 	private String dbday;
-	   
-	public String getDbday() {
-		return dbday;
+	private String sa_img;
+	private int replyCount;
+	
+	public int getReplyCount() {
+		return replyCount;
 	}
-	public void setDbday(String dbday) {
-		this.dbday = dbday;
-	}
-	public int getSa_no() {
-		return sa_no;
-	}
-	public void setSa_no(int sa_no) {
-		this.sa_no = sa_no;
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
 	}
 	public int getB_no() {
 		return b_no;
@@ -87,6 +83,23 @@ public class BoardDTO {
 	public void setB_delete(String b_delete) {
 		this.b_delete = b_delete;
 	}
-	
-	
+	public int getB_sano() {
+		return b_sano;
+	}
+	public void setB_sano(int b_sano) {
+		this.b_sano = b_sano;
+	}
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
+	public String getSa_img() {
+		return sa_img;
+	}
+	public void setSa_img(String sa_img) {
+		this.sa_img = sa_img;
+	}
+
 }

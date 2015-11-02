@@ -167,11 +167,14 @@
        	 </div>
    	 
        	  <div class="joinup">
-       	   <a href="index.jsp?page=nezip/nezipInsert1.jsp">
+       	   <a href="nezip_nezipInsert.do?step=1">
 		 <input type=button value="이전" id="join" class="btn"></a>
 		 &nbsp;&nbsp;&nbsp;
-		 <a href="index.jsp?page=nezip/nezipInsert3.jsp">
-		<input type=submit value="다음" id="join" class="btn"></a>
+
+		
+		 <a href="nezip_nezipInsert.do?step=3">
+		<input type=button value="다음" id="join" class="btn"></a>
+
 		 </div>		 
 	</div>
 	</form>

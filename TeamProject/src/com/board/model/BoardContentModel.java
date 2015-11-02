@@ -1,5 +1,57 @@
 package com.board.model;
 
-public class BoardContentModel {
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.board.dao.*;
+import com.common.Model;
+
+public class BoardContentModel implements Model{
+
+	@Override
+	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		// TODO Auto-generated method stub
+		String rPage=req.getParameter("rPage");
+		int type=0;
+		if(rPage==null)
+		{
+			rPage="1";
+			type=1;
+		}
+		int rcurpage=Integer.parseInt(rPage);
+		String strNo=req.getParameter("b_no");
+		String strPage=req.getParameter("page");
+		BoardDTO d = BoardDAO.boardContentData(Integer.parseInt(strNo));
+		
+		List<ReBoardDTO> temp=BoardDAO.replyListData(Integer.parseInt(strNo));
+		//int rtotal=BoardDAO.replyPageTotalpage(Integer.parseInt(strNo));
+		List<ReBoardDTO> list=new ArrayList<ReBoardDTO>();
+		
+		int j=0;
+		int pagecnt=(rcurpage*10)-10;
+		for(int i=0; i<temp.size(); i++)
+		{
+			if(j<10 && i>=pagecnt)
+			{
+				ReBoardDTO dd=temp.get(i); //레코드 가져오는 것 g(i)
+				list.add(dd);
+				System.out.println("rw_id="+dd.getRw_id());	
+				j++;
+			}
+		}
+		
+		//req.setAttribute("rtotal", rtotal);
+		req.setAttribute("rcurpage", rcurpage);
+		
+		req.setAttribute("rlist", list);
+		
+		req.setAttribute("page", strPage);
+		req.setAttribute("dto", d);
+		req.setAttribute("jsp", "../board/detail.jsp");
+		return "main/index.jsp";
+	}
 
 }

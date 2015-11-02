@@ -27,13 +27,18 @@ public class BoardListModel implements Model{
 		map.put("start", start);
 		map.put("end", end);
 		List<BoardDTO> list = BoardDAO.baordListData(map);
+		for(BoardDTO d:list)
+		{
+			d.setReplyCount(BoardDAO.boardReplyCount(d.getB_no()));
+		}
 		int totalpage=BoardDAO.boardTotalPage();
 		req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		req.setAttribute("list", list);
 		req.setAttribute("curpage", curpage);
 		req.setAttribute("totalpage", totalpage);
-		req.setAttribute("jsp", "board/list.jsp");
-		return "index.jsp";
+		req.setAttribute("pageNum", 4); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
+		req.setAttribute("jsp", "../board/list.jsp");
+		return "main/index.jsp";
 	}
 
 }
