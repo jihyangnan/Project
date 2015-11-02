@@ -1,4 +1,4 @@
-package com.zip.dao;
+package com.nezip.dao;
 import java.util.*;
 
 /*(

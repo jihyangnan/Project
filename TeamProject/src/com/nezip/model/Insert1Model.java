@@ -1,6 +1,6 @@
-package com.zip.model;
+package com.nezip.model;
 import com.common.*;
-import com.zip.dao.ZipRegDTO;
+import com.nezip.dao.ZipRegDTO;
 import com.board.dao.*;
 
 import java.text.SimpleDateFormat;
