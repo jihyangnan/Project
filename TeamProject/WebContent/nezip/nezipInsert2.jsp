@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 
     <div >
-    	
+    	<form action="insert2.do" method="post">
        <div>	 
        	 <h2 class="blog_head" align="left"><b>내집 등록 - 2단계</b></h2>
        	 <!-- 작업 시작  -->
+       	 
        	 <div style="padding-left:40px;">
        	 <ul>
        	 <li style="padding-top:20px; font-size:25px; font-weight:600; color:#565a5c;">
@@ -16,8 +17,8 @@
        	<input type="text" id="sample4_postcode" placeholder="우편번호" class="addrsearch">
 		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 		<div style="padding-top:3px;">
-		<input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="width:40%;" class="addrsearch">
-		<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width:30%;" class="addrsearch">
+		<input type="text" id="sample4_roadAddress" name="addr1" placeholder="도로명주소" style="width:40%;" class="addrsearch">
+		<input type="text" id="sample4_jibunAddress" name="addr2" placeholder="지번주소" style="width:30%;" class="addrsearch">
 		</div>
 		<span id="guide" style="color:#999"></span>
 
@@ -169,8 +170,12 @@
        	   <a href="nezip_nezipInsert.do?step=1">
 		 <input type=button value="이전" id="join" class="btn"></a>
 		 &nbsp;&nbsp;&nbsp;
+
+		
 		 <a href="nezip_nezipInsert.do?step=3">
 		<input type=button value="다음" id="join" class="btn"></a>
+
 		 </div>		 
 	</div>
+	</form>
 </div>

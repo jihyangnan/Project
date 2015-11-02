@@ -40,6 +40,7 @@ public class DispatcherServlet extends HttpServlet {
 			String jsp=model.hanlerRequest(request, response);
 			String temp=jsp.substring(jsp.lastIndexOf('.')+1);
 				
+
 			//if (temp.equals("do")) {
 			if (temp.startsWith("do")) {
 				response.sendRedirect(jsp);
@@ -48,6 +49,7 @@ public class DispatcherServlet extends HttpServlet {
 				rd.forward(request, response);
 			}
 		}
+
 		catch (Exception ex) {
 			ex.printStackTrace();
 		}

@@ -9,6 +9,13 @@
    	<bean id="board_content" class="com.board.model.BoardContentModel"/>
 	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
 	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
+
+	<bean id="insert1" class="com.nezip.model.Insert1Model"/>
+	<bean id="insert2" class="com.nezip.model.Insert2Model"/>
+	
+	<bean id="insert5" class="com.nezip.model.Insert4Model"/>
+	<bean id="insert6" class="com.nezip.model.Insert6Model"/>
+
 	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
 	
 	<!-- 게시판 댓글 -->
@@ -40,4 +47,5 @@
 	<bean id="mypage_profile" class="com.mypage.model.ProfileModel"/>
 	<bean id="mypage_profileUp" class="com.mypage.model.ProfileUpModel"/>
 	<bean id="mypage_profileOut" class="com.mypage.model.ProfileOutModel"/>
+
 </beans>
