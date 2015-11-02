@@ -19,20 +19,11 @@ public class Insert2ProcessModel implements Model{
 		String addr2 = req.getParameter("addr2");
 		HttpSession session = req.getSession();
 		
-		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("dto");
+		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("ZipRegDTO");
 		dto.setH_Addr1(addr1);
 		dto.setH_Addr2(addr2);
 		
-		System.out.println(dto.getH_Type());
-		System.out.println(dto.getH_rType());
-		System.out.println(dto.getH_nPerson());
-		System.out.println(dto.getH_nRoom());
-		System.out.println(dto.getH_nBed());
-		System.out.println(dto.getH_nBath());
-		System.out.println(dto.getH_nHome());
-		System.out.println(dto.getH_hContent());
-		System.out.println(dto.getH_Addr1());
-		System.out.println(dto.getH_Addr2());
+		session.setAttribute("ZipRegDTO", dto);
 		
 		/*req.setAttribute("insertStep", 3);
 		req.setAttribute("insertPage", "nezipInsert3.jsp");

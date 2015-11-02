@@ -4,9 +4,9 @@
 <!-- 집등록 -->
 <insert id="zipReg" parameterType="ZipReg">
 	INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nHome,h_hContent,h_Addr1,h_Addr2
-	,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close) 
+	,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close,h_Rule) 
 	VALUES(#{h_No}, #{h_Type}, #{h_rType},#{h_nPerson},#{h_nRoom},#{h_nBed},#{h_nHome},#{h_hContent},#{h_Addr1}, #{h_Addr2},#{h_Phone},
-	#{h_Money},#{h_Startday},#{h_Endday},#{h_Loc},#{h_Id},#{h_Close});
+	#{h_Money},#{h_Startday},#{h_Endday},#{h_Loc},#{h_Id},#{h_Close},#{h_Rule});
 </insert>
 
 <select id="roomCatetoryList" resultType="Room_category">

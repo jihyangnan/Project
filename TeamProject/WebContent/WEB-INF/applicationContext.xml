@@ -27,10 +27,10 @@
 	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
 	
 	<!-- 게시판 댓글 -->
-	<bean id="reply_new_insert" class="com.board.model.ReBoardNewInsertModel"/>
-    <bean id="reply_re_insert" class="com.board.model.ReBoardReInsertModel"/>
-    <bean id="reply_re_update" class="com.board.model.ReBoardUpdateModel"/>
-    <bean id="reply_delete" class="com.board.model.ReBoardDeleteModel"/>
+	<bean id="reboard_new_insert" class="com.board.model.ReBoardNewInsertModel"/>
+    <bean id="reboard_re_insert" class="com.board.model.ReBoardReInsertModel"/>
+    <bean id="reboard_re_update" class="com.board.model.ReBoardUpdateModel"/>
+    <bean id="reboard_delete" class="com.board.model.ReBoardDeleteModel"/>
 	
 	
 	<!-- 내집 예약 관련 -->

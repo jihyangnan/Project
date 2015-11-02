@@ -21,6 +21,7 @@ h_Upday DATE DEFAULT SYSDATE, --등록일
 h_Loc VARCHAR2(30) NOT NULL, --위경도
 h_Id VARCHAR2(20), --등록자
 h_Close CHAR(1), --예약완료여부
+h_Rule VARCHAR2(2000) --숙소이용규칙
 CONSTRAINT zipreg_no_pk PRIMARY KEY(h_no)
 );
 */
@@ -44,6 +45,7 @@ private Date Upday;
 private String h_Loc;
 private String h_Id;
 private String h_Close;
+private String h_Rule;
 
 public int getH_No() {
 	return h_No;
@@ -160,7 +162,11 @@ public void setH_Close(String h_Close) {
 	this.h_Close = h_Close;
 	
 }
-
-
+public String getH_Rule() {
+	return h_Rule;
+}
+public void setH_Rule(String h_Rule) {
+	this.h_Rule = h_Rule;
+}
 
 }

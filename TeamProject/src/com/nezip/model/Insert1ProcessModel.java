@@ -37,7 +37,7 @@ public class Insert1ProcessModel implements Model{
 		dto.setH_nHome(housename);
 		dto.setH_hContent(detail);
 		
-		session.setAttribute("dto", dto);
+		session.setAttribute("ZipRegDTO", dto);
 		
 		
 		/*req.setAttribute("insertStep", 2);
