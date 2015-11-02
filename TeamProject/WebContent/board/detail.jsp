@@ -2,7 +2,37 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="frm" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+var i=0;
+$(function(){
+	$('#replyBtn').click(function(){
+		var msg=$('#rw_content').val();
+		if(msg=="")
+		{
+			alert("댓글 내용을 입력하세요");
+			$('#rw_content').focus();
+			return;
+		}
+		$('#re_new_frm').submit();
+		// action수행
+	});
+	var p=0;
+	$('.reUpdate').click(function(){
+		var rw_no=$(this).attr('name');
+		if(p==0)
+		{
+			$('#re_update_tr'+rw_no).show();
+			p=1;
+		}
+		else
+		{
+			$('#re_update_tr'+rw_no).hide();
+			p=0;
+		}
+	});
+});
+</script>
 <div class="about_top" >
 	<div class="container" style="margin: 400;">
 		<div class="jumbotron">
@@ -80,44 +110,114 @@
 				<hr style="border:1px solid #d8d8d8;"></hr>
 			</div>
 			<div >
+			<!-- 아이디있을시 -->
+			<c:if test="${sessionScope.id!=null }">
+				<form method="post" action="reboard_new_insert.do" id="re_new_frm">
 				<div class="row" style="padding-left:20px; padding-right:20px;">
 					<span class="col-md-11" style="padding-left:20px;"> 
+					<input type="hidden" name=rw_bno value="${dto.b_no }">
+					<input type="hidden" name=page value=""${page }">
 					<textarea
-							name="reply"
+							name="rw_content"
 							onclick="if(this.value==this.defaultValue){this.value=''}"
 							onblur="if (this.value == '') { this.value = this.defaultValue; }"
 							style="width: 100%; height: 50px; font-size: 10pt; color:#a9a9a9;"> 댓글을 입력해 주세요</textarea>
 					</span> 
 					<span class="col-md-1"> 
-					<input type="button" value="댓글 입력"
+					<input type="button" value="댓글 입력" id="replyBtn"
 						style="float:right; width: 85px; height: 50px; font-size: 9pt;
 						 color: #f08080; font-weight: 500">
 					</span>
 				</div>
+				</form>
+			</c:if>
 			</div>
 			<p></p>
 			<div style="padding-left: 40px;padding-right: 40px;">
 			<c:forEach var="rDto" items="${rlist }">
-				<c:if test="${rDto.group_tabl!=0 }">
-					<c:forEach var="i" begin=1" end="${rDto.group_tab }" step="1">
-					<img src="images/neo_new.gif">
-					</c:forEach>
-				</c:if>
 				<div class="row" style="border: 1px solid #e6e6e6; border-style: ridge; 
 						padding-top:5px; padding-bottom:5px;">
+					<c:if test="${rDto.group_tab!=0 }">
+		            <c:forEach var="i" begin="1" end="${rDto.group_tab }" step="1">
+		              &nbsp;&nbsp;
+		            </c:forEach>
+		            <img src="images/neo_new.gif">
+		           </c:if>
 					<span class="col-md-1"
 						style="font-size: 10pt; color:#f08080; font-weight:700;">${rDto.rw_id }</span> 
+						<c:if test="${rDto.group_tab!=0 }">
+							<c:forEach var="i" begin="1" end="${rDto.group_tab }" step="1">
+							&nbsp;&nbsp;
+							</c:forEach>
+						</c:if>
 						<span
 						class="col-md-8" style="font-size: 10pt; color: #a9a9a9;">${rDto.rw_content }</span>
+					
 					<span class="col-md-1" style="font-size: 8pt; color: #337ab7; padding:0px; text-align: right;">
-					${rDto.dbday }</span> 
+						${rDto.dbday }</span> 
+						<c:if test="${sessionScope.id==rDto.rw_id }">
+						<a href="#" name="${rDto.rw_no }" class="reUpdate">
 						<span class="col-xs-1"
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>수정</b></span> 
+						</a>
+						<a href="#">
 						<span class="col-xs-1"
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>삭제</b></span>  
+						</a>
+						</c:if>
+	
+						<c:if test="${sessionScope.id!=null }">
+						<a class="reRe" href="#" name="${rDto.rw_no }">
 						<span class="col-xs-1"
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>댓글</b></span>
+						</a>
+						</c:if>
 				</div>
+			<div id="re_re_tr${rDto.rw_no }" style="display:none">
+			<!-- 아이디있을시 -->
+				<form method="post" action="reboard_re_insert.do" id="re_new_frm${rDto.rw_no }">
+				<div class="row" style="padding-left:20px; padding-right:20px;">
+					<span class="col-md-11" style="padding-left:20px;"> 
+					<input type="hidden" name=rw_bno value="${dto.b_no }">
+					<input type="hidden" name=page value=""${page }">
+					<input type=hidden name=pno value="${rDto.rw_no }">
+					<textarea
+							name="rw_content" id="rw_content${rDto.rw_no }"
+							onclick="if(this.value==this.defaultValue){this.value=''}"
+							onblur="if (this.value == '') { this.value = this.defaultValue; }"
+							style="width: 100%; height: 50px; font-size: 10pt; color:#a9a9a9;"> 댓글을 입력해 주세요</textarea>
+					</span> 
+					<span class="col-md-1"> 
+					<input type="button" value="댓글 입력" id="replyBtn"
+						style="float:right; width: 85px; height: 50px; font-size: 9pt;
+						 color: #f08080; font-weight: 500"  onclick="replyBtnClick(${rDto.rw_no })">
+					</span>
+				</div>
+				</form>
+			</div>
+			
+			<div id="re_update_tr${rDto.rw_no }" style="display:none">
+			<!-- 아이디있을시 -->
+				<form method="post" action="reply_re_update.do" id="re_update_frm${rDto.rw_no }">
+				<div class="row" style="padding-left:20px; padding-right:20px;">
+					<span class="col-md-11" style="padding-left:20px;"> 
+					<input type="hidden" name=rw_bno value="${dto.b_no }">
+					<input type="hidden" name=page value=""${page }">
+					<input type=hidden name=pno value="${rDto.rw_no }">
+					<textarea
+							name="rw_content" id="rw_content${rDto.rw_no }"
+							onclick="if(this.value==this.defaultValue){this.value=''}"
+							onblur="if (this.value == '') { this.value = this.defaultValue; }"
+							style="width: 100%; height: 50px; font-size: 10pt; color:#a9a9a9;"> 댓글을 입력해 주세요</textarea>
+					</span> 
+					<span class="col-md-1"> 
+					<input type="button" value="댓글 입력" id="replyBtn"
+						style="float:right; width: 85px; height: 50px; font-size: 9pt;
+						 color: #f08080; font-weight: 500"  onclick="replyUpdateClick(${rDto.rw_no })">
+					</span>
+				</div>
+				</form>
+			</div>
 				</c:forEach>
 			</div>
 			

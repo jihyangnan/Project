@@ -70,10 +70,9 @@
 <!--새로운 댓글 올리기 -->
 <insert id="replyNewInsert" parameterType="Reply">
 	<selectKey keyProperty="rw_no" resultType="int" order="BEFORE">
-		SELECT NVL(MAS(rw_no)+1,1) as rw_no FROM re_board
+		 SELECT NVL(MAX(rw_no)+1,1) as rw_no FROM re_board
 	</selectKey>
-	INSERT INTO re_board VALUES(#{rw_no},0,{rw_content},#{rw_id},SYSDATE,'n',
-	#{rw_bno},(SELECT NVL(MAX(group_id)+1,1)FROM re_board),0,0,0,0
-	)
+	INSERT INTO re_board VALUES(#{rw_no},0,#{rw_content},#{rw_id},SYSDATE,'n',
+	#{rw_bno},(SELECT NVL(MAX(group_id)+1,1) FROM re_board),0,0,0,0)
 </insert>
 </mapper>

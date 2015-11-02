@@ -208,6 +208,9 @@ public class BoardDAO {
 	public static void replyNewInsert(ReBoardDTO d)
 	{
 		SqlSession session=ssf.openSession(true);
+		System.out.println("rw_no="+d.getRw_no());
+		System.out.println("rw_bno="+d.getRw_bno());
+		System.out.println("rw_id="+d.getRw_id());
 		session.insert("replyNewInsert",d);
 		session.close();
 	}

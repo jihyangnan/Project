@@ -17,18 +17,19 @@ public class ReBoardNewInsertModel implements Model {
 		String rw_bno=req.getParameter("rw_bno");
 		String page=req.getParameter("page");
 		HttpSession session=req.getSession();
-		String rw_id=(String)session.getAttribute("rw_id");
+		String rw_id=(String)session.getAttribute("id");
 		
 		//디비연동
 		ReBoardDTO d=new ReBoardDTO();
 		d.setRw_bno(Integer.parseInt(rw_bno));
 		d.setRw_id(rw_id);
 		d.setRw_content(rw_content);
+		
 		BoardDAO.replyNewInsert(d);
 		req.setAttribute("rw_bno", rw_bno);
 		req.setAttribute("page", page);
 		
-		return "board_content.do?rw_bno=" + rw_bno + "&page=" + page ;
+		return "board_content.do?b_no=" + rw_bno + "&page=" + page ;
 	}
 
 }
