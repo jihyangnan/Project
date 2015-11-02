@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="js/nezipInsert4.js"></script>
 	<form action="nezip_insert4process.do" method="post">
 	<div >	
@@ -72,16 +71,20 @@
 								이용할 수 있는 구역의 안전 체크 리스트를 알려주세요.</strong></li>
 					</ul>
 
-					<div>
-						<label style="font-size: 20px; margin-top: 10px;">
-						<strong>안전 체크 리스트</strong></label><br> 
-						<c:forEach var="homeFac" items="${homeFacList}">
-		 					<c:if test="${homeFac.hs_Kind == 4}">
-		 					<label class="checkbox-inline">
-							  <input type="checkbox" id="inlineCheckbox1" value="${homeFac.hs_No}"> ${homeFac.hs_Name}
-							</label>
-		 					</c:if>
-		 				</c:forEach>
+					<div id="check_box" style="margin-left: 0">
+						<label style="width: 170px; font-size: 20px; margin-right: 40px;">
+						<strong>안전 체크 리스트</strong></label><a></a> <br> 
+						
+						
+						<input type="checkbox" name="cb1" class="ab"> 
+						<label for="ab">화재 감지기</label> 
+						<input type="checkbox" name="cb2" class="ab"> 
+						<label for="ab">일산화탄소 탐지기</label> 
+						<input type="checkbox" name="cb3" class="ab"> 
+						<label for="ab">구급 상자</label>
+						<input type="checkbox" name="cb4" class="ab"> 
+						<label for="ab">안전 카드</label> <input type="checkbox" name="cb5"
+								class="ab"> <label for="ab">소화기</label>
 					</div>
 					<ul>
 						<li style="font-size: 18px; margin-top: 15px"><strong>비상연락망</strong></li>

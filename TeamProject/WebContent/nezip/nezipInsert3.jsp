@@ -11,6 +11,7 @@
 	 <div style="padding-left:40px;">
        	<ul>
 	 	<c:forEach var="facKind" items="${facKindList}">
+	 		<c:if test="${facKind.si_No != 4 }">
        		<li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
 	 		${facKind.si_Kind}
 	 		<div style="font-size: 13px; padding-top:10px;">
@@ -19,7 +20,7 @@
 	 					<c:if test="${homeFac.hs_Kind == facKind.si_No}">
 	 					<li class="install">
 			       			<label class="checkbox-inline">
-				 			 <input type="checkbox" id="inlineCheckbox1" name="install1"> ${homeFac.hs_Name} 
+				 			 <input type="checkbox" id="inlineCheckbox1" name="install1" value="${homeFac.hs_No}"> ${homeFac.hs_Name} 
 							</label>
 							<c:if test="${homeFac.hs_Content != ' '}">
 							 &nbsp;<img src="images/question.png">
@@ -29,6 +30,8 @@
 	 				</c:forEach>
 	 			</ul>
 	 		</div>
+	 		</li>
+	 		</c:if>
 	 	</c:forEach>
 	 
        	 <!-- <li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
