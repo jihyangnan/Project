@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
     <div >
-    	<form action="nezip_insert2.do" method="post">
+    	<form action="nezip_insert2process.do" method="post">
        <div>	 
        	 <h2 class="blog_head" align="left"><b>내집 등록 - 2단계</b></h2>
        	 <!-- 작업 시작  -->

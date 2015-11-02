@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<form action="nezip_insert5process.do" method="post">
 	<div>
-		
 		<div>
 			<h2 class="blog_head" align="left">
 				<b>내집 등록 - 5단계</b>
@@ -128,14 +128,12 @@
 
 			</div>
 			<div class="joinup">
-			<a href="nezip_nezipInsert.do?step=4"> 
-				<input type=button value="이전" id="join" class="btn">
-			</a>
-			&nbsp;&nbsp;&nbsp; <a href="nezip_nezipInsert.do?step=6">
-				<input type=button value="다음" id="join" class="btn">
-			</a>
+			<a href="nezip_insert4.do"> 
+				<input type=button value="이전" id="join" class="btn"></a>
+			
+				<input type="submit" value="다음" id="join" class="btn">
 		</div>
 		</div>
 	</div>
-
+	</form>
 

@@ -40,11 +40,13 @@ public class Insert1ProcessModel implements Model{
 		session.setAttribute("dto", dto);
 		
 		
-		req.setAttribute("insertStep", 2);
+		/*req.setAttribute("insertStep", 2);
 		req.setAttribute("insertPage", "nezipInsert2.jsp");
 		req.setAttribute("pageNum", 1); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
 		req.setAttribute("jsp", "../nezip/nezipinsertmenu.jsp");
-		return "main/index.jsp";
+		return "main/index.jsp";*/
+		return "nezip_insert2.do";
+		
 	}
 
 }

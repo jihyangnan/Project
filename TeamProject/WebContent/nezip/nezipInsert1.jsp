@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 	
-<form action="nezip_insert1.do" method="post">
+<form action="nezip_insert1process.do" method="post">
 <div>
 	<div>
 
