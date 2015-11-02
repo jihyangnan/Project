@@ -17,6 +17,21 @@ $(function(){
 		$('#re_new_frm').submit();
 		// action수행
 	});
+	var k=0;
+	$('.reRe').click(function(){
+		var rw_no=$(this).attr('name')
+		if(k==0)
+		{
+			$('#re_re_tr'+rw_no).show();
+			k=1;
+		}
+		else
+		{
+			$('#re_re_tr'+rw_no).hide();
+			k=0;
+		}
+	});
+	
 	var p=0;
 	$('.reUpdate').click(function(){
 		var rw_no=$(this).attr('name');
@@ -32,27 +47,27 @@ $(function(){
 		}
 	});
 });
-function replyBtnClick(no)
+function replyBtnClick(rw_no)
 {
-	var msg=$('#rw_content'+no).val();
+	var msg=$('#rw_content'+rw_no).val();
 	if(msg=="")
 	{
 		alert("댓글 내용 입력하세요");
-		$('#rw_content'+no).focus();
+		$('#rw_content'+rw_no).focus();
 		return;
 	}
-	$('#re_re_frm'+no).submit();
+	$('#re_re_frm'+rw_no).submit();
 }
-function replyUpdateClick(no)
+function replyUpdateClick(rw_no)
 {
-	var msg=$('#urw_content'+no).val();
+	var msg=$('#urw_content'+rw_no).val();
 	if(msg=="")
 	{
 		alert("댓글 내용 입력하세요");
-		$('#urw_content'+no).focus();
+		$('#urw_content'+rw_no).focus();
 		return;
 	}
-	$('#re_update_frm'+no).submit();
+	$('#re_update_frm'+rw_no).submit();
 }
 </script>
 <div class="about_top" >
@@ -197,28 +212,31 @@ function replyUpdateClick(no)
 						</div>
 						</c:if>
 				</div>
-			<div id="re_re_tr${rDto.rw_no }" style="display:none">
+				<!-- 댓글의 댓글 -->
+			<c:if test="${rDto.group_step==0 }">
+			<div id="re_re_tr${rDto.rw_no }" style="display:none; margin-top:10px; margin-bottom:10px;">
 			<!-- 아이디있을시 -->
 				<form method="post" action="reboard_re_insert.do" id="re_new_frm${rDto.rw_no }">
-				<div class="row" style="padding-left:20px; padding-right:20px;">
-					<span class="col-md-11" style="padding-left:20px;"> 
+				<div class="row" >
+					<span class="col-md-11" style="padding:0px;"> 
 					<input type="hidden" name=rw_bno value="${dto.b_no }">
 					<input type="hidden" name=page value=""${page }">
-					<input type=hidden name=pno value="${rDto.rw_no }">
+					<input type=hidden name=rw_no value="${rDto.rw_no }">
 					<textarea
 							name="rw_content" id="rw_content${rDto.rw_no }"
 							onclick="if(this.value==this.defaultValue){this.value=''}"
 							onblur="if (this.value == '') { this.value = this.defaultValue; }"
 							style="width: 100%; height: 50px; font-size: 10pt; color:#a9a9a9;"> 댓글을 입력해 주세요</textarea>
 					</span> 
-					<span class="col-md-1"> 
-					<input type="button" value="댓글 입력" id="replyBtn"
+					<span class="col-md-1" style="padding:0px;"> 
+					<input type="button" value="댓글 댓글" id="replyBtn"
 						style="float:right; width: 85px; height: 50px; font-size: 9pt;
 						 color: #f08080; font-weight: 500"  onclick="replyBtnClick(${rDto.rw_no })">
 					</span>
 				</div>
 				</form>
 			</div>
+			</c:if>
 			
 			<div id="re_update_tr${rDto.rw_no }" style="display:none; margin-top:10px; margin-bottom:10px;">
 			<!-- 아이디있을시 -->
