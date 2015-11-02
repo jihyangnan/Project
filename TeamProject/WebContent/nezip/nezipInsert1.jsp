@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <form action="nezip_insert1process.do" method="post">
 <div>
 	<div>
@@ -19,14 +19,17 @@
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">집 유형</h4>
-							<select name="houseStyle" class="form-control">
-								<option value=1 selected>아파트
-								<option value=2>단독주택
-								<option value=3>게스트하우스
-								<option value=4>빌라
-								<option value=5>호텔
-								<option value=6>기타
+							<select id="houseStyle" name="houseStyle" class="form-control">
+								<option value=1 selected>아파트</option>
+								<option value=2>단독주택</option>
+								<option value=3>게스트하우스</option>
+								<option value=4>빌라</option>
+								<option value=5>호텔</option>
+								<option value=6>기타</option>
 							</select>
+							<script>
+								$('#houseStyle option').each(function)
+							</script>
 						</div>
 					</li>
 
