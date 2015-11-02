@@ -25,25 +25,20 @@ public class NezipDAO {
 			System.out.println(ex.getMessage());
 		}
 	}
-	//데이터 가져오기
-	public static List<ZipRegDTO> ZipRegData(Map map) {
-		List<ZipRegDTO> list = new ArrayList<ZipRegDTO>();
-		SqlSession session=null;
-		try
-		{
-			session=ssf.openSession();
-			list=session.selectList("ZipRegData", map);
-		}
-		catch(Exception ex)
-		{
+	//집 등록
+	public static void insertZipReg(ZipRegDTO dto) {
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			session.selectList("zipReg", dto);
+			session.commit();
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
+			session.rollback();
+		} finally {
+			if (session != null)
+				session.close();
 		}
-		finally
-		{
-			if(session!=null)
-					session.close();
-		}
-		return list;
 	}
 	
 	

@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias type="com.board.dao.BoardDTO" alias="Board"/>
 		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
+		<typeAlias type="com.nezip.dao.ZipRegDTO" alias="ZipReg"/>
 	</typeAliases>
 	<!-- 개발환경 -->
 	<environments default="development">
