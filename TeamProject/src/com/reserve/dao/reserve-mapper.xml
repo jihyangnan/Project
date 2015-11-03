@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.reserve.dao.reserve-mapper">
+<select id="reserveRowCount" resultType="int">
+      SELECT COUNT(*) FROM reserve
+    </select>
+    <select id="reserveListData" resultType="Reserve" parameterType="java.util.Map">
+      SELECT h_nhome,h_money, dbday ,h_addr1, num
+      FROM (SELECT h_nhome,h_money, TO_CHAR(regdate,'YYYY-MM-DD') as dbday , rownum as num
+      FROM (SELECT h_nhome,h_money, regdate  
+      FROM reserve ORDER BY no DESC)) 
+      WHERE num BETWEEN #{start} AND #{end}
+    </select>
+    <select id="reserveContentData" resultType="Reserve" parameterType="int">
+     SELECT no,name,subject,content,regdate,hit,+<!-- 시설등록,숙소시설,시설종류 컬럼 --> 
+     FROM reserve,<!-- 집등록,시설등록,숙소시설,시설종류 조인 -->
+      WHERE no=#{no}
+    </select>
+<insert id="reviewNewInsert" parameterType="Review">
+      <selectKey keyProperty="re_no" resultType="int" order="BEFORE">
+        SELECT re_no FROM review
+      </selectKey>
+      INSERT INTO review VALUES(#{re_No},#{re_Id},
+        #{re_hNo},#{re_Content},SYSDATE)
+    </insert>
+    <update id="reviewReUpdate" parameterType="Review">
+      UPDATE review SET
+      re_content=#{re_content}
+      WHERE re_no=#{re_no}
+    </update>
+    <delete id="reviewDelete" parameterType="int">
+     DELETE FROM review
+     WHERE re_no=#{re_no}
+    </delete>
+    <update id="reviewContentUpdate" parameterType="int">
+     UPDATE review SET
+     re_content='삭제된 후기입니다'
+     WHERE re_no=#{re_no}
+    </update>
+     <select id="reviewCount" resultType="int" parameterType="int">
+     SELECT COUNT(*) FROM review
+     WHERE re_hno=#{re_hno}
+    </select>
+</mapper>
