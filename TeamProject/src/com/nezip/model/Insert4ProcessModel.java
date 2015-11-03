@@ -26,6 +26,13 @@ public class Insert4ProcessModel implements Model{
 			homeList.add(dto);
 		}
 		
+		String phone1 = req.getParameter("phone1");
+		String phone2 = req.getParameter("phone2");
+		String phone3 = req.getParameter("phone3");
+		
+		
+	
+		
 		HttpSession session = req.getSession();
 		
 		session.setAttribute("homeList", homeList);
