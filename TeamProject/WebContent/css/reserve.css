@@ -262,27 +262,27 @@ div.overlay span {
 
 input.sp-selector-1:checked ~ .sp-content {
     background-position: 0 0;
-	background-color: #727b7f;
+	background-color: #e6e6fa;
 }
 
 input.sp-selector-2:checked ~ .sp-content {
     background-position: -100px 0;
-	background-color: #7f7276;
+	background-color: #afeeee;
 }
 
 input.sp-selector-3:checked ~ .sp-content {
     background-position: -200px 0;
-	background-color: #737f72;
+	background-color:  #DFD1FD;
 }
 
 input.sp-selector-4:checked ~ .sp-content {
     background-position: -300px 0;
-	background-color: #79727f;
+	background-color:  #FDCBE9;
 }
 
 input.sp-selector-5:checked ~ .sp-content {
     background-position: -400px 0;
-	background-color: #7d7f72;
+	background-color: #ffe4e1;
 }
 
 input.sp-selector-1:checked ~ .sp-content .sp-parallax-bg {

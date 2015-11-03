@@ -34,8 +34,12 @@
 	
 	
 	<!-- 내집 예약 관련 -->
-	<bean id="reserve_list" class="com.reserve.model.ListModel"/>
-	<bean id="reserve_detail" class="com.reserve.model.DetailModel"/>
+	<!-- <bean id="reserve_list" class="com.reserve.model.ListModel"/> -->
+	<!-- <bean id="reserve_detail" class="com.reserve.model.DetailModel"/> -->
+	<bean id="reserve_list" class="com.reserve.model.ReserveListModel"/>
+    <bean id="reserve_detail" class="com.reserve.model.ReserveContentModel"/>
+    <bean id="reserve_review_new_insert" class="com.reserve.model.ReviewInsertModel"/>
+    <bean id="reserve_review_update" class="com.reserve.model.ReviewUpdateModel"/>
 	
 	<!-- 우리동네 소개 관련 -->
 	<bean id="town_list" class="com.town.model.TownListModel"/>
