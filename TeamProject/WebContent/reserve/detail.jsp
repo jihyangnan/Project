@@ -269,13 +269,13 @@ function replyUpdateClick(no)
 					<span class="col-md-4" style="border-color: #9400d3;"><input type="text" class="form-control datepicker" placeholder="체크아웃"></span>
 					 <span class="col-md-4" style="border-color: #9400d3;">
 					 <select class="form-control">
-					        <option value="1"></option>
-					        <option value="2"></option>
-					        <option value="3"></option>
-					        <option value="4"></option>
-					        <option value="5"></option>
-					        <option value="6"></option>
-					        <option value="7"></option>
+					        <option>1</option>
+					        <option>2</option>
+					        <option>3</option>
+					        <option>4</option>
+					        <option>5</option>
+					        <option>6</option>
+					        <option>7</option>
 					      </select></span>
 				</div>
 				<div id="aaa"
