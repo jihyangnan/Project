@@ -20,7 +20,8 @@
 	 					<c:if test="${homeFac.hs_Kind == facKind.si_No}">
 	 					<li class="install">
 			       			<label class="checkbox-inline">
-				 			 <input type="checkbox" id="inlineCheckbox1" name="install1" value="${homeFac.hs_No}"> ${homeFac.hs_Name} 
+				 			 <input type="checkbox" id="inlineCheckbox1" name="install1" value="${homeFac.hs_No}"> 
+				 			 ${homeFac.hs_Name} 
 							</label>
 							<c:if test="${homeFac.hs_Content != ' '}">
 							 &nbsp;<img src="images/question.png">
@@ -33,6 +34,7 @@
 	 		</li>
 	 		</c:if>
 	 	</c:forEach>
+	 	
 	 
        	 <!-- <li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
        		기본 편의 시설
@@ -208,6 +210,17 @@
        		 </li> -->
        	 </ul>
        	 </div>
+       	 <script>
+	 		var facList = '${facList}'.split(',');
+	 		console.log(facList);
+	 		$('input[type="checkbox"]').each(function(){
+	 			for(var i=0; i<facList.length; i++){
+	 				if($(this).val() == facList[i]){
+	 					$(this).attr("checked", "checked");
+	 				}
+	 			}
+	 		})
+	 	</script>
 		<div class="joinup">
 			<a href="nezip_insert2.do"> 
 				<input type=button value="이전" id="join" class="btn">

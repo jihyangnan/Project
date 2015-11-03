@@ -15,7 +15,13 @@ public class Insert5ProcessModel implements Model{
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		req.setCharacterEncoding("utf-8");
 		
-		// 세션에 값 저장할 부분
+		String price1 = req.getParameter("price1"); // 세부사항
+		HttpSession session = req.getSession();
+		
+		ZipRegDTO dto = new ZipRegDTO();
+		dto.setH_Money(Integer.parseInt(price1));
+		
+		session.setAttribute("ZipRegDTO", dto);
 		
 		return "nezip_insert6.do";
 	}

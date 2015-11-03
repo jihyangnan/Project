@@ -26,7 +26,7 @@
 						<label style="font-size: 18px; padding-top: 15px;">1박당 가격</label>
 					</p>
 					<p>
-						<label>KWR</label> <input type="text" name="price1"> <%-- "${dto.price1 }" --%> <label
+						<label>KWR</label> <input type="text" name="price1" value="${price1}"> <%-- "${dto.price1 }" --%> <label
 							style="color: yellowgreen;">추천가격 : 15,000원</label>
 					</p>
 					
@@ -34,9 +34,9 @@
 						<a href="#" data-prevent-default="">주당 및 월당</a>가격을 설정해서 오래 머무는
 						게스트에게 할인을 해 줄 수 있습니다.
 					</p>
-					<hr
+					<!-- <hr
 						style="margin-top: 50px; margin-bottom: 20px; border: 0; 
-						border-top: 1px solid #dce0e0; width:100%; float:left;">
+						border-top: 1px solid #dce0e0; width:100%; float:left;"> -->
 
 				</div>
 				
@@ -68,7 +68,7 @@
 				<div class="clearfix"></div>
 
 			</div>
-			<div class="col-md-6 service_box" style="width:62.3%; margin-left:40px;">
+			<%-- <div class="col-md-6 service_box" style="width:62.3%; margin-left:40px;">
 
 				<p style="">
 					<label style="font-size: 21px; padding-top: 15px;">장기 숙박 요금</label>
@@ -81,16 +81,16 @@
 					<label style="font-size: 18px; padding-top: 15px;">주 단위 요금</label>
 				</p>
 				<p> 
-					<label>KWR</label> <input type="text" ><%-- "${dto.price2 }" --%> <label
+					<label>KWR</label> <input type="text" >"${dto.price2 }" <label
 						style="color: yellowgreen;">추천가격 : 60,000원</label>
 				</p>
 				<p style="padding-top: 15px;">
 					<label style="font-size: 18px; padding-top: 15px;">월 단위 요금</label>
 				</p>
 				<p>
-					<label>KWR</label> <input type="text" ><%-- "${dto.price3 }" --%> <label
+					<label>KWR</label> <input type="text" >"${dto.price3 }" <label
 						style="color: yellowgreen;">추천가격 : 345,000원</label>
-				</p>
+				</p> --%>
 				<!-- <div style=" text-align:-webkit-center; width: 73%;padding-top: 20px;">
 				 <a href="#">
                  <input type="button" value="뒤로"></a>
@@ -104,7 +104,7 @@
 
 
 			</div>
-			<div class="col-md-4 col-md-offset-2  service_box" style="margin:0;">
+			<!-- <div class="col-md-4 col-md-offset-2  service_box" style="margin:0;">
 				<div>
 					<div style="top: 154px; padding-top: 60px;">
 						<div class="help-header-icon-container text-center va-container-h">
@@ -121,7 +121,7 @@
 									설정</a>에 대한 추가 정보 - 게시 후 수정할 수 있습니다.
 							</p>
 
-						</div>
+						</div> -->
 
 					</div>
 				</div>

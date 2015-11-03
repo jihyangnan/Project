@@ -72,35 +72,61 @@
 								이용할 수 있는 구역의 안전 체크 리스트를 알려주세요.</strong></li>
 					</ul>
 
-					<div>
+
+					 <div>
 						<label style="font-size: 20px; margin-top: 10px;">
 						<strong>안전 체크 리스트</strong></label><br> 
+						<div>
 						<c:forEach var="homeFac" items="${homeFacList}">
 		 					<c:if test="${homeFac.hs_Kind == 4}">
 		 					<label class="checkbox-inline">
-							  <input type="checkbox" id="inlineCheckbox1" value="${homeFac.hs_No}"> ${homeFac.hs_Name}
+							  <input type="checkbox" id="inlineCheckbox1" name="install1" value="${homeFac.hs_No}"> ${homeFac.hs_Name}
 							</label>
 		 					</c:if>
+		 				</c:forEach>  
+					
+						</div> 	
+						 
+		 	<%-- <c:forEach var="homeFac" items="${homeFacList}">
+		 		<c:if test="${homeFac.hs_Kind == 4}">
+	       			<ul>
+	       		<li style="float:left; padding:20px 100px 20px 0px; font-size:18px; font-weight:600; color:#565a5c;">
+		 		${facKind.si_Kind}
+		 		<div style="font-size: 13px; padding-top:10px;">
+		 			<ul>
+		 				<c:forEach var="homeFac" items="${homeFacList}">
+		 					<c:if test="${homeFac.hs_Kind == facKind.si_No}">
+		 					<li class="install">
+				       			<label class="checkbox-inline">
+					 			 <input type="checkbox" id="inlineCheckbox1" name="install1" value="${homeFac.hs_No}"> 
+					 			 ${homeFac.hs_Name} 
+								</label>
+								<c:if test="${homeFac.hs_Content != ' '}">
+								 &nbsp;<img src="images/question.png">
+								</c:if>
+				       		</li>
+				       		</c:if>
 		 				</c:forEach>
-					</div>
+		 			</ul> 
+		 		</div>
+		 		</li>
+		 		</c:if>
+		 	</c:forEach>--%>
+	 	
+	             	
+					
+					
 					<ul>
 						<li style="font-size: 18px; margin-top: 15px"><strong>비상연락망</strong></li>
 					</ul>
 						<label style="margin-top: 5px; font-size: 15px;font-weight: 500;">
-							연락처(1)</label>
+							연락처 </label>
 						<input style="height: 23px; margin-top: 9px; margin-left: 10px"
 							type=text size=5> 
 						-<input style="height: 23px; margin-top: 9px; margin-left: 10px" type=text size=5> 
 						-<input style="height: 23px; margin-top: 9px; margin-left: 10px" type=text size=5>
-						<p>
-						<label
-							style="margin-top: 5px; font-size: 15px;font-weight: 500;">
-							연락처(2)</label>
-						<input style="height: 23px; margin-top: 5px; margin-left: 10px"
-							type=text size=5> 
-						-<input style="height: 23px; margin-top: 5px; margin-left: 10px" type=text size=5> 
-						-<input style="height: 23px; margin-top: 5px; margin-left: 10px" type=text size=5>
-					<p>		
+						
+						
 				</div>
 			</div>
 			<div class="joinup">
