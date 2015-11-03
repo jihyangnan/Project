@@ -33,7 +33,27 @@ public class NezipDAO {
 				session.close();
 		}
 	}
-	
+	//집 등록 리스트
+	public static List<ZipRegDTO> zipregList(Map map)
+	   {
+		   List<ZipRegDTO> list=
+				   new ArrayList<ZipRegDTO>();
+		   SqlSession session=null;
+		   try
+		   {
+			   session=ssf.openSession();
+			   list=session.selectList("zipregList",map);
+		   }catch(Exception ex)
+		   {
+			   System.out.println(ex.getMessage());
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+		   return list;
+	   }
 	// 숙소 유형 리스트
 	public static List<Room_categoryDTO> roomCatetoryList(){
 		List<Room_categoryDTO> list = new ArrayList<>();

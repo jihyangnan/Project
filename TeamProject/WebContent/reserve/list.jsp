@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 	$(document).ready(function(){
 		$('#myAffix').affix({
@@ -102,6 +103,9 @@
 					        <option value="2">인원 2</option>
 					        <option value="3">인원 3</option>
 					        <option value="4">인원 4</option>
+					        <option value="5">인원 5</option>
+					        <option value="6">인원 6</option>
+					        <option value="7">인원 7</option>
 					      </select>
 					    </div>
 					  </div>
@@ -441,37 +445,45 @@
 										</label>
 									</div>
 								</div>
-
-							</div>
-							
-							
+							</div>		
 						</div>
-						
-						
-						<div class="form-group">
+							<div class="form-group">
 						    <div class="col-sm-3 col-sm-offset-6">
 						      <button id="detailbtnoff" type="button" class="btn btn-default btn-block">취소</button>
 						    </div>
 						    <div class="col-sm-3">
 						      <button id="" type="button" class="btn btn-info btn-block">필터적용</button>
 						    </div>
-					  	</div>
-						
+					  	</div>						
 					</div>
-								
-
-
 					</div>
-					</form>
-					
+					</form>					
 				  </div>
-				  <div class="row list" data-price="60,000" data-lat="33.450705" data-lng="126.570677">
+				  <c:forEach var="dto" items="${list }">
+				  <div class="row list" data-price="${dto.h_Money }" data-lat="33.450705" data-lng="126.570677">
+					<div class="col-sm-8">
+						<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
+						<img class="img-responsive" src="images/a003.jpg" /></a>		
+					</div>
+					<div class="col-sm-4 desc">
+					  <ul>
+					    <li><a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}"><span>${dto.h_nHome }</span></a></li>
+					    <li><span style="color: #3B9DD6; font-weight: bold;" >${dto.h_Money }원</span></li>
+					    <li><span>${dto.h_rType }</span></li>
+					    <li><span>${dto.h_Addr1 }</span></li>
+					    <li><span>후기 10 개</span></li>
+					  </ul>
+					</div>
+				  </div>
+				  </c:forEach>	
+				  <%-- <div class="row list" data-price="60,000" data-lat="33.450705" data-lng="126.570677">
 					<div class="col-sm-8">
 						<a href="reserve_detail.do"><img class="img-responsive" src="images/a001.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="reserve_detail.do"><span>한강 옆 게스트 하우스</span></a></li>
+					    <li><a href="reserve_detail.do?no=${list.h_no }&page=${curpage}">
+					    <span>${list[0].h_nHome }</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >60,000원</span></li>
 					    <li><span>개인실</span></li>
 					    <li><span>중구, 서울</span></li>
@@ -482,11 +494,11 @@
 				  
 				  <div class="row list" data-price="100,000" data-lat="33.450936" data-lng="126.569477">
 					<div class="col-sm-8">
-						<a href="reserve_detail.do"><img class="img-responsive" src="images/a002.jpg" /></a>		
+						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a002.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="reserve_detail.do"><span>도심속 한옥 호텔</span></a></li>
+					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>도심속 한옥 호텔</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >100,000원</span></li>
 					    <li><span>집전체</span></li>
 					    <li><span>종로구, 서울</span></li>
@@ -497,11 +509,11 @@
 				  
 				  <div class="row list" data-price="60,000" data-lat="33.450879" data-lng="126.569940">
 					<div class="col-sm-8">
-						<a href="reserve_detail.do"><img class="img-responsive" src="images/a003.jpg" /></a>		
+						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a003.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="reserve_detail.do"><span>한강 옆 게스트 하우스</span></a></li>
+					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>한강 옆 게스트 하우스</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >60,000원</span></li>
 					    <li><span>개인실</span></li>
 					    <li><span>중구, 서울</span></li>
@@ -512,18 +524,19 @@
 				  
 				  <div class="row list" data-price="100,000" data-lat="33.451393" data-lng="126.570738">
 					<div class="col-sm-8">
-						<a href="reserve_detail.do"><img class="img-responsive" src="images/a004.jpg" /></a>		
+						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a004.jpg" /></a>		
 					</div>
 					<div class="col-sm-4 desc">
 					  <ul>
-					    <li><a href="reserve_detail.do"><span>도심속 한옥 호텔</span></a></li>
+					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>도심속 한옥 호텔</span></a></li>
 					    <li><span style="color: #3B9DD6; font-weight: bold;" >100,000원</span></li>
 					    <li><span>집전체</span></li>
 					    <li><span>종로구, 서울</span></li>
 					    <li><span>후기 20개</span></li>
 					  </ul>
 					</div>
-				  </div>
+				  </div> --%>
+				  
 				  
 				  
 				  
@@ -549,13 +562,8 @@
 					    </li>
 					  </ul>
 				 </div>
-				  
-				  
-				  
 				</div>
-				
 				<div class="col-sm-5 hidden-xs">
-					
 					<div id="myAffix">
 						<div id="map" style="width: 100%; height: 900px" ></div>
 					</div>

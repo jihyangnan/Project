@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.reserve.dao.*;
+import com.nezip.dao.*;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,11 +29,12 @@ public class ReserveListModel implements Model {
 	    Map map=new HashMap();
 	    map.put("start", start);
 	    map.put("end", end);
-	    List<ReserveDTO> list=ReserveDAO.reserveListData(map);
-	    for(ReserveDTO d:list)
+	    List<ZipRegDTO> list=NezipDAO.zipregList(map);
+	    /*for(ReserveDTO d:list)
 	    {
 	    	d.setReviewCount(ReserveDAO.reviewCount(d.getR_no()));
-	    }
+	    }*/
+	    
 	    int totalpage=ReserveDAO.reserveTotalPage();
 	    req.setAttribute("list", list);
 	    req.setAttribute("curpage", curpage);
