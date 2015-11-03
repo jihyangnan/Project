@@ -300,7 +300,7 @@
 
 			</div>
 			<div class="row text-right">
-				<a href="index.jsp?page=reserve/list.jsp"><button type="button" class="btn search-btn" >목록보기</button></a>
+				<a href="#" onclick="history.back(); return false;"><button type="button" class="btn search-btn" >목록보기</button></a>
 			</div>	
 		</div>
 		</div>
