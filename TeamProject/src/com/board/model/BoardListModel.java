@@ -7,6 +7,7 @@ import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 public class BoardListModel implements Model{
 
 	@Override
@@ -32,12 +33,19 @@ public class BoardListModel implements Model{
 			d.setReplyCount(BoardDAO.boardReplyCount(d.getB_no()));
 		}
 		int totalpage=BoardDAO.boardTotalPage();
+		System.out.println("start="+start);
+		System.out.println("end="+end);
 		req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		req.setAttribute("list", list);
 		req.setAttribute("curpage", curpage);
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("pageNum", 4); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
 		req.setAttribute("jsp", "../board/list.jsp");
+		//req.setAttribute("b_id", b_id);
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("id", "shim");
+		
 		return "main/index.jsp";
 	}
 

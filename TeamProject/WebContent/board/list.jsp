@@ -92,9 +92,8 @@ function resizeBoard(){
 					<div class="col-sm-1" style="font-weight: 600">조회</div>
 				</div>
 				
-				<c:forEach var="dto" items="${list }">
+				<c:forEach var="dto" items="${list }" varStatus="status">
 				<div class="row list-group-item">
-					
 					<!-- <img src="images/ico-list-notice.gif"> -->
 					<span class="col-sm-1">${dto.b_no }</span>
 					<span class="col-sm-1 mhide">
@@ -118,6 +117,7 @@ function resizeBoard(){
 					<span class="col-sm-2 mhide writer">${dto.b_id }</span>
 					<span class="col-sm-2 mhide date">${dto.dbday }</span>
 					<span class="col-sm-1 mhide hit">${dto.b_hit }</span>
+				
 				</div>
 				</c:forEach>
 			</div>		
@@ -142,7 +142,7 @@ function resizeBoard(){
 			            
 			            <form class="form-horizontal" method="post" action="board_insert.do" id="writeForm">
 							<div class="form-group">
-								<c:if test="${dto.b_id == 'admin'}" >
+								<c:if test="${sessionScope.id == 'admin'}" >
 									<div >
 									<font style="font-weight: 700";>말머리</font>&nbsp;&nbsp;&nbsp;
 									<label style="font-size:14px;">

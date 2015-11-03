@@ -26,10 +26,10 @@ public class BoardContentModel implements Model{
 		int rcurpage=Integer.parseInt(rPage);
 		String strNo=req.getParameter("b_no");
 		String strPage=req.getParameter("page");
-		BoardDTO d = BoardDAO.boardContentData(Integer.parseInt(strNo));
+		BoardDTO d = BoardDAO.boardContentData(Integer.parseInt(strNo),type);
 		
 		List<ReBoardDTO> temp=BoardDAO.replyListData(Integer.parseInt(strNo));
-		//int rtotal=BoardDAO.replyPageTotalpage(Integer.parseInt(strNo));
+		int rtotal=BoardDAO.reboardPageTotalpage(Integer.parseInt(strNo));
 		List<ReBoardDTO> list=new ArrayList<ReBoardDTO>();
 		
 		int j=0;
@@ -47,7 +47,7 @@ public class BoardContentModel implements Model{
 		// 세션에 아이디 등록
 		HttpSession session = req.getSession();
 		session.setAttribute("id", "admin");
-		//req.setAttribute("rtotal", rtotal);
+		req.setAttribute("rtotal", rtotal);
 		req.setAttribute("rcurpage", rcurpage);
 		
 		req.setAttribute("rlist", list);

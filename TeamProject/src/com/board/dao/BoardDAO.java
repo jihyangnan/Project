@@ -103,7 +103,7 @@ public class BoardDAO {
 	}
 	
 	//상세보기
-	public static BoardDTO boardContentData(int b_no)
+	public static BoardDTO boardContentData(int b_no, int type)
 	{
 		SqlSession session=null;
 		BoardDTO d=new BoardDTO();
@@ -111,8 +111,11 @@ public class BoardDAO {
 		{
 			//조회수 증가
 			session=ssf.openSession(true);
-			session.update("boardHitIncrement",b_no);
-			//내용보기 값 보내기
+			if(type==1)
+			{
+				session.update("boardHitIncrement",b_no);
+			
+			}//내용보기 값 보내기
 			d=session.selectOne("boardContentData",b_no);
 		}
 		catch(Exception ex)
@@ -228,10 +231,10 @@ public class BoardDAO {
 		session.update("reboardStepIncrement",d);
 		session.close();
 	}
-	public static void reboardDethIncrement(int rw_no)
+	public static void reboardDepthIncrement(int rw_no)
 	{
 		SqlSession session=ssf.openSession(true);
-		session.insert("reboardDethIncrement",rw_no);
+		session.insert("reboardDepthIncrement",rw_no);
 		session.close();
 	}
 	public static void reboardReInsert(ReBoardDTO d)
@@ -269,21 +272,28 @@ public class BoardDAO {
 		session.update("reboardMsgUpdate",rw_no);
 		session.close();
 	}
-	public static void reboardDelete(ReBoardDTO d)
+	public static void reboardDelete(int rw_no)
 	{
+		// 현재 삭제할 글번호만 가져온 상태
+		// 삭제할 글의 뎁스를 가져오고
+		// 뎁스가 0이면 -> 삭제 -> 루트글의 뎁스를 낮추기
+		// 뎁스가 0이 아니면 -> 관리자어쩌구...
 		SqlSession session=null;
-		try 
-		{
-			session=ssf.openSession(true);
-			session.insert("reboardDelete",d);
-		} 
-		catch (Exception ex) 
-		{
+		try {
+			session = ssf.openSession();
+			ReBoardDTO dto = session.selectOne("reboardGetDepthRoot", rw_no);
+			if (dto.getDepth() == 0) {	// 댓글이 없을 경우
+				session.update("reboardDelete", rw_no);	// 댓글삭제
+				session.update("reboardDepthDecrement", dto.getRoot()); // 루트글의 뎁스 낮추기
+			} else {	// 댓글이 있을경우
+				session.update("reboardMsgUpdate", rw_no); // 관리자에 의해 삭제~~~ 바꾸기
+			}
+			session.commit();
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}
-		finally
-		{
-			if(session!=null)
+			session.rollback();
+		} finally {
+			if (session != null)
 				session.close();
 		}
 	}
@@ -292,8 +302,8 @@ public class BoardDAO {
 	public static int reboardPageTotalpage(int rw_bno)
 	{
 		SqlSession session=ssf.openSession();
-		int count=session.selectOne("reboardPageTotalpage",rw_bno);
+		int count=session.selectOne("reboardPageRowCount",rw_bno);
 		session.close();
-		return (int)(Math.ceil(count/5.0));
+		return (int)(Math.ceil(count/10.0));
 	}
 }
