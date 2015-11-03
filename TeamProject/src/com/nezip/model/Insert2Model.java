@@ -34,13 +34,12 @@ public class Insert2Model implements Model{
 		System.out.println(dto.getH_Addr1());
 		System.out.println(dto.getH_Addr2());*/
 		HttpSession session = req.getSession();
-		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("dto");
+		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("ZipRegDTO");
 		
 		if(dto != null){
-		req.setAttribute("addr1", dto.getH_Addr1());
-		req.setAttribute("addr2", dto.getH_Addr2());
-		}
-		
+			req.setAttribute("addr1", dto.getH_Addr1());
+			req.setAttribute("addr2", dto.getH_Addr2());
+		} 
 		req.setAttribute("insertStep", 2);
 		req.setAttribute("insertPage", "nezipInsert2.jsp");
 		req.setAttribute("pageNum", 1); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수

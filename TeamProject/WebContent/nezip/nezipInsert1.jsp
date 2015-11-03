@@ -19,7 +19,7 @@
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">집 유형</h4>
-							<select name="houseStyle" class="form-control">
+							<select name="houseStyle" id="houseStyle" class="form-control">
 							<c:forEach var="homeCategory" items="${homeCateoryList}">
 								<option value="${homeCategory.ht_No}">${homeCategory.ht_Name}</option>
 							</c:forEach>
@@ -45,7 +45,7 @@
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
 							<h4 style="margin-bottom: 10px;">숙소 유형</h4>
-							<select name="roomStyle" class="form-control">
+							<select name="roomStyle" id="roomStyle" class="form-control">
 							<c:forEach var="roomCategory" items="${roomCateoryList}">
 								<option value="${roomCategory.hst_No}">${roomCategory.hst_Name}</option>
 							</c:forEach>

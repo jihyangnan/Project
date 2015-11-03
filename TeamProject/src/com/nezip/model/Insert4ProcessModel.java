@@ -1,5 +1,7 @@
 package com.nezip.model;
 import com.common.*;
+import com.nezip.dao.Fac_regDTO;
+import com.nezip.dao.Home_facDTO;
 import com.nezip.dao.ZipRegDTO;
 import com.board.dao.*;
 
@@ -15,7 +17,18 @@ public class Insert4ProcessModel implements Model{
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
 		req.setCharacterEncoding("utf-8");
+		List<Home_facDTO> homeList = new ArrayList<>();
 		
+		String[] aa = req.getParameterValues("install1");
+		for (String s : aa) {
+			Home_facDTO dto = new Home_facDTO();
+			dto.setHs_No((Integer.parseInt(s)));
+			homeList.add(dto);
+		}
+		
+		HttpSession session = req.getSession();
+		
+		session.setAttribute("homeList", homeList);
 		return "nezip_insert5.do";
 	}
 

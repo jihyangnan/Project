@@ -14,6 +14,13 @@ public class Insert5Model implements Model{
 	@Override
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
+		
+		HttpSession session = req.getSession();
+		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("ZipRegDTO");
+		
+		if(dto != null){
+			req.setAttribute("price1", dto.getH_Money());
+		}
 		/*req.setCharacterEncoding("euc-kr");
 		String price = req.getParameter("price");
 		int price1=Integer.parseInt(price);

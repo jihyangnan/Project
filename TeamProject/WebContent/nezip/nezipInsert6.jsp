@@ -33,82 +33,25 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="service_grid"
-				style="border: 1px solid #CFC7D6; margin-top: 20px; border-radius: 10px; 
-				width:65%; margin-left:40px;">
-				<p>
-					<label style="font-size: x-large; color:#565a5c;"> 옵션 선택 </label>
-				</p>
+				style="border: 1px solid #CFC7D6; margin-top: 20px; border-radius: 10px;">
 
-				<div class="col-md-4 service_box">
-
+				<div class="col-sm-5 col-sm-offset-1 service_box">
+					
 					<p>
-						<label style="color: #966A2F;"> 항상 예약 가능 </label>
+						<img src="images/calendar.png" class="img-responsive"/>
 					</p>
-					<p>
-						<img src="images/s1.jpg" alt=""
-							style="padding-top: 20px; width: 100%;">
-					</p>
-					<p>
-						<label style="padding-left: 10px;"> 시작날짜 
-						<input type=date style="width: 100%;"> 
-						</label> 
-						<label
-							style="padding-left: 10px;">종료날짜
-						<input type=date style="width: 100%;">	
-						</label>
-					</p>
-					<P>
-						<label style="padding-top: 3%;"> 항상 예약 가능 </label>
-					</p>
-
 
 				</div>
-				<div class="col-md-4 service_box">
-
-					<p>
-						<label style="color: #966A2F;">예약을 원하는 날짜</label>
-					</p>
-					<p>
-						<img src="images/s1.jpg" alt=""
-							style="padding-top: 20px; width: 100%;">
-					</p>
-					<p>
+				<div class="col-sm-5 col-sm-offset-1 service_box">
+					
+					<p style="padding: 40px 0">
 						<label style="padding-left: 10px;"> 시작날짜 
-						<input type=date style="width: 100%;"> 
+						<input type="text" class="form-control datepicker" placeholder="YYYY/MM/DD">
 						</label> 
-						<label
-							style="padding-left: 10px;">종료날짜
-						<input type=date style="width: 100%;">	
+						<label style="padding-left: 10px;"> 종료날짜
+						<input type="text" class="form-control datepicker" placeholder="YYYY/MM/DD">	
 						</label>
 					</p>
-					<P>
-						<label style="padding-top: 3%;"> 예약 가능한 날짜를 표시하세요 </label>
-					</p>
-
-
-				</div>
-				<div class="col-md-4 service_box">
-
-					<p>
-						<label style="color: #966A2F;">특정 날짜</label>
-					</p>
-					<p>
-						<img src="images/s1.jpg" alt=""
-							style="padding-top: 20px; width: 100%;">
-					</p>
-					<p>
-						<label style="padding-left: 10px;"> 시작날짜 
-						<input type=date style="width: 100%;"> 
-						</label> 
-						<label
-							style="padding-left: 10px;">종료날짜
-						<input type=date style="width: 100%;">	
-						</label>
-					</p>
-					<P>
-						<label style="padding-top: 3%;"> 특정 날짜에만 예약 가능 </label>
-					</p>
-
 
 				</div>
 				<div class="clearfix"></div>
