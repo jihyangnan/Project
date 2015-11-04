@@ -54,6 +54,26 @@ public class NezipDAO {
 		   }
 		   return list;
 	   }
+	//집등록 데이터 가져오기
+		public static ZipRegDTO zipregData(int no)
+		   {
+			   SqlSession session=null;
+			   ZipRegDTO d=new ZipRegDTO();
+			   try
+			   {
+				   session=ssf.openSession(true);
+				   d=session.selectOne("zipregData", no);
+			   }catch(Exception ex)
+			   {
+				   System.out.println(ex.getMessage());
+			   }
+			   finally
+			   {
+				  if(session!=null)
+					  session.close();
+			   }
+			   return d;
+		   }
 	// 숙소 유형 리스트
 	public static List<Room_categoryDTO> roomCatetoryList(){
 		List<Room_categoryDTO> list = new ArrayList<>();
