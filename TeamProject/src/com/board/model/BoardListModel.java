@@ -60,7 +60,7 @@ public class BoardListModel implements Model{
 		req.setAttribute("jsp", "../board/list.jsp");
 		
 		HttpSession session = req.getSession();
-		session.setAttribute("id", "shim");
+		session.setAttribute("id", "hong");
 		
 		return "main/index.jsp";
 	}

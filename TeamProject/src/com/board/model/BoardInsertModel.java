@@ -16,9 +16,10 @@ public class BoardInsertModel implements Model{
 		req.setCharacterEncoding("UTF-8");
 		String b_title=req.getParameter("b_title");
 		String b_content=req.getParameter("b_content");
-		String b_id=req.getParameter("b_id");
 		String b_sano=req.getParameter("b_sano");
-
+		HttpSession session=req.getSession();
+		String b_id=(String)session.getAttribute("id");
+		
 		BoardDTO d=new BoardDTO();
 		d.setB_title(b_title);
 		d.setB_content(b_content);
@@ -31,8 +32,7 @@ public class BoardInsertModel implements Model{
 		}
 		//db¿¬µ¿
 		
-		HttpSession session = req.getSession();
-		session.setAttribute("id", "admin");
+
 		BoardDAO.boardInsert(d);
 		return "board_list.do";
 	}

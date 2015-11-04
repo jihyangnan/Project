@@ -137,6 +137,7 @@ public class BoardDAO {
 			
 			}//내용보기 값 보내기
 			d=session.selectOne("boardContentData",b_no);
+			System.out.println("dao-id-"+d.getB_id());
 		}
 		catch(Exception ex)
 		{
