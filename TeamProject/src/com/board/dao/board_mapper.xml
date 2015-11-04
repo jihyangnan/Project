@@ -12,20 +12,29 @@
 	ON b.b_sano=w.sa_no
 	WHERE b_delete='n' AND num BETWEEN #{start} AND #{end} ORDER BY b_no DESC
 </select> -->
-
+<!-- 회원조회 -->
 <select id="boardListData" resultType="Board" parameterType="java.util.Map">
 SELECT b_sano, b_no, b_id, b_title, dbday, b_hit, b_delete, num
 FROM(SELECT b_sano, b_no, b_id, b_title, TO_char(b_date,'YYYY-MM-DD')as dbday, b_hit, 
 			b_delete, rownum as num
 	FROM(SELECT b_sano, b_no, b_id, b_title, b_date, b_hit, b_delete
-			FROM p_board
+			FROM p_board WHERE b_sano=4
     ORDER BY b_no DESC))
-WHERE b_delete='n' AND b_sano=4 AND b_id='shim' and num BETWEEN #{start} AND #{end}
+WHERE b_delete='n' AND b_sano=4 AND num BETWEEN #{start} AND #{end}
 </select>
-
+<!-- 관리자 조회 -->
+<select id="board_mListData" resultType="Board" parameterType="java.util.Map">
+SELECT a.b_no, a.b_id, a.b_title, a.b_content, a.b_sano, a.b_delete, b.sa_img, dbday, a.b_hit, num
+FROM(SELECT b_no, b_id, b_title, b_content, To_char(b_date,'YYYY-MM-DD')as dbday ,b_hit, b_sano, b_delete, rownum as num
+     FROM (SELECT b_no, b_id, b_title, b_content,b_date, b_hit, b_sano, b_delete
+           FROM p_board 
+           ORDER BY b_no desc)) a JOIN b_word b
+           ON a.b_sano = b.sa_no
+WHERE a.b_delete = 'n' AND a.b_sano not in(4) AND num BETWEEN 1 AND 5
+</select>
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
-	SELECT COUNT(*) FROM p_board WHERE b_delete='n'
+	SELECT COUNT(*) FROM p_board WHERE b_delete='n' AND b_sano=4
 </select>
 <!-- 삽입 -->
 <insert id="boardInsert">
@@ -71,7 +80,7 @@ WHERE b_delete='n' AND b_sano=4 AND b_id='shim' and num BETWEEN #{start} AND #{e
 	SELECT COUNT(*) FROM re_board WHERE rw_delete='n' AND  rw_bno=#{rw_bno}
 </select>
 <!-- 댓글 게시판 목록 -->
-<select id="replyListData" resultType="Reply" parameterType="int">
+<select id="reboardListData" resultType="Reply" parameterType="int">
 	SELECT rw_no,rw_id,rw_content,TO_CHAR(rw_date,'YYYY-MM-DD HH24:MI:SS') as dbday,rw_delete,group_tab,depth
 	FROM re_board
 	WHERE rw_delete='n' AND rw_bno=#{rw_bno}

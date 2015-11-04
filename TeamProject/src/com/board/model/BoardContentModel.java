@@ -28,7 +28,7 @@ public class BoardContentModel implements Model{
 		String strPage=req.getParameter("page");
 		BoardDTO d = BoardDAO.boardContentData(Integer.parseInt(strNo),type);
 		
-		List<ReBoardDTO> temp=BoardDAO.replyListData(Integer.parseInt(strNo));
+		List<ReBoardDTO> temp=BoardDAO.reboardListData(Integer.parseInt(strNo));
 		int rtotal=BoardDAO.reboardPageTotalpage(Integer.parseInt(strNo));
 		List<ReBoardDTO> list=new ArrayList<ReBoardDTO>();
 		
