@@ -119,6 +119,8 @@ function replyUpdateClick(rw_no)
 				</li>
 				<li>
 				<div style=" text-align: right;" >
+				
+				<c:if test="${sessionScope.id==dto.b_id }">	
 				<a href="board_update.do?b_no=${dto.b_no }&page=${page}">
 				<button type="button" class="btn search-btn" style=" padding: 2px 6px; font-size: 12px;">
 				수정</button>
@@ -130,6 +132,7 @@ function replyUpdateClick(rw_no)
 				삭제</button>
 				<!-- <span style="padding: 7px; font-size: 9pt; ">삭제</span> -->
 				</a>
+				</c:if>
 				
 				<a href="board_list.do?page=${page }">
 				<button type="button" class="btn search-btn" style=" padding: 2px 6px; font-size: 12px;">
@@ -153,7 +156,7 @@ function replyUpdateClick(rw_no)
 				<div class="row" style="padding-left:20px; padding-right:20px;">
 					<span class="col-md-11" style="padding-left:20px;"> 
 					<input type="hidden" name=rw_bno value="${dto.b_no }">
-					<input type="hidden" name=page value=""${page }">
+					<input type="hidden" name=page value="${page }">
 					<textarea
 							name="rw_content"
 							onclick="if(this.value==this.defaultValue){this.value=''}"
@@ -175,23 +178,38 @@ function replyUpdateClick(rw_no)
 				<div class="row" style="border: 1px solid #e6e6e6; border-style: ridge; 
 						padding-top:5px; padding-bottom:5px;">
 					<c:if test="${rDto.group_tab!=0 }">
-		            <c:forEach var="i" begin="1" end="${rDto.group_tab }" step="1">
-		              &nbsp;&nbsp;
-		            </c:forEach>
-		            <img src="images/neo_new.gif">
-		           </c:if>
-					<span class="col-md-1"
-						style="font-size: 10pt; color:#f08080; font-weight:700;">${rDto.rw_id }</span> 
-						<c:if test="${rDto.group_tab!=0 }">
+					<span class="col-sm-1"
+						style="font-size: 10pt; color:#f08080; font-weight:700; width:13%">
+						&nbsp;&nbsp;&nbsp;<img src="images/re_icon.gif">					
+						${rDto.rw_id }
+					</span> 
+					</c:if>
+					<c:if test="${rDto.group_tab==0 }">
+					<span class="col-sm-1"
+						style="font-size: 10pt; color:#f08080; font-weight:700;">				
+						${rDto.rw_id }
+					</span>
+					</c:if> 
+						<%-- <c:if test="${rDto.group_tab!=0 }">
 							<c:forEach var="i" begin="1" end="${rDto.group_tab }" step="1">
 							&nbsp;&nbsp;
 							</c:forEach>
-						</c:if>
+						</c:if> --%>
+						<c:if test="${rDto.group_tab!=0 }">
 						<span
-						class="col-md-8" style="font-size: 10pt; color: #a9a9a9;">${rDto.rw_content }</span>
-					
-					<span class="col-md-1" style="font-size: 8pt; color: #337ab7; padding:0px; text-align: right;">
-						${rDto.dbday }</span> 
+						class="col-sm-8" style="width:61.9%; font-size: 10pt; color: #a9a9a9;">${rDto.rw_content }
+						
+						</span>
+						</c:if>
+						
+						<c:if test="${rDto.group_tab==0 }">
+						<span
+						class="col-sm-8" style="font-size: 10pt; color: #a9a9a9;">${rDto.rw_content }
+						</span>
+						</c:if>
+					<span class="col-sm-1" style="font-size: 8pt; color: #337ab7; padding:0px; text-align: right;">
+						${rDto.dbday }
+					</span> 
 						<c:if test="${sessionScope.id==rDto.rw_id }">
 						<a href="#" name="${rDto.rw_no }" class="reUpdate">
 						<span class="col-xs-1"
@@ -202,25 +220,27 @@ function replyUpdateClick(rw_no)
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>삭제</b></span>  
 						</a>
 						</c:if>
-	
+						
 						<c:if test="${sessionScope.id!=null }">
-						<div style="float:right;">
-						<a class="reRe" href="#" name="${rDto.rw_no }">
-						<span class="col-xs-1"
-						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>댓글</b></span>
-						</a>
-						</div>
+							<c:if test="${rDto.group_tab==0 }">
+							<div style="float:right;">
+							<a class="reRe" href="#" onclick="return false;" name="${rDto.rw_no }">
+							<span class="col-xs-1"
+							style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>댓글</b></span>
+							</a>
+							</div>
+							</c:if>
 						</c:if>
 				</div>
 				<!-- 댓글의 댓글 -->
 			<c:if test="${rDto.group_step==0 }">
 			<div id="re_re_tr${rDto.rw_no }" style="display:none; margin-top:10px; margin-bottom:10px;">
 			<!-- 아이디있을시 -->
-				<form method="post" action="reboard_re_insert.do" id="re_new_frm${rDto.rw_no }">
+				<form method="post" action="reboard_re_insert.do" id="re_re_frm${rDto.rw_no }">
 				<div class="row" >
 					<span class="col-md-11" style="padding:0px;"> 
 					<input type="hidden" name=rw_bno value="${dto.b_no }">
-					<input type="hidden" name=page value=""${page }">
+					<input type="hidden" name=page value="${page }">
 					<input type=hidden name=rw_no value="${rDto.rw_no }">
 					<textarea
 							name="rw_content" id="rw_content${rDto.rw_no }"
@@ -248,9 +268,7 @@ function replyUpdateClick(rw_no)
 					<input type=hidden name=rw_no value="${rDto.rw_no }">
 					<textarea
 							name="rw_content" id="urw_content${rDto.rw_no }"
-							onclick="if(this.value==this.defaultValue){this.value=''}"
-							onblur="if (this.value == '') { this.value = this.defaultValue; }"
-							style="width: 100%; height: 50px; font-size: 10pt; color:#a9a9a9;"> 댓글을 입력해 주세요</textarea>
+							style="width: 100%; height: 50px; font-size: 10pt; color:#a9a9a9;">${rDto.rw_content }</textarea>
 					</span> 
 					<span class="col-md-1" style="padding:0px;"> 
 					<input type="button" value="수정하기" id="replyBtn"
@@ -263,6 +281,19 @@ function replyUpdateClick(rw_no)
 				</c:forEach>
 			</div>
 			
+			<!-- 댓글의 게시판 -->
+			<div style="text-align: center; padding:20px;">
+				<a href="board_content.do?b_no=${dto.b_no }&page=${page}&rPage=${rcurpage>1?rcurpage-1:rcurpage}">
+				<button type="button" class="btn search-btn" style=" padding: 2px 6px; font-size: 12px;">
+				이전</button>
+				</a>
+				&nbsp;
+				<a href="board_content.do?b_no=${dto.b_no }&page=${page}&rPage=${rcurpage<rtotal?rcurpage+1:rcurpage}">
+				<button type="button" class="btn search-btn" style=" padding: 2px 6px; font-size: 12px;">
+				다음</button>
+				</a>
+				<font style="font-size: 12px;">${rcurpage } / ${rtotal }</font>
+			</div>
 		</div>
 
 	</div>

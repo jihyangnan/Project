@@ -2,6 +2,7 @@ package com.board.model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.board.dao.BoardDAO;
 import com.board.dao.BoardDTO;
@@ -29,7 +30,9 @@ public class BoardInsertModel implements Model{
 			d.setB_no(Integer.parseInt(b_sano));
 		}
 		//db¿¬µ¿
-		System.out.println("insertModel");
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("id", "admin");
 		BoardDAO.boardInsert(d);
 		return "board_list.do";
 	}

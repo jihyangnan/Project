@@ -3,7 +3,7 @@
 <mapper namespace="com.board.dao.board_mapper">
 <!--  목록 -->
 
-<select id="boardListData" resultType="Board" parameterType="java.util.Map">
+<!-- <select id="boardListData" resultType="Board" parameterType="java.util.Map">
 	SELECT sa_img, b_no, b_title, b_id, dbday, b_hit, b_delete, num
 	FROM (SELECT b_no, b_title, b_id, To_char(b_date,'YYYY-MM-DD')as dbday, b_sano
 			, b_hit, b_delete, rownum as num
@@ -11,10 +11,21 @@
 	FROM p_board)) b LEFT OUTER JOIN b_Word w
 	ON b.b_sano=w.sa_no
 	WHERE b_delete='n' AND num BETWEEN #{start} AND #{end} ORDER BY b_no DESC
+</select> -->
+
+<select id="boardListData" resultType="Board" parameterType="java.util.Map">
+SELECT b_sano, b_no, b_id, b_title, dbday, b_hit, b_delete, num
+FROM(SELECT b_sano, b_no, b_id, b_title, TO_char(b_date,'YYYY-MM-DD')as dbday, b_hit, 
+			b_delete, rownum as num
+	FROM(SELECT b_sano, b_no, b_id, b_title, b_date, b_hit, b_delete
+			FROM p_board
+    ORDER BY b_no DESC))
+WHERE b_delete='n' AND b_sano=4 AND b_id='shim' and num BETWEEN #{start} AND #{end}
 </select>
+
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
-	SELECT COUNT(*) FROM p_board
+	SELECT COUNT(*) FROM p_board WHERE b_delete='n'
 </select>
 <!-- 삽입 -->
 <insert id="boardInsert">
@@ -61,7 +72,7 @@
 </select>
 <!-- 댓글 게시판 목록 -->
 <select id="replyListData" resultType="Reply" parameterType="int">
-	SELECT rw_no,rw_id,rw_content,TO_CHAR(rw_date,'YYYY-MM-DD HH24:MI:SS') as dbday,rw_delete,group_tab
+	SELECT rw_no,rw_id,rw_content,TO_CHAR(rw_date,'YYYY-MM-DD HH24:MI:SS') as dbday,rw_delete,group_tab,depth
 	FROM re_board
 	WHERE rw_delete='n' AND rw_bno=#{rw_bno}
 	ORDER BY group_id DESC, group_step ASC
@@ -87,15 +98,18 @@
 	WHERE rw_no=#{rw_no}
 </select>
 <!--댓글 삭제 -->
- <update id="reboardDelete" parameterType="Reply">
+ <update id="reboardDelete" parameterType="int">
 	UPDATE re_board SET
 	rw_delete='y'
 	WHERE rw_no=#{rw_no}
 </update> 
 <update id="reboardMsgUpdate" parameterType="int">
 	UPDATE re_board SET
-	re_content='관리자에 의해 삭제된 댓글입니다.'
+	rw_content='관리자에 의해 삭제된 댓글입니다.'
 	WHERE rw_no=#{rw_no}
+</update>
+<update id="">
+
 </update>
 <update id="reboardDepthDecrement" parameterType="int">
 	UPDATE re_board SET
@@ -104,7 +118,7 @@
 </update>
 <select id="reboardPageRowCount" resultType="int" parameterType="int">
 	SELECT COUNT(*) FROM re_board
-	WHERE rw_bno=#{rw_bno}
+	WHERE rw_bno=#{rw_bno} AND rw_delete='n'
 </select>
 <!-- 댓글의 댓글 -->
 <select id="reboardParentInfo" resultType="Reply" parameterType="int">
@@ -112,19 +126,19 @@
 	FROM re_board
 	WHERE rw_no=#{rw_no}
 </select>
-<update id="reboardStepIncrement" parameterType="int">
+<update id="reboardStepIncrement" parameterType="Reply">
 	UPDATE re_board SET
-	group_step=1
+	group_step=group_step+1
 	WHERE group_id=#{group_id} AND group_step>#{group_step}
 </update>
 <insert id="reboardReInsert" parameterType="Reply">
 <selectKey keyProperty="rw_no" resultType="int" order="BEFORE">
 	SELECT NVL(MAX(rw_no)+1,1) as rw_no FROM re_board
 </selectKey>
-	INSERT INTO re_board VALUES(#{rw_no},,0,#{rw_content},#{rw_id},SYSDATE,'n',#{rw_bno},
-	#{group_id},1,1,#{root},0)
+	INSERT INTO re_board VALUES(#{rw_no},0,#{rw_content},#{rw_id},SYSDATE,'n',#{rw_bno},
+	#{group_id},#{group_tab},#{group_step},#{root},0)
 </insert>
-<update id="replyDethIncrement" parameterType="int">
+<update id="reboardDepthIncrement" parameterType="int">
 	UPDATE re_board SET
 	depth=depth+1
 	WHERE rw_no=#{rw_no}

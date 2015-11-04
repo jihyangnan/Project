@@ -113,18 +113,16 @@
 		 		</c:if>
 		 	</c:forEach>--%>
 	 	
-	             	
-					
-					
+	             						
 					<ul>
 						<li style="font-size: 18px; margin-top: 15px"><strong>비상연락망</strong></li>
 					</ul>
 						<label style="margin-top: 5px; font-size: 15px;font-weight: 500;">
 							연락처 </label>
 						<input style="height: 23px; margin-top: 9px; margin-left: 10px"
-							type=text size=5> 
-						-<input style="height: 23px; margin-top: 9px; margin-left: 10px" type=text size=5> 
-						-<input style="height: 23px; margin-top: 9px; margin-left: 10px" type=text size=5>
+							type=text size=5 name=phone1> 
+						-<input style="height: 23px; margin-top: 9px; margin-left: 10px" type=text size=5 name=phone2> 
+						-<input style="height: 23px; margin-top: 9px; margin-left: 10px" type=text size=5 name=phone3>
 						
 						
 				</div>

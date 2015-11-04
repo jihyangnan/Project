@@ -18,6 +18,7 @@ public class Insert4Model implements Model{
 		req.setAttribute("homeFacList", homeFacList);
 		
 		HttpSession session = req.getSession();
+		
 		List<Home_facDTO> homeList = (List<Home_facDTO>)session.getAttribute("homeList");
 		if(homeList != null){
 			String str = "";
@@ -26,6 +27,8 @@ public class Insert4Model implements Model{
 			}
 			req.setAttribute("homeFacList", str);
 		}
+		
+		
 		
 		req.setAttribute("insertStep", 4);
 		req.setAttribute("insertPage", "nezipInsert4.jsp");
