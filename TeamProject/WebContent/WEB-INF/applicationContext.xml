@@ -9,7 +9,18 @@
    	<bean id="board_content" class="com.board.model.BoardContentModel"/>
 	<bean id="board_update" class="com.board.model.BoardUpdateModel"/>
 	<bean id="board_update_ok" class="com.board.model.BoardUpdateOkModel"/>
-
+	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
+	
+	<!-- 게시판 댓글 -->
+	<bean id="reboard_new_insert" class="com.board.model.ReBoardNewInsertModel"/>
+    <bean id="reboard_re_insert" class="com.board.model.ReBoardReInsertModel"/>
+    <bean id="reboard_re_update" class="com.board.model.ReBoardUpdateModel"/>
+    <bean id="reboard_delete" class="com.board.model.ReBoardDeleteModel"/>
+	
+	<!-- 1:1문의 -->
+	<bean id="question_insert" class="com.board.model.BoardUpdateModel"/>
+	
+	
 	<!-- 내집 등록 관련 -->
 	<bean id="nezip_insert1" class="com.nezip.model.Insert1Model"/>
 	<bean id="nezip_insert1process" class="com.nezip.model.Insert1ProcessModel"/>
@@ -25,13 +36,7 @@
 	<bean id="nezip_insert6process" class="com.nezip.model.Insert6ProcessModel"/>
 	<bean id="nezip_imageUpload" class="com.nezip.model.ImageUploadModel"/>
 
-	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
 	
-	<!-- 게시판 댓글 -->
-	<bean id="reboard_new_insert" class="com.board.model.ReBoardNewInsertModel"/>
-    <bean id="reboard_re_insert" class="com.board.model.ReBoardReInsertModel"/>
-    <bean id="reboard_re_update" class="com.board.model.ReBoardUpdateModel"/>
-    <bean id="reboard_delete" class="com.board.model.ReBoardDeleteModel"/>
 	
 	
 	<!-- 내집 예약 관련 -->

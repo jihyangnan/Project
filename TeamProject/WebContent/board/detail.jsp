@@ -151,7 +151,8 @@ function replyUpdateClick(rw_no)
 			</div>
 			<div >
 			<!-- 아이디있을시 -->
-			<c:if test="${sessionScope.id!=null }">
+			<c:if test="${dto.b_id!='admin' }">
+			<c:if test="${sessionScope.id!=null}">
 				<form method="post" action="reboard_new_insert.do" id="re_new_frm">
 				<div class="row" style="padding-left:20px; padding-right:20px;">
 					<span class="col-md-11" style="padding-left:20px;"> 
@@ -170,6 +171,7 @@ function replyUpdateClick(rw_no)
 					</span>
 				</div>
 				</form>
+			</c:if>
 			</c:if>
 			</div>
 			<p></p>
@@ -283,6 +285,7 @@ function replyUpdateClick(rw_no)
 			
 			<!-- 댓글의 게시판 -->
 			<div style="text-align: center; padding:20px;">
+			<c:if test="${dto.b_id!='admin' }">
 				<a href="board_content.do?b_no=${dto.b_no }&page=${page}&rPage=${rcurpage>1?rcurpage-1:rcurpage}">
 				<button type="button" class="btn search-btn" style=" padding: 2px 6px; font-size: 12px;">
 				이전</button>
@@ -293,6 +296,7 @@ function replyUpdateClick(rw_no)
 				다음</button>
 				</a>
 				<font style="font-size: 12px;">${rcurpage } / ${rtotal }</font>
+			</c:if>
 			</div>
 		</div>
 

@@ -16,13 +16,14 @@ public class ReBoardNewInsertModel implements Model {
 		String rw_content=req.getParameter("rw_content");
 		String rw_bno=req.getParameter("rw_bno");
 		String page=req.getParameter("page");
-		HttpSession session=req.getSession();
-		String rw_id=(String)session.getAttribute("id");
 		
+		HttpSession session=req.getSession();
+		String b_id=(String)session.getAttribute("id");
+		System.out.println("ReBoardNew_id="+b_id);
 		//디비연동
 		ReBoardDTO d=new ReBoardDTO();
 		d.setRw_bno(Integer.parseInt(rw_bno));
-		d.setRw_id(rw_id);
+		d.setRw_id(b_id);
 		d.setRw_content(rw_content);
 		
 		BoardDAO.reboardNewInsert(d);

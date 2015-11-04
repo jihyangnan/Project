@@ -459,24 +459,34 @@
 					</div>
 					</form>					
 				  </div>
-				  <c:forEach var="dto" items="${list }">
-				  <div class="row list" data-price="${dto.h_Money }" data-lat="33.450705" data-lng="126.570677">
-					<div class="col-sm-8">
-						<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
-						<img class="img-responsive" src="images/a003.jpg" /></a>		
+				<c:forEach var="dto" items="${list }">
+					<div class="row list" data-price="${dto.h_Money }" data-lat="33.450705" data-lng="126.570677">
+						<div class="col-sm-8">
+							<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
+								<img class="img-responsive" src="houseimage/${dto.h_No }.jpg" />
+							</a>
+						</div>
+						<div class="col-sm-4 desc">
+							<ul>
+								<li><a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}"><span>${dto.h_nHome }</span></a></li>
+								<li><span style="color: #3B9DD6; font-weight: bold;">${dto.h_Money }원</span></li>
+											<c:if test="${dto.h_rType==1}">
+											<li><span>집전체</span></li>
+											</c:if>
+											<c:if test="${dto.h_rType==2}">
+											<li><span>개인실</span></li>
+											</c:if>
+											<c:if test="${dto.h_rType==3}">
+											<li><span>다인실</span></li>
+											</c:if>
+								<li><span>${dto.h_Addr1 }</span></li>
+								<li><span>후기 10 개</span></li>
+							</ul>
+						</div>
 					</div>
-					<div class="col-sm-4 desc">
-					  <ul>
-					    <li><a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}"><span>${dto.h_nHome }</span></a></li>
-					    <li><span style="color: #3B9DD6; font-weight: bold;" >${dto.h_Money }원</span></li>
-					    <li><span>${dto.h_rType }</span></li>
-					    <li><span>${dto.h_Addr1 }</span></li>
-					    <li><span>후기 10 개</span></li>
-					  </ul>
-					</div>
-				  </div>
-				  </c:forEach>	
-				  <%-- <div class="row list" data-price="60,000" data-lat="33.450705" data-lng="126.570677">
+				</c:forEach>
+
+				<%-- <div class="row list" data-price="60,000" data-lat="33.450705" data-lng="126.570677">
 					<div class="col-sm-8">
 						<a href="reserve_detail.do"><img class="img-responsive" src="images/a001.jpg" /></a>		
 					</div>
@@ -546,7 +556,7 @@
 					</span-->
 					   <ul class="pagination">
 					    <li>
-					      <a href="#" aria-label="Previous">
+					      <a href="reserve_list.do?page=${curpage>1?curpage-1:curpage }" aria-label="Previous">
 					        <span aria-hidden="true">&laquo;</span>
 					      </a>
 					    </li>
@@ -556,7 +566,7 @@
 					    <li><a href="#">4</a></li>
 					    <li><a href="#">5</a></li>
 					    <li>
-					      <a href="#" aria-label="Next">
+					      <a href="reserve_list.do?page=${curpage<totalpage?curpage+1:curpage }" aria-label="Next">
 					        <span aria-hidden="true">&raquo;</span>
 					      </a>
 					    </li>

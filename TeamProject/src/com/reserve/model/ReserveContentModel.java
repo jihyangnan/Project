@@ -3,6 +3,10 @@ package com.reserve.model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.common.Model;
+import com.nezip.dao.Fac_kindDTO;
+import com.nezip.dao.Home_categoryDTO;
+import com.nezip.dao.NezipDAO;
+import com.nezip.dao.ZipRegDTO;
 import com.reserve.dao.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -24,6 +28,13 @@ public class ReserveContentModel implements Model {
 			req.setAttribute("rDto", list);
 			req.setAttribute("page", strPage);
 			req.setAttribute("dto", d);*/
+			String strNo=req.getParameter("no");
+			String strPage=req.getParameter("page");
+			ZipRegDTO dto=NezipDAO.zipregData(
+					Integer.parseInt(strNo));
+			/*List<Fac_kindDTO> flist=new ArrayList<Fac_kindDTO>();
+			req.setAttribute("flist", flist);*/
+			req.setAttribute("dto", dto);
 			req.setAttribute("jsp", "../reserve/detail.jsp");
 			return "main/index.jsp";
 	}
