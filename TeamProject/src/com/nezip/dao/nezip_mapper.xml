@@ -35,5 +35,10 @@ from (select h_No,h_rType,h_nHome,h_Addr1,h_Money
 from zipreg order by h_no desc))
 WHERE num BETWEEN #{start} AND #{end}
 </select>
-
+ <!-- 내용보기 데이터 출력  -->
+    <select id="zipregData" resultType="ZipReg" parameterType="int">
+     SELECT *
+     FROM zipreg
+     WHERE h_no=#{h_no}
+    </select>
 </mapper>

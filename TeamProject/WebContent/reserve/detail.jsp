@@ -67,10 +67,10 @@ function replyUpdateClick(no)
 
 					<h3 class="col-md-4"
 						style="text-align: center; padpadding: 2px; font-size: 13pt; padding-left: 100px;">
-						서울역 복층 스튜디오<!-- ${dto.h_nhome} --></h3>
+						${dto.h_nHome}</h3>
 					<span class="col-md-5"
 						style="padding: 2px; font-size: 10pt; color: #f08080;">
-						용산구, 서울<!-- ${dto.h_addr1} --> </span> <span class="col-md-2"
+						${dto.h_Addr1}</span> <span class="col-md-2"
 						style="text-align: center; padding: 7px; font-size: 9pt; color: #778899"></span>
 				</div>
 				<br> <br>
@@ -80,7 +80,7 @@ function replyUpdateClick(no)
 						상세설명</span>
 				</div>
 				<br> <br> <pre style="padding: 100px; font-size: 10pt;">
-					집 언제사냐 에휴<!-- ${dto.h_hcontent} --></pre>
+					${dto.h_hContent}</pre>
 				<div>
 					<hr
 						style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
@@ -97,37 +97,37 @@ function replyUpdateClick(no)
 									<div class="col-md-6">
 										<div>
 											<span data-tooltip-text="숙박 유형입니다">숙소 유형 :</span> 
-											<span> </span> <strong>집 전체<!-- ${dto.h_rtype} --></strong>
+											<span> </span> <strong>${dto.h_rType}</strong>
 										</div>
 										<div>
 											<span data-tooltip-text="보고 계신 숙소의 집 유형입니다">집 유형:</span> 
-											<span> </span> <strong>아파트<!-- ${dto.h_type} --></strong>
+											<span> </span> <strong>${dto.h_Type}</strong>
 										</div>
 										<div>
 											<span data-tooltip-text="숙박이 가능한 인원입니다 ">숙박가능 인원:</span> 
-											<span> </span> <strong>7<!-- ${dto.h_nperson} --></strong>
+											<span> </span> <strong>${dto.h_nPerson}</strong>
 										</div>
 										<div>
 											<span data-tooltip-text="침실의 갯수 입니다">침실:</span> 
-											<span> </span> <strong>1<!-- ${dto.h_nroom} --></strong>
+											<span> </span> <strong>${dto.h_nRoom}</strong>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div>
 											<span data-tooltip-text="화장실의 갯수입니다">화장실:</span> 
-											<span> </span> <strong>1<!-- ${dto.h_nbath} --></strong>
+											<span> </span> <strong>${dto.h_nBath}</strong>
 										</div>
 										<div>
 											<span data-tooltip-text="침대의 갯수입니다">침대:</span> 
-											<span> </span> <strong>4<!-- ${dto.h_nbed} --></strong>
+											<span> </span> <strong>${dto.h_nBed}</strong>
 										</div>
 										<div><!-- 체크인,체크아웃시간은 집주인과 상의해서 유동적으로 할 수 있게 -->
 											<span data-tooltip-text="예약시작 날짜입니다">예약시작일:</span> 
-											<span> </span> <strong>15:00<!-- ${dto.h_startday} --></strong>
+											<span> </span> <strong>${dto.h_Startday}</strong>
 										</div>
 										<div>
 											<span data-tooltip-text="예약마감 날짜입니다">예약마감일:</span> <span>
-											</span> <strong>11:00<!-- ${dto.h_endday} --></strong>
+											</span> <strong>${dto.h_Endday}</strong>
 										</div>
 									</div>
 								</div>
@@ -204,8 +204,8 @@ function replyUpdateClick(no)
 					<div class="col-md-9">
 						<div class="react-expandable expanded">
 							<div class="expandable-content">
-								<div><!-- ???????????? -->
-									<span>숙소내에서는 담배를 피우거나 소란스럽게 해도 됩니다.<!-- ${dto.h_rule} --></span>
+								<div>
+									<span>숙소내에서는 담배를 피우거나 소란스럽게 해도 됩니다.</span>
 								</div>
 							</div>
 						</div>
@@ -228,7 +228,7 @@ function replyUpdateClick(no)
 								</div>
 								<div class="col-md-9" style="padding-top: 35px;">
 									<div>
-										<div class="review-text">좋아유<!-- ${rdto.re_content} --></div>
+										<div class="review-text">좋아유</div>
 									</div>
 								</div>
 							</div>
@@ -242,8 +242,8 @@ function replyUpdateClick(no)
 						<textarea id="review_content"name="review_content" onclick="if(this.value==this.defaultValue){this.value=''}"
 								onblur="if (this.value == '') { this.value = this.defaultValue; }"
 								style="width: 430px; height: 50px; font-size: 10pt;">후기를 작성해주세요</textarea>
-						<input type=hidden name=re_hno value="${ dto.no}"><!-- //rno 등록된 집번호받아오기 -->
-         				<input type=hidden name=page value="${page }">				
+						<input type=hidden name=re_hno value="">
+         				<input type=hidden name=page value="">				
 						<input id="reviewBtn" type="button" value="후기 입력" style="width: 80px; height: 50px; font-size: 9pt; color: #f08080;">
 						</form>
 						</div>
@@ -258,7 +258,7 @@ function replyUpdateClick(no)
 					style="width: 1020px; margin-left: 4px; border-color: #98fb98; border: 1pt; border-style: ridge; height: 40px; background-color: #98fb98; color: black; line-height: 35px;">
 					<span class="col-md-2" style="font-size: 12pt; text-align: right;">가격</span>
 					<span class="col-md-1" style="font-size: 10pt; color: #a9a9a9;"></span>
-					<span class="col-md-7" style="font-size: 12pt; text-align: left;">105000원<!-- ${dto.h_money} --></span>
+					<span class="col-md-7" style="font-size: 12pt; text-align: left;">105000원</span>
 					<span class="col-md-2" style="font-size: 12pt;">1박</span>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
