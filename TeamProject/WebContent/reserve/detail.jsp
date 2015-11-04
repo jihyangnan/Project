@@ -96,30 +96,64 @@ function replyUpdateClick(no)
 								<div class="row">
 									<div class="col-md-6">
 										<div>
-											<span data-tooltip-text="숙박 유형입니다">숙소 유형 :</span> 
-											<span> </span> <strong>${dto.h_rType}</strong>
+											<span data-tooltip-text="보고 계신 숙소의 집 유형입니다">집 유형 :</span> 
+											<c:if test="${dto.h_Type==1}">
+											<span> </span> <strong>아파트</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==2}">
+											<span> </span> <strong>단독주택</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==3}">
+											<span> </span> <strong>게스트하우스</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==4}">
+											<span> </span> <strong>통나무집</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==5}">
+											<span> </span> <strong>별장/타운하우스</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==6}">
+											<span> </span> <strong>기숙사</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==7}">
+											<span> </span> <strong>캠핑카</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==8}">
+											<span> </span> <strong>텐트</strong>
+											</c:if>
+											<c:if test="${dto.h_Type==9}">
+											<span> </span> <strong>오두막</strong>
+											</c:if>											
 										</div>
 										<div>
-											<span data-tooltip-text="보고 계신 숙소의 집 유형입니다">집 유형:</span> 
-											<span> </span> <strong>${dto.h_Type}</strong>
+											<span data-tooltip-text="숙박 유형입니다">숙박 유형:</span> 
+											<c:if test="${dto.h_rType==1}">
+											<span> </span> <strong>집전체</strong>
+											</c:if>
+											<c:if test="${dto.h_rType==2}">
+											<span> </span> <strong>개인실</strong>
+											</c:if>
+											<c:if test="${dto.h_rType==3}">
+											<span> </span> <strong>다인실</strong>
+											</c:if>
 										</div>
 										<div>
 											<span data-tooltip-text="숙박이 가능한 인원입니다 ">숙박가능 인원:</span> 
-											<span> </span> <strong>${dto.h_nPerson}</strong>
+											<span> </span> <strong>${dto.h_nPerson}명</strong>
 										</div>
 										<div>
 											<span data-tooltip-text="침실의 갯수 입니다">침실:</span> 
-											<span> </span> <strong>${dto.h_nRoom}</strong>
+											<span> </span> <strong>${dto.h_nRoom}개</strong>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div>
 											<span data-tooltip-text="화장실의 갯수입니다">화장실:</span> 
-											<span> </span> <strong>${dto.h_nBath}</strong>
+											<span> </span> <strong>${dto.h_nBath}개</strong>
 										</div>
 										<div>
 											<span data-tooltip-text="침대의 갯수입니다">침대:</span> 
-											<span> </span> <strong>${dto.h_nBed}</strong>
+											<span> </span> <strong>${dto.h_nBed}개</strong>
 										</div>
 										<div><!-- 체크인,체크아웃시간은 집주인과 상의해서 유동적으로 할 수 있게 -->
 											<span data-tooltip-text="예약시작 날짜입니다">예약시작일:</span> 
@@ -256,17 +290,19 @@ function replyUpdateClick(no)
 				<p></p>
 				<div class="row"
 					style="width: 1020px; margin-left: 4px; border-color: #98fb98; border: 1pt; border-style: ridge; height: 40px; background-color: #98fb98; color: black; line-height: 35px;">
-					<span class="col-md-2" style="font-size: 12pt; text-align: right;">가격</span>
-					<span class="col-md-1" style="font-size: 10pt; color: #a9a9a9;"></span>
-					<span class="col-md-7" style="font-size: 12pt; text-align: left;">105000원</span>
+					<span class="col-md-3" style="font-size: 12pt; text-align: right;">가격  : </span>
+					<span class="col-md-7" style="padding-left:-30px; font-size: 12pt; text-align: left;">${dto.h_Money }원</span>
 					<span class="col-md-2" style="font-size: 12pt;">1박</span>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
-				<div class="row"
-					style="height: 50px; font-size: 13pt;">
-					<span class="col-md-4"><input type="text" class="form-control datepicker" placeholder="체크인"></span> 
-					<span class="col-md-4" style="border-color: #9400d3;"><input type="text" class="form-control datepicker" placeholder="체크아웃"></span>
+				<div class="row" style="height: 50px; font-size: 13pt;">
+					<span class="col-md-4">
+					<input type="text" class="form-control datepicker" placeholder="체크인">
+					</span> 
+					<span class="col-md-4" style="border-color: #9400d3;">
+					<input type="text" class="form-control datepicker" placeholder="체크아웃">
+					</span>
 					 <span class="col-md-4" style="border-color: #9400d3;">
 					 <select class="form-control">
 					        <option>1</option>
@@ -278,6 +314,7 @@ function replyUpdateClick(no)
 					        <option>7</option>
 					      </select></span>
 				</div>
+				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<div id="aaa"
 					style="border-color: #98fb98; text-align: center; border: 1pt; border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
 					<a href="reserve.html">예약요청</a>
