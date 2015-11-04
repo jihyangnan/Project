@@ -43,6 +43,12 @@ div.list .col-sm-8, div.list .col-sm-8 {
     border-color: #5cb85c;
 }
 
+.photo-item:HOVER .overlay-btn{
+	display: block;
+}
+.overlay-btn {
+	display: none;
+}
 
 
 .affix{

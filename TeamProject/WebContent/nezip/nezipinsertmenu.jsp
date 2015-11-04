@@ -22,13 +22,10 @@
 					편의시설
 				</p>
 				<p style="padding: 15px">
-					사진등록 및 안전
+					사진 및 안전
 				</p>
 				<p style="padding: 15px">
-					가격설정
-				</p>
-				<p style="padding: 15px">
-					날짜설정
+					가격 및 날짜
 				</p>
 		
 			</div>

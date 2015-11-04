@@ -23,6 +23,7 @@
 	<bean id="nezip_insert5process" class="com.nezip.model.Insert5ProcessModel"/>
 	<bean id="nezip_insert6" class="com.nezip.model.Insert6Model"/>
 	<bean id="nezip_insert6process" class="com.nezip.model.Insert6ProcessModel"/>
+	<bean id="nezip_imageUpload" class="com.nezip.model.ImageUploadModel"/>
 
 	<bean id="board_delete" class="com.board.model.BoardDeleteModel"/>
 	
