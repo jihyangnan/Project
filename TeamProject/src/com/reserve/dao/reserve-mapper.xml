@@ -2,7 +2,7 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.reserve.dao.reserve-mapper">
 <select id="reserveRowCount" resultType="int">
-      SELECT COUNT(*) FROM reserve
+      SELECT COUNT(*) FROM zipreg
     </select>
     <select id="reserveListData" resultType="Reserve" parameterType="java.util.Map">
       SELECT h_nhome,h_money, dbday ,h_addr1, num

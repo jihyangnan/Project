@@ -5,6 +5,9 @@
 	<typeAliases>
 		<typeAlias type="com.board.dao.BoardDTO" alias="Board"/>
 		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
+		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
+		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
+		
 		<typeAlias type="com.nezip.dao.ZipRegDTO" alias="ZipReg"/>
 		<typeAlias type="com.nezip.dao.Room_categoryDTO" alias="Room_category"/>
 		<typeAlias type="com.nezip.dao.Fac_kindDTO" alias="Fac_kind"/>

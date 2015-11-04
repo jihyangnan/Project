@@ -25,7 +25,7 @@ public class BoardDAO {
 			System.out.println(ex.getMessage());
 		}
 	}
-	//데이터 가져오기
+	//회원 데이터 가져오기
 	public static List<BoardDTO> baordListData(Map map) {
 		List<BoardDTO> list = new ArrayList<BoardDTO>();
 		SqlSession session=null;
@@ -49,6 +49,26 @@ public class BoardDAO {
 		}
 		return list;
 	}
+	//관리자 데이터 가져오기
+		public static List<BoardDTO> board_mListData(Map mgmap) {
+			List<BoardDTO> mlist = new ArrayList<BoardDTO>();
+			SqlSession session=null;
+			try
+			{
+				session=ssf.openSession();
+				mlist=session.selectList("board_mListData", mgmap);
+			}
+			catch(Exception ex)
+			{
+				System.out.println(ex.getMessage());
+			}
+			finally
+			{
+				if(session!=null)
+						session.close();
+			}
+			return mlist;
+		}
 	//총 페이지
 	public static int boardTotalPage() {
 		// TODO Auto-generated method stub
@@ -117,6 +137,7 @@ public class BoardDAO {
 			
 			}//내용보기 값 보내기
 			d=session.selectOne("boardContentData",b_no);
+			System.out.println("dao-id-"+d.getB_id());
 		}
 		catch(Exception ex)
 		{
@@ -199,10 +220,10 @@ public class BoardDAO {
 		return count;
 	}
 	
-	public static List<ReBoardDTO> replyListData(int rw_bno)
+	public static List<ReBoardDTO> reboardListData(int rw_bno)
 	{
 		SqlSession session=ssf.openSession();
-		List<ReBoardDTO> list=session.selectList("replyListData",rw_bno);
+		List<ReBoardDTO> list=session.selectList("reboardListData",rw_bno);
 		session.close();
 		return list;
 	}
