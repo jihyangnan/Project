@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
+import java.lang.*;
 import com.reserve.dao.*;
 import com.nezip.dao.*;
 import java.util.ArrayList;
@@ -30,11 +32,18 @@ public class ReserveListModel implements Model {
 	    map.put("start", start);
 	    map.put("end", end);
 	    List<ZipRegDTO> list=NezipDAO.zipregList(map);
-	    /*for(ReserveDTO d:list)
+	    /*
+	    for(ZipRegDTO d:list)
 	    {
-	    	d.setReviewCount(ReserveDAO.reviewCount(d.getR_no()));
+	    	String aa=d.getH_Loc();
+	    	
+	    	StringTokenizer tok= new StringTokenizer(aa);
+	    	String a1=tok.nextToken(",");
+	    	String a2=tok.nextToken(",");
 	    }*/
-	    
+	    list.forEach(e -> {
+	    	System.out.println("upday:" +e.getH_Loc());
+	    });
 	    int totalpage=ReserveDAO.reserveTotalPage();
 	    req.setAttribute("list", list);
 	    req.setAttribute("curpage", curpage);

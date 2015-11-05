@@ -100,7 +100,26 @@ public class NezipDAO {
 		session.close();
 		return list;
 	}
-	
+	// 숙소 시설 리스트
+		public static List<Fac_regDTO> facregList(int hno)
+		   {
+			   SqlSession session=null;
+			   List<Fac_regDTO> list = new ArrayList<>();
+			   try
+			   {
+				   session=ssf.openSession(true);
+				   list=session.selectList("facregList",hno);
+			   }catch(Exception ex)
+			   {
+				   System.out.println(ex.getMessage());
+			   }
+			   finally
+			   {
+				  if(session!=null)
+					  session.close();
+			   }
+			   return list;
+		   }
 	// 집유형 리스트
 	public static List<Home_categoryDTO> homeCategoryList(){
 		List<Home_categoryDTO> list = new ArrayList<>();
