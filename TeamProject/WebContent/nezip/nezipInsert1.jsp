@@ -223,7 +223,7 @@
 				<div>
 
 					<ul class="col-sm-6" style="list-style: none;">
-						<li style="margin-bottom: 5px; margin-top: 10px;">
+						<li style="margin-bottom: 10px; margin-top: 10px;">
 							<h4 style="margin-bottom: 10px">숙소 이름</h4>
 							<div>
 								<input name="housename" value="${housename}" type="text" placeholder="숙소이름이 없다면 참신한 이름으로 지어주세요"
@@ -232,7 +232,7 @@
 						</li>
 						<li style="margin-bottom: 5px; margin-top: 10x;">
 							<h4 style="margin-bottom: 10px">세부사항</h4>
-							<textarea class="form-control" name="detail" rows="6" style="overflow: hidden;" placeholder="게스트에게 알려야 할 기타사항을 적어주세요">${detail}</textarea>
+							<textarea class="form-control" name="detail" rows="6" placeholder="게스트에게 알려야 할 기타사항을 적어주세요">${detail}</textarea>
 						</li>
 						
 					</ul>
@@ -240,7 +240,7 @@
 					<div class="col-sm-6" style="padding-top: 10px">
 			       			<div>
 								<h4 style="margin-bottom: 10px">숙소 이용규칙</h4>
-							<textarea class="form-control" name="houserule" rows="3" style="overflow: hidden;" placeholder="게스트에게  바라는 점을 적어주세요">${houserule}</textarea>
+							<textarea class="form-control" name="houserule" rows="3" placeholder="게스트에게  바라는 점을 적어주세요">${houserule}</textarea>
 							</div>
 			       
 			       </div>
