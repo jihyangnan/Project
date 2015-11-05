@@ -20,6 +20,7 @@ public class ReBoardReInsertModel implements Model {
 		String rw_bno=req.getParameter("rw_bno");
 		String page=req.getParameter("page");
 		String root=req.getParameter("rw_no");
+		
 		HttpSession session=req.getSession();
 		String id=(String)session.getAttribute("id");
 		

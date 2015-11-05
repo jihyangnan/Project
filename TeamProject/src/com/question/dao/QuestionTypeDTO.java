@@ -1,4 +1,4 @@
-package com.board.dao;
+package com.question.dao;
 import java.util.*;
 /*
 --문의 유형

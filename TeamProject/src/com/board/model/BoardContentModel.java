@@ -15,7 +15,6 @@ public class BoardContentModel implements Model{
 	@Override
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
-	 	
 		String rPage=req.getParameter("rPage");
 		int type=0;
 		if(rPage==null)
@@ -26,10 +25,16 @@ public class BoardContentModel implements Model{
 		int rcurpage=Integer.parseInt(rPage);
 		String strNo=req.getParameter("b_no");
 		String strPage=req.getParameter("page");
+		
+		HttpSession session=req.getSession();
+		String rw_id=(String)session.getAttribute("id");
+		System.out.println("boardContent_id="+rw_id);
+		
 		BoardDTO d = BoardDAO.boardContentData(Integer.parseInt(strNo),type);
 		
-		List<ReBoardDTO> temp=BoardDAO.replyListData(Integer.parseInt(strNo));
+		List<ReBoardDTO> temp=BoardDAO.reboardListData(Integer.parseInt(strNo));
 		int rtotal=BoardDAO.reboardPageTotalpage(Integer.parseInt(strNo));
+		
 		List<ReBoardDTO> list=new ArrayList<ReBoardDTO>();
 		
 		int j=0;
@@ -39,14 +44,14 @@ public class BoardContentModel implements Model{
 			if(j<10 && i>=pagecnt)
 			{
 				ReBoardDTO dd=temp.get(i); //레코드 가져오는 것 g(i)
+				System.out.println("boardContent_id1="+rw_id);
 				list.add(dd);
-				System.out.println("rw_id="+dd.getRw_id());	
+				System.out.println("rw_id222="+dd.getRw_id());	
 				j++;
 			}
 		}
 		// 세션에 아이디 등록
-		HttpSession session = req.getSession();
-		session.setAttribute("id", "admin");
+	
 		req.setAttribute("rtotal", rtotal);
 		req.setAttribute("rcurpage", rcurpage);
 		

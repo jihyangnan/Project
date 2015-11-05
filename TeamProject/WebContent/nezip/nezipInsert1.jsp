@@ -1,34 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
-<form action="nezip_insert1process.do" method="post">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div>
 	<div>
-
 		<h2 class="blog_head" align="left">
-			<b>³»Áı µî·Ï - 1´Ü°è</b>
+			<b>ë‚´ì§‘ ë“±ë¡ - 1ë‹¨ê³„</b>
 		</h2>
 
-		<div style="margin-left: 40px; margin-top: 15px;">´ÏÁı³»Áı¿¡ ¼÷¼Ò¸¦ µî·ÏÇÏ°í
-			È£½ºÆÃÀ» ½ÃÀÛÇÏ¼¼¿ä.</div>
-		<div style="float: left; width: 95%; margin-left: 5%; margin-top: 30px;">
+		<div style="margin-left: 40px; margin-top: 15px;">ë‹ˆì§‘ë‚´ì§‘ì— ìˆ™ì†Œë¥¼ ë“±ë¡í•˜ê³ 
+			í˜¸ìŠ¤íŒ…ì„ ì‹œì‘í•˜ì„¸ìš”.</div>
+		<div style="margin-left: 5%; margin-top: 30px;">
 
-			<div
-				style="border: 2px solid #f94b4b; border-radius: 10px; padding: 20px;">
+			<div style="border: 2px solid #f94b4b; border-radius: 10px; padding: 20px 0;">
 				<ul style="list-style: none;">
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
-							<h4 style="margin-bottom: 10px;">Áı À¯Çü</h4>
+							<h4 style="margin-bottom: 10px;">ì§‘ ìœ í˜•</h4>
 							<select name="houseStyle" id="houseStyle" class="form-control">
 							<c:forEach var="homeCategory" items="${homeCateoryList}">
 								<option value="${homeCategory.ht_No}">${homeCategory.ht_Name}</option>
 							</c:forEach>
-								<!-- <option value="1">¾ÆÆÄÆ®</option>
-								<option value="2">´Üµ¶ÁÖÅÃ</option>
-								<option value="3">°Ô½ºÆ®ÇÏ¿ì½º</option>
-								<option value="4">ºô¶ó</option>
-								<option value="5">È£ÅÚ</option>
-								<option value="6">±âÅ¸</option> -->
+								<%-- <option value="1">ì•„íŒŒíŠ¸</option>
+								<option value="2">ë‹¨ë…ì£¼íƒ</option>
+								<option value="3">ê²ŒìŠ¤íŠ¸í•˜ìš°ìŠ¤</option>
+								<option value="4">ë¹Œë¼</option>
+								<option value="5">í˜¸í…”</option>
+								<option value="6">ê¸°íƒ€</option> --%>
 							</select>
 							<script>
 								$('#houseStyle option').each(function(){
@@ -41,24 +38,62 @@
 					</li>
 
 
-
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
-							<h4 style="margin-bottom: 10px;">¼÷¼Ò À¯Çü</h4>
+							<h4 style="margin-bottom: 10px;">
+								ìˆ™ì†Œ ìœ í˜•
+								<i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" 
+								title="<dl class='panel-body text-left'><dt style='color:#B99FCE'>ì§‘ ì „ì²´</dt>
+					    		<dd style='margin-bottom:10px'>ì§‘ í˜¹ì€ ì•„íŒŒíŠ¸ ì „ì²´ë¥¼ ì‚¬ìš©í•˜ëŠ” ìˆ™ì†Œ</dd>
+					            <dt style='color:#B99FCE'>ê°œì¸ì‹¤</dt>
+					            <dd style='margin-bottom:10px'>ë‹¨ë… ì¹¨ì‹¤ì„ ì‚¬ìš©í•˜ì§€ë§Œ ê¸°íƒ€ ê³µê°„ì„ ê³µìœ í•˜ëŠ” ìˆ™ì†Œ</dd>
+					            <dt style='color:#B99FCE'>ë‹¤ì¸ì‹¤</dt>
+					  			<dd>íšŒì›ë‹˜ì˜ ë°©ì„ ê°™ì´ ì“°ê±°ë‚˜ íšŒì›ë‹˜ì˜ ë°©ì´ ê³µë™ ê³µê°„ìœ¼ë¡œ ì‚¬ìš©ë˜ëŠ” ìˆ™ì†Œ</dd>
+					          	</dl>"></i>
+							</h4>
+							
 							<select name="roomStyle" id="roomStyle" class="form-control">
 							<c:forEach var="roomCategory" items="${roomCateoryList}">
 								<option value="${roomCategory.hst_No}">${roomCategory.hst_Name}</option>
 							</c:forEach>
-								<!-- <option value="1">ÁıÀüÃ¼</option>
-								<option value="2">°³ÀÎ½Ç</option>
-								<option value="3">´ÙÀÎ½Ç</option> -->
+								<%-- <option value="1">ì§‘ì „ì²´</option>
+								<option value="2">ê°œì¸ì‹¤</option>
+								<option value="3">ë‹¤ì¸ì‹¤</option> --%>
 							</select>
 							<script>
-								$('#roomStyle option').each(function(){
-									if($(this).val() == '${roomStyle}'){
-										$(this).attr("selected", "selected");
+								$('[data-toggle="tooltip"]').tooltip({
+									html: true,
+									container: $('[data-toggle="tooltip"]').parent().parent().parent().parent()
+							  	});
+								
+								$(function(){
+									$('#roomStyle option').each(function(){
+										if($(this).val() == '${roomStyle}'){
+											$(this).attr("selected", "selected");
+											checkRoomStyle();
+										}
+									});
+								});
+								
+								
+								$('#roomStyle').change(checkRoomStyle);
+								
+								function checkRoomStyle(){
+									console.log('ì—¬ê¸°');
+									if($('#roomStyle').val() != 1){
+										$('#bedroom option:first-child').attr("selected", "selected");
+										$('#bedroom').tooltip({
+											html: true,
+											title: 'ì¹¨ì‹¤ìˆ˜ëŠ” ìˆ™ì†Œ ìœ í˜•ì´ <strong>ì§‘ì „ì²´</strong>ì¼ ë•Œë§Œ ì„¤ì • ê°€ëŠ¥í•©ë‹ˆë‹¤.',
+											placement: 'bottom'
+									  	});
+										$('#bedroom').attr("disabled", "disabled");
+										$('#bedroom').tooltip('show');
+									} else {
+										$('#bedroom').removeAttr("disabled");
+										$('#bedroom').tooltip('destroy');
 									}
-								})
+								}
 							</script>
 						</div>
 					</li>
@@ -66,15 +101,24 @@
 
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
-							<h4 style="margin-bottom: 10px;">¼ö¿ë ÀÎ¿ø</h4>
+							<h4 style="margin-bottom: 10px;">ìˆ˜ìš© ì¸ì›</h4>
 							<select id="people" name="people" class="form-control">
-								<option value=1 selected>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
-								<option value=4>4</option>
-								<option value=5>5</option>
-								<option value=6>6</option>
-								<option value=7>7</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16+</option>
 							</select>
 							<script>
 								$('#people option').each(function(){
@@ -85,14 +129,23 @@
 							</script>
 						</div>
 					</li>
+					<li class="clearfix"></li>
 
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
-							<h4 style="margin-bottom: 10px;">Ä§½Ç¼ö</h4>
+							<h4 style="margin-bottom: 10px;">ì¹¨ì‹¤ìˆ˜</h4>
 							<select id="bedroom" name="bedroom" class="form-control">
-								<option value=1 selected>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11+</option>
 							</select>
 							<script>
 								$('#bedroom option').each(function(){
@@ -106,11 +159,24 @@
 
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
-							<h4 style="margin-bottom: 10px;">Ä§´ë</h4>
+							<h4 style="margin-bottom: 10px;">ì¹¨ëŒ€</h4>
 							<select id="bed" name="bed" class="form-control">
-								<option value=1 selected>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16+</option>
 							</select>
 							<script>
 								$('#bed option').each(function(){
@@ -124,11 +190,19 @@
 
 					<li class="col-sm-4" style="margin-bottom: 10px">
 						<div>
-							<h4 style="margin-bottom: 10px;">¿å½Ç</h4>
+							<h4 style="margin-bottom: 10px;">ìš•ì‹¤</h4>
 							<select id="bathroom" name="bathroom" class="form-control">
-								<option value=1 selected>1</option>
-								<option value=2>2</option>
-								<option value=3>3</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11+</option>
 							</select>
 							<script>
 								$('#bathroom option').each(function(){
@@ -143,83 +217,66 @@
 					<li class="clearfix"></li>
 				</ul>
 
+				<div id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#87d54d; ">
+				</div>
+				
+				<div>
 
+					<ul class="col-sm-6" style="list-style: none;">
+						<li style="margin-bottom: 5px; margin-top: 10px;">
+							<h4 style="margin-bottom: 10px">ìˆ™ì†Œ ì´ë¦„</h4>
+							<div>
+								<input name="housename" value="${housename}" type="text"
+									class="form-control">
+							</div>
+						</li>
+						<li style="margin-bottom: 5px; margin-top: 10px;">
+							<h4 style="margin-bottom: 10px">ì„¸ë¶€ì‚¬í•­</h4>
+							<textarea class="form-control" name="detail" rows="6" style="overflow: hidden;">${detail}</textarea>
+						</li>
+						
+					</ul>
 
-				<div style="margin-top: 30px;" class="row">
-
-					<div class="col-sm-6">
-						<!-- <div>
-							<ul style="list-style: none;">
-								<li style="margin-bottom: 5px;"><h4>µµ½Ã</h4></li>
-								<li class="row">
-									<div class="col-sm-8">
-										<input name="city" type="text" class="form-control">
-									</div>
-								</li>
-							</ul>
-						</div> -->
-
-						<div>
-							<ul style="list-style: none;">
-								<li style="margin-bottom: 5px; margin-top: 10px;"><h4>¼÷¼Ò
-										ÀÌ¸§</h4></li>
-								<li class="row">
-									<div class="col-sm-10">
-										<input name="housename" value="${housename}" type="text" class="form-control">
-									</div>
-								</li>
-							</ul>
-						</div>
-
-						<div>
-							<ul style="list-style: none;">
-								<li style="margin-bottom: 5px; margin-top: 10px;"><h4>¼¼ºÎ»çÇ×</h4></li>
-								<li class="row">
-									<div class="col-sm-10">
-										<input name="detail" value="${detail}" type="text" class="form-control">
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-sm-6">
+					<div class="col-sm-6" style="padding-top: 20px">
 						<dl>
-							<dt>
-								<font style="color: #f94b4b; size: 25pt;">³»Áı µî·ÏÇÏ½Ã±â Àü¿¡
-									¾à¼ÓÇØÁÖ½Ç »çÇ×µé!</font>
+							<dt style="margin-bottom: 10px; color: #f94b4b; font-size: size: 25pt;">
+								ë‚´ì§‘ ë“±ë¡í•˜ì‹œê¸° ì „ì— ì•½ì†í•´ì£¼ì‹¤ ì‚¬í•­ë“¤!
 							</dt>
-							<br />
-							<dd style="margin-bottom: 5px;">- Á¤È®ÇÑ Á¤º¸Àü´ŞÀº ±âº»</dd>
-							<dd style="margin-bottom: 5px;">- ¸ğµç ¹®ÀÇ¿Í ¿¹¾à ¿äÃ»¿¡ 24½Ã°£ ³»¿¡ ÀÀ´ä</dd>
-							<dd style="margin-bottom: 5px;">- ¿¹¾àÀ» È®½ÇÈ÷ ÀÌÇà °¡´ÉÇÒ ¶§¸¸ ¼ö¶ô</dd>
-							<dd style="margin-bottom: 5px;">- °Ô½ºÆ®¿Í »ç¿ëÇÒ °øµ¿°ø°£À» Ç×»ó Ã»°áÇÏ°Ô À¯Áö</dd>
-							<dd>- ´Ù¾çÇÑ ÆíÀÇ½Ã¼³ ÁØºñ- È­ÀåÁö, ½ÃÆ® µîµî</dd>
+							<dd style="margin-bottom: 5px;">- ì •í™•í•œ ì •ë³´ì „ë‹¬ì€ ê¸°ë³¸</dd>
+							<dd style="margin-bottom: 5px;">- ëª¨ë“  ë¬¸ì˜ì™€ ì˜ˆì•½ ìš”ì²­ì— 24ì‹œê°„ ë‚´ì— ì‘ë‹µ</dd>
+							<dd style="margin-bottom: 5px;">- ì˜ˆì•½ì„ í™•ì‹¤íˆ ì´í–‰ ê°€ëŠ¥í•  ë•Œë§Œ ìˆ˜ë½</dd>
+							<dd style="margin-bottom: 5px;">- ê²ŒìŠ¤íŠ¸ì™€ ì‚¬ìš©í•  ê³µë™ê³µê°„ì„ í•­ìƒ ì²­ê²°í•˜ê²Œ ìœ ì§€</dd>
+							<dd>- ë‹¤ì–‘í•œ í¸ì˜ì‹œì„¤ ì¤€ë¹„- í™”ì¥ì§€, ì‹œíŠ¸ ë“±ë“±</dd>
 						</dl>
 					</div>
-
+					<div class="clearfix"></div>
+	
 				</div>
 			</div>
-
 
 		</div>
 	</div>
 </div>
 
-<!-- div>
-<ul style="list-style:none;">
-<li><font style="color:#f94b4b;size:20pt;">µî·ÏÇÏ½Ã±â Àü¿¡ ÀĞ¾îº¼ ¼Õ´Ô¸ÂÀÌ±ÔÄ¢!</font></li>
-<li>Á¤È®ÇÑ Á¤º¸Àü´ŞÀ» ÇØÁÖ¼¼¿ä.</li>
-<li>¸ğµç  ¹®ÀÇ¿Í ¿¹¾à ¿äÃ»¿¡ 24½Ã°£ ³»¿¡ ÀÀ´äÇØ¾ßÇÕ´Ï´Ù.</li>
-<li>¿¹¾àÀ» È®½ÇÈ÷ ÀÌÇà °¡´ÉÇÒ ¶§¸¸ ¼ö¶ôÇÏ½Ã°í, ºÒ°¡ÇÇÇÑ °æ¿ì ´ëÃ¼ ¼÷¼Ò Á¦°øÇÒ ¼ö ÀÖµµ·Ï µµ¿ÍÁÖ¼¼¿ä.</li>
-<li>Á¤È®ÇÑ Á¤º¸Àü´ŞÀ» ÇØÁÖ¼¼¿ä.</li>
-</ul>
+<div class="joinup"> 
+	<input type="button" value="ë‹¤ìŒ" id="join" class="btn" onclick="location.href='nezip_insert2.do'">
 </div>
-</div-->
-
-     <div class="joinup"> 
- 
- <input type="submit" value="´ÙÀ½" id="join" class="btn">
-</div>   
-</form>
+<script>
+	// ë³€ê²½ì‹œ ì„¸ì…˜ì— ì €ì¥..
+	$('input, select, textarea').change(function(){
+		$('#saveMsg').html('<strong>ì €ì¥ì¤‘ì…ë‹ˆë‹¤...</strong>');
+		var data = "";
+		$('input:not([type="submit"]), select, textarea').each(function(){
+			data += $(this).attr('name') + '=' + $(this).val() + "&";
+		});
+		$.post(
+			"SaveInsert1ByAjaxServlet",
+			data,
+			function(data){
+				$('#saveMsg strong').html('ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤..');
+				$('#saveMsg strong').delay(1000).fadeOut(1000);
+			}
+		)
+	})
+</script>   
 

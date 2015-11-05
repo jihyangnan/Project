@@ -85,22 +85,40 @@ function resizeBoard(){
 				<div class="row mhide panel-heading">
 					
 					<div class="col-sm-1" style="font-weight: 600">번호</div>
-					<div class="col-sm-1" style="font-weight: 600">말머리</div>
 					<div class="col-sm-5" style="font-weight: 600">제목</div>
 					<div class="col-sm-2" style="font-weight: 600">작성자</div>
 					<div class="col-sm-2" style="font-weight: 600">작성일</div>
 					<div class="col-sm-1" style="font-weight: 600">조회</div>
 				</div>
-				
+				<!-- 관리자 -->
+				<c:forEach var="mdto" items="${mlist }" varStatus="status">
+				<div class="row list-group-item">
+					<span class="col-sm-1 mhide">
+						<img src="images/${mdto.sa_img }" /> 
+					</span>
+					<span class="col-sm-5 col-xs-10" style="text-align:left;">
+					  <i></i>
+					  <a href="board_content.do?b_no=${mdto.b_no}&page=${curpage}">
+					  ${mdto.b_title }</a>
+					  <c:if test="${mdto.replyCount!=0 }">
+					  	<font style="color:#f94b4b;font-size:13px; font-weight:500">
+					  	[${mdto.replyCount }]</font>
+					  </c:if>
+					  <c:if test="${today==mdto.dbday }">
+					  <sup><img src="images/neo_new.gif"></sup>
+					  </c:if>
+					</span>
+					
+					<span class="col-sm-2 mhide writer">${mdto.b_id }</span>
+					<span class="col-sm-2 mhide date">${mdto.dbday }</span>
+					<span class="col-sm-1 mhide hit">${mdto.b_hit }</span>
+				</div>
+				</c:forEach>
+				<!-- 회원목록 -->
 				<c:forEach var="dto" items="${list }" varStatus="status">
 				<div class="row list-group-item">
 					<!-- <img src="images/ico-list-notice.gif"> -->
-					<span class="col-sm-1">${dto.b_no }</span>
-					<span class="col-sm-1 mhide">
-						<c:if test="${not empty dto.sa_img}">
-						<img src="images/${dto.sa_img }" /> 
-						</c:if>
-					</span>
+					<span class="col-sm-1">${dto.num }</span>
 					<span class="col-sm-5 col-xs-10" style="text-align:left;">
 					  <i></i>
 					  <a href="board_content.do?b_no=${dto.b_no}&page=${curpage}">
@@ -117,19 +135,17 @@ function resizeBoard(){
 					<span class="col-sm-2 mhide writer">${dto.b_id }</span>
 					<span class="col-sm-2 mhide date">${dto.dbday }</span>
 					<span class="col-sm-1 mhide hit">${dto.b_hit }</span>
-				
 				</div>
 				</c:forEach>
+				
 			</div>		
-			
 			
 			<div class="row text-right">
 			 <!-- <a href="board_insert.do"> -->
 				<button type="button" class="btn search-btn" data-toggle="modal" data-target="#writeModal">글쓰기</button>
 			<!--  </a> -->
 			</div>	
-			
-			
+				
 			<div id="writeModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
 			    <div class="modal-dialog modal-lg" style="margin:120px auto;">
 			      <div class="modal-content">

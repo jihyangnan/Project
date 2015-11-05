@@ -28,7 +28,14 @@ public class BoardDTO {
 	private String dbday;
 	private String sa_img;
 	private int replyCount;
+	private int num;
 	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public int getReplyCount() {
 		return replyCount;
 	}
