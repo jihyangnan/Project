@@ -12,9 +12,9 @@
         <br><br><br><br>
         <h1 class="blog_head_login">로그인</h1>
         <br><br>
-       		<div class="form_l">
-				<div class="form2_l">
-					<div class="form3_l">
+       	<div class="form_l">
+				<div class="form2_l" >
+				 <!--  <div class="form3_l">
 						<label for="user" style="font-size: 15px;">아이디</label>
 						<input type="text" id="user">
 						<div class="clear"></div>
@@ -36,10 +36,48 @@
 						<a href="join_idSearch.do">
 						<input type="submit" style="margin-left:5%"value="아이디/비밀번호 찾기" id="join"></a>
 						</label>
-					</div>
+					</div> -->
+					
+<form class="form-horizontal">
+  
+    <ul><li>
+    <div class="form-group has-success has-feedback">
+    <label class="control-label col-sm-3" for="inputSuccess3">아이디</label>
+    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
+      <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess3Status" class="sr-only"></span>
+    </div></div></li>
+  
+    <li style="margin-top:-5px;">
+   <div class="form-group has-success has-feedback" >
+    <label class="control-label col-sm-3" for="inputSuccess3">비번</label>
+    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
+      <input type="password" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess3Status" class="sr-only"></span>
+    </div></div></li>
+    <li> 
+   <label style="color:#5cb85c;"><h6>아직 회원이 아니시라면</h6></label> 
+   <a href="join_join.do" class="btn btn-success"> 회원가입</a>
+  
+    </li>
+    <li style="margin-top: 5px;">
+    <div >
+   <a href="index.do" class="btn btn-warning" >로그인</a>
+   <a href="join_idSearch.do" class="btn btn-danger" >아이디/비밀번호 찾기</a>
+    </div>
+    </li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</form>
+					
+					
 				</div>
-			</div>
+			</div> 
+			
+			
 		</div>
      </div>
       
-	</div>
