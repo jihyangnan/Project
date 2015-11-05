@@ -41,4 +41,9 @@ WHERE num BETWEEN #{start} AND #{end}
      FROM zipreg
      WHERE h_no=#{h_no}
     </select>
+    <select id="facregList" resultType="Fac_reg" parameterType="int">
+	SELECT c_No,c_hNo,c_hsNo
+	FROM Fac_reg
+	WHERE c_hno=#{c_hno}
+</select>
 </mapper>
