@@ -76,7 +76,7 @@
 					 <div>
 						<label style="font-size: 20px; margin-top: 10px;">
 						<strong>안전 체크 리스트</strong></label><br> 
-						<div>
+						<div>							
 						<c:forEach var="homeFac" items="${homeFacList}">
 		 					<c:if test="${homeFac.hs_Kind == 4}">
 		 					<label class="checkbox-inline">
