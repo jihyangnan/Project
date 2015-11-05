@@ -4,7 +4,7 @@
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 var i=0;
 $(function(){
@@ -18,7 +18,7 @@ $(function(){
 		}
 		$('#re_new_frm').submit();
 });
-	/* 
+	/
 function replyUpdateClick(no)
 {
 	var msg=$('#umsg'+no).val();
@@ -29,8 +29,8 @@ function replyUpdateClick(no)
 		return;
 	}
 	$('#re_update_frm'+no).submit();
-} */
-</script>
+} 
+</script> -->
 <div class="about_top">
 		<div class="container" style="margin: 400;">
 			<div class="jumbotron">
@@ -296,14 +296,14 @@ function replyUpdateClick(no)
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
-				<div class="row" style="height: 50px; font-size: 13pt;">
-					<span class="col-md-4">
+				<div class="row">
+					<div class="col-md-4">
 					<input type="text" class="form-control datepicker" placeholder="체크인">
-					</span> 
-					<span class="col-md-4" style="border-color: #9400d3;">
+					</div> 
+					<div class="col-md-4">
 					<input type="text" class="form-control datepicker" placeholder="체크아웃">
-					</span>
-					 <span class="col-md-4" style="border-color: #9400d3;">
+					</div>
+					 <div class="col-md-4">
 					 <select class="form-control">
 					        <option>1</option>
 					        <option>2</option>
@@ -312,7 +312,7 @@ function replyUpdateClick(no)
 					        <option>5</option>
 					        <option>6</option>
 					        <option>7</option>
-					      </select></span>
+					      </select></div>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<div id="aaa"

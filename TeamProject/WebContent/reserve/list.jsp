@@ -560,11 +560,11 @@
 					        <span aria-hidden="true">&laquo;</span>
 					      </a>
 					    </li>
-					    <li class="active"><a href="#">1</a></li>
-					    <li><a href="#">2</a></li>
-					    <li><a href="#">3</a></li>
-					    <li><a href="#">4</a></li>
-					    <li><a href="#">5</a></li>
+					    <li class="active"><a href="reserve_list.do?page=1">1</a></li>
+					    <li><a href="reserve_list.do?page=2">2</a></li>
+					    <li><a href="reserve_list.do?page=3">3</a></li>
+					    <li><a href="reserve_list.do?page=4">4</a></li>
+					    <li><a href="reserve_list.do?page=5">5</a></li>
 					    <li>
 					      <a href="reserve_list.do?page=${curpage<totalpage?curpage+1:curpage }" aria-label="Next">
 					        <span aria-hidden="true">&raquo;</span>
