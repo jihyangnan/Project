@@ -29,9 +29,9 @@
 	FROM home_category
 </select>
 <select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
-select h_No,h_rType,h_nHome,h_Addr1,h_Money,num
-from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,rownum as num
-from (select h_No,h_rType,h_nHome,h_Addr1,h_Money
+select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,num
+from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,rownum as num
+from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc
 from zipreg order by h_no desc))
 WHERE num BETWEEN #{start} AND #{end}
 </select>
