@@ -20,6 +20,7 @@ public class Insert4ProcessModel implements Model{
 		List<Home_facDTO> homeList = new ArrayList<>();
 		
 		String[] aa = req.getParameterValues("install1");
+		System.out.println("aa"+aa[0]);
 		for (String s : aa) {
 			Home_facDTO dto = new Home_facDTO();
 			dto.setHs_No((Integer.parseInt(s)));
@@ -36,6 +37,7 @@ public class Insert4ProcessModel implements Model{
 		HttpSession session = req.getSession();
 		
 		session.setAttribute("homeList", homeList);
+		
 		return "nezip_insert5.do";
 	}
 
