@@ -245,13 +245,13 @@
 			       
 			       </div>
 
-					<div class="col-sm-6" style="padding-top: 20px">
+					<div class="col-sm-6" style="padding-top: 30px">
 						<dl>
-							<dt style="margin-bottom: 10px; color: #f94b4b; font-size: size: 25pt;">
+							<dt style="margin-bottom: 10px; color: #f94b4b; font-size: size: 22pt;">
 								내집 등록하시기 전에 약속해주세요.
 							</dt>
-							<dd style="margin-bottom: 5px;"> 모든 문의와 예약 요청에 24시간 내에 응답해주실 것과 </dd>
-							<dd style="margin-bottom: 5px;"> 따듯한 마음으로 게스트를 맞을 것을 약속하시겠습니까?</dd>
+							<dd style="margin-bottom: 5px;font-size:9pt; "> 모든 문의와 예약 요청에 24시간 내에 응답해주실 것과 </dd>
+							<dd style="margin-bottom: 5px;font-size:9pt; "> 따듯한 마음으로 게스트를 맞을 것을 약속하시겠습니까?</dd>
 							<!-- <dd style="margin-bottom: 10px; color: #f94b4b; font-size: size: 25pt;">
 							그렇다면 '다음' 버튼을 눌러주세요!</dd> -->
 						</dl>
