@@ -9,8 +9,8 @@
 var i=0;
 $(function(){
 	$('#reviewBtn').click(function(){
-		var msg=$('#review_content').val();
-		if(msg=="")
+		var re_Content=$('#review_content').val();
+		if(re_Content=="")
 		{
 			alert("후기를 입력하세요");
 			$('#review_content').focus();
@@ -306,19 +306,19 @@ $(function(){
 							<div class="row">
 								<div class="col-md-3">
 									<div class="name">
-										<span>${rp.re_id }</span>
+										<span>${rp.re_Id }</span>
 									</div>
 								</div>
 								<div class="col-md-9" style="padding-top: 35px;">
 									<div>
-										<div class="review-text">${rp.re_content }</div>
+										<div class="review-text">${rp.re_Content }</div>
 									</div>
 								</div>
 							</div>
 							<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				</div>		
 				</div>
-				
+				</c:forEach>
 				
 				<div id="review" class="row review">			
 				<div class="col-md-3" style="padding-top: 50px;">
@@ -326,21 +326,21 @@ $(function(){
 				<div class="review insert col-md-9">
 					<form method=post action="review_new_insert.do" id="re_new_frm">
 						<div class="col-md-3">
-								<span>아이디</span>
-						</div>
+								<span>${rp.re_Id }</span>
+						</div>						
 						<div class="col-md-9" style="padding-top: 35px;"> 
 						<textarea id="review_content"name="review_content" onclick="if(this.value==this.defaultValue){this.value=''}"
 								onblur="if (this.value == '') { this.value = this.defaultValue; }"
 								style="width: 430px; height: 50px; font-size: 10pt;">후기를 작성해주세요</textarea>
-						<input type=hidden name=re_hno value="${dto.h_No }">
+						<input type=hidden name=re_hNo value="${dto.h_No }">
          				<input type=hidden name=page value="${page }">				
-						<input id="reviewBtn" type="button" value="후기 입력" style="width: 80px; height: 50px; font-size: 9pt; color: #f08080;">
+						<input id="reviewBtn" type="submit" value="후기 입력" style="width: 80px; height: 50px; font-size: 9pt; color: #f08080;">
 						</div>		
 						</form>				
 				</div>	
 				
 			</div>
-			</c:forEach>
+			
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
