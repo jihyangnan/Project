@@ -69,13 +69,13 @@
 			</ul>
 		</div>
 
-			<div class="row text-right">
+			<div class="text-right">
 				<ol class="breadcrumb" style="background-color: #fff">
 				</ol>
 			</div>
 		
-			<div class="row">
-				
+			<!-- <div class="row"> -->
+			<div>	
 				<div id="hl_div" class="col-sm-7" style="padding:10 0;">
 				  <div>
 				  	<form>

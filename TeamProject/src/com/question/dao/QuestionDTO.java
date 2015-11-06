@@ -20,6 +20,9 @@ public class QuestionDTO {
 	private Date q_date;
 	private String q_phone;
 	private String q_email;
+	private int q_qtno;
+	private String q_id;
+	
 	public int getQ_no() {
 		return q_no;
 	}
@@ -56,5 +59,19 @@ public class QuestionDTO {
 	public void setQ_email(String q_email) {
 		this.q_email = q_email;
 	}
+	public int getQ_qtno() {
+		return q_qtno;
+	}
+	public void setQ_qtno(int q_qtno) {
+		this.q_qtno = q_qtno;
+	}
+	public String getQ_id() {
+		return q_id;
+	}
+	public void setQ_id(String q_id) {
+		this.q_id = q_id;
+	}
+
+	
 	
 }
