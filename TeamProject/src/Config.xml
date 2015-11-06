@@ -17,6 +17,8 @@
 		<typeAlias type="com.nezip.dao.Home_photoDTO" alias="Home_photo"/>
 		<typeAlias type="com.reserve.dao.ReserveDTO" alias="Reserve"/>
    		<typeAlias type="com.reserve.dao.ReviewDTO" alias="Review"/>
+   		<typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
+   		
 	</typeAliases>
 	<!-- 개발환경 -->
 	<environments default="development">
@@ -34,5 +36,6 @@
 	<mapper resource="com/board/dao/board_mapper.xml"/>
 	<mapper resource="com/nezip/dao/nezip_mapper.xml"/>
 	<mapper resource="com/reserve/dao/reserve-mapper.xml"/>
+	<mapper resource="com/member/dao/member-mapper.xml"/>
 	</mappers>
 </configuration>

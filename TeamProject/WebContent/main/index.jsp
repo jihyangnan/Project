@@ -58,6 +58,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/jimList.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
+
+<!-- 회원가입 -->
+<link rel="stylesheet" type="text/css" href="join/shadow/css/shadowbox.css"/>
+<script type="text/javascript" src="join/shadow/js/shadowbox.js"></script>
+
 <!-- Menu -->
 <script src="js/responsiveslides.min.js"></script>
 <script src="dist/summernote.min.js"></script>

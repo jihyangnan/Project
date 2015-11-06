@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.member.dao.member-mapper">
+ <!-- Login -->
+ <select id="memberIdCount" resultType="int" parameterType="String">
+  SELECT COUNT(*) FROM member1 WHERE id=#{id}
+ </select> 
+ <select id="memberIdcheck" resultType="int" parameterType="String">
+    SELECT COUNT(*) FROM member1
+    WHERE id=#{id}
+  </select>
+ <!-- <select id="postFindData" resultType="Zipcode" parameterType="String">
+    SELECT zipcode,sido,gugun,dong,NVL(bunji,' ') as bunji
+    FROM zipcode
+    WHERE dong LIKE '%'||#{dong}||'%'
+  </select> -->
+  <insert id="memberJoin" parameterType="Member">
+   <selectKey keyProperty="m_no" resultType="int" order="BEFORE">
+       SELECT NVL(MAX(m_no)+1,1) as m_no FROM member1
+   </selectKey>
+   INSERT INTO member1 VALUES(#{m_no},#{id},#{pwd},#{pwhint},#{name},#{rrn},#{sex},#{birth},#{post},#{addr1},#{addr2},#{tel},#{email},SYSDATE,'n')
+  </insert>
+  <select id="memberGetInfo" resultType="Member" parameterType="String">
+  SELECT pwd,name,admin FROM member1
+  WHERE id=#{id}
+  
+  </select>
+</mapper>

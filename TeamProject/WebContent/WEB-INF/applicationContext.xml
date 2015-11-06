@@ -64,4 +64,14 @@
 	<bean id="mypage_profileUp" class="com.mypage.model.ProfileUpModel"/>
 	<bean id="mypage_profileOut" class="com.mypage.model.ProfileOutModel"/>
     <bean id="mypage_regCheck" class="com.mypage.model.Reg_checkModel"/>
+    
+    <!-- 회원가입 -->
+	<bean class="com.member.model.MemberJoinModel" id="join" />
+	<!-- <bean class="com.member.model.PostFindModel" id="postfind" /> -->
+	<bean class="com.member.model.IdCheckModel" id="idcheck" />
+	<bean class="com.member.model.MemberJoinOkModel" id="join_ok" />
+	
+	<!-- 로그인 -->
+	<bean id="member_login" class="com.member.model.MemberLoginModel"/>
+	<bean id="member_logout" class="com.member.model.MemberLogoutModel"/>
 </beans>
