@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 
 <div class="about_top">
-    <div class="container">
+    <div class="container" style="padding-left: 100px;">
     
     	<div>
        	 <ul>
@@ -11,13 +11,13 @@
        	 ·Î±×ÀÎ -> È¸¿øÅ»Åð</li>
        	 </ul>
        	 </div>
-       <div class="about">	 
+       <div class="about" style="padding-right: 150px;">	 
        	 <h2 class="blog_head" align="center"><b>È¸¿øÅ»Åð</b></h2>
        	 <form action="">
       
       	 
       	 <div class="jumbotron" style="padding-top:30px;">
-		 <h4><label style="margin-left:170px;margin-bottom:15px;">* È¸¿øÅ»Åð</label></h4>
+		<!--  <h4><label style="margin-left:17px;margin-bottom:15px;">* È¸¿øÅ»Åð</label></h4> -->
 		 <div class="join" align="center" >
 		 
 		 	<ul>

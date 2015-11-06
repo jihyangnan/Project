@@ -4,7 +4,7 @@
 <div>
 	<div>	 
       	<h2 class="blog_head" style="margin-left: 20px;"><b>내집 등록 - 3단계</b></h2>
-      	<div id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#87d54d; ">
+      	<div id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#59942D; ">
 		</div>
  	</div>
  	<div style="padding-left:10px;">
