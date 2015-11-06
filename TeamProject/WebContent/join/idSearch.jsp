@@ -30,7 +30,7 @@
 						</div>
 						<div class="clear"></div>
 						<label> 
-							<a href="index.jsp?page=join/idCheck.jsp">
+							<a href="index.jsp?page=join/idSearchCheck.jsp">
 						 	<input type="button" value="È®ÀÎ" id="join">
 							</a>
 						</label>
