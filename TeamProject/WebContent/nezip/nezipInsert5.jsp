@@ -54,10 +54,10 @@
 				</label> 
 				<label style="padding-left: 10px;"> 종료날짜
 				<c:if test="${empty endDay}">
-					<input type="text" class="form-control endCal" value="${endDay}" name="endDay" placeholder="YYYY/MM/DD" disabled>	
+					<input type="text" class="form-control endCal" name="endDay" placeholder="YYYY/MM/DD" disabled>	
 				</c:if>
 				<c:if test="${not empty endDay}">
-				<input type="text" class="form-control endCal" name="endDay" placeholder="YYYY/MM/DD">	
+				<input type="text" class="form-control endCal" value="${endDay}" name="endDay" placeholder="YYYY/MM/DD">	
 				</c:if>
 				</label>
 			</p>

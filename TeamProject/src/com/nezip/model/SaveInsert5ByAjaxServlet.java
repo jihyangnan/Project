@@ -40,7 +40,7 @@ public class SaveInsert5ByAjaxServlet extends HttpServlet {
 		String price = request.getParameter("price");
 		String startDay = request.getParameter("startDay");
 		String endDay = request.getParameter("endDay");
-		if(price != null){
+		if(price != null && !price.trim().equals("")){
 			dto.setH_Money(Integer.parseInt(price));
 		}
 		dto.setH_Startday(startDay);

@@ -72,7 +72,7 @@ create table home_photo
 create table fac_reg 
 ( c_No number primary key,
   c_hNo number REFERENCES zipreg(h_No),
-  c_hsName number REFERENCES home_fac(hs_No)
+  c_hsNo number REFERENCES home_fac(hs_No)
 );
 
 --숙소유형 값 입력
