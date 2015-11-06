@@ -3,7 +3,7 @@
 
 
 <div class="about_top">
-    <div class="container">
+    <div class="container" style="padding-left: 100px;">
     
     	<div>
        	 <ul>
@@ -16,7 +16,7 @@
        	 <h2 class="blog_head" align="center"><b>프로필 수정</b></h2>
        	 <form action="">
      
-       	 <h4><label style="margin-left:200px;margin-bottom:15px;margin-top:20px;">* 비밀번호 수정</label></h4>
+       	 <h4><label style="margin-left:20px;margin-bottom:15px;margin-top:20px;color:#f94b4b;">▶ 비밀번호 수정</label></h4>
        	 
        	
 		 <div class="join" align="center">
@@ -33,7 +33,7 @@
 		 	</ul>
 		 </div>
 		 	
-		 	<h4><label style="margin-left:200px;margin-bottom:15px;margin-top:20px;">* 개인정보 수정</label></h4>
+		 	<h4><label style="margin-left:20px;margin-bottom:15px;margin-top:20px;color:#f94b4b;">▶ 개인정보 수정</label></h4>
 		 	
 		<div class="join" align=center>
 		 	<ul> 	
