@@ -48,7 +48,7 @@
    <div>
     <ul style="width:50%;">
    
-    <div class="form-group has-success has-feedback">
+    <div class="form-group has-success has-feedback" style="borde">
     <label class="control-label col-sm-3" for="inputSuccess3">¿Ã∏ß</label>
 	    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
 	      <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
