@@ -24,12 +24,12 @@
 		 	 
 		   <div>
 		 	<ul>
-		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt=""> ┴т╚╞┴т╚╞
-		 	&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/sex.png" alt=""> │▓└┌
+		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt="">┴т╚╞┴т╚╞
+		 	&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/sex.png" alt="">┴т╚╞┴т╚╞ 
 		 	</li>
 		 	<li style="margin-bottom:6px;"><img src="images/address.png" alt=""> ╝н┐я ╞п║░╜├ ╕╢╞ў▒╕ ╣щ╣№╖╬ ╣╠╚н║Ї╡∙</li>
-		 	<li style="margin-bottom:6px;"><img src="images/email.png" alt=""> asd@ASDFASDF</li>
-		 	<li style="margin-bottom:6px;"><img src="images/phone.png" alt=""> 010-1111-8888</li>
+		 	<li style="margin-bottom:6px;"><img src="images/email.png" alt="">┴т╚╞┴т╚╞</li>
+		 	<li style="margin-bottom:6px;"><img src="images/phone.png" alt="">┴т╚╞┴т╚╞ </li>
 		 	<li style="font-size: 13px;">
 		 	<img src="images/hkind.png" alt="" >&nbsp;
 			  бс ╛╞╞─╞о &nbsp; бс ┴╓┼├ &nbsp; бр ║Ї╢є &nbsp; бр ╚г┼┌ &nbsp; бс ░╘╜║╞о╟╧┐ь╜║&nbsp; бр ▒т┼╕ 
