@@ -38,7 +38,7 @@
 			</ul>
 			</div>
 			<div style="border-top: 1px solid #E2E2E2; border-bottom: 1px solid #E2E2E2;">
-				<div class="row text-right">
+				<div class="text-right">
 					<ol class="breadcrumb" style="background-color: #fff">
 					</ol>
 				</div>

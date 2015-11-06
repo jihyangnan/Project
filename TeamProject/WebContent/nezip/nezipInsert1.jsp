@@ -223,7 +223,7 @@
 				<div>
 
 					<ul class="col-sm-6" style="list-style: none;">
-						<li style="margin-bottom: 5px; margin-top: 10px;">
+						<li style="margin-bottom: 10px; margin-top: 10px;">
 							<h4 style="margin-bottom: 10px">숙소 이름</h4>
 							<div>
 								<input name="housename" value="${housename}" type="text" placeholder="숙소이름이 없다면 참신한 이름으로 지어주세요"
@@ -232,7 +232,7 @@
 						</li>
 						<li style="margin-bottom: 5px; margin-top: 10x;">
 							<h4 style="margin-bottom: 10px">세부사항</h4>
-							<textarea class="form-control" name="detail" rows="6" style="overflow: hidden;" placeholder="게스트에게 알려야 할 기타사항을 적어주세요">${detail}</textarea>
+							<textarea class="form-control" name="detail" rows="6" placeholder="게스트에게 알려야 할 기타사항을 적어주세요">${detail}</textarea>
 						</li>
 						
 					</ul>
@@ -240,18 +240,18 @@
 					<div class="col-sm-6" style="padding-top: 10px">
 			       			<div>
 								<h4 style="margin-bottom: 10px">숙소 이용규칙</h4>
-							<textarea class="form-control" name="houserule" rows="3" style="overflow: hidden;" placeholder="게스트에게  바라는 점을 적어주세요">${houserule}</textarea>
+							<textarea class="form-control" name="houserule" rows="3" placeholder="게스트에게  바라는 점을 적어주세요">${houserule}</textarea>
 							</div>
 			       
 			       </div>
 
-					<div class="col-sm-6" style="padding-top: 20px">
+					<div class="col-sm-6" style="padding-top: 30px">
 						<dl>
-							<dt style="margin-bottom: 10px; color: #f94b4b; font-size: size: 25pt;">
+							<dt style="margin-bottom: 10px; color: #f94b4b; font-size: size: 22pt;">
 								내집 등록하시기 전에 약속해주세요.
 							</dt>
-							<dd style="margin-bottom: 5px;"> 모든 문의와 예약 요청에 24시간 내에 응답해주실 것과 </dd>
-							<dd style="margin-bottom: 5px;"> 따듯한 마음으로 게스트를 맞을 것을 약속하시겠습니까?</dd>
+							<dd style="margin-bottom: 5px;font-size:9pt; "> 모든 문의와 예약 요청에 24시간 내에 응답해주실 것과 </dd>
+							<dd style="margin-bottom: 5px;font-size:9pt; "> 따듯한 마음으로 게스트를 맞을 것을 약속하시겠습니까?</dd>
 							<!-- <dd style="margin-bottom: 10px; color: #f94b4b; font-size: size: 25pt;">
 							그렇다면 '다음' 버튼을 눌러주세요!</dd> -->
 						</dl>

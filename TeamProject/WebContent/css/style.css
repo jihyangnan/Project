@@ -1787,7 +1787,7 @@ li.selector {
 }
 .join
 {
-	width:70%;
+	width:100%;
 	margin:0 auto;
 	text-align: center;
 	padding-left: 35px;
@@ -1800,6 +1800,10 @@ li.selector {
 	float:left;
 	padding-bottom: 5px;
 	
+}
+.join>ul>li>img
+{
+	padding-right:5px;
 }
 .joinup
 {

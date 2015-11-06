@@ -17,10 +17,11 @@
 	
 	border: 2px solid #d2d2d2;
 	background-repeat: no-repeat;
-	width: 40%;
+	width: 30%;
 	margin: 0 auto;
 	margin-bottom: 100px;
 	}
+	
 	.form2_l {
 		width: 86%;
 		min-width: 320px;
@@ -63,4 +64,5 @@
 		margin:0 auto;
 		
 	}
+	
 }
