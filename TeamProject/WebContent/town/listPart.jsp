@@ -4,7 +4,7 @@
 <ul style="border-top: 2px solid; border-color: gray; padding-top: 50px;">
 	<c:forEach var="town" items="${list}" varStatus="status">
 	  <c:if test="${status.count % 2 == 1 }">
-		<li style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px;">
+		<li class="row" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px;">
 	  </c:if>
 	  	<div class="col-sm-6">
 	  	  <div>
