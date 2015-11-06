@@ -5,14 +5,14 @@
 			<div>
 			<ul>
 				<li class="siteline"><img src="images/homelink.png"
-					style="vertical-align: top;"> 로그인 / 아이디&비밀번호 찾기</li>
+					style="vertical-align: top;" > 로그인 / 아이디&비밀번호 찾기</li>
 			</ul>
 		</div>
 			<div class="about">
 				<br>
-				<h1 class="blog_head_login">아이디/비밀번호 찾기</h1>
+				<h6 class="blog_head_login">아이디/비밀번호 찾기</h6>
 
-				<div class="s_Id_form" style="margin-bottom: 100px">
+				<!-- <div class="s_Id_form" style="margin-bottom: 100px">
 					<label style="padding: 15px 15px 0px 180px; font-size: 20px">아이디
 						찾기</label>
 						<label style="margin: 0 3% 3% 20%; font-size: 15px">
@@ -41,6 +41,39 @@
 						</div>
 					</div>
 				</div>
+ -->
+ 
+ 
+ <form class="form-horizontal">
+  
+    <ul><li>
+    <div class="form-group has-success has-feedback">
+    <label class="control-label col-sm-3" for="inputSuccess3">이름</label>
+    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
+      <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess3Status" class="sr-only"></span>
+    </div></div></li>
+  
+    <li style="margin-top:-5px;">
+   <div class="form-group has-success has-feedback" >
+    <label class="control-label col-sm-3" for="inputSuccess3">주민번호</label>
+    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
+     <input type="text" class="form-control" id="inputError1">-<input type="text" class="form-control" id="inputError1">
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess3Status" class="sr-only"></span>
+    </div></div></li>
+   
+    <li style="margin-top: 5px;">
+    <div >
+   <a href="index.do" class="btn btn-warning" >확인</a>
+   <a href="join_idSearch.do" class="btn btn-danger" >로그인</a>
+    </div>
+    </li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</form>
 
 
 				<div class="s_Pwd_form" style="margin-bottom: 100px;height:240px;">
