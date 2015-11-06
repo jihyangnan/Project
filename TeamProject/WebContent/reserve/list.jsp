@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.lang.String"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 	$(document).ready(function(){
@@ -460,7 +460,15 @@
 					</form>					
 				  </div>
 				<c:forEach var="dto" items="${list }">
-					<div class="row list" data-price="${dto.h_Money }" data-lat="33.450705" data-lng="126.570677">
+					<c:forTokens items="${dto.h_Loc }" delims="," var="loc" varStatus="status" >
+						<c:if test="${status.first }">
+							<c:set var="lat" value="${loc}"></c:set>
+						</c:if>
+						<c:if test="${status.last }">
+							<c:set var="lng" value="${loc}"></c:set>
+						</c:if>
+					</c:forTokens>
+					<div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }">
 						<div class="col-sm-8">
 							<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
 								<img class="img-responsive" src="houseimage/${dto.h_No }.jpg" />
@@ -560,11 +568,11 @@
 					        <span aria-hidden="true">&laquo;</span>
 					      </a>
 					    </li>
-					    <li class="active"><a href="#">1</a></li>
-					    <li><a href="#">2</a></li>
-					    <li><a href="#">3</a></li>
-					    <li><a href="#">4</a></li>
-					    <li><a href="#">5</a></li>
+					    <li class="active"><a href="reserve_list.do?page=1">1</a></li>
+					    <li><a href="reserve_list.do?page=2">2</a></li>
+					    <li><a href="reserve_list.do?page=3">3</a></li>
+					    <li><a href="reserve_list.do?page=4">4</a></li>
+					    <li><a href="reserve_list.do?page=5">5</a></li>
 					    <li>
 					      <a href="reserve_list.do?page=${curpage<totalpage?curpage+1:curpage }" aria-label="Next">
 					        <span aria-hidden="true">&raquo;</span>
@@ -582,7 +590,7 @@
 				<script>
 					var container = document.getElementById('map');
 					var options = {
-						center: new daum.maps.LatLng(33.450701, 126.570667),
+						center: new daum.maps.LatLng(37.553121, 126.937059),
 						level: 3
 					};
 					

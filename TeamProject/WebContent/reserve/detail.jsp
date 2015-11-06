@@ -4,7 +4,7 @@
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 var i=0;
 $(function(){
@@ -18,7 +18,7 @@ $(function(){
 		}
 		$('#re_new_frm').submit();
 });
-	/* 
+	/
 function replyUpdateClick(no)
 {
 	var msg=$('#umsg'+no).val();
@@ -29,8 +29,8 @@ function replyUpdateClick(no)
 		return;
 	}
 	$('#re_update_frm'+no).submit();
-} */
-</script>
+} 
+</script> -->
 <div class="about_top">
 		<div class="container" style="margin: 400;">
 			<div class="jumbotron">
@@ -177,14 +177,13 @@ function replyUpdateClick(no)
 				<div class="row">
 					<div>
 						<div class="row">
-							<div class="col-md-3 text-muted">
+							<div class="col-md-3">
 								<span
 									style="position: relative; min-height: 1px; padding-left: 12.5px; padding-right: 12.5px;">시설</span>
 							</div>
-							<div class="col-md-9">
-							<%-- <c:if> --%>
+							<!-- <div class="col-md-9">
 								<div class="row">
-									<div class="col-md-6" name="fac1">
+									<div class="col-md-6">
 										<div>
 											<span>부엌</span>
 										</div>
@@ -204,7 +203,7 @@ function replyUpdateClick(no)
 											<span>세탁기</span>
 										</div>
 									</div>
-									<div class="col-md-6" name="fac2">
+									<div class="col-md-6">
 										<div>
 											<span>건조기</span>
 										</div>
@@ -222,7 +221,110 @@ function replyUpdateClick(no)
 										</div>
 									</div>
 								</div>
-								<%-- </c:if> --%>
+							</div> -->
+							
+							<div class="col-md-9">
+								<div class="row">
+								<div class="col-md-6">
+								<c:forEach var="flist" items="${ flist}">
+								<div>
+								<c:if test="${flist.c_hsNo==1 }">
+									<span data-tooltip-text="수건, 침대시트, 비누, 화장지">필수품목</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==2 }">
+									<span>TV</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==3 }">
+									<span>케이블 TV</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==4 }">
+									<span>에어콘</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==5 }">
+									<span data-tooltip-text="숙소 안의 중앙 난방 또는 히터">난방</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==6 }">
+									<span data-tooltip-text="게스트가 이용 가능한 부엌">부엌</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==7 }">
+									<span>인터넷</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==8 }">
+									<span data-tooltip-text="숙소 내 인터넷 이용">무선 인터넷</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==9 }">
+									<span>욕조</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==10 }">
+									<span data-tooltip-text="빌딩 내 유/무료">세탁기</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==11 }">
+									<span data-tooltip-text="전용 또는 공용">수영장</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==12 }">
+									<span data-tooltip-text="빌딩 내 유/무료">건조기</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==13 }">
+									<span data-tooltip-text="아침식사 제공">아침식사</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==14 }">
+									<span data-tooltip-text="무료, 건물 안이나 주변">무료주차포함</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==15 }">
+									<span>무료 헬스장</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==16 }">
+									<span>엘리베이터</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==17 }">
+									<span>실내 벽난로</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==18 }">
+									<span>초인종/인터폰</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==19 }">
+									<span>도어맨</span>
+								</c:if>								
+								<c:if test="${flist.c_hsNo==20 }">
+									<span>샴푸</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==21 }">
+									<span>가족/어린이 환영</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==22 }">
+									<span>흡연가능</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==23 }">
+									<span data-tooltip-text="25명 이상의 그룹을 수용할 수 있는 숙소입니다.">이벤트/행사 가능</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==24 }">
+									<span>애완동물 입실 가능</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==25 }">
+									<span>애완/반려동물 키우고 있음</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==26 }">
+									<span data-tooltip-text="휠체어 접근이 용이한 숙소입니다. 기타 개인적인 필요사항은 게스트와 호스트가 서로 협의해야 합니다.">휠체어 사용가능</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==27 }">
+									<span>화재 감지기</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==28 }">
+									<span>소화기</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==28 }">
+									<span>일산화탄소 탐지기</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==28 }">
+									<span>구급 상자</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==28 }">
+									<span>침실문 잠금장치</span>
+								</c:if>
+								</div>
+								</c:forEach>
+								</div>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -296,14 +398,14 @@ function replyUpdateClick(no)
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
-				<div class="row" style="height: 50px; font-size: 13pt;">
-					<span class="col-md-4">
+				<div class="row">
+					<div class="col-md-4">
 					<input type="text" class="form-control datepicker" placeholder="체크인">
-					</span> 
-					<span class="col-md-4" style="border-color: #9400d3;">
+					</div> 
+					<div class="col-md-4">
 					<input type="text" class="form-control datepicker" placeholder="체크아웃">
-					</span>
-					 <span class="col-md-4" style="border-color: #9400d3;">
+					</div>
+					 <div class="col-md-4">
 					 <select class="form-control">
 					        <option>1</option>
 					        <option>2</option>
@@ -312,7 +414,7 @@ function replyUpdateClick(no)
 					        <option>5</option>
 					        <option>6</option>
 					        <option>7</option>
-					      </select></span>
+					      </select></div>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<div id="aaa"
