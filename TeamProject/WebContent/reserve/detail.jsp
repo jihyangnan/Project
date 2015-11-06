@@ -4,13 +4,13 @@
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+ <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 var i=0;
 $(function(){
 	$('#reviewBtn').click(function(){
-		var msg=$('#review_content').val();
-		if(msg=="")
+		var re_Content=$('#review_content').val();
+		if(re_Content=="")
 		{
 			alert("후기를 입력하세요");
 			$('#review_content').focus();
@@ -18,19 +18,7 @@ $(function(){
 		}
 		$('#re_new_frm').submit();
 });
-	/
-function replyUpdateClick(no)
-{
-	var msg=$('#umsg'+no).val();
-	if(msg=="")
-	{
-		alert("후기를 입력하세요");
-		$('#umsg'+no).focus();
-		return;
-	}
-	$('#re_update_frm'+no).submit();
-} 
-</script> -->
+</script> 
 <div class="about_top">
 		<div class="container" style="margin: 400;">
 			<div class="jumbotron">
@@ -180,49 +168,7 @@ function replyUpdateClick(no)
 							<div class="col-md-3">
 								<span
 									style="position: relative; min-height: 1px; padding-left: 12.5px; padding-right: 12.5px;">시설</span>
-							</div>
-							<!-- <div class="col-md-9">
-								<div class="row">
-									<div class="col-md-6">
-										<div>
-											<span>부엌</span>
-										</div>
-										<div>
-											<span>TV</span>
-										</div>
-										<div>
-											<span>샴푸</span>
-										</div>
-										<div>
-											<span>난방</span>
-										</div>
-										<div>
-											<span>에어컨</span>
-										</div>
-										<div>
-											<span>세탁기</span>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div>
-											<span>건조기</span>
-										</div>
-										<div>
-											<span>무료주차</span>
-										</div>
-										<div>
-											<span>무선인터넷</span>
-										</div>
-										<div>
-											<span>욕조</span>
-										</div>
-										<div>
-											<span>소화기</span>
-										</div>
-									</div>
-								</div>
-							</div> -->
-							
+							</div>							
 							<div class="col-md-9">
 								<div class="row">
 								<div class="col-md-6">
@@ -329,8 +275,7 @@ function replyUpdateClick(no)
 						</div>
 					</div>
 				</div>
-				<hr
-					style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
+				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<div class="row react-house-rules" id="house-rules">
 					<div class="col-md-3 text-muted">
 						<div class="text-muted">
@@ -348,10 +293,12 @@ function replyUpdateClick(no)
 					</div>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-				
 				<div style="text-align: center; font-size: 15pt;font-style: oblique;"> 후기 </div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-			<div id="review" class="row review">			
+				
+				
+				<c:forEach var="rp" items="${list }">
+					<div id="review" class="row review">			
 				<div class="col-md-3" style="padding-top: 50px;">
 						<span></span>
 				</div>
@@ -359,33 +306,41 @@ function replyUpdateClick(no)
 							<div class="row">
 								<div class="col-md-3">
 									<div class="name">
-										<a href="http://op.gg">MileSeven</a>
+										<span>${rp.re_Id }</span>
 									</div>
 								</div>
 								<div class="col-md-9" style="padding-top: 35px;">
 									<div>
-										<div class="review-text">좋아유</div>
+										<div class="review-text">${rp.re_Content }</div>
 									</div>
 								</div>
 							</div>
 							<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-				</div>				
-				<div class="review insert">
-						<div class="col-md-3"></div> 
+				</div>		
+				</div>
+				</c:forEach>
+				
+				<div id="review" class="row review">			
+				<div class="col-md-3" style="padding-top: 50px;">
+				</div>		
+				<div class="review insert col-md-9">
+					<form method=post action="review_new_insert.do" id="re_new_frm">
+						<div class="col-md-3">
+								<span>${rp.re_Id }</span>
+						</div>						
 						<div class="col-md-9" style="padding-top: 35px;"> 
-						<div>
-						<form method=post action="review_new_insert.do" id="re_new_frm">
 						<textarea id="review_content"name="review_content" onclick="if(this.value==this.defaultValue){this.value=''}"
 								onblur="if (this.value == '') { this.value = this.defaultValue; }"
 								style="width: 430px; height: 50px; font-size: 10pt;">후기를 작성해주세요</textarea>
-						<input type=hidden name=re_hno value="">
-         				<input type=hidden name=page value="">				
-						<input id="reviewBtn" type="button" value="후기 입력" style="width: 80px; height: 50px; font-size: 9pt; color: #f08080;">
-						</form>
-						</div>
-						</div>						
-				</div>				
+						<input type=hidden name=re_hNo value="${dto.h_No }">
+         				<input type=hidden name=page value="${page }">				
+						<input id="reviewBtn" type="submit" value="후기 입력" style="width: 80px; height: 50px; font-size: 9pt; color: #f08080;">
+						</div>		
+						</form>				
+				</div>	
+				
 			</div>
+			
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />

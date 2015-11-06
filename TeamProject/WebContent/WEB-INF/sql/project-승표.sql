@@ -243,8 +243,8 @@ purge recyclebin;
 drop table member1;
 
 CREATE TABLE member1(
-   m_no NUMBER CONSTRAINT mem1_m_no_pk PRIMARY KEY,
-   id VARCHAR(20),
+   m_no NUMBER,
+   id VARCHAR(20) CONSTRAINT mem1_m_no_pk PRIMARY KEY,
    pwd VARCHAR2(100),
    pwhint VARCHAR2(100),
    name VARCHAR2(34),

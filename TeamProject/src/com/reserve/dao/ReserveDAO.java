@@ -103,25 +103,25 @@ public class ReserveDAO {
 		   }
 		   return total;
 	   }
-	   public static int reviewCount(int re_hno)
+	   public static int reviewCount(int re_hNo)
 	   {
 		   SqlSession session=ssf.openSession();
-		   int count=session.selectOne("reviewCount",re_hno);
+		   int count=session.selectOne("reviewCount",re_hNo);
 		   session.close();
 		   return count;
 	   }
-	   public static List<ReviewDTO> reviewListData(int re_hno)
+	   public static List<ReviewDTO> reviewListData(int re_hNo)
 	   {
 		   SqlSession session=ssf.openSession();
 		   List<ReviewDTO> list=
-				   session.selectList("reviewListData",re_hno);
+				   session.selectList("reviewListData",re_hNo);
 		   session.close();
 		   return list;
 	   }
 	   public static void reviewNewInsert(ReviewDTO d)
 	   {
 		   SqlSession session=ssf.openSession(true);
-		   session.insert("replyNewInsert",d);
+		   session.insert("reviewNewInsert",d);
 		   session.close();
 	   }
 	   public static void reviewReUpdate(ReviewDTO d)
