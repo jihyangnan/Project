@@ -326,7 +326,7 @@ function replyUpdateClick(no)
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 			</div>
-			<div class="row text-right">
+			<div class="text-right">
 				<a href="reserve_list.do"><button type="button" class="btn search-btn" >목록보기</button></a>
 			</div>	
 		</div>

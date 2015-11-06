@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="about_top">
-	<div class="container">
+	<div class="container" style="padding: 0px;">
 		<div>
 			<ul>
 				<li class="siteline"><img src="images/homelink.png"
@@ -13,9 +13,9 @@
 			
 			<div >
 				<form id="searchForm" class="form-horizontal" method="post" action="town_list.do">
-				  <div class="form-group">
+				  <div class="form-group" style="margin:0px; margin-bottom:15px;" >
 				    <label class="col-sm-2 control-label">관광타입</label>
-				    <div class="col-sm-3">
+				    <div class="col-sm-3" >
 				      <select name="contentTypeId" class="form-control" id="typeSelect">
 				      	<option value="">타입선택</option>
 				      	<option value="12">관광지</option>
@@ -35,7 +35,7 @@
 				      </script>
 				    </div>
 				  </div>
-				  <div class="form-group">
+				  <div class="form-group" style="margin:0px; margin-bottom:15px;">
 				    <label class="col-sm-2 control-label">서비스분류</label>
 				   	<div class="col-sm-3">
 				      <select name="cat1" class="form-control" id="cat1Select">
@@ -63,7 +63,7 @@
 				      	</c:forEach>
 				      </select>
 				    </div>
-				   	<div class="col-sm-4">
+				   	<div class="col-sm-3">
 				      <select name="cat3" class="form-control" id="cat3Select">
 				      	<option value="">소분류</option>
 				      	<c:forEach var="cat3Code" items="${cat3CodeList}">
@@ -77,7 +77,7 @@
 				      </select>
 				    </div>
 				  </div>
-				  <div class="form-group">
+				  <div class="form-group" style="margin:0px;">
 				    <label class="col-sm-2 control-label">지역</label>
 				   	<div class="col-sm-3">
 				      <select name="areaCode" class="form-control" id="areaSelect">
@@ -106,9 +106,11 @@
 				      </select>
 				    </div>
 				  </div>
-				  <div class="form-group">
-				    <div class="col-sm-offset-2 col-sm-10 ">
-				      <button id="searchBtn" type="submit" class="btn btn-success">검색</button>
+				  <div class="form-group" style="text-align: center; margin:0px; margin-bottom:15px; margin-top:15px;" >
+				    <div class="col-sm-offset-2 col-sm-10 " style="width:100%; margin:0px;">
+				      <button id="searchBtn" type="submit" class="btn btn-success" 
+				      style="padding-left:30px; padding-right:30px;">
+				      	검색</button>
 				    </div>
 				  </div>
 				</form>

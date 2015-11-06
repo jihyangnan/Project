@@ -6,7 +6,9 @@
 		<typeAlias type="com.board.dao.BoardDTO" alias="Board"/>
 		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
 		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
-		<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
+      	<!-- <typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/>
+      	<typeAlias type="com.board.dao.ReBoardDTO" alias="Reply"/> -->
+		<typeAlias type="com.question.dao.QuestionDTO" alias="Question"/>
 		
 		<typeAlias type="com.nezip.dao.ZipRegDTO" alias="ZipReg"/>
 		<typeAlias type="com.nezip.dao.Room_categoryDTO" alias="Room_category"/>
@@ -34,5 +36,6 @@
 	<mapper resource="com/board/dao/board_mapper.xml"/>
 	<mapper resource="com/nezip/dao/nezip_mapper.xml"/>
 	<mapper resource="com/reserve/dao/reserve-mapper.xml"/>
+	<mapper resource="com/question/dao/question_mapper.xml"/>
 	</mappers>
 </configuration>

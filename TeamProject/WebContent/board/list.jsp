@@ -73,7 +73,7 @@ function resizeBoard(){
 			</ul>
 		</div>
 		<div style="border-top: 1px solid #E2E2E2; border-bottom: 1px solid #E2E2E2;">
-			<div class="row text-right">
+			<div class="text-right">
 				<ol class="breadcrumb" style="background-color: #fff">
 				</ol>
 			</div>
@@ -82,7 +82,7 @@ function resizeBoard(){
 			</div>
 			<!--h3 class="m_3" style="margin-top: 50px; margin-bottom:50px; text-align: center; font-weight: bold;">자유 게시판</h3-->
 			<div class="list-group panel panel-default" style="border: 0">	
-				<div class="row mhide panel-heading">
+				<div class="row mhide panel-heading" style="margin:0px;">
 					
 					<div class="col-sm-1" style="font-weight: 600">번호</div>
 					<div class="col-sm-5" style="font-weight: 600">제목</div>
@@ -92,7 +92,7 @@ function resizeBoard(){
 				</div>
 				<!-- 관리자 -->
 				<c:forEach var="mdto" items="${mlist }" varStatus="status">
-				<div class="row list-group-item">
+				<div class="row list-group-item" style="margin:0px;">
 					<span class="col-sm-1 mhide">
 						<img src="images/${mdto.sa_img }" /> 
 					</span>
@@ -114,9 +114,10 @@ function resizeBoard(){
 					<span class="col-sm-1 mhide hit">${mdto.b_hit }</span>
 				</div>
 				</c:forEach>
+				
 				<!-- 회원목록 -->
 				<c:forEach var="dto" items="${list }" varStatus="status">
-				<div class="row list-group-item">
+				<div class="row list-group-item" style="margin:0px;">
 					<!-- <img src="images/ico-list-notice.gif"> -->
 					<span class="col-sm-1">${dto.num }</span>
 					<span class="col-sm-5 col-xs-10" style="text-align:left;">
@@ -140,7 +141,7 @@ function resizeBoard(){
 				
 			</div>		
 			
-			<div class="row text-right">
+			<div class="row text-right" style="margin:0px;">
 			 <!-- <a href="board_insert.do"> -->
 				<button type="button" class="btn search-btn" data-toggle="modal" data-target="#writeModal">글쓰기</button>
 			<!--  </a> -->
@@ -220,7 +221,7 @@ function resizeBoard(){
 			  	<li style="float:right;">${curpage } / ${totalpage }</li>
 			  </ul>
 			</div>
-			<div class="row" style="margin-bottom: 30px">
+			<div class="row" style="margin-bottom: 30px; margin-left: 0px; margin-right: 0px;" >
 				<div class="col-sm-2" style="margin-bottom: 10px">
 				  <select class="form-control">
 				    <option>제목</option>

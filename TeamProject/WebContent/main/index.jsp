@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='board_list.do'"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
 						<ul class="dropdown-menu" style="min-width: 110px;">
 							<li><a href="board_list.do">자유게시판</a></li>
-							<li><a href="board_">1:1문의</a></li>
+							<li><a href="question_insert.do">1:1문의</a></li>
 						</ul>
 					</li>
 					<li class="dropdown"><a data-toggle="dropdown" onclick="location.href='join_login.do'"><i class="fa fa-user"></i><b>로그인</b></a>

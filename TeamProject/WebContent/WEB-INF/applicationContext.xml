@@ -18,8 +18,10 @@
     <bean id="reboard_delete" class="com.board.model.ReBoardDeleteModel"/>
 	
 	<!-- 1:1문의 -->
-	<bean id="question_insert" class="com.board.model.BoardUpdateModel"/>
-	
+	<bean id="question_insert" class="com.question.model.QuestionInsertModel"/>
+	<bean id="question_insert_ok" class="com.question.model.QuestionInsertOkModel"/>
+	<bean id="question_list" class="com.question.model.QuestionListModel"/>
+	<bean id="question_content" class="com.question.model.QuestionContentModel"/>
 	
 	<!-- 내집 등록 관련 -->
 	<bean id="nezip_insert1" class="com.nezip.model.Insert1Model"/>
