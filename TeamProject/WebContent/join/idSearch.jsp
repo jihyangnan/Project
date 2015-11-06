@@ -44,35 +44,35 @@
  -->
  
  
- <form class="form-horizontal">
-  
-    <ul><li>
+ <form class="form-horizontal" >
+   <div>
+    <ul style="width:50%;">
+   
     <div class="form-group has-success has-feedback">
     <label class="control-label col-sm-3" for="inputSuccess3">이름</label>
-    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
-      <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
-      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-      <span id="inputSuccess3Status" class="sr-only"></span>
-    </div></div></li>
-  
-    <li style="margin-top:-5px;">
-   <div class="form-group has-success has-feedback" >
-    <label class="control-label col-sm-3" for="inputSuccess3">주민번호</label>
-    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
-     <input type="text" class="form-control" id="inputError1">-<input type="text" class="form-control" id="inputError1">
-      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-      <span id="inputSuccess3Status" class="sr-only"></span>
-    </div></div></li>
-   
-    <li style="margin-top: 5px;">
-    <div >
-   <a href="index.do" class="btn btn-warning" >확인</a>
-   <a href="join_idSearch.do" class="btn btn-danger" >로그인</a>
+	    <div class="col-sm-9" style="width:50%; margin-left:-15px;">
+	      <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+	      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	      <span id="inputSuccess3Status" class="sr-only"></span>
+	    </div>
     </div>
-    </li>
-    </ul>
-  </div>
-  <div class="clearfix"></div>
+  
+    <li>
+    <div class="form-group has-success">
+  <label class="control-label" for="inputSuccess1">주민번호</label>
+  <p><input type="text" class="form-control" id="inputSuccess1" style="width:25%;"> - <input type="password" class="form-control" id="inputSuccess1" style="width:25%;"></p>
+</div>
+   </li>
+ 
+   <li style="margin-top: 5px;">
+    <div>
+	   <a href="index.do" class="btn btn-warning" >확인</a>
+	   <a href="join_idSearch.do" class="btn btn-danger" >로그인</a>
+    </div>
+   </li>
+ </ul>
+      <div class="clearfix"></div>
+</div> 
 </form>
 
 
