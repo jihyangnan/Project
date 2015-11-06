@@ -11,7 +11,7 @@ public class IndexModel implements Model{
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		req.setAttribute("pageNum", 0); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
 		req.setAttribute("jsp", "main.jsp");
-		req.getSession().setAttribute("id", "shim");
+		//req.getSession().setAttribute("id", "shim");
 		return "main/index.jsp";
 	}
 	

@@ -46,15 +46,14 @@ $(function(){
 
 	    	<a href="index.do" class="btn btn-warning" >로그인</a>
 
-   <!-- <label style="color:#5cb85c;"><h6>아직 회원이 아니시라면</h6></label> 
+   <label style="color:#5cb85c;"><h6>아직 회원이 아니시라면</h6></label> 
    <a href="join_join.do" class="btn btn-success"> 회원가입</a>
   
-    </li>
-    <li style="margin-top: 5px;">
+   
     <div >
    <a href="index.do" class="btn btn-warning" >로그인</a>
    <a href="join_idSearch.do" class="btn btn-danger" >아이디/비밀번호 찾기</a>
-    </div> -->
+    </div>
 
   </div>
   <div class="clearfix"></div>
