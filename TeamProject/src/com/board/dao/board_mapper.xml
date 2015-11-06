@@ -28,9 +28,10 @@ SELECT a.b_no, a.b_id, a.b_title, a.b_content, a.b_sano, a.b_delete, b.sa_img, d
 FROM(SELECT b_no, b_id, b_title, b_content, To_char(b_date,'YYYY-MM-DD')as dbday ,b_hit, b_sano, b_delete, rownum as num
      FROM (SELECT b_no, b_id, b_title, b_content,b_date, b_hit, b_sano, b_delete
            FROM p_board 
+           WHERE b_delete = 'n' AND b_sano not in(4)
            ORDER BY b_no desc)) a JOIN b_word b
            ON a.b_sano = b.sa_no
-WHERE a.b_delete = 'n' AND a.b_sano not in(4) AND num BETWEEN 1 AND 5
+WHERE num BETWEEN 1 AND 5
 </select>
 <!-- 총페이지 구하기 -->
 <select id="boardRowCount" resultType="int">
@@ -152,4 +153,6 @@ WHERE a.b_delete = 'n' AND a.b_sano not in(4) AND num BETWEEN 1 AND 5
 	depth=depth+1
 	WHERE rw_no=#{rw_no}
 </update>
+
+
 </mapper>

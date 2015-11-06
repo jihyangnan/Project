@@ -1,1 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.question.dao.question_mapper">
+<!-- 1:1문의 삽입 -->
+<insert id="questionInsert" parameterType="Question">
+	<selectKey keyProperty="q_no" resultType="int" order="BEFORE">
+		 SELECT NVL(MAX(q_no)+1,1) as q_no FROM question
+	</selectKey>
+	INSERT INTO question values(
+	#{q_no},#{q_id},#{q_title},#{q_content},SYSDATE,#{q_phone},#{q_email},#{q_qtno}
+	)
+</insert>
+</mapper>

@@ -10,7 +10,9 @@ public class QuestionInsertModel implements Model {
 	@Override
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		//insert하는 페이지로 보내기
+		req.setAttribute("jsp", "../board/inquire.jsp");
+		return "main/index.jsp";
 	}
 
 }
