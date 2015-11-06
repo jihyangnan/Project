@@ -34,6 +34,7 @@ public class Insert1Model implements Model{
 			req.setAttribute("bathroom", dto.getH_nBath());
 			req.setAttribute("housename", dto.getH_nHome());
 			req.setAttribute("detail", dto.getH_hContent());
+			req.setAttribute("houserule", dto.getH_Rule());
 		}
 		
 		req.setAttribute("insertStep", 1);

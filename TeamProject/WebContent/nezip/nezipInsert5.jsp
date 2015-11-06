@@ -24,7 +24,7 @@
 				<div class="form-inline">
 				  <div class="form-group">
 				    <label for="price">KWR</label>
-				    <input type="text" class="form-control" id="price" name="price" value="${price}" placeholder="">
+				    <input type="text" class="form-control" id="price" name="price" value="${price}" placeholder="가격을 입력해 주세요">
 				  </div>
  
 				</div>
@@ -45,13 +45,13 @@
 		<div class="col-sm-5" style="padding-left: 0">
 			<img src="images/calendar.png" class="img-responsive"/>
 		</div>
-		<div class="col-sm-5 col-sm-offset-1 service_box">
+		<div class="col-sm-5 service_box">
 			<p style="padding: 40px 0">
 				<label style="padding-left: 10px;"> 시작날짜 
-				<input type="text" class="form-control datepicker" placeholder="YYYY/MM/DD">
+				<input type="text" class="form-control startCal" name="startDay" placeholder="YYYY/MM/DD">
 				</label> 
 				<label style="padding-left: 10px;"> 종료날짜
-				<input type="text" class="form-control datepicker" placeholder="YYYY/MM/DD">	
+				<input type="text" class="form-control endCal" name="endDay" placeholder="YYYY/MM/DD" disabled>	
 				</label>
 			</p>
 		</div>
@@ -64,4 +64,53 @@
 		<input type="button" value="완료" id="join" class="btn">
 	</div>
 </div>
-
+<script>
+	$(document).ready(function(){
+    	var t = new Date();
+    	var yy = t.getFullYear();
+    	var mm = t.getMonth()+1;
+    	var dd = t.getDate();
+    	$('.startCal').datepicker({
+    		format: 'yyyy/mm/dd',
+    		startDate: yy + "/" + mm + "/" + dd,
+    		autoclose: true,
+    		language: 'kr'
+    	}).on('changeDate', function(e){
+    		//console.log($('.startCal').datepicker('getDate'));
+    		var start = $('.startCal').datepicker('getDate');
+    		var end = $('.endCal').datepicker('getDate');
+    		$('.endCal').datepicker('setStartDate', start);
+    		if(start > end){
+    			$('.endCal').datepicker('setDate', $('.startCal').datepicker('getDate'));
+    		}
+    		$('.endCal').removeAttr('disabled');
+    		console.log('gg');
+    	});
+    	
+    	$('.endCal').datepicker({
+    		format: 'yyyy/mm/dd',
+    		autoclose: true,
+    		language: 'kr'
+    	});
+    });
+	
+	// 변경시 세션에 저장..
+	$('input[type="text"]').change(function(){
+		console.log('gg');
+	/* 	$('#saveMsg').html('<strong>저장중입니다...</strong>');
+		var data = "";
+		$('input[type="text"]').each(function(){
+			data += $(this).attr('name') + "=" + $(this).val() + "&";
+		});
+		console.log(data); */
+		/* $.post(
+			"SaveInsert3ByAjaxServlet",
+			data,
+			function(data){
+				$('#saveMsg strong').html('저장되었습니다..');
+				$('#saveMsg strong').delay(1000).fadeOut(1000);
+			}
+		); */
+	})
+	
+</script>

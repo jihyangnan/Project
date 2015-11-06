@@ -41,6 +41,7 @@ public class SaveInsert1ByAjaxServlet extends HttpServlet {
 		String bathroom = request.getParameter("bathroom"); //¿å½Ç
 		String housename = request.getParameter("housename"); //¼÷¼Ò ÀÌ¸§
 		String detail = request.getParameter("detail"); // ¼¼ºÎ»çÇ×
+		String houserule = request.getParameter("houserule"); // ¼÷¼Ò±ÔÄ¢
 		
 		dto.setH_Type(houseStyle == null ? 1 : Integer.parseInt(houseStyle));
 		dto.setH_rType(roomStyle == null ? 1 : Integer.parseInt(roomStyle));
@@ -50,7 +51,7 @@ public class SaveInsert1ByAjaxServlet extends HttpServlet {
 		dto.setH_nBath(bathroom == null ? 1 : Integer.parseInt(bathroom));
 		dto.setH_nHome(housename.trim());
 		dto.setH_hContent(detail.trim());
-		
+		dto.setH_Rule(houserule);
 	}
 
 }
