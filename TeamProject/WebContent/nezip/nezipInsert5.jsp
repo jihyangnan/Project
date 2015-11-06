@@ -76,27 +76,32 @@
     		autoclose: true,
     		language: 'kr'
     	}).on('changeDate', function(e){
-    		//console.log($('.startCal').datepicker('getDate'));
     		var start = $('.startCal').datepicker('getDate');
     		var end = $('.endCal').datepicker('getDate');
     		$('.endCal').datepicker('setStartDate', start);
     		if(start > end){
     			$('.endCal').datepicker('setDate', $('.startCal').datepicker('getDate'));
     		}
-    		$('.endCal').removeAttr('disabled');
-    		console.log('gg');
+    		$('.endCal').removeAttr('disabled'); 
+    		setData();
     	});
     	
     	$('.endCal').datepicker({
     		format: 'yyyy/mm/dd',
     		autoclose: true,
     		language: 'kr'
+    	}).on('changeDate', function(e){
+    		setData();
     	});
     });
 	
 	// 변경시 세션에 저장..
-	$('input[type="text"]').change(function(){
-		console.log('gg');
+	$('input[name="price"]').change(function(){
+		if(isNaN($(this).val)){
+		}else{
+			console.log('숫자로 입력해주세요');
+		}
+		setData();
 	/* 	$('#saveMsg').html('<strong>저장중입니다...</strong>');
 		var data = "";
 		$('input[type="text"]').each(function(){
@@ -112,5 +117,11 @@
 			}
 		); */
 	})
-	
+	function setData(){
+		var data = "";
+		$('input[type="text"]').each(function(){
+			data += $(this).attr('name') + "=" + $(this).val() + "&";
+		});
+		console.log(data);
+	}
 </script>
