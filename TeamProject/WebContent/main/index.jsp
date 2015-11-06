@@ -141,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a data-toggle="dropdown" onclick="location.href='join_login.do'">
 							<i class="fa fa-user"></i>
 							<c:if test="${empty sessionScope.id}">
-								<b>로그인</b>${sessionScope.id}....
+								<b>로그인</b>
 								</a>
 							</c:if>
 							<c:if test="${not empty sessionScope.id}">

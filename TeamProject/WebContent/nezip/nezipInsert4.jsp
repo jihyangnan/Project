@@ -100,7 +100,7 @@
 	 					<i class="fa fa-upload"></i> 사진 추가하기
 					</button>
 				</div> 
-				<div class="col-sm-3 col-sm-offset-6 col-xs-6" id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#87d54d;"></div>
+				<div class="col-sm-3 col-sm-offset-6 col-xs-6" id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#59942D;"></div>
 				<div class="clearfix"></div>
 			</form>
 			<script src="js/jquery.form.min.js"></script>
