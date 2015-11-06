@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <div>
 	<div style="padding-left: 10px">
 		<h2 style="color: #F94B4B;">
@@ -22,11 +23,12 @@
 					<label style="font-size: 18px; padding-top: 15px;">1박당 가격</label>
 				</p>
 				<div class="form-inline">
-				  <div class="form-group">
-				    <label for="price">KWR</label>
-				    <input type="text" class="form-control" id="price" name="price" value="${price}" placeholder="가격을 입력해 주세요">
-				  </div>
- 
+					<div class="form-group">
+				    	<label for="price">KWR</label>
+				    	<input type="text" class="form-control" id="price" name="price" value="${price}" placeholder="가격을 입력해 주세요">
+				  	</div>
+ 					<div class="col-sm-3" id="saveMsg" style="float: right;text-align: right; padding-right: 20px; color:#59942D;">
+ 					</div>
 				</div>
 
 			</div>
@@ -48,10 +50,15 @@
 		<div class="col-sm-5 service_box">
 			<p style="padding: 40px 0">
 				<label style="padding-left: 10px;"> 시작날짜 
-				<input type="text" class="form-control startCal" name="startDay" placeholder="YYYY/MM/DD">
+				<input type="text" class="form-control startCal" value="${startDay}" name="startDay" placeholder="YYYY/MM/DD">
 				</label> 
 				<label style="padding-left: 10px;"> 종료날짜
-				<input type="text" class="form-control endCal" name="endDay" placeholder="YYYY/MM/DD" disabled>	
+				<c:if test="${empty endDay}">
+					<input type="text" class="form-control endCal" value="${endDay}" name="endDay" placeholder="YYYY/MM/DD" disabled>	
+				</c:if>
+				<c:if test="${not empty endDay}">
+				<input type="text" class="form-control endCal" name="endDay" placeholder="YYYY/MM/DD">	
+				</c:if>
 				</label>
 			</p>
 		</div>
@@ -76,41 +83,47 @@
     		autoclose: true,
     		language: 'kr'
     	}).on('changeDate', function(e){
-    		//console.log($('.startCal').datepicker('getDate'));
     		var start = $('.startCal').datepicker('getDate');
     		var end = $('.endCal').datepicker('getDate');
     		$('.endCal').datepicker('setStartDate', start);
     		if(start > end){
     			$('.endCal').datepicker('setDate', $('.startCal').datepicker('getDate'));
     		}
-    		$('.endCal').removeAttr('disabled');
-    		console.log('gg');
+    		$('.endCal').removeAttr('disabled'); 
+    		setData();
     	});
     	
     	$('.endCal').datepicker({
     		format: 'yyyy/mm/dd',
     		autoclose: true,
     		language: 'kr'
+    	}).on('changeDate', function(e){
+    		setData();
     	});
     });
 	
-	// 변경시 세션에 저장..
-	$('input[type="text"]').change(function(){
-		console.log('gg');
-	/* 	$('#saveMsg').html('<strong>저장중입니다...</strong>');
+	$('input[name="price"]').change(function(){
+		var reg = /\D/;
+		if(reg.test($(this).val())){
+			alert('가격은 숫자로 입력하세요.');
+		}else {
+			setData();
+		}
+	});
+	
+	function setData(){
+		$('#saveMsg').html('<strong>저장중입니다...</strong>');
 		var data = "";
 		$('input[type="text"]').each(function(){
 			data += $(this).attr('name') + "=" + $(this).val() + "&";
 		});
-		console.log(data); */
-		/* $.post(
-			"SaveInsert3ByAjaxServlet",
+		$.post(
+			"SaveInsert5ByAjaxServlet",
 			data,
 			function(data){
 				$('#saveMsg strong').html('저장되었습니다..');
 				$('#saveMsg strong').delay(1000).fadeOut(1000);
 			}
-		); */
-	})
-	
+		);
+	}
 </script>

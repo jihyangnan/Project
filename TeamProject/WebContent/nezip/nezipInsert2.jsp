@@ -34,7 +34,7 @@
 		 
 		 <li style="padding-top:20px;">
 		 	<div class="col-sm-7" style="color:#f94b4b; padding-left: 0">지도를 움직여 정확한 위치를 설정 하세요.</div>
-		 	<div id="saveMsg" class="col-sm-3 col-sm-offset-2" style="text-align: right; color:#87d54d"></div>
+		 	<div id="saveMsg" class="col-sm-3 col-sm-offset-2" style="text-align: right; color:#59942D"></div>
 		 	<div id="map" style="margin-top: 10px; height: 500px" class="col-sm-12"></div>
 		 	<div class="clearfix"></div>
 		 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

@@ -3,44 +3,36 @@ package com.reserve.dao;
 import java.util.Date;
 
 public class ReviewDTO {
-	private int re_no;
-	private String re_id;	
-	private int re_hno;
-	private String re_content;
+	private int re_No;
+	private String re_Id;	
+	private int re_hNo;
+	private String re_Content;
 	private Date re_date;
-	public ReviewDTO(){
-		
+	
+	
+	public int getRe_No() {
+		return re_No;
 	}
-	public ReviewDTO(int re_no,String re_id,int re_hno,String re_content){
-		super();
-		this.re_no=re_no;
-		this.re_id=re_id;
-		this.re_hno=re_hno;
-		this.re_content=re_content;
+	public void setRe_No(int re_No) {
+		this.re_No = re_No;
 	}
-	public String getRe_id() {
-		return re_id;
+	public String getRe_Id() {
+		return re_Id;
 	}
-	public void setRe_id(String re_id) {
-		this.re_id = re_id;
+	public void setRe_Id(String re_Id) {
+		this.re_Id = re_Id;
 	}
-	public int getRe_no() {
-		return re_no;
+	public int getRe_hNo() {
+		return re_hNo;
 	}
-	public void setRe_no(int re_no) {
-		this.re_no = re_no;
+	public void setRe_hNo(int re_hNo) {
+		this.re_hNo = re_hNo;
 	}
-	public int getRe_hno() {
-		return re_hno;
+	public String getRe_Content() {
+		return re_Content;
 	}
-	public void setRe_hno(int re_hno) {
-		this.re_hno = re_hno;
-	}
-	public String getRe_content() {
-		return re_content;
-	}
-	public void setRe_content(String re_content) {
-		this.re_content = re_content;
+	public void setRe_Content(String re_Content) {
+		this.re_Content = re_Content;
 	}
 	public Date getRe_date() {
 		return re_date;

@@ -217,7 +217,7 @@
 					<li class="clearfix"></li>
 				</ul>
 
-				<div id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#87d54d; ">
+				<div id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#59942D; ">
 				</div>
 				
 				<div>

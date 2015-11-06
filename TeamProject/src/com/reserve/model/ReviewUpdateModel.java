@@ -18,9 +18,9 @@ public class ReviewUpdateModel implements Model {
 		String page=req.getParameter("page");
 		String re_no=req.getParameter("re_no");
 		// DB연동
-		ReviewDTO d=new ReviewDTO();
+		ReviewDTO d=new ReviewDTO();/*
 		d.setRe_no(Integer.parseInt(re_no));
-		d.setRe_content(re_content);
+		d.setRe_content(re_content);*/
 		//DB연동
 		ReserveDAO.reviewReUpdate(d);
 		req.setAttribute("re_hno", re_hno);
