@@ -34,6 +34,9 @@ public class ReserveContentModel implements Model {
 			ZipRegDTO dto=NezipDAO.zipregData(
 					Integer.parseInt(strNo));
 			List<Fac_regDTO> flist=NezipDAO.facregList(Integer.parseInt(strNo));
+			List<ReviewDTO> list=
+					ReserveDAO.reviewListData(Integer.parseInt(strNo));
+			req.setAttribute("list", list);
 			req.setAttribute("flist", flist);
 			req.setAttribute("dto", dto);
 			req.setAttribute("jsp", "../reserve/detail.jsp");

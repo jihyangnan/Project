@@ -41,9 +41,9 @@ public class ReserveListModel implements Model {
 	    	String a1=tok.nextToken(",");
 	    	String a2=tok.nextToken(",");
 	    }*/
-	    list.forEach(e -> {
+	    /*list.forEach(e -> {
 	    	System.out.println("upday:" +e.getH_Loc());
-	    });
+	    });*/
 	    int totalpage=ReserveDAO.reserveTotalPage();
 	    req.setAttribute("list", list);
 	    req.setAttribute("curpage", curpage);

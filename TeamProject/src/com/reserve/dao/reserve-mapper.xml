@@ -41,4 +41,9 @@
      SELECT COUNT(*) FROM review
      WHERE re_hno=#{re_hno}
     </select>
+    <select id="reviewListData" resultType="Review" parameterType="int">
+      SELECT re_No,re_Id,re_hNo,re_Content,re_Date
+      FROM review
+      WHERE re_hno=#{re_hno}
+    </select>
 </mapper>

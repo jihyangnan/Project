@@ -1,5 +1,7 @@
 package com.reserve.model;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,7 +17,7 @@ public class ReviewInsertModel implements Model {
 		String re_hno=req.getParameter("re_hno");
 		String page=req.getParameter("page");
 		HttpSession session=req.getSession();
-		String re_id=(String)session.getAttribute("re_id");
+		String re_id=(String)session.getAttribute("id");
 		// DB¿¬µ¿
 		ReviewDTO d=new ReviewDTO();
 		d.setRe_no(Integer.parseInt(re_no));
@@ -23,9 +25,9 @@ public class ReviewInsertModel implements Model {
 		d.setRe_hno(Integer.parseInt(re_hno));
 		d.setRe_content(re_content);
 		ReserveDAO.reviewNewInsert(d);
-		req.setAttribute("re_no", re_hno);
+		req.setAttribute("no", re_hno);
 		req.setAttribute("page", page);
-		return "reserve/review_ok.jsp";
+		return "reserve/detail.do?no=" + re_hno + "&page="+page;
 	}
 
 }
