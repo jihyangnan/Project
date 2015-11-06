@@ -215,11 +215,11 @@ function replyUpdateClick(rw_no)
 						<c:if test="${sessionScope.id==rDto.rw_id }">
 						<a href="#" name="${rDto.rw_no }" class="reUpdate">
 						<span class="col-xs-1"
-						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>수정</b></span> 
+						style="font-size: 8pt; color: #337ab7; text-align: right; float:none; padding-right:0px;"><b>수정</b></span> 
 						</a>
 						<a href="reboard_delete.do?rw_no=${rDto.rw_no }&b_no=${dto.b_no }&page=${page}">
 						<span class="col-xs-1"
-						style="font-size: 8pt; color: #337ab7; text-align: right; float:none;"><b>삭제</b></span>  
+						style="font-size: 8pt; color: #337ab7; text-align: right; float:none; padding-right:0px;"><b>삭제</b></span>  
 						</a>
 						</c:if>
 						
