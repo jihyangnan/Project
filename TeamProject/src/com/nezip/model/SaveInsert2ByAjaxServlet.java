@@ -30,6 +30,17 @@ public class SaveInsert2ByAjaxServlet extends HttpServlet {
 		} else {
 			setZipRegDTO(dto, request);
 		}
+		
+		boolean[] completeStep =  (boolean[])session.getAttribute("completeStep");
+		if(completeStep == null){
+			completeStep = new boolean[5];
+		}
+		if(!(dto.getPostcode().equals("") || dto.getH_Addr1().equals("") || dto.getH_Addr2().equals("") || dto.getH_Loc().equals(""))){
+			completeStep[1] = true;
+		} else {
+			completeStep[1] = false;
+		}
+		session.setAttribute("completeStep", completeStep);
 	}
 	
 	private void setZipRegDTO(ZipRegDTO dto, HttpServletRequest request){
@@ -41,7 +52,7 @@ public class SaveInsert2ByAjaxServlet extends HttpServlet {
 		
 		dto.setPostcode(postcode);
 		dto.setH_Addr1(addr1);
-		dto.setH_Addr2(addr2);
+		dto.setH_Addr2(addr2.trim());
 		dto.setH_Loc(lat + "," + lng);
 	}
 

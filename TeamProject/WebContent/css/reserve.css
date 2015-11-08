@@ -58,30 +58,30 @@ div.list .col-sm-8, div.list .col-sm-8 {
 
 .affix{
 	top: 0;
-	width: 457px;
+	width: 38%;
 	position: fixed;
 }
 .affix-bottom {
-	position: absolute;
-	width: 457px;
+	position: fixed;
+	width: 38%;
 }
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
 	.affix {
-		width: 374px;
+		width: 450px;
 	}
 	.affix-bottom {
-		width: 374px;
+		width: 450px;
 	}
 }
 
 @media screen and (max-width: 992px) {
 	 .affix {
-		width: 282px;
+		width: 363px;
 	}
 	.affix-bottom {
-		width: 282px;  
+		width: 363px;  
 	} 
-}
+} */
 
 #detailSearch {
 	display: none;

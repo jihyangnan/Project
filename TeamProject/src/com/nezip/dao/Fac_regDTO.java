@@ -4,7 +4,7 @@ package com.nezip.dao;
 public class Fac_regDTO {
 
 	private int c_No;		// 시설등록번호
-	private int c_hno;		// 집번호
+	private int c_hNo;		// 집번호
 	private int c_hsNo;		// 시설번호 
 	
 	public int getC_No() {
@@ -13,11 +13,11 @@ public class Fac_regDTO {
 	public void setC_No(int c_No) {
 		this.c_No = c_No;
 	}
-	public int getC_hno() {
-		return c_hno;
+	public int getC_hNo() {
+		return c_hNo;
 	}
-	public void setC_hno(int c_hno) {
-		this.c_hno = c_hno;
+	public void setC_hNo(int c_hNo) {
+		this.c_hNo = c_hNo;
 	}
 	public int getC_hsNo() {
 		return c_hsNo;

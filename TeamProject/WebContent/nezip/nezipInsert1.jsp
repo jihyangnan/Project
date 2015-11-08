@@ -7,7 +7,7 @@
 			<b>내집 등록 - 1단계</b>
 		</h2>
 
-		<div style="margin-left: 40px; margin-top: 15px;">니집내집에 숙소를 등록하고
+		<div style="margin-left: 40px; margin-top: 15px; font-size: 25px; font-weight: bold; color:#565a5c">니집내집에 숙소를 등록하고
 			호스팅을 시작하세요.</div>
 		<div style="margin-left: 5%; margin-top: 30px;">
 
@@ -20,12 +20,7 @@
 							<c:forEach var="homeCategory" items="${homeCateoryList}">
 								<option value="${homeCategory.ht_No}">${homeCategory.ht_Name}</option>
 							</c:forEach>
-								<%-- <option value="1">아파트</option>
-								<option value="2">단독주택</option>
-								<option value="3">게스트하우스</option>
-								<option value="4">빌라</option>
-								<option value="5">호텔</option>
-								<option value="6">기타</option> --%>
+								
 							</select>
 							<script>
 								$('#houseStyle option').each(function(){
@@ -103,22 +98,9 @@
 						<div>
 							<h4 style="margin-bottom: 10px;">수용 인원</h4>
 							<select id="people" name="people" class="form-control">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-								<option value="13">13</option>
-								<option value="14">14</option>
-								<option value="15">15</option>
-								<option value="16">16+</option>
+								<c:forEach var="i" begin="1" end="16" varStatus="status">
+						        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
+						      	</c:forEach>
 							</select>
 							<script>
 								$('#people option').each(function(){
@@ -135,17 +117,9 @@
 						<div>
 							<h4 style="margin-bottom: 10px;">침실수</h4>
 							<select id="bedroom" name="bedroom" class="form-control">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11+</option>
+								<c:forEach var="i" begin="1" end="11" varStatus="status">
+						        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
+						      	</c:forEach>
 							</select>
 							<script>
 								$('#bedroom option').each(function(){
@@ -161,22 +135,9 @@
 						<div>
 							<h4 style="margin-bottom: 10px;">침대</h4>
 							<select id="bed" name="bed" class="form-control">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-								<option value="13">13</option>
-								<option value="14">14</option>
-								<option value="15">15</option>
-								<option value="16">16+</option>
+								<c:forEach var="i" begin="1" end="16" varStatus="status">
+						        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
+						      	</c:forEach>
 							</select>
 							<script>
 								$('#bed option').each(function(){
@@ -192,17 +153,9 @@
 						<div>
 							<h4 style="margin-bottom: 10px;">욕실</h4>
 							<select id="bathroom" name="bathroom" class="form-control">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11+</option>
+								<c:forEach var="i" begin="1" end="11" varStatus="status">
+						        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
+						      	</c:forEach>
 							</select>
 							<script>
 								$('#bathroom option').each(function(){

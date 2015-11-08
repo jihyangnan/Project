@@ -21,6 +21,8 @@ public class Insert5Model implements Model{
 			req.setAttribute("price", dto.getH_Money());
 			req.setAttribute("startDay", dto.getH_Startday());
 			req.setAttribute("endDay", dto.getH_Endday());
+		} else {
+			System.out.println("세션에 ZipRegDTO가 없음 insert5");
 		}
 		
 		req.setAttribute("insertStep", 5);

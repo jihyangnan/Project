@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.lang.String"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 	$(document).ready(function(){
+		$('.container').attr('class', 'container-fluid');
+		
 		$('#myAffix').affix({
 		  offset: {
 		    top: 155,
 		    bottom: function () {
-		    	return (this.bottom = $('.grid_7').outerHeight(true)+$('.copy').outerHeight(true))
+		    	return (this.bottom = $('.copy').outerHeight(true) + 48)
 		    }
 		  }
 		});
@@ -76,12 +78,12 @@
 		
 			<!-- <div class="row"> -->
 			<div>	
-				<div id="hl_div" class="col-sm-7" style="padding:10 0;">
+				<div id="hl_div" class="col-sm-7" style="padding:10 0; min-height: 1000px">
 				  <div>
 				  	<form>
 					<div class="form-horizontal">
 					  <div class="form-group">
-					    <label class="col-sm-2 control-label" style="text-align: left">지역</label>
+					    <label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">지역</label>
 					    <div class="col-sm-5">
 					      <input type="text" class="form-control" placeholder="시/도">
 					    </div>
@@ -90,7 +92,7 @@
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <label class="col-sm-2 control-label" style="text-align: left">날짜</label>
+					    <label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">날짜</label>
 					    <div class="col-sm-3">
 					      <input type="text" class="form-control datepicker" placeholder="체크인">
 					    </div>
@@ -99,13 +101,10 @@
 					    </div>
 					    <div class="col-sm-4">
 					      <select class="form-control">
-					        <option value="1">인원 1</option>
-					        <option value="2">인원 2</option>
-					        <option value="3">인원 3</option>
-					        <option value="4">인원 4</option>
-					        <option value="5">인원 5</option>
-					        <option value="6">인원 6</option>
-					        <option value="7">인원 7</option>
+					      	<c:forEach var="i" begin="1" end="16" varStatus="status">
+					        	<option value="${i}">인원 ${i}<c:if test="${status.last}">+</c:if></option>
+					      	</c:forEach>
+					        
 					      </select>
 					    </div>
 					  </div>
@@ -117,7 +116,7 @@
 
 					<div id="detailSearch">
 						<div class="form-group">
-							<label class="col-sm-2 control-label" style="text-align: left">숙소유형
+							<label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">숙소유형
 								<i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" 
 								title="<dl class='panel-body text-left'>
 					   			<dt style='color:#B99FCE'>집 전체</dt>
@@ -150,37 +149,69 @@
 
 
 						<div class="form-group">
-							<label class="col-sm-2 control-label" style="text-align: left">규모</label>
+							<label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">규모</label>
 							<div class="col-sm-3">
 								<select class="form-control">
 									<option value="1">침실수</option>
-									<option value="2">1</option>
-									<option value="3">2</option>
-									<option value="4">3</option>
+									<c:forEach var="i" begin="1" end="11" varStatus="status">
+							        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
+							      	</c:forEach>
 								</select>
 							</div>
 							<div class="col-sm-3">
 								<select class="form-control">
 									<option value="1">화장실수</option>
-									<option value="2">1</option>
-									<option value="3">2</option>
-									<option value="4">3</option>
+									<c:forEach var="i" begin="1" end="11" varStatus="status">
+							        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
+							      	</c:forEach>
 								</select>
 							</div>
 							<div class="col-sm-3">
 								<select class="form-control">
 									<option value="1">침대수</option>
-									<option value="2">1</option>
-									<option value="3">2</option>
-									<option value="4">3</option>
+									<c:forEach var="i" begin="1" end="16" varStatus="status">
+							        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
+							      	</c:forEach>
 								</select>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label"
-								style="text-align: left;">시설</label>
-							<div class="col-sm-3">
+								style="text-align: left; padding-right: 0">시설</label>
+								
+								<c:forEach var="fac" items="${homeFacList}" varStatus="status">
+									<c:if test="${status.count <= 3}">
+										<div class="col-sm-3">
+									</c:if>
+									<c:if test="${status.count == 4}">
+										<div class="detailFacil">
+									</c:if>
+									<c:if test="${status.count >= 4}">
+										<c:if test="${status.count % 3 == 1 }">
+											<div class="col-sm-3 col-sm-offset-2" style="margin-top: 10px">
+										</c:if>
+										<c:if test="${status.count % 3 != 1 }">
+											<div class="col-sm-3" style="margin-top: 10px">
+										</c:if>
+									</c:if>
+												<div class="checkbox">
+													<label title="${fac.hs_Name}"> <input type="checkbox" name="homeCategory" value="${fac.hs_No}">
+														${fac.hs_Name}
+													</label>
+												</div>
+											</div>
+									
+									<c:if test="${status.count == 3}">
+										<div id ="detailFacilBtnon" class="col-sm-1" style="cursor: pointer;">
+											<i class="fa fa-caret-down" ></i>
+										</div>
+									</c:if>
+									<c:if test="${status.last}">
+										</div>
+									</c:if>
+								</c:forEach>
+							<!-- <div class="col-sm-3">
 								<div class="checkbox">
 									<label title="무선 인터넷"> <input type="checkbox">무선 인터넷
 									</label>
@@ -357,14 +388,47 @@
 										<label title="휠체어 사용가능"> <input type="checkbox">휠체어 사용가능
 										</label>
 									</div>
-								</div>
-							</div>
+								</div> 
+							</div>-->
 
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-2 control-label" style="text-align: left">집유형</label>
-							<div class="col-sm-3">
+							<label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">집유형</label>
+							<c:forEach var="homeCategory" items="${homeCateoryList}" varStatus="status">
+								<c:if test="${status.count <= 3}">
+									<div class="col-sm-3">
+								</c:if>
+								<c:if test="${status.count == 4}">
+									<div class="detailHouseType">
+								</c:if>
+								<c:if test="${status.count >= 4}">
+									<c:if test="${status.count % 3 == 1 }">
+										<div class="col-sm-3 col-sm-offset-2" style="margin-top: 10px">
+									</c:if>
+									<c:if test="${status.count % 3 != 1 }">
+										<div class="col-sm-3" style="margin-top: 10px">
+									</c:if>
+								</c:if>
+											<div class="checkbox">
+												<label title="${homeCategory.ht_Name}"> <input type="checkbox" name="homeCategory" value="${homeCategory.ht_No}">
+													${homeCategory.ht_Name}
+												</label>
+											</div>
+										</div>
+								
+								<c:if test="${status.count == 3}">
+									<div id ="dHTBtnon" class="col-sm-1" style="cursor: pointer;">
+										<i class="fa fa-caret-down" ></i>
+									</div>
+								</c:if>
+								<c:if test="${status.last}">
+									</div>
+								</c:if>
+							</c:forEach>
+							
+							
+							<!-- <div class="col-sm-3">
 								<div class="checkbox">
 									<label title="아파트"> <input type="checkbox">아파트
 									</label>
@@ -444,18 +508,18 @@
 										<label title="통나무집"> <input type="checkbox">통나무집
 										</label>
 									</div>
-								</div>
-							</div>		
+								</div>  
+							</div>	-->	
 						</div>
 							<div class="form-group">
-						    <div class="col-sm-3 col-sm-offset-6">
-						      <button id="detailbtnoff" type="button" class="btn btn-default btn-block">취소</button>
-						    </div>
-						    <div class="col-sm-3">
-						      <button id="" type="button" class="btn btn-info btn-block">필터적용</button>
-						    </div>
-					  	</div>						
-					</div>
+						    	<div class="col-sm-3 col-sm-offset-6">
+						      		<button id="detailbtnoff" type="button" class="btn btn-default btn-block">취소</button>
+						   		</div>
+						    	<div class="col-sm-3">
+						      		<button id="" type="button" class="btn btn-info btn-block">필터적용</button>
+						    	</div>
+					  		</div>						
+						</div>
 					</div>
 					</form>					
 				  </div>
@@ -471,7 +535,7 @@
 					<div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }">
 						<div class="col-sm-8">
 							<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
-								<img class="img-responsive" src="houseimage/${dto.h_No }.jpg" />
+								<img class="img-responsive img-rounded" src="houseimage/${dto.h_No }.jpg" />
 							</a>
 						</div>
 						<div class="col-sm-4 desc">
@@ -610,8 +674,10 @@
 						// 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
 						var overcontent = document.createElement('div'); 
 						overcontent.className = 'overlay';
-						overcontent.innerHTML = '<p>￦' + $(this).attr('data-price') + '</p><span></span>';
-
+						overcontent.style.left = '-31px';
+						overcontent.style.top = '-32px';
+						overcontent.innerHTML = '<p>￦' + $(this).attr('data-price') + '</p><span></span>'; 
+						
 						// 커스텀 오버레이가 표시될 위치입니다 
 						var position = new daum.maps.LatLng($(this).attr('data-lat'), $(this).attr('data-lng'));  
 
@@ -669,7 +735,7 @@
 						 
 						 function onMouseOver(e){
 							 thisval.css('border', '2px solid #F94B4B');
-							 thisval.find('img').css('transition', '0.5s').css('transform', 'rotate(3deg)');
+							 thisval.find('img').css('transition', '0.5s').css('transform', 'rotate(2deg)');
 						 }
 						 
 						 function onMouseOut(e){

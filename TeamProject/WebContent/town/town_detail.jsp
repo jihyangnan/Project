@@ -33,31 +33,31 @@
 								<ul role="tabpanel" class="tab-pane fade in active" id="basicInfo" style="font-size: 14px;">
 								<c:if test="${not empty common.addr1 }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-2" style="font-weight:700;">주소</span> 
+										<span class="col-sm-3" style="font-weight:700;">주소</span> 
 										<span class="col-sm-9">${common.addr1} ${common.addr2}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.zipcode }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-2" style="font-weight:700;">우편번호</span> 
+										<span class="col-sm-3" style="font-weight:700;">우편번호</span> 
 										<span class="col-sm-9">${common.zipcode}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.telName }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-2" style="font-weight:700;">전화명</span> 
+										<span class="col-sm-3" style="font-weight:700;">전화명</span> 
 										<span class="col-sm-9">${common.telName}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.tel }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-2" style="font-weight:700;">전화번호</span> 
+										<span class="col-sm-3" style="font-weight:700;">전화번호</span> 
 										<span class="col-sm-9">${common.tel}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.homepage }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-2" style="font-weight:700;">홈페이지</span> 
+										<span class="col-sm-3" style="font-weight:700;">홈페이지</span> 
 										<span class="col-sm-9">${common.homepage}</span>
 									</li>
 								</c:if>

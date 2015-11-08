@@ -33,16 +33,26 @@ public class SaveInsert5ByAjaxServlet extends HttpServlet {
 			setZipRegDTO(dto, request);
 		}
 		
-		
+		boolean[] completeStep =  (boolean[])session.getAttribute("completeStep");
+		if(completeStep == null){
+			completeStep = new boolean[5];
+		}
+		if(!(dto.getH_Money() == 0 || dto.getH_Startday().equals("") || dto.getH_Endday().equals(""))){
+			completeStep[4] = true;
+		} else {
+			completeStep[4] = false;
+		}
+		session.setAttribute("completeStep", completeStep);
 	}
 
 	private void setZipRegDTO(ZipRegDTO dto, HttpServletRequest request) {
 		String price = request.getParameter("price");
+		if(price.equals("")){
+			price = "0";
+		}
 		String startDay = request.getParameter("startDay");
 		String endDay = request.getParameter("endDay");
-		if(price != null && !price.trim().equals("")){
-			dto.setH_Money(Integer.parseInt(price));
-		}
+		dto.setH_Money(Integer.parseInt(price));
 		dto.setH_Startday(startDay);
 		dto.setH_Endday(endDay);
 	}
