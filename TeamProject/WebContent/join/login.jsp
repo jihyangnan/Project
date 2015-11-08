@@ -28,30 +28,30 @@ $(function(){
 			</ul>
 		</div>
 		<div class="about">
-
-			<br>
-			<br>
-			<br>
-			<br>
-			<h1 class="blog_head_login">로그인</h1>
-			<br>
-			<br>
-
-
-			<div class="form_l">
+			<div style="margin-top:20px; margin-bottom:1.5em;">
+			<h1 class="blog_head_login" style="font-size: 30pt; font-weight:700; margin:0px; color:#87d54d;">
+			<img alt="" src="images/loginlogo.png" style="vertical-align: bottom;"> 
+			Login
+			</h1>
+			</div>
+			<div class="form_l"  style="border:3px solid #e7e7e7; border-radius:10px;">
 				<form action="member_login.do" id="log_frm" method="post">
-					<div class="form2_l">
+					<div class="form2_l" >
+						<div style="width: 100%; margin-top:35px; margin-bottom:35px;">
 						<div class="form3_l">
-							<label for="user" style="font-size: 15px;">아이디</label> <input
-								type="text" id="id" name=id>
+							<!-- <label for="user" style="font-size: 15px;">아이디</label>  -->
+							<input type="text" id="id" name=id placeholder="아이디" 
+								style="width:90%;">
 							<div class="clear"></div>
-							<label for="user" style="font-size: 15px; margin-top: 8px">비밀번호</label>
-							<input type="password" style="margin-top: 8px" id="pwd" name=pwd>
+							<!-- <label for="user" style="font-size: 15px; margin-top: 8px">비밀번호</label> -->
+							<input type="password" placeholder="비밀번호"  id="pwd" name=pwd style="width:90%; margin-top: 10px;">
 						</div>
-						<div class="clear"></div>
-						<label> <input type="submit" value="로그인" id="joinbtn"
-							style="padding: 5px;">
+						<!-- <div class="clear"></div> -->
+						<label> 
+						<input type="submit" value="로그인" id="joinbtn"
+							style="padding:20px; background-color:#87d54d; border-radius:5px; border:none; ">
 						</label>
+						</div>
 						<div class="form6_l">
 							<label> <a href="join_join.do"> <input type="button"
 									value="회원가입" id="join"></a>
