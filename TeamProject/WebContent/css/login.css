@@ -13,20 +13,20 @@
 	margin-bottom: 1em;
 	}
 	.form_l{
-	
 	border: 2px solid #d2d2d2;
-	background-repeat: no-repeat;
-	width: 30%;
+	/* background-repeat: no-repeat; */
+	width: 40%;
 	margin: 0 auto;
 	margin-bottom: 100px;
 	}
 	
 	.form2_l {
-		width: 86%;
-		min-width: 320px;
-		margin-left: 8%;
-		padding-top:35px;
-		padding-bottom:35px;
+		width: 100%;
+		/* min-width: 320px; */
+		padding-left: 8%;
+		padding-right: 8%;
+		/* padding-top:35px;
+		padding-bottom:35px; */
 	}
 	.form2_l input[type=button] {
 		background-color: #87d54d;
@@ -42,7 +42,8 @@
 	}
 	.form3_l {
 		float: left;
-		width:77%;
+		width:60%;
+		margin-bottom:20px;
 			}
 	.form3_l label {
 		width: 30%;
