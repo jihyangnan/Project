@@ -74,7 +74,6 @@
 								$('#roomStyle').change(checkRoomStyle);
 								
 								function checkRoomStyle(){
-									console.log('여기');
 									if($('#roomStyle').val() != 1){
 										$('#bedroom option:first-child').attr("selected", "selected");
 										$('#bedroom').tooltip({
