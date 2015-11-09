@@ -7,15 +7,11 @@
 		margin-bottom: 20px;
 		font-size: 10pt;
 	}
-	/* .blog_head_login {
-	color: #f94b4b;
+	.blog_head_login {
+	color: #87d54d;
 	text-align: center;
 	margin-bottom: 1em;
-	} */
-  h1.blog_head_login {
-  font: 300 30px/10px 'Roboto', sans-serif;
-  margin-bottom: 1em;
-}
+	}
 	.form_l{
 	border: 2px solid #d2d2d2;
 	/* background-repeat: no-repeat; */
