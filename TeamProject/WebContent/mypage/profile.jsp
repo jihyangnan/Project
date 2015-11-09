@@ -17,7 +17,7 @@
       
 		 <div class="join" style="align:center;margin-top:40px;">
 		  <ul>
-		   <li style="border:3px solid #e7e7e7;border-radius:10px;padding:25px;">
+		   <li style="border:2px solid #ffffff;border-radius:10px;padding:25px;">
 		  <div style="float:left;margin-right:-60px;">
 		  <img src="images/profile.jpg" style="width:60%;">
 		  </div>
