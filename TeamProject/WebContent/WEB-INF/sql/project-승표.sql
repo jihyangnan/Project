@@ -1,7 +1,10 @@
-DROP TABLE fac_kind;
+DROP TABLE fac_reg;
+DROP TABLE home_photo;
 DROP TABLE zipreg;
 DROP TABLE home_category;
 DROP TABLE room_category;
+DROP TABLE home_fac;
+DROP TABLE fac_kind;
 
 --¼÷¼ÒÀ¯Çü
 create table room_category 
