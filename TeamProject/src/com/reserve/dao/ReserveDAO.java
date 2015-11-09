@@ -4,7 +4,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
+import com.nezip.dao.*;
 import java.util.*;
 import java.io.*;
 
@@ -103,13 +103,6 @@ public class ReserveDAO {
 		   }
 		   return total;
 	   }
-	   public static int reviewCount(int re_hNo)
-	   {
-		   SqlSession session=ssf.openSession();
-		   int count=session.selectOne("reviewCount",re_hNo);
-		   session.close();
-		   return count;
-	   }
 	   public static List<ReviewDTO> reviewListData(int re_hNo)
 	   {
 		   SqlSession session=ssf.openSession();
@@ -141,12 +134,5 @@ public class ReserveDAO {
 		   SqlSession session=ssf.openSession(true);
 		   session.delete("reviewDelete",re_no);
 		   session.close();
-	   }/*
-	   public static int reviewPageTotalpage(int hno)
-	   {
-		   SqlSession session=ssf.openSession();
-		   int count=session.selectOne("reviewPageRowCount",hno);
-		   session.close();
-		   return (int)(Math.ceil(count/5.0));
-	   }*/
+	   }
 }

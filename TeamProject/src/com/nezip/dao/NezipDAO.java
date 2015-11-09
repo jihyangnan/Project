@@ -82,7 +82,14 @@ public class NezipDAO {
 		session.close();
 		return list;
 	}
-	
+
+	   public static int reviewCount(int re_hNo)
+	   {
+		   SqlSession session=ssf.openSession();
+		   int count=session.selectOne("reviewCount",re_hNo);
+		   session.close();
+		   return count;
+	   }
 	// 시설 종류 리스트
 	public static List<Fac_kindDTO> facKindList(){
 		List<Fac_kindDTO> list = new ArrayList<>();

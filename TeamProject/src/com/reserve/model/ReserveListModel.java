@@ -32,6 +32,10 @@ public class ReserveListModel implements Model {
 	    map.put("start", start);
 	    map.put("end", end);
 	    List<ZipRegDTO> list=NezipDAO.zipregList(map);
+	    for(ZipRegDTO d:list)
+	    {
+	    	d.setReviewCount(NezipDAO.reviewCount(d.getH_No()));
+	    }
 	    /*
 	    for(ZipRegDTO d:list)
 	    {

@@ -48,7 +48,13 @@ public class ZipRegDTO {
 	private String h_Close;
 	private String h_Rule;
 	private String postcode;	// 우편번호 (db에서 쓰진 않음)
-
+	private int reviewCount;	
+	public int getReviewCount() {
+		return reviewCount;
+	}
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
+	}
 	public int getH_No() {
 		return h_No;
 	}
