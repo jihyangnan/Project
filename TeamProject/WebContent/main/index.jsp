@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="mypage_jimList.do">찜하기</a></li>
 							<li><a href="mypage_profile.do">마이페이지</a></li>
 							<li><a href="mypage_regCheck.do">등록내역</a></li>
-							<li><a href="#">예약내역</a></li>
+							<li><a href="mypage_reserveCheck.do">예약내역</a></li>
 							<li><a href="#">로그아웃</a></li>
 						</ul>
 					</li>
