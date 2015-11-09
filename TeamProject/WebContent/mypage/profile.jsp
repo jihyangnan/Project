@@ -13,6 +13,7 @@
        	 </div>
        <div class="about">	 
        	 <h2 class="blog_head" align="center"><b>프로필</b></h2>
+       	 
        	 <form action="">
       
 		 <div class="join" style="align:center;margin-top:40px;">
@@ -26,14 +27,17 @@
 
 		
 		 	<ul><font style="color: #565a5c;">
-		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt=""> 줴훈줴훈
-		 	&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/sex.png" alt=""> 남자
+		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt=""> ${dto.name }
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	<img src="images/sex.png" alt=""> ${dto.sex }
 
 		 	</li>
 
-		 	<li style="margin-bottom:6px;"><img src="images/address2.png" alt=""> 서울 특별시 마포구 백범로 미화빌딩</li>
-		 	<li style="margin-bottom:6px;"><img src="images/email.png" alt=""> asd@ASDFASDF</li>
-		 	<li style="margin-bottom:6px;"><img src="images/phone.png" alt=""> 010-1111-8888</li>
+		 	<li style="margin-bottom:6px;"><img src="images/address2.png" alt=""> ${dto.addr1 } ${dto.addr2 }</li>
+		 	<li style="margin-bottom:6px;"><img src="images/email.png" alt=""> ${dto.email }</li>
+		 	<li style="margin-bottom:6px;"><img src="images/phone.png" alt=""> ${dto.tel }</li>
 
 		 	<li style="font-size: 13px;">
 		 	<img src="images/hkind.png" alt="">&nbsp;
