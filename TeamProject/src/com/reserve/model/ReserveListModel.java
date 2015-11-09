@@ -20,7 +20,6 @@ public class ReserveListModel implements Model {
 
 	@Override
 	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		// TODO Auto-generated method stub
 		String strPage=req.getParameter("page");
 	    if(strPage==null)
 	    	strPage="1";
@@ -41,9 +40,14 @@ public class ReserveListModel implements Model {
 	    	String a1=tok.nextToken(",");
 	    	String a2=tok.nextToken(",");
 	    }*/
-	    list.forEach(e -> {
+	    /*list.forEach(e -> {
 	    	System.out.println("upday:" +e.getH_Loc());
-	    });
+	    });*/
+	    List<Home_categoryDTO> homeCateoryList = NezipDAO.homeCategoryList();
+	    List<Home_facDTO> homeFacList = NezipDAO.homeFacList();
+		req.setAttribute("homeCateoryList", homeCateoryList);	// 집유형리스트
+		req.setAttribute("homeFacList", homeFacList);
+	    
 	    int totalpage=ReserveDAO.reserveTotalPage();
 	    req.setAttribute("list", list);
 	    req.setAttribute("curpage", curpage);

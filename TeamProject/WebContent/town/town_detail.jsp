@@ -19,7 +19,7 @@
 						
 						<div class="row" id="myTab">
 
-							<ul class="nav nav-tabs nav-justified" role="tablist">
+							<ul class="nav nav-tabs nav-justified" role="tablist" style="font-weight: 700;">
 								<li role="presentation" class="active"><a href="#basicInfo"
 									aria-controls="basicInfo" role="tab" data-toggle="tab">기본정보</a></li>
 								<li role="presentation"><a href="#userInfo"
@@ -29,40 +29,40 @@
 							</ul>
 
 							<!-- Tab panes -->
-							<div class="tab-content" style="padding: 10px">
-								<ul role="tabpanel" class="tab-pane fade in active" id="basicInfo">
+							<div class="tab-content" style="padding: 10px; padding-top:20px;">
+								<ul role="tabpanel" class="tab-pane fade in active" id="basicInfo" style="font-size: 14px;">
 								<c:if test="${not empty common.addr1 }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-3">주소:</span> 
+										<span class="col-sm-3" style="font-weight:700;">주소</span> 
 										<span class="col-sm-9">${common.addr1} ${common.addr2}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.zipcode }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-3">우편번호:</span> 
+										<span class="col-sm-3" style="font-weight:700;">우편번호</span> 
 										<span class="col-sm-9">${common.zipcode}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.telName }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-3">전화명:</span> 
+										<span class="col-sm-3" style="font-weight:700;">전화명</span> 
 										<span class="col-sm-9">${common.telName}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.tel }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-3">전화번호:</span> 
+										<span class="col-sm-3" style="font-weight:700;">전화번호</span> 
 										<span class="col-sm-9">${common.tel}</span>
 									</li>
 								</c:if>
 								<c:if test="${not empty common.homepage }">
 									<li class="row" style="margin-bottom: 10px">
-										<span class="col-sm-3">홈페이지:</span> 
+										<span class="col-sm-3" style="font-weight:700;">홈페이지</span> 
 										<span class="col-sm-9">${common.homepage}</span>
 									</li>
 								</c:if>
 								</ul>
-								<ul role="tabpanel" class="tab-pane fade" id="userInfo">
+								<ul role="tabpanel" class="tab-pane fade" id="userInfo" style="font-size: 13px;" >
 								<c:if test="${contentType == '12' }">
 									<jsp:include page="town_detail_spot.jsp"></jsp:include>
 								</c:if>	
@@ -85,11 +85,11 @@
 									<jsp:include page="town_detail_food.jsp"></jsp:include>
 								</c:if>	
 								</ul>
-								<ul role="tabpanel" class="tab-pane fade" id="detailInfo">
+								<ul role="tabpanel" class="tab-pane fade" id="detailInfo" style="font-size: 13px; ">
 								<c:forEach var="repeat" items="${repeatList}">
 									<c:if test="${contentType ne '25' }">
 										<li class="row" style="margin-bottom: 10px">
-											<span class="col-sm-3">${repeat.infoName }</span> 
+											<span class="col-sm-3" style="font-weight:700;">${repeat.infoName }</span> 
 											<span class="col-sm-9">${repeat.infoText}</span>
 										</li>
 									</c:if>
@@ -224,7 +224,7 @@
 						<h3 style="color: #999;">${common.title}</h3>
 						<hr style="margin-top: 30px; border: 0; border-top: 1px solid #dce0e0;">
 						
-						<p>${common.overview }</p>
+						<p style="padding-bottom:10px;">${common.overview }</p>
 
 						<input type="button" id="join" class="btn" value="목록 보기" onclick="history.back();">
 					</div>

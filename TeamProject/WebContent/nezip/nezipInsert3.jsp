@@ -3,16 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div>
 	<div>	 
-      	<h2 class="blog_head" style="margin-left: 20px;"><b>내집 등록 - 3단계</b></h2>
-      	<div id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#87d54d; ">
+      	<h2 class="blog_head" style="margin-left: 50px;"><b>내집 등록 - 3단계</b></h2>
+      	<div id="saveMsg" style="min-height: 30px; text-align: right; padding-right: 20px; color:#59942D; ">
 		</div>
  	</div>
- 	<div style="padding-left:10px;">
+ 	<div style="padding-left:40px;">
     	<ul>
  	<c:forEach var="facKind" items="${facKindList}">
  		<c:if test="${facKind.si_No != 4 }">
-      		<li class="col-sm-4" style="font-weight:600; color:#565a5c; margin-bottom: 20px">
- 		${facKind.si_Kind}
+      		<li class="col-sm-4" style="font-weight:bold; color:#565a5c; margin-bottom: 20px">
+ 			<span style="font-size: 25px">${facKind.si_Kind}</span>
  		<div style="padding-top:10px;">
  			<ul>
  				<c:forEach var="homeFac" items="${homeFacList}">

@@ -38,6 +38,17 @@ public class SaveInsert4ByAjaxServlet extends HttpServlet {
 		} else {
 			dto.setH_Phone(phone1);
 		}
+		
+		boolean[] completeStep =  (boolean[])session.getAttribute("completeStep");
+		if(completeStep == null){
+			completeStep = new boolean[5];
+		}
+		if(!(facilities == null || photos == null || phone1.equals("") || phone2.equals("") || phone3.equals(""))){
+			completeStep[3] = true;
+		} else {
+			completeStep[3] = false;
+		}
+		session.setAttribute("completeStep", completeStep);
 	}
 
 }

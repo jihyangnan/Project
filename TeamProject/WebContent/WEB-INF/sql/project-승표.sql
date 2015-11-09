@@ -1,10 +1,7 @@
-drop table home_photo; 
+DROP TABLE fac_kind;
 DROP TABLE zipreg;
-drop table room_category;
-drop table fac_reg; 
-drop table home_category;
-drop table home_fac;
-drop table fac_kind;
+DROP TABLE home_category;
+DROP TABLE room_category;
 
 --숙소유형
 create table room_category 
@@ -53,12 +50,14 @@ h_Money NUMBER NOT NULL, --요금
 h_Startday DATE NOT NULL, -- 예약시작일
 h_Endday DATE NOT NULL, --예약마감일
 h_Upday DATE DEFAULT SYSDATE, --등록일
-h_Loc VARCHAR2(30) NOT NULL, --위경도
+h_Loc VARCHAR2(100) NOT NULL, --위경도
 h_Id VARCHAR2(20), --등록자
-h_Close CHAR(1) CHECK (h_Close IN('y','n')), --예약완료여부
+h_Close CHAR(1) DEFAULT 'n' CHECK (h_Close IN('y','n')), --예약완료여부
+--h_Close CHAR(1) CHECK (h_Close IN('y','n')), --예약완료여부
 h_Rule VARCHAR2(2000), --숙소이용규칙
 CONSTRAINT zipreg_no_pk PRIMARY KEY(h_no)
 );
+
 
 -- 집사진
 create table home_photo 
@@ -72,7 +71,7 @@ create table home_photo
 create table fac_reg 
 ( c_No number primary key,
   c_hNo number REFERENCES zipreg(h_No),
-  c_hsName number REFERENCES home_fac(hs_No)
+  c_hsNo number REFERENCES home_fac(hs_No)
 );
 
 --숙소유형 값 입력
@@ -88,8 +87,7 @@ INSERT INTO fac_kind VALUES( 4, '안전 체크리스트', '');
 
 --집유형 시퀀스
 DROP sequence home_category_seq;
-create sequence home_category_seq
-MINVALUE 0;
+create sequence home_category_seq;
 
 --집유형 값 입력
 INSERT INTO home_category VALUES( home_category_seq.nextval, '아파트', '아파트');
@@ -101,20 +99,20 @@ INSERT INTO home_category VALUES( home_category_seq.nextval, '기숙사', '기숙사')
 INSERT INTO home_category VALUES( home_category_seq.nextval, '캠핑카', '캠핑카');
 INSERT INTO home_category VALUES( home_category_seq.nextval, '텐트', '텐트');
 INSERT INTO home_category VALUES( home_category_seq.nextval, '오두막', '오두막');
+INSERT INTO home_category VALUES( home_category_seq.nextval, '기타', '기타');
 
 --숙소시설 시퀀스
 DROP sequence home_fac_seq;
-create sequence home_fac_seq
-MINVALUE 0;
+create sequence home_fac_seq;
 
 --숙소시설 값 입력
-INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '필수품목', '수건, 침대시트, 비누, 화장지');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, 'TV', ' ');
+INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '인터넷', ' ');
+INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '난방', '숙소 안의 중앙 난방 또는 히터');
+INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '필수품목', '수건, 침대시트, 비누, 화장지');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '케이블 TV', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '에어콘', ' ');
-INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '난방', '숙소 안의 중앙 난방 또는 히터');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '부엌', '게스트가 이용 가능한 부엌');
-INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '인터넷', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '무선 인터넷', '숙소 내 인터넷 이용');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,2, '욕조', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,2, '세탁기', '빌딩 내 유/무료');
@@ -140,46 +138,43 @@ INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '일산화탄소 탐지기', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '구급 상자', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '침실문 잠금장치', ' ');
 
---수용인원 number,숙소세부사항(100),주소(100)씩,비상연락처(20),위경도(30)으로 수정
 
 DROP SEQUENCE zipreg_SEQ;
-CREATE SEQUENCE zipreg_SEQ
-MINVALUE 0;
+CREATE SEQUENCE zipreg_SEQ;
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close) 
-VALUES(zipreg_SEQ.NEXTVAL,11,555,4,2,2,2,'쌍용sist집','수용인원을 넘어간 인원은 추가요금을 내야합니다','서울시 강남구 역삼동','테헤란로 101길 8','010-5454-3535','100000','2015/5/1','2015/5/3','37.537048,127.005533','noy11','y');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule) 
+VALUES(zipreg_SEQ.NEXTVAL,1,1,4,2,2,2,'쌍용sist집','수용인원을 넘어간 인원은 추가요금을 내야합니다','서울시 강남구 역삼동','테헤란로 101길 8','010-5454-3535','100000','2015/5/1','2015/5/3','37.537048,127.005533','noy11', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,22,444,2,1,1,1,'해피하우스','애완동물은 출입금지','서울시 강서구 공항동','408','010-4444-3333','80000','2015/5/1','2015/5/6','37.537048,127.005533','n21511','n');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,2,1,2,1,1,1,'해피하우스','애완동물은 출입금지','서울시 강서구 공항동','408','010-4444-3333','80000','2015/5/1','2015/5/6','37.537048,127.005533','n21511', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,33,333,3,2,2,1,'순이네집','오시기 전에 반드시 연락주세요','인천광역시 연수구 역삼동','청량동 금호동아아파트 101동 1205호','010-3333-6666','100000','2015/4/14','2015/5/3','37.537048,127.005533','mhuy52','n');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,3,3,3,2,2,1,'순이네집','오시기 전에 반드시 연락주세요','인천광역시 연수구 역삼동','청량동 금호동아아파트 101동 1205호','010-3333-6666','100000','2015/4/14','2015/5/3','37.537048,127.005533','mhuy52', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,44,222,3,1,1,1,'헬로','이불이 필요하면 언제든지 얘기해주세요','광주광역시 광산구','안청동 123-45','010-8787-8586','60000','2015/10/1','2015/12/23','37.537048,127.005533','lokij','y');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,4,2,3,1,1,1,'헬로','이불이 필요하면 언제든지 얘기해주세요','광주광역시 광산구','안청동 123-45','010-8787-8586','60000','2015/10/1','2015/12/23','37.537048,127.005533','lokij', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,55,111,2,2,1,1,'재민이네','개인 위생품은 챙겨오셔야 합니다','경상남도 양산시','웅상읍 소주리','010-6664-5555','70000','2015/11/3','2015/12/1','37.537048,127.005533','hello9','y');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,5,1,2,2,1,1,'재민이네','개인 위생품은 챙겨오셔야 합니다','경상남도 양산시','웅상읍 소주리','010-6664-5555','70000','2015/11/3','2015/12/1','37.537048,127.005533','hello9', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,11,555,4,2,2,2,'쌍용sist집','수용인원을 넘어간 인원은 추가요금을 내야합니다','서울시 강남구 역삼동','테헤란로 101길 8','010-5454-3535','100000','2015/11/29','2015/12/3','37.537048,127.005533','noy11','y');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,1,3,4,2,2,2,'쌍용sist집','수용인원을 넘어간 인원은 추가요금을 내야합니다','서울시 강남구 역삼동','테헤란로 101길 8','010-5454-3535','100000','2015/11/29','2015/12/3','37.537048,127.005533','noy11', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,22,444,2,1,1,1,'해피하우스','애완동물은 출입금지','서울시 강서구 공항동','408','010-4444-3333','80000','2015/11/26','2015/11/26','37.537048,127.005533','n21511','n');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,2,1,2,1,1,1,'해피하우스','애완동물은 출입금지','서울시 강서구 공항동','408','010-4444-3333','80000','2015/11/26','2015/11/26','37.537048,127.005533','n21511', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,33,333,3,2,2,1,'순이네집','오시기 전에 반드시 연락주세요','인천광역시 연수구 역삼동','청량동 금호동아아파트 101동 1205호','010-3333-6666','100000','2015/11/3','2015/12/1','37.537048,127.005533','mhuy52','n');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,3,3,3,2,2,1,'순이네집','오시기 전에 반드시 연락주세요','인천광역시 연수구 역삼동','청량동 금호동아아파트 101동 1205호','010-3333-6666','100000','2015/11/3','2015/12/1','37.537048,127.005533','mhuy52', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,44,222,3,1,1,1,'헬로','이불이 필요하면 언제든지 얘기해주세요','광주광역시 광산구','안청동 123-45','010-8787-8586','60000','2015/5/1','2015/5/6','37.537048,127.005533','lokij','y');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,4,2,3,1,1,1,'헬로','이불이 필요하면 언제든지 얘기해주세요','광주광역시 광산구','안청동 123-45','010-8787-8586','60000','2015/5/1','2015/5/6','37.537048,127.005533','lokij', '깨끗이 사용해주세요');
 
-INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id,h_Close)
-VALUES(zipreg_SEQ.NEXTVAL,55,111,2,2,1,1,'재민이네','개인 위생품은 챙겨오셔야 합니다','경상남도 양산시','웅상읍 소주리','010-6664-5555','70000','2015/5/1','2015/5/3','37.537048,127.005533','hello9','n');
+INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule)
+VALUES(zipreg_SEQ.NEXTVAL,5,1,2,2,1,1,'재민이네','개인 위생품은 챙겨오셔야 합니다','경상남도 양산시','웅상읍 소주리','010-6664-5555','70000','2015/5/1','2015/5/3','37.537048,127.005533','hello9', '깨끗이 사용해주세요');
 
 --시설등록 시퀀스
 DROP sequence fac_reg_seq;
-create sequence fac_reg_seq
-MINVALUE 0;
+create sequence fac_reg_seq;
 
 --시설등록 값 입력
 INSERT INTO fac_reg VALUES(fac_reg_seq.nextval, 1, 1);
@@ -195,44 +190,37 @@ INSERT INTO fac_reg VALUES(fac_reg_seq.nextval, 2, 11);
 
 --집사진 시퀀스
 DROP sequence home_photo_seq;
-create sequence home_photo_seq
-MINVALUE 0;
+create sequence home_photo_seq;
 
 --집사진 값 입력
 INSERT INTO home_photo VALUES( home_photo_seq.nextval,1,'사진파일','사진이름');
 INSERT INTO home_photo VALUES( home_photo_seq.nextval,2,'사진파일','사진이름');
 INSERT INTO home_photo VALUES( home_photo_seq.nextval,3,'사진파일','사진이름');
 
+-- 회원가입
+
+drop table member1;
+
+CREATE TABLE member1(
+   m_no NUMBER,
+   id VARCHAR(20) CONSTRAINT mem1_m_no_pk PRIMARY KEY,
+   pwd VARCHAR2(100),
+   pwhint VARCHAR2(100),
+   name VARCHAR2(34),
+   rrn VARCHAR2(50),
+   sex VARCHAR(255) CONSTRAINT mem1_sex_ck CHECK(sex IN('남자','여자')),
+   birth VARCHAR2(255),
+   post VARCHAR2(255),
+   addr1 VARCHAR2(255),
+   addr2 VARCHAR2(255),
+   tel VARCHAR2(255),
+   email VARCHAR2(255),
+   regdate VARCHAR2(255),
+   admin CHAR(1) DEFAULT 'n',
+   CONSTRAINT mem1_admin_ck CHECK(admin IN('y','n'))
+);
+INSERT INTO member1 VALUES ('1','hong','1234','서울','홍길동','111111-1111111','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('2','aaa','1234','서울','홍길동','111111-1111111','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','n');
 
 
-ROLLBACK;
 COMMIT;
-
---숙소유형
-SELECT hst_No, hst_Name, hst_Content 
-FROM room_category;
-
---시설종류
-SELECT si_No, si_Kind, si_Content
-FROM fac_kind;
-
---숙소시설
-SELECT hs_No, hs_Kind, hs_Name, hs_Content
-FROM home_fac;
-
---집유형
-SELECT ht_No, ht_Name, ht_Content  
-FROM home_category;
-
-
-SELECT * FROM reply;
-
-SELECT * FROM room_category;
-SELECT * FROM fac_kind;
-SELECT * FROM home_category;
-SELECT * FROM fac_reg;
-SELECT * FROM home_fac;
-SELECT * FROM home_photo;
-
-SELECT * FROM TAB;
-purge recyclebin;
