@@ -27,7 +27,7 @@
 				      	<option value="39">음식점</option>
 				      </select>
 				      <script>
-				      	$('select#contentTypeId option').each(function(){
+				      	$('select#typeSelect option').each(function(){
 				      		if($(this).val() == '${contentTypeId}'){
 				      			$(this).attr('selected', 'selected');
 				      		}

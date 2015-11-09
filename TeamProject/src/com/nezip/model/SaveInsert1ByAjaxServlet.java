@@ -30,6 +30,17 @@ public class SaveInsert1ByAjaxServlet extends HttpServlet {
 		} else {
 			setZipRegDTO(dto, request);
 		}
+		
+		boolean[] completeStep =  (boolean[])session.getAttribute("completeStep");
+		if(completeStep == null){
+			completeStep = new boolean[5];
+		}
+		if(!(dto.getH_nHome().equals("") || dto.getH_hContent().equals("") || dto.getH_Rule().equals(""))){
+			completeStep[0] = true;
+		} else {
+			completeStep[0] = false;
+		}
+		session.setAttribute("completeStep", completeStep);
 	}
 	
 	private void setZipRegDTO(ZipRegDTO dto, HttpServletRequest request){
@@ -49,9 +60,10 @@ public class SaveInsert1ByAjaxServlet extends HttpServlet {
 		dto.setH_nRoom(bedroom == null ? 1 : Integer.parseInt(bedroom));
 		dto.setH_nBed(bed == null ? 1 : Integer.parseInt(bed));
 		dto.setH_nBath(bathroom == null ? 1 : Integer.parseInt(bathroom));
+		
 		dto.setH_nHome(housename.trim());
 		dto.setH_hContent(detail.trim());
-		dto.setH_Rule(houserule);
+		dto.setH_Rule(houserule.trim());
 	}
 
 }

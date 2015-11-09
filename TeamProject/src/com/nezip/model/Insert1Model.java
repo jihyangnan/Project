@@ -25,7 +25,7 @@ public class Insert1Model implements Model{
 		HttpSession session = req.getSession();
 		ZipRegDTO dto = (ZipRegDTO)session.getAttribute("ZipRegDTO");
 		
-		if(dto != null){ // 접속한 후 처음 등록하는 경우
+		if(dto != null){
 			req.setAttribute("houseStyle", dto.getH_Type());
 			req.setAttribute("roomStyle", dto.getH_rType());
 			req.setAttribute("people", dto.getH_nPerson());
@@ -35,6 +35,8 @@ public class Insert1Model implements Model{
 			req.setAttribute("housename", dto.getH_nHome());
 			req.setAttribute("detail", dto.getH_hContent());
 			req.setAttribute("houserule", dto.getH_Rule());
+		} else {
+			System.out.println("세션에 ZipRegDTO가 없음 insert1");
 		}
 		
 		req.setAttribute("insertStep", 1);

@@ -41,12 +41,7 @@ public class MemberDAO {
 		   session.close();
 		   return count;
 	   }
-	   public static List<ZipcodeDTO> postFind(String dong){
-		   SqlSession session=ssf.openSession();
-		   List<ZipcodeDTO> list=session.selectList("postFindData",dong);
-		   session.close();
-		   return list;
-	   }
+	   
 	   public static void memberJoin(MemberDTO md){
 		   SqlSession session=ssf.openSession(true);
 		   session.insert("memberJoin",md);

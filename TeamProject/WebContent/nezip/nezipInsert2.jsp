@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div>
 	<div>	 
-    	<h2 class="blog_head" style="margin-left: 20px"><b>내집 등록 - 2단계</b></h2>
+    	<h2 class="blog_head" style="margin-left: 40px"><b>내집 등록 - 2단계</b></h2>
        	 <!-- 작업 시작  -->
-       	<div style="padding-left:20px;">
+       	<div style="padding-left:40px;">
        		<ul>
-       	 		<li style="padding-top:20px; font-size:25px; font-weight:600; color:#565a5c;">
+       	 		<li style="padding-top:15px; font-size:25px; font-weight:bold; color:#565a5c;">
        	 			게스트가 숙소를 찾을 수 있도록 위치 정보를 제공하세요.
        	 		</li>
        	 		<li style="color:#82888a; font-size:13px; margin-top: 5px">&nbsp;게스트는 이 정보를 활용하여 숙소를 찾습니다.</li>
@@ -96,6 +96,7 @@
 							     	
 							     	if(mk != null){
 							     		mk.setPosition(coords);
+							     		cir.setPosition(coords);
 							     	} else {
 								     	// 결과값으로 받은 위치를 마커로 표시합니다
 								        var marker = new daum.maps.Marker({
@@ -137,7 +138,7 @@
 							     	$('#lat').val(coords.getLat());
 							     	sendAjax();
 							        // 지도에 원을 표시합니다 
-							        circle.setMap(map); 
+							        cir.setMap(map); 
 							        
 							        map.setCenter(coords);
 						    	} 

@@ -4,7 +4,7 @@ package com.nezip.dao;
 public class Home_photoDTO {
 
 	private int p_No;		// 집사진번호
-	private int P_hno;		// 숙소번호
+	private int p_hno;		// 숙소번호
 	private String p_File;	// 사진파일
 	private String p_Name;	// 사진이름
 	public int getP_No() {
@@ -14,10 +14,10 @@ public class Home_photoDTO {
 		this.p_No = p_No;
 	}
 	public int getP_hno() {
-		return P_hno;
+		return p_hno;
 	}
 	public void setP_hno(int p_hno) {
-		P_hno = p_hno;
+		this.p_hno = p_hno;
 	}
 	public String getP_File() {
 		return p_File;
