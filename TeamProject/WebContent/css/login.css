@@ -19,7 +19,7 @@
 	.form_l{
 	border: 2px solid #d2d2d2;
 	/* background-repeat: no-repeat; */
-	width: 40%;
+	width: 37%;
 	margin: 0 auto;
 	margin-bottom: 100px;
 	}
@@ -27,20 +27,19 @@
 	.form2_l {
 		width: 100%;
 		/* min-width: 320px; */
-		padding-left: 8%;
-		padding-right: 8%;
+		padding-left: 6%;
+		padding-right: 6%;
 		/* padding-top:35px;
 		padding-bottom:35px; */
 	}
 	.form2_l input[type=button] {
 		background-color: #87d54d;
 		border: 2px solid #d2d2d2;
-		border-radius: 10px;
+		border-radius: 5px;
 		color: #4C4C4C;
-		font-weight: 700;
-		
-		height: 60px;
-		width: 120%;
+		font-weight: 600;
+		height:30px;
+		/* width: 120%; */
 		
 		
 	}
@@ -54,17 +53,17 @@
 		float: left;
 	}
 	.form6_l {
-		margin-left:5%;
-		margin-top:20px;
+		/* margin-left:5%; */
+		margin-top:7px;
 		
 	}
 	.form6_l input[type="submit"] {
 		background-color: #87d54d;
 		border: 2px solid #d2d2d2;
 		padding: 5px 25px;
-		border-radius: 10px;
+		border-radius: 5px;
 		color: #4C4C4C;
-		font-weight: 700;
+		font-weight: 600;
 		margin:0 auto;
 		
 	}
@@ -83,3 +82,39 @@
 	width:70%;
 	text-align: center;
 }
+
+#joinbtn {
+   border: 1px solid #345c16;
+   background: #68bb2d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#88d54d), to(#68bb2d));
+   background: -webkit-linear-gradient(top, #88d54d, #68bb2d);
+   background: -moz-linear-gradient(top, #88d54d, #68bb2d);
+   background: -ms-linear-gradient(top, #88d54d, #68bb2d);
+   background: -o-linear-gradient(top, #88d54d, #68bb2d);
+   background-image: -ms-linear-gradient(top, #88d54d 0%, #68bb2d 100%);
+   padding: 10.5px 21px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #9cdb6f 0 1px 0;
+   color: #2d4e14;
+   font-size: 16px;
+   font-family: 나눔고딕;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#joinbtn:hover {
+   border: 1px solid #345c16;
+   text-shadow: #70c131 0 1px 0;
+   background: #68bb2d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#88d54d), to(#68bb2d));
+   background: -webkit-linear-gradient(top, #88d54d, #68bb2d);
+   background: -moz-linear-gradient(top, #88d54d, #68bb2d);
+   background: -ms-linear-gradient(top, #88d54d, #68bb2d);
+   background: -o-linear-gradient(top, #88d54d, #68bb2d);
+   background-image: -ms-linear-gradient(top, #88d54d 0%, #68bb2d 100%);
+   color: #ffffff;
+   }
