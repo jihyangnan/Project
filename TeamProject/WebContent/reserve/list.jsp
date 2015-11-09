@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.lang.String"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 	$(document).ready(function(){
 		$('.container').attr('class', 'container-fluid');
@@ -61,6 +61,7 @@
 	}); 
 	
 </script>
+
 <div class="about_top">
     <div class="container" style="border-top: 1px solid #E2E2E2; ">
 		
@@ -80,15 +81,13 @@
 			<div>	
 				<div id="hl_div" class="col-sm-7" style="padding:10 0; min-height: 1000px">
 				  <div>
-				  	<form>
+				  <form>
 					<div class="form-horizontal">
 					  <div class="form-group">
-					    <label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">지역</label>
-					    <div class="col-sm-5">
-					      <input type="text" class="form-control" placeholder="시/도">
-					    </div>
-					    <div class="col-sm-5">
-					      <input type="text" class="form-control" placeholder="시/군/구">
+					    <label class="col-sm-2 control-label" style="text-align: left">지역</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" placeholder="지역 입력">
+
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -369,8 +368,6 @@
 										</label>
 									</div>
 								</div>
-
-
 								<div class="col-sm-3 col-sm-offset-2">
 									<div class="checkbox">
 										<label title="필수 품목"> <input type="checkbox">필수 품목
@@ -557,71 +554,6 @@
 						</div>
 					</div>
 				</c:forEach>
-
-				<%-- <div class="row list" data-price="60,000" data-lat="33.450705" data-lng="126.570677">
-					<div class="col-sm-8">
-						<a href="reserve_detail.do"><img class="img-responsive" src="images/a001.jpg" /></a>		
-					</div>
-					<div class="col-sm-4 desc">
-					  <ul>
-					    <li><a href="reserve_detail.do?no=${list.h_no }&page=${curpage}">
-					    <span>${list[0].h_nHome }</span></a></li>
-					    <li><span style="color: #3B9DD6; font-weight: bold;" >60,000원</span></li>
-					    <li><span>개인실</span></li>
-					    <li><span>중구, 서울</span></li>
-					    <li><span>후기 10개</span></li>
-					  </ul>
-					</div>
-				  </div>
-				  
-				  <div class="row list" data-price="100,000" data-lat="33.450936" data-lng="126.569477">
-					<div class="col-sm-8">
-						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a002.jpg" /></a>		
-					</div>
-					<div class="col-sm-4 desc">
-					  <ul>
-					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>도심속 한옥 호텔</span></a></li>
-					    <li><span style="color: #3B9DD6; font-weight: bold;" >100,000원</span></li>
-					    <li><span>집전체</span></li>
-					    <li><span>종로구, 서울</span></li>
-					    <li><span>후기 20개</span></li>
-					  </ul>
-					</div>
-				  </div>
-				  
-				  <div class="row list" data-price="60,000" data-lat="33.450879" data-lng="126.569940">
-					<div class="col-sm-8">
-						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a003.jpg" /></a>		
-					</div>
-					<div class="col-sm-4 desc">
-					  <ul>
-					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>한강 옆 게스트 하우스</span></a></li>
-					    <li><span style="color: #3B9DD6; font-weight: bold;" >60,000원</span></li>
-					    <li><span>개인실</span></li>
-					    <li><span>중구, 서울</span></li>
-					    <li><span>후기 10개</span></li>
-					  </ul>
-					</div>
-				  </div>
-				  
-				  <div class="row list" data-price="100,000" data-lat="33.451393" data-lng="126.570738">
-					<div class="col-sm-8">
-						<a href="index.jsp?page=reserve/detail.jsp"><img class="img-responsive" src="images/a004.jpg" /></a>		
-					</div>
-					<div class="col-sm-4 desc">
-					  <ul>
-					    <li><a href="index.jsp?page=reserve/detail.jsp"><span>도심속 한옥 호텔</span></a></li>
-					    <li><span style="color: #3B9DD6; font-weight: bold;" >100,000원</span></li>
-					    <li><span>집전체</span></li>
-					    <li><span>종로구, 서울</span></li>
-					    <li><span>후기 20개</span></li>
-					  </ul>
-					</div>
-				  </div> --%>
-				  
-				  
-				  
-				  
 				  <div class=text-center>
 					<!--span>
 					<img src="images/back.jpg">&nbsp;1  2  3  4  5&nbsp;<img src="images/daum.jpg">

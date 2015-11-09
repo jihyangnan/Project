@@ -6,7 +6,8 @@
 	</select>
 	<select id="reserveListData" resultType="Reserve" parameterType="java.util.Map">
 		SELECT h_nhome,h_money, dbday ,h_addr1, num
-		FROM (SELECT h_nhome,h_money, TO_CHAR(regdate,'YYYY-MM-DD') as dbday ,
+		FROM (SELECT
+		h_nhome,h_money, TO_CHAR(regdate,'YYYY-MM-DD') as dbday ,
 		rownum as num
 		FROM (SELECT h_nhome,h_money, regdate
 		FROM reserve ORDER BY no DESC))
@@ -32,7 +33,8 @@
 	</update>
 	<delete id="reviewDelete" parameterType="int">
 		DELETE FROM review
-		WHERE re_no=#{re_no}
+		WHERE
+		re_no=#{re_no}
 	</delete>
 	<update id="reviewContentUpdate" parameterType="int">
 		UPDATE review SET
@@ -40,26 +42,31 @@
 		WHERE re_no=#{re_no}
 	</update>
 	<select id="reviewCount" resultType="int" parameterType="int">
-		SELECT COUNT(*) FROM review
+		SELECT
+		COUNT(*) FROM review
 		WHERE re_hno=#{re_hno}
 	</select>
 	<select id="reviewListData" resultType="Review" parameterType="int">
 		SELECT re_No,re_Id,re_hNo,re_Content,re_Date
 		FROM review
-		WHERE re_hno=#{re_hno}
+		WHERE
+		re_hno=#{re_hno}
 	</select>
-	
+
 	<!-- 맵 이동시 목록가져오기 -->
 	<select id="listByMovingMap" resultType="ZipReg">
-		SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
-		                                                         FROM review 
-		                                                         WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
-		                                                                                              FROM home_photo
-		                                                                                              WHERE p_hno = h_No AND ROWNUM = 1) "image"
-		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
-		      FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
-		            FROM zipreg 
-		            WHERE h_Endday > SYSDATE AND h_Close = 'n'
-		            ORDER BY h_no DESC))
+		SELECT h_No, h_rType,
+		h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
+		FROM review
+		WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
+		FROM home_photo
+		WHERE p_hno = h_No AND ROWNUM = 1) "image"
+		FROM (SELECT h_No, h_rType,
+		h_nHome, h_Addr1, h_Money, h_loc, rownum as num
+		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
+		FROM zipreg
+		WHERE h_Endday > SYSDATE AND h_Close = 'n'
+		ORDER BY h_no DESC))
 	</select>
+
 </mapper>

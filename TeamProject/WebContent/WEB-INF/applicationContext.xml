@@ -59,6 +59,7 @@
 	<bean id="mypage_profileUp" class="com.mypage.model.ProfileUpModel"/>
 	<bean id="mypage_profileOut" class="com.mypage.model.ProfileOutModel"/>
     <bean id="mypage_regCheck" class="com.mypage.model.Reg_checkModel"/>
+    <bean id="mypage_reserveCheck" class="com.mypage.model.Reserve_CheckModel"/>
     
     <!-- 회원가입 -->
 	<bean class="com.member.model.MemberJoinModel" id="join" />

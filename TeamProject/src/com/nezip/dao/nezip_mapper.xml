@@ -71,7 +71,8 @@ WHERE num BETWEEN #{start} AND #{end}
 </select>
  <!-- 내용보기 데이터 출력  -->
     <select id="zipregData" resultType="ZipReg" parameterType="int">
-     SELECT *
+     SELECT h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nHome,h_hContent,h_Addr1,h_Addr2
+	,h_Phone,h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday" , to_char(h_Endday, 'yyyy-MM-dd') "h_Endday" ,h_Loc,h_Id,h_Close,h_Rule
      FROM zipreg
      WHERE h_no=#{h_no}
     </select>
@@ -80,4 +81,8 @@ WHERE num BETWEEN #{start} AND #{end}
 	FROM Fac_reg
 	WHERE c_hno=#{c_hno}
 </select>
+<select id="reviewCount" resultType="int" parameterType="int">
+     SELECT COUNT(*) FROM review
+     WHERE re_hno=#{re_hno}
+    </select>    
 </mapper>
