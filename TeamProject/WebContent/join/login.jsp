@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 
 <script type="text/javascript">
 $(function(){
@@ -20,51 +20,48 @@ $(function(){
 });
 </script>
 <div class="about_top">
-    <div class="container">
-    	<div>
+	<div class="container">
+		<div>
 			<ul>
 				<li class="siteline"><img src="images/homelink.png"
 					style="vertical-align: top;"> 로그인</li>
 			</ul>
 		</div>
-        <div class="about">
-        
-        <br><br><br><br>
-        <h1 class="blog_head_login">로그인</h1>
-        <br><br>
-<!--  -->
-       	<div class="form_l">
-				<div class="form2_l" >
-				 <!--  <div class="form3_l">
-=======
-        
-       		<div class="form_l">
-       		<form action="member_login.do" id="log_frm" method="post">
-				<div class="form2_l">
-					<div class="form3_l">
->>>>>>> branch 'master' of https://github.com/jihyangnan/Project
-						<label for="user" style="font-size: 15px;">아이디</label>
-						<input type="text" id="id" name=id>
-						<div class="clear"></div>
-						<label for="user" style="font-size: 15px;margin-top:8px">비밀번호</label>
-						<input type="password"style="margin-top:8px" id="pwd" name=pwd>
-					</div>
-					<div class="clear"></div>
-					<label>
-					<input type="submit" value="로그인" id="joinbtn" style="padding:5px;">
-					</label>
-					<div class="form6_l">
-						<label>
-						<a href="join_join.do">
-						<input type="button"value="회원가입" id="join"></a>
-						</label> 
-						<label>
-						<a href="join_idSearch.do">
-						<input type="button" style="margin-left:5%"value="아이디/비밀번호 찾기" id="join"></a>
+		<div class="about">
+			<div style="margin-top:20px; margin-bottom:1.5em;">
+			<h1 class="blog_head_login" style="font-size: 30pt; font-weight:700; margin:0px; color:#87d54d;">
+			<img alt="" src="images/loginlogo.png" style="vertical-align: bottom;"> 
+			Login
+			</h1>
+			</div>
+			<div class="form_l"  style="border:3px solid #e7e7e7; border-radius:10px;">
+				<form action="member_login.do" id="log_frm" method="post">
+					<div class="form2_l" >
+						<div style="width: 100%; margin-top:35px; margin-bottom:35px;">
+						<div class="form3_l">
+							<!-- <label for="user" style="font-size: 15px;">아이디</label>  -->
+							<input type="text" id="id" name=id placeholder="아이디" 
+								style="width:90%;">
+							<div class="clear"></div>
+							<!-- <label for="user" style="font-size: 15px; margin-top: 8px">비밀번호</label> -->
+							<input type="password" placeholder="비밀번호"  id="pwd" name=pwd style="width:90%; margin-top: 10px;">
+						</div>
+						<!-- <div class="clear"></div> -->
+						<label> 
+						<input type="submit" value="로그인" id="joinbtn"
+							style="padding:20px; background-color:#87d54d; border-radius:5px; border:none; ">
 						</label>
-					</div> -->
-					
-<form class="form-horizontal">
+						</div>
+						<div class="form6_l">
+							<label> <a href="join_join.do"> <input type="button"
+									value="회원가입" id="join"></a>
+							</label> <label> <a href="join_idSearch.do"> <input
+									type="button" style="margin-left: 5%" value="아이디/비밀번호 찾기"
+									id="join"></a>
+							</label>
+						</div>
+
+						<!-- <form class="form-horizontal">
   
     <ul><li>
     <div class="form-group has-success has-feedback">
@@ -94,18 +91,18 @@ $(function(){
    <a href="join_idSearch.do" class="btn btn-danger" >아이디/비밀번호 찾기</a>
     </div>
     </li>
-    </ul>
-  </div>
-  <div class="clearfix"></div>
-</form>
-					
-			
-				</div>
+    </ul> -->
+					</div>
+					<div class="clearfix"></div>
+				</form>
 
-			</div> 
-			
 
-			
+			</div>
+
 		</div>
-     </div>
-      
+
+
+
+	</div>
+</div>
+

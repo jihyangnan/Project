@@ -23,6 +23,16 @@ public class SaveInsert3ByAjaxServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("facList", facilities);
+		boolean[] completeStep =  (boolean[])session.getAttribute("completeStep");
+		if(completeStep == null){
+			completeStep = new boolean[5];
+		}
+		if(facilities.length != 0){
+			completeStep[2] = true;
+		} else {
+			completeStep[2] = false;
+		}
+		session.setAttribute("completeStep", completeStep);
 	}
 
 }

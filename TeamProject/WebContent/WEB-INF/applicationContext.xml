@@ -25,20 +25,12 @@
 	
 	<!-- 내집 등록 관련 -->
 	<bean id="nezip_insert1" class="com.nezip.model.Insert1Model"/>
-	<bean id="nezip_insert1process" class="com.nezip.model.Insert1ProcessModel"/>
 	<bean id="nezip_insert2" class="com.nezip.model.Insert2Model"/>
-	<bean id="nezip_insert2process" class="com.nezip.model.Insert2ProcessModel"/>
 	<bean id="nezip_insert3" class="com.nezip.model.Insert3Model"/>
-	<bean id="nezip_insert3process" class="com.nezip.model.Insert3ProcessModel"/>
 	<bean id="nezip_insert4" class="com.nezip.model.Insert4Model"/>
-	<bean id="nezip_insert4process" class="com.nezip.model.Insert4ProcessModel"/>
 	<bean id="nezip_insert5" class="com.nezip.model.Insert5Model"/>
-	<bean id="nezip_insert5process" class="com.nezip.model.Insert5ProcessModel"/>
-	<bean id="nezip_insert6" class="com.nezip.model.Insert6Model"/>
-	<bean id="nezip_insert6process" class="com.nezip.model.Insert6ProcessModel"/>
+	<bean id="nezip_insertFinal" class="com.nezip.model.InsertFinalModel"/>
 	<bean id="nezip_imageUpload" class="com.nezip.model.ImageUploadModel"/>
-
-	
 	
 	
 	<!-- 내집 예약 관련 -->
@@ -46,7 +38,7 @@
 	<!-- <bean id="reserve_detail" class="com.reserve.model.DetailModel"/> -->
 	<bean id="reserve_list" class="com.reserve.model.ReserveListModel"/>
     <bean id="reserve_detail" class="com.reserve.model.ReserveContentModel"/>
-    <bean id="reserve_review_new_insert" class="com.reserve.model.ReviewInsertModel"/>
+    <bean id="review_new_insert" class="com.reserve.model.ReviewInsertModel"/>
     <bean id="reserve_review_update" class="com.reserve.model.ReviewUpdateModel"/>
 	
 	<!-- 우리동네 소개 관련 -->

@@ -31,6 +31,8 @@ public class Insert4Model implements Model{
 					req.setAttribute("phone" + (i+1), phones[i]);
 				}
 			}
+		} else {
+			System.out.println("세션에 ZipRegDTO가 없음 insert4");
 		}
 		String[] photos = (String[])session.getAttribute("photos");
 		if(photos != null){

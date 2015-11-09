@@ -17,11 +17,10 @@
       WHERE no=#{no}
     </select>
 <insert id="reviewNewInsert" parameterType="Review">
-      <selectKey keyProperty="re_no" resultType="int" order="BEFORE">
-        SELECT re_no FROM review
+      <selectKey keyProperty="re_No" resultType="int" order="BEFORE">
+        SELECT MAX(re_No)+1 FROM review
       </selectKey>
-      INSERT INTO review VALUES(#{re_No},#{re_Id},
-        #{re_hNo},#{re_Content},SYSDATE)
+      INSERT INTO review VALUES(#{re_No},#{re_Id},#{re_hNo},#{re_Content},SYSDATE)
     </insert>
     <update id="reviewReUpdate" parameterType="Review">
       UPDATE review SET
@@ -40,5 +39,10 @@
      <select id="reviewCount" resultType="int" parameterType="int">
      SELECT COUNT(*) FROM review
      WHERE re_hno=#{re_hno}
+    </select>
+    <select id="reviewListData" resultType="Review" parameterType="int">
+      SELECT re_No,re_Id,re_hNo,re_Content,re_Date
+      FROM review
+      WHERE re_hno=#{re_hno}
     </select>
 </mapper>

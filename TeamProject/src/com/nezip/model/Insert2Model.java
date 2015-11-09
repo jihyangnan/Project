@@ -25,6 +25,8 @@ public class Insert2Model implements Model{
 					req.setAttribute("lng", locs[1]);
 				}
 			}
+		}else{
+			System.out.println("세션에 ZipRegDTO가 없음 insert2");
 		}
 		
 		req.setAttribute("insertStep", 2);

@@ -62,7 +62,7 @@ DESC question_type;
 insert into b_Word values(1,'공지사항','ico-list-notice.gif');
 insert into b_Word values(2,'이벤트','ico-list-event.png');
 insert into b_Word values(3,'기타','ico-list-etc.png');
-insert into b_Word values(4,' '); --회원들꺼는 공백으로 말머리 넣음
+insert into b_Word values(4,' ',null); --회원들꺼는 공백으로 말머리 넣음
 
 INSERT INTO p_board values(1,'hong','질문있습니다1.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
 INSERT INTO p_board values(2,'shim','질문있습니다2.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
