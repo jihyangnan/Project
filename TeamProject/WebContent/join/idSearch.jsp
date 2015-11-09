@@ -7,7 +7,8 @@
 				<li class="siteline"><img src="images/homelink.png"
 					style="vertical-align: top;" > 로그인 / 아이디&비밀번호 찾기</li>
 			</ul>
-		</div>
+		    </div>
+		    
 			<div class="about">
 				<br>
 				<!-- <h2 class="blog_head">아이디/비밀번호 찾기</h2> -->
@@ -19,13 +20,24 @@
 	                 	찾고자 하는 아이디의 정보를 입력해 주세요. 	</label> -->
 					<div class="form2_s">
 						<div class="form3_s">
-							<label for="user" style="font-size: 15px;margin-top: 20px;margin-left:-55px;">이름</label> <input
-								type="text" style="width: 40%" id="user">
+							<label for="user" style="font-size: 15px;margin-top: 20px;">이름</label> <input
+								type="text" style="width: 57%" id="user" placeholder="이름을 입력하세요">
 							<div class="clear"></div>
-							<label for="user" style="font-size: 15px; margin-top: 5px">주민번호</label>
+							<!-- <label for="user" style="font-size: 15px; margin-top: 5px">주민번호</label>
 							<input type="text" style="width: 30%; margin-top: 5px" id="user">
 							- <input type="password" style="width: 30%; margin-top: 5px"
-								id="user">
+								id="user"> -->
+							<label for="user" style="font-size: 15px; margin-top: 5px">E-mail</label>
+
+							<input type="text" style="width:25%; margin-top: 5px"
+								name="email" class="inputstyle">@ <select
+								style="width: 30%; padding: 0; margin-top: 5px" name=eaddr>
+								<option selected="selected">naver.com</option>
+								<option>hanmail.net</option>
+								<option>gmail.com</option>
+								<option>nate.com</option>
+							</select>	
+								
 						</div>
 						
 						
@@ -89,13 +101,13 @@
 					<div class="form2_s">
 						<div class="form3_s">
 							<label for="user" style="font-size: 15px;margin-top: 20px;">아이디</label> <input
-								type="text" style="width:60%" id="user">
+								type="text" style="width:61%" id="user" placeholder="아이디를 입력하세요">
 							<div class="clear"></div>
-							<label for="user" style="font-size: 15px; margin-top: 5px">주민번호</label>
+							<!-- <label for="user" style="font-size: 15px; margin-top: 5px">주민번호</label>
 							<input type="text" style="width: 30%; margin-top: 5px" id="user">
 							- <input type="password" style="width:30%; margin-top: 5px"
 								id="user">
-							<div class="clear"></div>
+							<div class="clear"></div> -->
 							<label for="user" style="font-size: 15px; margin-top: 5px">E-mail</label>
 
 							<input type="text" style="width:25%; margin-top: 5px"
