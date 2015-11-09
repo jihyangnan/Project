@@ -520,6 +520,7 @@
 					</div>
 					</form>					
 				  </div>
+				  <div id="items">
 				<c:forEach var="dto" items="${list }">
 					<c:forTokens items="${dto.h_Loc }" delims="," var="loc" varStatus="status" >
 						<c:if test="${status.first }">
@@ -554,6 +555,7 @@
 						</div>
 					</div>
 				</c:forEach>
+				</div>
 				  <div class=text-center>
 					<!--span>
 					<img src="images/back.jpg">&nbsp;1  2  3  4  5&nbsp;<img src="images/daum.jpg">
@@ -584,122 +586,31 @@
 				</div>
 				<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=7f21a870bb940ba4566d23ff69b9820d"></script>
 				<script>
+				
 					var container = document.getElementById('map');
 					var options = {
 						center: new daum.maps.LatLng(37.553121, 126.937059),
-						level: 3
+						level: 5
 					};
 					
 					var map = new daum.maps.Map(container, options);
 					
+					var overlays = new Array();
+					insertOverlays();
 					
+					// 지도에 표시할 원을 생성합니다
+			        var cir = new daum.maps.Circle({
+			            center :new daum.maps.LatLng(37.553121, 126.937059),  // 원의 중심좌표 입니다 
+			            radius: 500, // 미터 단위의 원의 반지름입니다 
+			            strokeWeight: 3, // 선의 두께입니다 
+			            strokeColor: '#75B8FA', // 선의 색깔입니다
+			            strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+			            strokeStyle: 'dashed', // 선의 스타일 입니다
+			            fillColor: '#CFE7FF', // 채우기 색깔입니다
+			            fillOpacity: 0.7  // 채우기 불투명도 입니다   
+			        }); 
 					
-					$("div.list").each(function(index, item){
-						 /* var marker = new daum.maps.Marker({
-					        map: map, // 마커를 표시할 지도
-					        position: new daum.maps.LatLng($(this).attr('data-lat'), $(this).attr('data-lng')), // 마커를 표시할 위치
-					        title: '요기?'
-						 });
-						 marker.setMap(map); */
-						 
-						// HTML 문자열 또는 Dom Element 입니다 
-						// 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
-						var overcontent = document.createElement('div'); 
-						overcontent.className = 'overlay';
-						overcontent.style.left = '-31px';
-						overcontent.style.top = '-32px';
-						overcontent.innerHTML = '<p>￦' + $(this).attr('data-price') + '</p><span></span>'; 
-						
-						// 커스텀 오버레이가 표시될 위치입니다 
-						var position = new daum.maps.LatLng($(this).attr('data-lat'), $(this).attr('data-lng'));  
-
-						
-						// 커스텀 오버레이를 생성합니다
-						var customOverlay = new daum.maps.CustomOverlay({
-							map: map,
-						    //position: new daum.maps.LatLng($(this).attr('data-lat'), $(this).attr('data-lng')),
-						    position: position,
-						    //content: overlaycon   
-						    content: overcontent  
-						});
-
-						// 커스텀 오버레이를 지도에 표시합니다
-						//customOverlay.setMap(map);
-						
-						// 커스텀 오버레이에 mousedown이벤트를 등록합니다 
-						addEventHandle(overcontent, 'mouseover', onMouseOver);
-						addEventHandle(overcontent, 'mouseout', onMouseOut);
-						addEventHandle(overcontent, 'click', onClick);
-						 
-						var imgsrc = $(this).find('img').attr('src'); 
-						var sub = $(this).find('li:first-child a span').text();
-						var sub2 = $(this).find('li:nth-child(2) span').text() + ' | ' + $(this).find('li:nth-child(3) span').text()
-						         + ' | ' + $(this).find('li:last-child span').text();
-						var iwContent = '<div style="padding:10px; width:240px">'
-						              + '<a href="reserve_detail.do"><img class="img-responsive" src="' + imgsrc + '"/></a>'
-						              + '<p style="font-size: .9em; font-weight: bold;"><a href="reserve_detail.do">' + sub + '</a></p>'	
-						              + '<p style="font-size: .7em; font-weight: bold; color: #B7B1B1;">' + sub2 + '</p>'	
-									  +	'</div>'; 
-
-						// 인포윈도우를 생성합니다
-						var infowindow = new daum.maps.InfoWindow({
-						    content : iwContent,
-						    clickable: true,
-						    removable : true,
-						    position: position
-						});
-						
-						 var thisval = $(this);
-						 /* daum.maps.event.addListener(marker, 'mouseover', function() {
-							 thisval.css('border', '2px solid #F94B4B');
-							 thisval.find('img').css('transition', '0.5s').css('transform', 'rotate(3deg)');
-							 //infowindow.open(map, marker);
-						 });
-						 daum.maps.event.addListener(marker, 'mouseout', function() {
-							 thisval.css('border', '');
-							 thisval.find('img').css('transform', '');
-							 //infowindow.close();
-						 }); 
-						 
-						 daum.maps.event.addListener(marker, 'click', function() {
-						      infowindow.open(map, marker);  
-						 }); */
-						 
-						 function onMouseOver(e){
-							 thisval.css('border', '2px solid #F94B4B');
-							 thisval.find('img').css('transition', '0.5s').css('transform', 'rotate(2deg)');
-						 }
-						 
-						 function onMouseOut(e){
-							 thisval.css('border', '');
-							 thisval.find('img').css('transform', '');
-						 }
-						 
-						 function onClick(e){
-							 infowindow.open(map);  
-						 }
-						 
-						// target node에 이벤트 핸들러를 등록하는 함수힙니다  
-						 function addEventHandle(target, type, callback) {
-						     if (target.addEventListener) {
-						         target.addEventListener(type, callback);
-						     } else {
-						         target.attachEvent('on' + type, callback);
-						     }
-						 }
-						
-						thisval.hover(function(){
-							overcontent.style.backgroundColor = '#87d54d';
-							overcontent.style.borderColor = '#87d54d';
-							overcontent.parentElement.style.zIndex = '1';
-							overcontent.lastChild.style.borderTopColor = '#87d54d';
-						}, function(){
-							overcontent.style.backgroundColor = '#ff5555';
-							overcontent.style.borderColor = '#BB3333';
-							overcontent.parentElement.style.zIndex = '0';
-							overcontent.lastChild.style.borderTopColor = '#ff5555';
-						});
-					});
+			        cir.setMap(map); 
 					
 					
 					daum.maps.event.addListener(map, 'center_changed', function() {        
@@ -717,20 +628,122 @@
 					    
 					});
 					
+					
+					// 드레그가 끝났을때 
 			     	daum.maps.event.addListener(map, 'dragend', function() {
 			     		var center = map.getCenter();
 			     		var lat = center.getLat();
 			     		var lng = center.getLng();
-			     		
 			     		$.get(
 		     				"reserve_listByMovingMap.do?lat=" + lat + "&lng=" + lng,
 		     				function(data){
-		     					$('div#hl_div > div:nth-child(1)').next().html(data);
+		     					$('div#items').html(data);
 		     					//alert(data);
+		     					deleteOverlays();
+					     		insertOverlays();
 		     				}
 		     			);   		
+			     		
+			     		cir.setPosition(map.getCenter());
 			     	});
-					
+			     	
+			     	// 오버레이 삭제
+			     	function deleteOverlays(){
+			     		for(var i in overlays){
+			     			overlays[i].setMap(null);
+			     		}
+			     		overlays = new Array();
+			     	}
+			     	
+			     	// 커스텀 오버레이 생성 및 표시
+			     	function insertOverlays(){
+			     		$("div.list").each(function(index, item){
+							// HTML 문자열 또는 Dom Element 입니다 
+							// 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
+							var overcontent = document.createElement('div'); 
+							overcontent.className = 'overlay';
+							overcontent.style.left = '-31px';
+							overcontent.style.top = '-32px';
+							overcontent.innerHTML = '<p>￦' + $(this).attr('data-price') + '</p><span></span>'; 
+							
+							// 커스텀 오버레이가 표시될 위치입니다 
+							var position = new daum.maps.LatLng($(this).attr('data-lat'), $(this).attr('data-lng'));  
+
+							
+							// 커스텀 오버레이를 생성합니다
+							var customOverlay = new daum.maps.CustomOverlay({
+								map: map,
+							    //position: new daum.maps.LatLng($(this).attr('data-lat'), $(this).attr('data-lng')),
+							    position: position,
+							    //content: overlaycon   
+							    content: overcontent  
+							});
+
+							// 커스텀 오버레이를 지도에 표시합니다
+							//customOverlay.setMap(map);
+							overlays.push(customOverlay);
+							
+							// 커스텀 오버레이에 mousedown이벤트를 등록합니다 
+							addEventHandle(overcontent, 'mouseover', onMouseOver);
+							addEventHandle(overcontent, 'mouseout', onMouseOut);
+							addEventHandle(overcontent, 'click', onClick);
+							 
+							var imgsrc = $(this).find('img').attr('src'); 
+							var sub = $(this).find('li:first-child a span').text();
+							var sub2 = $(this).find('li:nth-child(2) span').text() + ' | ' + $(this).find('li:nth-child(3) span').text()
+							         + ' | ' + $(this).find('li:last-child span').text();
+							var iwContent = '<div style="padding:10px; width:240px">'
+							              + '<a href="reserve_detail.do"><img class="img-responsive" src="' + imgsrc + '"/></a>'
+							              + '<p style="font-size: .9em; font-weight: bold;"><a href="reserve_detail.do">' + sub + '</a></p>'	
+							              + '<p style="font-size: .7em; font-weight: bold; color: #B7B1B1;">' + sub2 + '</p>'	
+										  +	'</div>'; 
+
+							// 인포윈도우를 생성합니다
+							var infowindow = new daum.maps.InfoWindow({
+							    content : iwContent,
+							    clickable: true,
+							    removable : true,
+							    position: position
+							});
+							
+							 var thisval = $(this);
+							 
+							 function onMouseOver(e){
+								 thisval.css('border', '2px solid #F94B4B');
+								 thisval.find('img').css('transition', '0.5s').css('transform', 'rotate(2deg)');
+							 }
+							 
+							 function onMouseOut(e){
+								 thisval.css('border', '');
+								 thisval.find('img').css('transform', '');
+							 }
+							 
+							 function onClick(e){
+								 infowindow.open(map);  
+							 }
+							 
+							// target node에 이벤트 핸들러를 등록하는 함수힙니다  
+							 function addEventHandle(target, type, callback) {
+							     if (target.addEventListener) {
+							         target.addEventListener(type, callback);
+							     } else {
+							         target.attachEvent('on' + type, callback);
+							     }
+							 }
+							
+							thisval.hover(function(){
+								overcontent.style.backgroundColor = '#87d54d';
+								overcontent.style.borderColor = '#87d54d';
+								overcontent.parentElement.style.zIndex = '1';
+								overcontent.lastChild.style.borderTopColor = '#87d54d';
+							}, function(){
+								overcontent.style.backgroundColor = '#ff5555';
+								overcontent.style.borderColor = '#BB3333';
+								overcontent.parentElement.style.zIndex = '0';
+								overcontent.lastChild.style.borderTopColor = '#ff5555';
+							});
+						});
+			     	}
 				
 				</script>
 			</div>

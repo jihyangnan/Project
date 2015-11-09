@@ -90,7 +90,8 @@ INSERT INTO fac_kind VALUES( 4, '안전 체크리스트', '');
 
 --집유형 시퀀스
 DROP sequence home_category_seq;
-create sequence home_category_seq;
+create sequence home_category_seq
+minvalue 0;
 
 --집유형 값 입력
 INSERT INTO home_category VALUES( home_category_seq.nextval, '아파트', '아파트');
@@ -106,7 +107,8 @@ INSERT INTO home_category VALUES( home_category_seq.nextval, '기타', '기타');
 
 --숙소시설 시퀀스
 DROP sequence home_fac_seq;
-create sequence home_fac_seq;
+create sequence home_fac_seq
+minvalue 0;
 
 --숙소시설 값 입력
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, 'TV', ' ');
@@ -177,7 +179,8 @@ VALUES(zipreg_SEQ.NEXTVAL,5,1,2,2,1,1,'재민이네','개인 위생품은 챙겨오셔야 합니�
 
 --시설등록 시퀀스
 DROP sequence fac_reg_seq;
-create sequence fac_reg_seq;
+create sequence fac_reg_seq
+minvalue 0;
 
 --시설등록 값 입력
 INSERT INTO fac_reg VALUES(fac_reg_seq.nextval, 1, 1);
@@ -193,12 +196,44 @@ INSERT INTO fac_reg VALUES(fac_reg_seq.nextval, 2, 11);
 
 --집사진 시퀀스
 DROP sequence home_photo_seq;
-create sequence home_photo_seq;
+create sequence home_photo_seq
+MINVALUE 0;
 
 --집사진 값 입력
 INSERT INTO home_photo VALUES( home_photo_seq.nextval,1,'사진파일','사진이름');
 INSERT INTO home_photo VALUES( home_photo_seq.nextval,2,'사진파일','사진이름');
 INSERT INTO home_photo VALUES( home_photo_seq.nextval,3,'사진파일','사진이름');
+
+
+DROP TABLE reserve;
+DROP TABLE review;
+CREATE TABLE Reserve(
+	r_No NUMBER primary key , /* 예약번호 */
+	r_Addr NUMBER , /* 예약장소  foreign key */
+	r_Member VARCHAR2(20) , /* 아이디 foreign key */
+	r_Start DATE, /* 예약시작 */
+	r_End DATE, /* 예약종료 */
+	r_Money NUMBER , /* 예약비 */
+	r_Person NUMBER /* 예약인원 */
+);
+ALTER TABLE reserve
+	ADD
+		CONSTRAINT FK_zipreg_TO_reserve
+		FOREIGN KEY (
+			r_Addr
+		)
+		REFERENCES zipreg (
+			h_No
+		);
+
+CREATE TABLE Review (
+	re_No NUMBER primary key , /* 후기번호 */
+	re_Id VARCHAR2(30) , /* 작성자 */
+	re_hNo NUMBER references zipreg(h_no), /* 숙소번호 foreign key */
+	re_Content VARCHAR2(2000) , /* 내용 */
+	re_Date DATE   /* 작성일 */
+);
+
 
 -- 회원가입
 

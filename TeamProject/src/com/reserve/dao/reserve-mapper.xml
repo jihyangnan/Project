@@ -55,18 +55,16 @@
 
 	<!-- 맵 이동시 목록가져오기 -->
 	<select id="listByMovingMap" resultType="ZipReg">
-		SELECT h_No, h_rType,
-		h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
-		FROM review
-		WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
-		FROM home_photo
-		WHERE p_hno = h_No AND ROWNUM = 1) "image"
-		FROM (SELECT h_No, h_rType,
-		h_nHome, h_Addr1, h_Money, h_loc, rownum as num
-		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
-		FROM zipreg
-		WHERE h_Endday > SYSDATE AND h_Close = 'n'
-		ORDER BY h_no DESC))
+		SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
+																 FROM review
+																 WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
+																									  FROM home_photo
+																									  WHERE p_hno = h_No AND ROWNUM = 1) "image"
+		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
+			  FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
+			        FROM zipreg
+		            WHERE h_Endday > SYSDATE AND h_Close = 'n'
+				    ORDER BY h_no DESC))
 	</select>
 
 </mapper>
