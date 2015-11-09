@@ -207,7 +207,7 @@ CREATE TABLE member1(
    pwd VARCHAR2(100),
    pwhint VARCHAR2(100),
    name VARCHAR2(34),
-   rrn VARCHAR2(50),
+   --rrn VARCHAR2(50),
    sex VARCHAR(255) CONSTRAINT mem1_sex_ck CHECK(sex IN('남자','여자')),
    birth VARCHAR2(255),
    post VARCHAR2(255),
@@ -219,8 +219,12 @@ CREATE TABLE member1(
    admin CHAR(1) DEFAULT 'n',
    CONSTRAINT mem1_admin_ck CHECK(admin IN('y','n'))
 );
-INSERT INTO member1 VALUES ('1','hong','1234','서울','홍길동','111111-1111111','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','y');
-INSERT INTO member1 VALUES ('2','aaa','1234','서울','홍길동','111111-1111111','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','n');
+--INSERT INTO member1 VALUES ('1','hong','1234','서울','홍길동','111111-1111111','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','y');
+--INSERT INTO member1 VALUES ('2','aaa','1234','서울','홍길동','111111-1111111','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','n');
+
+INSERT INTO member1 VALUES ('1','hong','1234','서울','홍길동','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('2','aaa','1234','서울','홍길동','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','n');
+
 
 
 COMMIT;

@@ -535,7 +535,7 @@
 					<div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }">
 						<div class="col-sm-8">
 							<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
-								<img class="img-responsive img-rounded" src="houseimage/${dto.h_No }.jpg" />
+								<img class="img-responsive img-rounded" src="upload/${dto.image}" />
 							</a>
 						</div>
 						<div class="col-sm-4 desc">
@@ -552,7 +552,7 @@
 											<li><span>다인실</span></li>
 											</c:if>
 								<li><span>${dto.h_Addr1 }</span></li>
-								<li><span>후기 10 개</span></li>
+								<li><span>후기 ${dto.replyCount}개</span></li>
 							</ul>
 						</div>
 					</div>
@@ -784,6 +784,20 @@
 					    //console.log(message);
 					    
 					});
+					
+			     	daum.maps.event.addListener(map, 'dragend', function() {
+			     		var center = map.getCenter();
+			     		var lat = center.getLat();
+			     		var lng = center.getLng();
+			     		
+			     		$.get(
+		     				"reserve_listByMovingMap.do?lat=" + lat + "&lng=" + lng,
+		     				function(data){
+		     					$('div#hl_div > div:nth-child(1)').next().html(data);
+		     					//alert(data);
+		     				}
+		     			);   		
+			     	});
 					
 				
 				</script>

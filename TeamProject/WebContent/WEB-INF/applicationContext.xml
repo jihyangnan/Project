@@ -40,7 +40,8 @@
     <bean id="reserve_detail" class="com.reserve.model.ReserveContentModel"/>
     <bean id="review_new_insert" class="com.reserve.model.ReviewInsertModel"/>
     <bean id="reserve_review_update" class="com.reserve.model.ReviewUpdateModel"/>
-	
+    <bean id="reserve_listByMovingMap" class="com.reserve.model.ReserveListByMovingMapModel"/>
+    
 	<!-- 우리동네 소개 관련 -->
 	<bean id="town_list" class="com.town.model.TownListModel"/>
 	<bean id="town_areaCodeAjax" class="com.town.model.AreaCodeAjaxModel"/>
