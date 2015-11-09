@@ -10,4 +10,36 @@
 	#{q_no},#{q_id},#{q_title},#{q_content},SYSDATE,#{q_phone},#{q_email},#{q_qtno}
 	)
 </insert>
+
+<!--관리자페이지 -->
+<select id="QuestionListData" resultType="Question" parameterType="java.util.Map">
+SELECT q.q_no,q.q_id,q.q_title,q.q_content,q.q_phone,q.q_email,q.q_qtno,qt.qt_name,dbday,num
+FROM(SELECT q_no,q_id,q_title,q_content,q_phone,q_email,To_char(q_date,'YYYY-MM-DD')as dbday,q_qtno, rownum as num
+     FROM (SELECT q_no,q_id,q_title,q_content,q_phone,q_email,q_date,q_qtno
+           FROM question 
+           ORDER BY q_no desc)) q JOIN question_type qt
+           ON q.q_qtno = qt.qt_no
+WHERE num BETWEEN #{start} AND #{end}
+</select>
+
+<!-- 총페이지 구하기 -->
+<select id="questionRowCount" resultType="int">
+	SELECT COUNT(*) FROM question
+</select>
+<!-- 반복 수행 태그 -->
+<sql id="where-q_no">
+	WHERE q_no=#{q_no}
+</sql>
+<!-- 내용보기 -->
+<select id="questionContentData" resultType="Question" parameterType="int">
+	SELECT q_no,q_id,q_title,q_date,q_content,q_email,q_phone
+	FROM question
+	WHERE q_no=#{q_no} 
+</select>
+<!-- 이메일 보내기/값 -->
+<update id="questionEmail" parameterType="Question">
+	UPDATE question SET
+	q_title=#{q_title},q_content=#{q_content}
+	WHERE q_no=#{q_no}
+</update>
 </mapper>

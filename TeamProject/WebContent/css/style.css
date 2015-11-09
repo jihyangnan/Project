@@ -1790,7 +1790,8 @@ li.selector {
 	width:100%;
 	margin:0 auto;
 	text-align: center;
-	padding-left: 35px;
+	padding-left: 15%;
+	padding-right:15%;
 }
 .join>ul>li
 {

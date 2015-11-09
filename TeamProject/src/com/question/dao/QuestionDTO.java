@@ -22,7 +22,29 @@ public class QuestionDTO {
 	private String q_email;
 	private int q_qtno;
 	private String q_id;
+	private int num;
+	private String dbday;
+	private String qt_name;
 	
+	
+	public String getQt_name() {
+		return qt_name;
+	}
+	public void setQt_name(String qt_name) {
+		this.qt_name = qt_name;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
 	public int getQ_no() {
 		return q_no;
 	}

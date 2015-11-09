@@ -102,7 +102,7 @@
 			</h2>
 			<form name="join_frm" id="joinForm" action="join_ok.do">
 				<div class="jumbotron"
-					style="padding-top: 20px; background-color: #fff">
+					style="padding-top: 30px; background-color: #fff">
 					<div class="join" align="center">
 						<ul>
 							<li><img src="images/id.png" alt=""> <input
@@ -202,9 +202,14 @@
 					</div>
 					<div class="joinup">
 
-						<input type=submit value="회원가입" id="btnSub">
+						<input type=submit value="회원가입" id="btnSub"  class="join-btn" 
+						style="font-size: 11px; background-color: #F94B4B; padding:5px 15px; font-weight:400;
+						color:#ffffff; border-radius:10px; border:none;">
 
-						&nbsp;&nbsp;&nbsp; <input type=button value="취소" id="btnCancel">
+						&nbsp;&nbsp;&nbsp; 
+						<input type=button value="취소" id="btnCancel" 
+						style="font-size: 11px; background-color: #F94B4B; padding:5px 15px; font-weight:400;
+						color:#ffffff; border-radius:10px; border:none;">
 
 					</div>
 				</div>

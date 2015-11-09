@@ -448,14 +448,20 @@
 									고객의 소리 공지사항 & 이벤트</font>
 									</li>
 									<li><a href="#">공지사항 입니다</a></li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
+									<!-- 관리자 -->
+									${mlist[0].b_title}
+									<c:forEach var="mdto" items="${mlist }" varStatus="status">
+									<div class="row list-group-item" style="margin:0px;">
+										<span class="col-sm-1 mhide">
+											<img src="images/${mdto.sa_img }" /> 
+										</span>
+										<span class="col-sm-5 col-xs-10" style="text-align:left;">
+										  <i></i>
+										  ${mdto.b_title }
+										</span>
+																			
+									</div>
+									</c:forEach>
 									</ul>
 							     </div>	
 				  </div>
