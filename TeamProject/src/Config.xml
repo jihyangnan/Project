@@ -40,5 +40,6 @@
 	<mapper resource="com/reserve/dao/reserve-mapper.xml"/>
 	<mapper resource="com/member/dao/member-mapper.xml"/>
 	<mapper resource="com/question/dao/question_mapper.xml"/>
+	<mapper resource="com/mypage/dao/mypage-mapper.xml"/>
 	</mappers>
 </configuration>
