@@ -99,13 +99,7 @@ public class ZipRegDTO {
 		this.h_nBed = h_nBed;
 	}
 
-	public int getH_nBath() {
-		return h_nBath;
-	}
-
-	public void setH_nBath(int h_nBath) {
-		this.h_nBath = h_nBath;
-	}
+	
 
 	public String getH_nHome() {
 		return h_nHome;
@@ -235,4 +229,13 @@ public class ZipRegDTO {
 	public void setReplyCount(int replyCount) {
 		this.replyCount = replyCount;
 	}
+
+	public int getH_nBath() {
+		return h_nBath;
+	}
+
+	public void setH_nBath(int h_nBath) {
+		this.h_nBath = h_nBath;
+	}
+	
 }

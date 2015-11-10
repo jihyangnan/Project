@@ -21,7 +21,7 @@
 	</select>
 	<insert id="reviewNewInsert" parameterType="Review">
 		<selectKey keyProperty="re_No" resultType="int" order="BEFORE">
-			SELECT MAX(re_No)+1 FROM review
+			SELECT NVL(MAX(re_No)+1,1) FROM review
 		</selectKey>
 		INSERT INTO review
 		VALUES(#{re_No},#{re_Id},#{re_hNo},#{re_Content},SYSDATE)
@@ -68,5 +68,20 @@
 		WHERE h_Endday > SYSDATE AND h_Close = 'n'
 		ORDER BY h_no DESC))
 	</select>
-
+	
+	<!-- 예약 -->
+	<select id="reserveNo" parameterType="Reserve">
+	SELECT MAX(r_no) FROM reserve
+	</select>
+	<insert id="reserveDoit" parameterType="Reserve">
+		<selectKey keyProperty="r_no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(r_no)+1,1) FROM Reserve
+		</selectKey>
+		INSERT INTO Reserve
+		VALUES(#{r_no},#{r_addr},#{r_member},#{r_start},#{r_end},#{r_money},#{r_person})
+	</insert>
+	<select id="reserveData" parameterType="String" resultType="Reserve">
+	select * from reserve
+	where r_member=#{r_member}
+	</select>
 </mapper>

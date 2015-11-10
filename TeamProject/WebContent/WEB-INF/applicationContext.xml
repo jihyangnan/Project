@@ -41,6 +41,7 @@
     <bean id="review_new_insert" class="com.reserve.model.ReviewInsertModel"/>
     <bean id="reserve_review_update" class="com.reserve.model.ReviewUpdateModel"/>
     <bean id="reserve_listByMovingMap" class="com.reserve.model.ReserveListByMovingMapModel"/>
+    <bean id="reserve_doit" class="com.reserve.model.ReserveDoitModel"/>
     
 	<!-- 우리동네 소개 관련 -->
 	<bean id="town_list" class="com.town.model.TownListModel"/>

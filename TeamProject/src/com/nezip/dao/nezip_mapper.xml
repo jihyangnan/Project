@@ -1,88 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nezip.dao.nezip_mapper">
-<!-- 
-	집등록  
-	
-	집등록을 하면 집과 관련된 시설등록 과 집사진 테이블에도 insert를 해줘야 한다.
-	집등록 시퀀스의 currval을 이용해서 시설등록과 집사진 테이블의 집번호 컬럼값을 넣어 줘도 되지만 멀티스레드 환경에서 currval을 하기 전 다른 집이 
-	등록되어 시퀀스가 증가될 경우 시설과 사진이 해당하는 집과 불일치하므로  selectKey로 시퀀스를 증가시켜 DTO의 h_no로 넣고 그 값을 다른 작업에서 사용한다. 
--->
-<insert id="zipReg" parameterType="ZipReg">
-	<selectKey keyProperty="h_No" order="BEFORE" resultType="int">
-		SELECT zipreg_SEQ.NEXTVAL FROM dual		
-	</selectKey>
-	INSERT INTO zipreg(h_No, h_Type, h_rType, h_nPerson, h_nRoom, h_nBed, h_nBath, h_nHome, h_hContent, 
-		h_Addr1, h_Addr2, h_Phone, h_Money, h_Startday, h_Endday, h_Loc, h_Id, h_Rule) 
-	VALUES(#{h_No}, #{h_Type}, #{h_rType}, #{h_nPerson}, #{h_nRoom}, #{h_nBed}, #{h_nBath}, #{h_nHome}, #{h_hContent},
-		#{h_Addr1}, #{h_Addr2}, #{h_Phone}, #{h_Money}, #{h_Startday}, #{h_Endday}, #{h_Loc}, #{h_Id}, #{h_Rule})
-</insert>
+	<!-- 집등록 집등록을 하면 집과 관련된 시설등록 과 집사진 테이블에도 insert를 해줘야 한다. 집등록 시퀀스의 currval을 
+		이용해서 시설등록과 집사진 테이블의 집번호 컬럼값을 넣어 줘도 되지만 멀티스레드 환경에서 currval을 하기 전 다른 집이 등록되어 
+		시퀀스가 증가될 경우 시설과 사진이 해당하는 집과 불일치하므로 selectKey로 시퀀스를 증가시켜 DTO의 h_no로 넣고 그 값을 
+		다른 작업에서 사용한다. -->
+	<insert id="zipReg" parameterType="ZipReg">
+		<selectKey keyProperty="h_No" order="BEFORE" resultType="int">
+			SELECT zipreg_SEQ.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO zipreg(h_No, h_Type, h_rType, h_nPerson, h_nRoom, h_nBed,
+		h_nBath, h_nHome, h_hContent,
+		h_Addr1, h_Addr2, h_Phone, h_Money, h_Startday, h_Endday, h_Loc, h_Id, h_Rule)
+		VALUES(#{h_No}, #{h_Type}, #{h_rType}, #{h_nPerson}, #{h_nRoom},
+		#{h_nBed}, #{h_nBath}, #{h_nHome}, #{h_hContent},
+		#{h_Addr1},
+		#{h_Addr2}, #{h_Phone}, #{h_Money}, #{h_Startday}, #{h_Endday},
+		#{h_Loc}, #{h_Id}, #{h_Rule})
+	</insert>
 
-<!-- 시설 등록 -->
-<insert id="insertFac_reg" parameterType="com.nezip.dao.Fac_regDTO">
-	INSERT INTO fac_reg(c_No, c_hNo, c_hsNo) 
-	VALUES(fac_reg_seq.nextval, #{c_hNo}, #{c_hsNo})
-</insert>
+	<!-- 시설 등록 -->
+	<insert id="insertFac_reg" parameterType="com.nezip.dao.Fac_regDTO">
+		INSERT INTO fac_reg(c_No, c_hNo, c_hsNo)
+		VALUES(fac_reg_seq.nextval, #{c_hNo}, #{c_hsNo})
+	</insert>
 
-<!-- 사진 등록 -->
-<insert id="insertHome_photo" parameterType="com.nezip.dao.Home_photoDTO">
-	INSERT INTO home_photo 
-	VALUES(home_photo_seq.nextval, #{p_hno}, #{p_File}, #{p_Name})
-</insert>
+	<!-- 사진 등록 -->
+	<insert id="insertHome_photo" parameterType="com.nezip.dao.Home_photoDTO">
+		INSERT INTO home_photo
+		VALUES(home_photo_seq.nextval, #{p_hno}, #{p_File}, #{p_Name})
+	</insert>
 
-<select id="roomCatetoryList" resultType="Room_category">
-	SELECT hst_No, hst_Name, hst_Content 
-	FROM room_category
-</select>
+	<select id="roomCatetoryList" resultType="Room_category">
+		SELECT hst_No, hst_Name, hst_Content
+		FROM room_category
+	</select>
 
-<select id="facKindList" resultType="Fac_kind">
-	SELECT si_No, si_Kind, si_Content
-	FROM fac_kind
-</select>
+	<select id="facKindList" resultType="Fac_kind">
+		SELECT si_No, si_Kind, si_Content
+		FROM fac_kind
+	</select>
 
-<select id="homeFacList" resultType="Home_fac">
-	SELECT hs_No, hs_Kind, hs_Name, hs_Content
-	FROM home_fac
-</select>
+	<select id="homeFacList" resultType="Home_fac">
+		SELECT hs_No, hs_Kind, hs_Name, hs_Content
+		FROM home_fac
+	</select>
 
-<select id="homeCategoryList" resultType="Home_category">
-	SELECT ht_No, ht_Name, ht_Content  
-	FROM home_category
-</select>
-<!-- <select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
-select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,num
-from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,rownum as num
-from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc
-from zipreg order by h_no desc))
-WHERE num BETWEEN #{start} AND #{end}
-</select> -->
-<select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
-SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
-                                                         FROM review 
-                                                         WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
-                                                                                              FROM home_photo
-                                                                                              WHERE p_hno = h_No AND ROWNUM = 1) "image"
-FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
-      FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
-            FROM zipreg 
-            WHERE h_Endday > SYSDATE AND h_Close = 'n'
-            ORDER BY h_no DESC))
-WHERE num BETWEEN #{start} AND #{end}
-</select>
- <!-- 내용보기 데이터 출력  -->
-    <select id="zipregData" resultType="ZipReg" parameterType="int">
-     SELECT h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nHome,h_hContent,h_Addr1,h_Addr2
-	,h_Phone,h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday" , to_char(h_Endday, 'yyyy-MM-dd') "h_Endday" ,h_Loc,h_Id,h_Close,h_Rule
-     FROM zipreg
-     WHERE h_no=#{h_no}
-    </select>
-    <select id="facregList" resultType="Fac_reg" parameterType="int">
-	SELECT c_No,c_hNo,c_hsNo
-	FROM Fac_reg
-	WHERE c_hno=#{c_hno}
-</select>
-<select id="reviewCount" resultType="int" parameterType="int">
-     SELECT COUNT(*) FROM review
-     WHERE re_hno=#{re_hno}
-    </select>    
+	<select id="homeCategoryList" resultType="Home_category">
+		SELECT ht_No, ht_Name, ht_Content
+		FROM home_category
+	</select>
+	<!-- <select id="zipregList" resultType="ZipReg" parameterType="java.util.Map"> 
+		select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,num from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,rownum 
+		as num from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc from zipreg 
+		order by h_no desc)) WHERE num BETWEEN #{start} AND #{end} </select> -->
+	<select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
+		SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT
+		COUNT(re_no)
+		FROM review
+		WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
+		FROM home_photo
+		WHERE p_hno = h_No AND ROWNUM = 1) "image"
+		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as
+		num
+		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
+		FROM zipreg
+		WHERE h_Endday > SYSDATE AND h_Close = 'n'
+		ORDER BY h_no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 내용보기 데이터 출력 -->
+	<select id="zipregData" resultType="ZipReg" parameterType="int">
+		SELECT h_No, h_Type, h_rType, h_nPerson, h_nRoom, h_nBed, h_nBath,
+		h_nHome, h_hContent, h_Addr1, h_Addr2, h_Phone,
+		h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday", to_char(h_Endday,
+		'yyyy-MM-dd') "h_Endday", h_Loc, h_Id, h_Close, h_Rule,
+		(SELECT COUNT(re_no)
+		FROM review
+		WHERE re_hNo = #{h_no}) "replyCount" , (SELECT p_File
+		FROM home_photo
+		WHERE p_hno = 1 AND ROWNUM = #{h_no}) "image"
+		FROM zipreg
+		where h_no = #{h_no}
+	</select>
+	<select id="facregList" resultType="Fac_reg" parameterType="int">
+		SELECT c_No,c_hNo,c_hsNo
+		FROM Fac_reg
+		WHERE c_hno=#{c_hno}
+	</select>
+	<select id="reviewCount" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM review
+		WHERE re_hno=#{re_hno}
+	</select>
 </mapper>
