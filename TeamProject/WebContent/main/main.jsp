@@ -101,7 +101,7 @@
 
 <div class="content_top">
    <div class="container">
-   	  <h4 class="m_3">★ 인기 숙소 ★</h4>
+   	  <h4 class="m_3">★최신 숙소 ★</h4>
    	  <div class="grid_1">
 		<div class="col-md-3 box_1">
 			<a href="single.html"><img src="images/pic8.jpg" class="img-responsive" alt=""/></a>
@@ -111,7 +111,7 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">유럽풍 펜션</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"></i>
 			      2</span>
@@ -128,7 +128,7 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">House2</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"> </i>
 			      2</span>
@@ -145,7 +145,7 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">House3</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"> </i>
 			      2</span>
@@ -162,11 +162,11 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">House4</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"> </i>
 			      2</span>
-			      <span class="bedrooms last"><strong>침대</strong><i class="fa fa-bell"></i>
+			      <span class="bedrooms last"><strong>침실</strong><i class="fa fa-bell"></i>
 			      2</span>
              </div>
 		   </div>
