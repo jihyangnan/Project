@@ -32,7 +32,7 @@
 		   </div>
 		  </div>
 		</div>
-	  <c:if test="${status.count % 2 == 0 }">
+	  <c:if test="${status.count % 2 == 0 || status.last }">
 	  	<div class="clearfix"></div>
 		</li>
 	  </c:if>

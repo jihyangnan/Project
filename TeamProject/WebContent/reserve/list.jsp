@@ -1,9 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.lang.String"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="js/jquery.form.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$('.container').attr('class', 'container-fluid');
+		//$('.container').attr('class', 'container-fluid');
+		
+		$('#filterForm').ajaxForm({
+			//보내기전 validation check가 필요할경우
+			beforeSubmit : function(data, frm, opt) {
+				
+				return true;
+			},
+			//submit이후의 처리
+			success : function(data, statusText) {
+				//console.log(data); //응답받은 데이터 콘솔로 출력
+				$('#imagebox > div > div:last-child').html(data);
+				$('#photo').val(null);
+				setData();
+			},
+			//ajax error
+			error : function(e) {
+				alert("필터링 중 에러발생!!");
+				console.log(e);
+			}
+		});
 		
 		$('#myAffix').affix({
 		  offset: {
@@ -64,42 +85,45 @@
 
 <div class="about_top">
     <div class="container" style="border-top: 1px solid #E2E2E2; ">
-		
+		<script>
+		$('.container').attr('class', 'container-fluid');
+		</script>
 		<div>
 			<ul>
 				<li class="siteline"><img src="images/homelink.png"
 					style="vertical-align: top;"> 니집 예약</li>
+				<li class="clearfix"></li>
 			</ul>
 		</div>
 
-			<div class="text-right">
+			<!-- <div class="text-right">
 				<ol class="breadcrumb" style="background-color: #fff">
 				</ol>
-			</div>
+			</div> -->
 		
 			<!-- <div class="row"> -->
 			<div>	
 				<div id="hl_div" class="col-sm-7" style="padding:10 0; min-height: 1000px">
 				  <div>
-				  <form>
+				  <form action="" method="post" id="filterForm">
 					<div class="form-horizontal">
 					  <div class="form-group">
 					    <label class="col-sm-2 control-label" style="text-align: left">지역</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" placeholder="지역 입력">
+					      <input type="text" class="form-control" name="loc" placeholder="지역 입력">
 
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">날짜</label>
 					    <div class="col-sm-3">
-					      <input type="text" class="form-control datepicker" placeholder="체크인">
+					      <input type="text" class="form-control datepicker" name="startDay" placeholder="체크인">
 					    </div>
 					    <div class="col-sm-3">
-					      <input type="text" class="form-control datepicker" placeholder="체크아웃">
+					      <input type="text" class="form-control datepicker" name="endDay" placeholder="체크아웃">
 					    </div>
 					    <div class="col-sm-4">
-					      <select class="form-control">
+					      <select class="form-control" name="peopleNum">
 					      	<c:forEach var="i" begin="1" end="16" varStatus="status">
 					        	<option value="${i}">인원 ${i}<c:if test="${status.last}">+</c:if></option>
 					      	</c:forEach>
@@ -128,19 +152,19 @@
 							</label>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="집전체"> <input type="checkbox">집전체
+									<label title="집전체"> <input type="checkbox" name="roomStyle">집전체
 									</label>
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="개인실"> <input type="checkbox">개인실
+									<label title="개인실"> <input type="checkbox" name="roomStyle">개인실
 									</label>
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="다인실"> <input type="checkbox">다인실
+									<label title="다인실"> <input type="checkbox" name="roomStyle">다인실
 									</label>
 								</div>
 							</div>
@@ -150,7 +174,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" style="text-align: left; padding-right: 0">규모</label>
 							<div class="col-sm-3">
-								<select class="form-control">
+								<select class="form-control" name="roomNum">
 									<option value="1">침실수</option>
 									<c:forEach var="i" begin="1" end="11" varStatus="status">
 							        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
@@ -158,7 +182,7 @@
 								</select>
 							</div>
 							<div class="col-sm-3">
-								<select class="form-control">
+								<select class="form-control" name="bathNum">
 									<option value="1">화장실수</option>
 									<c:forEach var="i" begin="1" end="11" varStatus="status">
 							        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
@@ -166,7 +190,7 @@
 								</select>
 							</div>
 							<div class="col-sm-3">
-								<select class="form-control">
+								<select class="form-control" name="bedNum">
 									<option value="1">침대수</option>
 									<c:forEach var="i" begin="1" end="16" varStatus="status">
 							        	<option value="${i}">${i}<c:if test="${status.last}">+</c:if></option>
@@ -195,7 +219,7 @@
 										</c:if>
 									</c:if>
 												<div class="checkbox">
-													<label title="${fac.hs_Name}"> <input type="checkbox" name="homeCategory" value="${fac.hs_No}">
+													<label title="${fac.hs_Name}"> <input type="checkbox" name="homeFac" value="${fac.hs_No}">
 														${fac.hs_Name}
 													</label>
 												</div>
@@ -210,183 +234,7 @@
 										</div>
 									</c:if>
 								</c:forEach>
-							<!-- <div class="col-sm-3">
-								<div class="checkbox">
-									<label title="무선 인터넷"> <input type="checkbox">무선 인터넷
-									</label>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="checkbox">
-									<label title="TV"> <input type="checkbox">TV
-									</label>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="checkbox">
-									<label title="부엌"> <input type="checkbox">부엌
-									</label>
-								</div>
-							</div>
-							<div id ="detailFacilBtnon" class="col-sm-1" style="cursor: pointer;">
-								<i class="fa fa-caret-down" ></i>
-							</div>
-
-			
-							<div class="detailFacil">
-								<div class="col-sm-3 col-sm-offset-2" style="margin-top: 10px">
-									<div class="checkbox">
-										<label title="가족/어린이환영"> <input type="checkbox">가족/어린이환영
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3" style="margin-top: 10px">
-									<div class="checkbox">
-										<label title="건조기"> <input type="checkbox">건조기
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3" style="margin-top: 10px">
-									<div class="checkbox">
-										<label title="구급 상자"> <input type="checkbox">구급 상자
-										</label>
-									</div>
-								</div>
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="난방"> <input type="checkbox">난방
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="도어맨"> <input type="checkbox">도어맨
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="무료주차"> <input type="checkbox">무료주차
-										</label>
-									</div>
-								</div>
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="소화기"> <input type="checkbox">소화기
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="수영장"> <input type="checkbox">수영장
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="실내 벽난로"> <input type="checkbox">실내 벽난로
-										</label>
-									</div>
-								</div>
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="아침식사"> <input type="checkbox">아침식사
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="안전 카드"> <input type="checkbox">안전 카드
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="애완동물입실가능"> <input type="checkbox">애완동물입실가능
-										</label>
-									</div>
-								</div>
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="에어콘"> <input type="checkbox">에어콘
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="엘리베이터"> <input type="checkbox">엘리베이터
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="욕조"> <input type="checkbox">욕조
-										</label>
-									</div>
-								</div>
-
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="이벤트/행사 가능"> <input type="checkbox">이벤트/행사 가능
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="인터넷"> <input type="checkbox">인터넷
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="흡연가능"> <input type="checkbox">흡연가능
-										</label>
-									</div>
-								</div>
-
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="초인종/인터폰"> <input type="checkbox">초인종/인터폰
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="침실문 잠금장치"> <input type="checkbox">침실문 잠금장치
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="케이블 TV"> <input type="checkbox">케이블 TV
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="필수 품목"> <input type="checkbox">필수 품목
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="화재 감지기"> <input type="checkbox">화재 감지기
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="휠체어 사용가능"> <input type="checkbox">휠체어 사용가능
-										</label>
-									</div>
-								</div> 
-							</div>-->
+							
 
 						</div>
 
@@ -425,88 +273,7 @@
 							</c:forEach>
 							
 							
-							<!-- <div class="col-sm-3">
-								<div class="checkbox">
-									<label title="아파트"> <input type="checkbox">아파트
-									</label>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="checkbox">
-									<label title="단독주택"> <input type="checkbox">단독주택
-									</label>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="checkbox">
-									<label title="게스트하우스"> <input type="checkbox">게스트하우스
-									</label>
-								</div>
-							</div>
-							<div id ="dHTBtnon" class="col-sm-1" style="cursor: pointer;">
-								<i class="fa fa-caret-down" ></i>
-							</div>
 							
-							
-							
-							<div class="detailHouseType">
-								<div class="col-sm-3 col-sm-offset-2" style="margin-top: 10px">
-									<div class="checkbox">
-										<label title="기숙사"> <input type="checkbox">기숙사
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3" style="margin-top: 10px">
-									<div class="checkbox">
-										<label title="로프트"> <input type="checkbox">로프트
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3" style="margin-top: 10px">
-									<div class="checkbox">
-										<label title="기타"> <input type="checkbox">기타
-										</label>
-									</div>
-								</div>
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="배"> <input type="checkbox">배
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="별장"> <input type="checkbox">별장
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="타운하우스"> <input type="checkbox">타운하우스
-										</label>
-									</div>
-								</div>
-
-								<div class="col-sm-3 col-sm-offset-2">
-									<div class="checkbox">
-										<label title="캠핑카"> <input type="checkbox">캠핑카
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="텐트"> <input type="checkbox">텐트
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="checkbox">
-										<label title="통나무집"> <input type="checkbox">통나무집
-										</label>
-									</div>
-								</div>  
-							</div>	-->	
 						</div>
 							<div class="form-group">
 						    	<div class="col-sm-3 col-sm-offset-6">
@@ -590,7 +357,7 @@
 					var container = document.getElementById('map');
 					var options = {
 						center: new daum.maps.LatLng(37.553121, 126.937059),
-						level: 5
+						level: 4
 					};
 					
 					var map = new daum.maps.Map(container, options);
@@ -600,14 +367,15 @@
 					
 					// 지도에 표시할 원을 생성합니다
 			        var cir = new daum.maps.Circle({
-			            center :new daum.maps.LatLng(37.553121, 126.937059),  // 원의 중심좌표 입니다 
+			           // center :new daum.maps.LatLng(37.553121, 126.937059),  // 원의 중심좌표 입니다 
+			            center : map.getCenter(),
 			            radius: 500, // 미터 단위의 원의 반지름입니다 
-			            strokeWeight: 3, // 선의 두께입니다 
+			            strokeWeight: 2, // 선의 두께입니다 
 			            strokeColor: '#75B8FA', // 선의 색깔입니다
 			            strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
 			            strokeStyle: 'dashed', // 선의 스타일 입니다
 			            fillColor: '#CFE7FF', // 채우기 색깔입니다
-			            fillOpacity: 0.7  // 채우기 불투명도 입니다   
+			            fillOpacity: 0.4  // 채우기 불투명도 입니다   
 			        }); 
 					
 			        cir.setMap(map); 
