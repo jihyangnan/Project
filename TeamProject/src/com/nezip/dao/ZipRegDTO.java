@@ -101,13 +101,7 @@ public class ZipRegDTO {
 		this.h_nBed = h_nBed;
 	}
 
-	public int getH_nBath() {
-		return h_nBath;
-	}
-
-	public void setH_nBath(int h_nBath) {
-		this.h_nBath = h_nBath;
-	}
+	
 
 	public String getH_nHome() {
 		return h_nHome;
@@ -230,6 +224,22 @@ public class ZipRegDTO {
 		this.image = image;
 	}
 
+	public int getReplyCount() {
+		return replyCount;
+	}
+
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
+
+	public int getH_nBath() {
+		return h_nBath;
+	}
+
+	public void setH_nBath(int h_nBath) {
+		this.h_nBath = h_nBath;
+	}
+
 	public List<Fac_regDTO> getFacList() {
 		return facList;
 	}
@@ -258,12 +268,8 @@ public class ZipRegDTO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public int getReplyCount() {
-		return replyCount;
-	}
-	public void setReplyCount(int replyCount) {
-		this.replyCount = replyCount;
-	}
+
+
 	public int getB_no() {
 		return b_no;
 	}

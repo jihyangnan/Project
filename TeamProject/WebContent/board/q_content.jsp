@@ -33,13 +33,13 @@
 				<span class="col-md-2" style="padding:2px; font-size:13pt;">
 				${dto.q_id }</span> 
 				
-				<span class="col-md-2"
+				<span class="col-md-1"
 					style="text-align:center;padding:2px;font-size:13pt;font-weight:600;">
 					연락처 </span> 
-				<span class="col-md-2" style="padding:2px; font-size:13pt;">
+				<span class="col-md-3" style="padding:2px; font-size:13pt;">
 				${dto.q_phone }</span> 
 				
-				<span class="col-md-2"
+				<span class="col-md-1"
 					style="text-align:center;padding:2px;font-size:13pt;font-weight:600;">
 					이메일 </span> 
 				<span class="col-md-2" style="padding:2px; font-size:13pt;">
