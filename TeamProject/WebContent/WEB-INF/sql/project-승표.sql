@@ -64,8 +64,6 @@ CONSTRAINT zipreg_no_pk PRIMARY KEY(h_no)
 );
 
 
-alter table
-
 -- มýป็ม๘
 create table home_photo 
 ( p_No number primary key,

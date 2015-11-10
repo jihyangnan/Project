@@ -88,4 +88,15 @@ WHERE num BETWEEN #{start} AND #{end}
 	WHERE h_id = #{h_id}
 </select>
 
+<!-- 마이페이지 게시판 등록 -->
+<select id="myboardListData" resultType="ZipReg" parameterType="java.util.Map">
+SELECT b_sano, b_no, b_id, b_title, dbday, b_hit, b_delete, num
+FROM(SELECT b_sano, b_no, b_id, b_title, TO_char(b_date,'YYYY-MM-DD')as dbday, b_hit, 
+			b_delete, rownum as num
+	FROM(SELECT b_sano, b_no, b_id, b_title, b_date, b_hit, b_delete
+			FROM p_board WHERE b_sano=4 AND b_id=#{b_id}
+    ORDER BY b_no DESC))
+WHERE b_delete='n' AND b_sano=4 AND num BETWEEN 1 AND 10
+</select>
+
 </mapper>

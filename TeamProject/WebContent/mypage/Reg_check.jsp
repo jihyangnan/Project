@@ -5,14 +5,14 @@
     <div class="container">
     	<div>
 			<ul>
-				<li class="siteline"><img src="images/homelink.png"
-					style="vertical-align: top;"> 등록 내역</li>
+				<li class="siteline"><img src="images/homelink.png" style="vertical-align:top;"> 
+                  	마이페이지 -> 내집 등록내역</li>
 			</ul>
 		</div>
         <div class="about">
 			<div>
 				<h4 class="blog_head" align="left">
-					<b>게시물 목록</b>
+					<b>내집 등록내역</b>
 				</h4>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;">
 			</div>
@@ -61,27 +61,34 @@
 				</c:if>
 			</c:forEach> 
 
-<!-- 게시판 등록 내역 -->
+   
+              <div>
+				<h4 class="blog_head" align="left">
+					<b>게시판 등록내역</b>
+				</h4>
+				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;">
+			</div> 
+			
+			<!-- 게시판 등록 내역 -->
 
 	<div class="list-group panel panel-default" style="border: 0">	
 				<div class="row mhide panel-heading" style="margin:0px;">
 					
 					<div class="col-sm-1" style="font-weight: 600">번호</div>
-					<div class="col-sm-5" style="font-weight: 600">제목</div>
+					<div class="col-sm-8 col-xs-10" style="font-weight: 600">제목</div>
 					<div class="col-sm-2" style="font-weight: 600">작성일</div>
 				
 				</div>
 								
-				<!-- 회원목록 -->
-				<c:forEach var="dto" items="${list }" varStatus="status">
+				 <!-- 회원목록 -->
+				<c:forEach var="dto" items="${mlist }" varStatus="status">
 				<div class="row list-group-item" style="margin:0px;">
 					<!-- <img src="images/ico-list-notice.gif"> -->
 					<span class="col-sm-1">${dto.num }</span>
-					<span class="col-sm-5 col-xs-10" style="text-align:left;">
+					<span class="col-sm-8 col-xs-10" style="text-align:left;">
 					  <i></i>
 					  <a href="board_content.do?b_no=${dto.b_no}&page=${curpage}">
 					  ${dto.b_title }</a>
-					 
 					  <c:if test="${today==dto.dbday }">
 					  <sup><img src="images/neo_new.gif"></sup>
 					  </c:if>
@@ -90,13 +97,13 @@
 					<span class="col-sm-2 mhide date">${dto.dbday }</span>
 			
 				</div>
-				</c:forEach>
+				</c:forEach> 
 				
 			</div>	
 
 
 
-
+<!--이전 주석 -->
 
 			<!-- <div style=" margin-bottom: 3%;">
 			<div class="col-sm-6">

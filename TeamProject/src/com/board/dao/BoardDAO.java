@@ -327,4 +327,7 @@ public class BoardDAO {
 		session.close();
 		return (int)(Math.ceil(count/10.0));
 	}
+	
+	
+	
 }
