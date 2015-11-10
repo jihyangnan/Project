@@ -28,6 +28,7 @@
 	<bean id="question_content" class="com.question.model.QuestionContentModel"/>
 	<bean id="question_email" class="com.question.model.QuestionEmailModel"/>
 	<bean id="question_email_send" class="com.question.model.QuestionEmailSendModel"/>
+	
 	<!-- 내집 등록 관련 -->
 	<bean id="nezip_insert1" class="com.nezip.model.Insert1Model"/>
 	<bean id="nezip_insert2" class="com.nezip.model.Insert2Model"/>
@@ -67,6 +68,7 @@
 	<bean id="mypage_profileOut" class="com.mypage.model.ProfileOutModel"/>
     <bean id="mypage_regCheck" class="com.mypage.model.Reg_checkModel"/>
     <bean id="mypage_reserveCheck" class="com.mypage.model.Reserve_CheckModel"/>
+   
     
     <!-- 회원가입 -->
 	<bean class="com.member.model.MemberJoinModel" id="join" />

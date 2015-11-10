@@ -94,8 +94,6 @@ CREATE TABLE Review (
 	re_Date DATE   /* 작성일 */
 );
 
-alter table
-
 -- 집사진
 create table home_photo 
 ( p_No number primary key,
