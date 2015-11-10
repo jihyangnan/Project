@@ -10,6 +10,11 @@ import com.board.dao.BoardDTO;
 import com.common.Model;
 import com.question.dao.QuestionDAO;
 import com.question.dao.QuestionDTO;
+//이메일
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 
 public class QuestionEmailSendModel implements Model {
 
@@ -19,26 +24,42 @@ public class QuestionEmailSendModel implements Model {
 		req.setCharacterEncoding("utf-8");
 		String strPage=req.getParameter("page");
 		String strNo=req.getParameter("q_no");
-		String q_title=req.getParameter("q_title");
-		String q_content=req.getParameter("q_content");
-		System.out.println("page: "+strPage);
-		System.out.println("strNo: "+strNo);
-		System.out.println("model-q_title: "+q_title);
-		System.out.println("model-q_content: "+q_content);
+		String title=req.getParameter("title");
+		String content=req.getParameter("content");
+		String email=req.getParameter("email");
+		String host = "smtp.gmail.com";
+		String to=email; //수신인
+		String from ="bjGameMaster@gmail.com";//발신인
+		String password="blackjack1234";
+		String from_name = "니집내집 운영자";
 
-		QuestionDTO d=new QuestionDTO();
-		d.setQ_no(Integer.parseInt(strNo));
-		d.setQ_title(q_title);
-		d.setQ_content(q_content.trim());
-		
-		System.out.println("model-q_title2: "+q_title);
-		System.out.println("model-q_content2: "+q_content);
-		
+		Properties props=new Properties();
+		props.put("mail.smtps.auth", "true");
+		Session session=Session.getInstance(props);
+		try
+		{
+			MimeMessage msg=new MimeMessage(session);
+			msg.setFrom(new InternetAddress(from,MimeUtility.encodeText (
+					from_name, "UTF-8", "B")));
+			InternetAddress address=new InternetAddress(to);
+			msg.setRecipient(Message.RecipientType.TO, address);
+			msg.setSubject(title);
+			msg.setText(content);
+			Transport transport = session.getTransport("smtps");
+		    transport.connect(host, from, password);
+		    transport.sendMessage(msg, msg.getAllRecipients());
+			Transport.send(msg);
+			transport.close();     
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+	
 		req.setAttribute("q_no", strNo);
 		req.setAttribute("page", strPage);
-		QuestionDAO.questionEmail(d);
-		//return "board/board_update_ok.jsp"; 
-		return "question_content.do?q_no=" + strNo + "&page=" + strPage ;
+		
+		return "question_list.do?page="+strPage ;
 	}
 
 }

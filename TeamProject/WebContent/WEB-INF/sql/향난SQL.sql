@@ -87,6 +87,12 @@ INSERT INTO p_board values(19,'admin','자유 게시판 작성시 주의 사항입니다.','욕�
 INSERT INTO p_board values(20,'admin','이번달 이벤트 입니다.','이벤트 있었습니다.',0,0,SYSDATE,'n',2);
 INSERT INTO p_board values(21,'admin','공지사항입니다.','공지사항 있었습니다.',0,0,SYSDATE,'n',1);
 
+
+insert into question_type values(1,'문의');
+insert into question_type values(2,'불만');
+insert into question_type values(3,'칭찬');
+insert into question_type values(4,'제안');
+insert into question_type values(5,'수정');
 --select * from re_board;
 ----댓글추가
 --INSERT INTO re_board VALUES(1,0,'댓글이지','shim',SYSDATE,'n',
