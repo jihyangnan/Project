@@ -23,5 +23,4 @@ public class ProfileModel implements Model {
 		req.setAttribute("jsp", "../mypage/profile.jsp");
 		return "main/index.jsp";
 	}
-
 }
