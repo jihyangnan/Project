@@ -102,3 +102,10 @@ INSERT INTO p_board values(21,'admin','공지사항입니다.','공지사항 있었습니다.',0
 --           ORDER BY b_no desc)) a JOIN b_word b
 --           ON a.b_sano = b.sa_no
 --WHERE num BETWEEN 1 AND 5;
+
+
+insert into question_type values(1,'문의');
+insert into question_type values(2,'불만');
+insert into question_type values(3,'칭찬');
+insert into question_type values(4,'제안');
+insert into question_type values(5,'수정');
