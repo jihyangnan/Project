@@ -61,6 +61,40 @@
 				</c:if>
 			</c:forEach> 
 
+<!-- 게시판 등록 내역 -->
+
+	<div class="list-group panel panel-default" style="border: 0">	
+				<div class="row mhide panel-heading" style="margin:0px;">
+					
+					<div class="col-sm-1" style="font-weight: 600">번호</div>
+					<div class="col-sm-5" style="font-weight: 600">제목</div>
+					<div class="col-sm-2" style="font-weight: 600">작성일</div>
+				
+				</div>
+								
+				<!-- 회원목록 -->
+				<c:forEach var="dto" items="${list }" varStatus="status">
+				<div class="row list-group-item" style="margin:0px;">
+					<!-- <img src="images/ico-list-notice.gif"> -->
+					<span class="col-sm-1">${dto.num }</span>
+					<span class="col-sm-5 col-xs-10" style="text-align:left;">
+					  <i></i>
+					  <a href="board_content.do?b_no=${dto.b_no}&page=${curpage}">
+					  ${dto.b_title }</a>
+					 
+					  <c:if test="${today==dto.dbday }">
+					  <sup><img src="images/neo_new.gif"></sup>
+					  </c:if>
+					</span>
+									
+					<span class="col-sm-2 mhide date">${dto.dbday }</span>
+			
+				</div>
+				</c:forEach>
+				
+			</div>	
+
+
 
 
 
