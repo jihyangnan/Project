@@ -44,8 +44,8 @@ public class QuestionEmailSendModel implements Model {
 			InternetAddress address=new InternetAddress(to);
 			msg.setRecipient(Message.RecipientType.TO, address);
 			msg.setSubject(title);
-			msg.setText(content);
-			
+			//msg.setText(content);
+			msg.setContent(content,"text/html;charset="+"EUC-KR");
 			Transport transport = session.getTransport("smtps");
 		    transport.connect(host, from, password);
 		    transport.sendMessage(msg, msg.getAllRecipients());
