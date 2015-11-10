@@ -50,7 +50,8 @@
 		SELECT re_No,re_Id,re_hNo,re_Content,re_Date
 		FROM review
 		WHERE
-		re_hno=#{re_hno}
+		re_hno=#{re_hno}		
+		order by re_no desc  
 	</select>
 
 	<!-- 맵 이동시 목록가져오기 -->

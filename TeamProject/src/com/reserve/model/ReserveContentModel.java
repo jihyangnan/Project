@@ -36,6 +36,7 @@ public class ReserveContentModel implements Model {
 			List<Fac_regDTO> flist=NezipDAO.facregList(Integer.parseInt(strNo));
 			List<ReviewDTO> list=
 					ReserveDAO.reviewListData(Integer.parseInt(strNo));
+			System.out.println("dd"+dto.getImage());
 			req.setAttribute("list", list);
 			req.setAttribute("flist", flist);
 			req.setAttribute("dto", dto);
