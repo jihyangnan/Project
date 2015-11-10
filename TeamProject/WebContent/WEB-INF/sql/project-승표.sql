@@ -8,6 +8,27 @@ DROP TABLE room_category;
 DROP TABLE home_fac;
 DROP TABLE fac_kind;
 
+/* 후기 */
+CREATE TABLE Reserve(
+	r_No NUMBER primary key , /* 예약번호 */
+	r_Addr NUMBER , /* 예약장소  foreign key */
+	r_Member VARCHAR2(20) , /* 아이디 foreign key */
+	r_Start DATE, /* 예약시작 */
+	r_End DATE, /* 예약종료 */
+	r_Money NUMBER , /* 예약비 */
+	r_Person NUMBER /* 예약인원 */
+);
+ALTER TABLE reserve
+	ADD
+		CONSTRAINT FK_zipreg_TO_reserve
+		FOREIGN KEY (
+			r_Addr
+		)
+		REFERENCES zipreg (
+			h_No
+		);
+
+
 --숙소유형
 create table room_category 
 ( hst_No number primary key,
@@ -62,9 +83,16 @@ h_Close CHAR(1) DEFAULT 'n' CHECK (h_Close IN('y','n')), --예약완료여부
 h_Rule VARCHAR2(2000), --숙소이용규칙
 CONSTRAINT zipreg_no_pk PRIMARY KEY(h_no)
 );
+DROP SEQUENCE zipreg_SEQ;
+CREATE SEQUENCE zipreg_SEQ;
 
-
-alter table
+CREATE TABLE Review (
+	re_No NUMBER primary key , /* 후기번호 */
+	re_Id VARCHAR2(30) , /* 작성자 */
+	re_hNo NUMBER references zipreg(h_no), /* 숙소번호 foreign key */
+	re_Content VARCHAR2(2000) , /* 내용 */
+	re_Date DATE   /* 작성일 */
+);
 
 -- 집사진
 create table home_photo 
@@ -95,7 +123,7 @@ INSERT INTO fac_kind VALUES( 4, '안전 체크리스트', '');
 --집유형 시퀀스
 DROP sequence home_category_seq;
 create sequence home_category_seq
-minvalue 0;
+MINVALUE 0;
 
 --집유형 값 입력
 INSERT INTO home_category VALUES( home_category_seq.nextval, '아파트', '아파트');
@@ -112,8 +140,7 @@ INSERT INTO home_category VALUES( home_category_seq.nextval, '기타', '기타');
 --숙소시설 시퀀스
 DROP sequence home_fac_seq;
 create sequence home_fac_seq
-minvalue 0;
-
+MINVALUE 0;
 --숙소시설 값 입력
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, 'TV', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,1, '인터넷', ' ');
@@ -148,9 +175,10 @@ INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '구급 상자', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '침실문 잠금장치', ' ');
 
 
-DROP SEQUENCE zipreg_SEQ;
-CREATE SEQUENCE zipreg_SEQ;
 
+select * from zipreg;
+select * from review;
+SELECT * FROM TAB;
 --INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule) 
 --VALUES(zipreg_SEQ.NEXTVAL,1,1,4,2,2,2,'쌍용sist집','수용인원을 넘어간 인원은 추가요금을 내야합니다','서울시 강남구 역삼동','테헤란로 101길 8','010-5454-3535','100000','2015/5/1','2015/5/3','37.537048,127.005533','noy11', '깨끗이 사용해주세요');
 --
