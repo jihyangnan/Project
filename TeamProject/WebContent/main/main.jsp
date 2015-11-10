@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <div class="slider">
 	  <div class="callbacks_container">
 	      <ul class="rslides" id="slider">
@@ -444,19 +445,26 @@
 									</ul>
 									 -->
 									<ul>
-									<li><font style="color:#f94b4b; font-weight:700;">
-									고객의 소리 공지사항 & 이벤트</font>
+									<li style="padding-bottom:10px">
+									<font style="color:#f94b4b; font-weight:600; float:left; margin:0 auto;">
+									&nbsp;&nbsp;&nbsp;공지사항 & 이벤트</font>
+									<div align="right">
+										<a href="board_list.do">
+										<button class="more">+More</button>
+										</a>
+									</div>
 									</li>
-									<li><a href="#">공지사항 입니다</a></li>
+									
+									
+									</li>
 									<!-- 관리자 -->
-									${mlist[0].b_title}
+									<%-- ${mlist.b_title} --%>
 									<c:forEach var="mdto" items="${mlist }" varStatus="status">
-									<div class="row list-group-item" style="margin:0px;">
+									<div class="row list-group-item" style="margin:0px; padding:5px;">
 										<span class="col-sm-1 mhide">
 											<img src="images/${mdto.sa_img }" /> 
 										</span>
-										<span class="col-sm-5 col-xs-10" style="text-align:left;">
-										  <i></i>
+										<span class="col-sm-10" style="text-align:left; font-size: 13px; padding-top:3px;">
 										  ${mdto.b_title }
 										</span>
 																			
@@ -570,7 +578,7 @@
                 </div>
                 <div class="col-md-5 grid_5">
                     <div class="banner2">
-                        <a class="btn2" href="index.jsp?page=main/company.jsp">click here</a>
+                        <a class="btn2" href="company.do">click here</a>
                         <h3>
                             NiZip NeZip <br>
                             Company Intro 

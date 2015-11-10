@@ -49,16 +49,30 @@
 	SELECT ht_No, ht_Name, ht_Content  
 	FROM home_category
 </select>
-<select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
+<!-- <select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
 select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,num
 from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,rownum as num
 from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc
 from zipreg order by h_no desc))
 WHERE num BETWEEN #{start} AND #{end}
+</select> -->
+<select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
+SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
+                                                         FROM review 
+                                                         WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
+                                                                                              FROM home_photo
+                                                                                              WHERE p_hno = h_No AND ROWNUM = 1) "image"
+FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
+      FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
+            FROM zipreg 
+            WHERE h_Endday > SYSDATE AND h_Close = 'n'
+            ORDER BY h_no DESC))
+WHERE num BETWEEN #{start} AND #{end}
 </select>
  <!-- 내용보기 데이터 출력  -->
     <select id="zipregData" resultType="ZipReg" parameterType="int">
-     SELECT *
+     SELECT h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nHome,h_hContent,h_Addr1,h_Addr2
+	,h_Phone,h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday" , to_char(h_Endday, 'yyyy-MM-dd') "h_Endday" ,h_Loc,h_Id,h_Close,h_Rule
      FROM zipreg
      WHERE h_no=#{h_no}
     </select>
@@ -67,4 +81,8 @@ WHERE num BETWEEN #{start} AND #{end}
 	FROM Fac_reg
 	WHERE c_hno=#{c_hno}
 </select>
+<select id="reviewCount" resultType="int" parameterType="int">
+     SELECT COUNT(*) FROM review
+     WHERE re_hno=#{re_hno}
+    </select>    
 </mapper>

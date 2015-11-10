@@ -76,6 +76,7 @@ public class NezipDAO {
 	
 	
 	
+	
 	//집 등록 리스트
 		public static List<ZipRegDTO> zipregList(Map<String, Object> map)
 		   {
@@ -117,6 +118,7 @@ public class NezipDAO {
 			   }
 			   return d;
 		   }
+
 		// 숙소 시설 리스트
 		public static List<Fac_regDTO> facregList(int hno)
 		   {

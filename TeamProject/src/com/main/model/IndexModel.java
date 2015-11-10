@@ -23,24 +23,15 @@ public class IndexModel implements Model{
 			strPage="1";
 		}
 		Map mgmap=new HashMap();
-		int mrowSize=5;	
-		int mcurpage=Integer.parseInt(strPage);
-		
-		int mstart=(mcurpage*mrowSize)-(mrowSize-1);
-		int mend=mcurpage*mrowSize;
-		
 		List<BoardDTO> mlist = BoardDAO.board_mListData(mgmap);
-		
-		System.out.println("mlist="+mlist.size());
-		for(int i=0; i<mlist.size(); i++){
-			System.out.println("이미지 : "+mlist.get(i).getSa_img());
-			System.out.println("타이틀 : ㅠ"+mlist.get(i).getB_title());
-		}
 		
 		req.setAttribute("mlist", mlist);
 		req.setAttribute("pageNum", 0); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
 		req.setAttribute("jsp", "main.jsp");
+
 		req.getSession().setAttribute("id", "admin");
+
+
 		return "main/index.jsp";
 	}
 	
