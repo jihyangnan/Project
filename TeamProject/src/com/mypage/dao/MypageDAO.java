@@ -1,6 +1,9 @@
 package com.mypage.dao;
 
-import java.util.*;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,8 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.member.dao.MemberDTO;
 import com.nezip.dao.ZipRegDTO;
-
-import java.io.Reader;
+import com.reserve.dao.ReserveDTO;
 
 public class MypageDAO {
 	private static SqlSessionFactory ssf;
@@ -53,5 +55,19 @@ public class MypageDAO {
 		}
 		return d;
 	}
-
+	// 집 예약 리스트
+		public static List<ReserveDTO> reserveCheck(String r_member) {
+			List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+			SqlSession session = null;
+			try {
+				session = ssf.openSession();
+				list = session.selectList("reserveCheck", r_member);
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			} finally {
+				if (session != null)
+					session.close();
+			}
+			return list;
+		}
 }

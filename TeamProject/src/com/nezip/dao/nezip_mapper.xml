@@ -70,12 +70,17 @@ FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
 WHERE num BETWEEN #{start} AND #{end}
 </select>
  <!-- 내용보기 데이터 출력  -->
-    <select id="zipregData" resultType="ZipReg" parameterType="int">
-     SELECT h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nHome,h_hContent,h_Addr1,h_Addr2
-	,h_Phone,h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday" , to_char(h_Endday, 'yyyy-MM-dd') "h_Endday" ,h_Loc,h_Id,h_Close,h_Rule
-     FROM zipreg
-     WHERE h_no=#{h_no}
-    </select>
+   <select id="zipregData" resultType="ZipReg" parameterType="int">
+      SELECT h_No, h_Type, h_rType, h_nPerson, h_nRoom, h_nBed, h_nBath, h_nHome, h_hContent, h_Addr1, h_Addr2, h_Phone,
+      h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday", to_char(h_Endday, 'yyyy-MM-dd') "h_Endday", h_Loc, h_Id, h_Close, h_Rule,
+            (SELECT COUNT(re_no)
+               FROM review
+                  WHERE re_hNo = h_no) "replyCount" , (SELECT p_File
+                                                   FROM home_photo
+                                                   WHERE p_hno = h_no AND ROWNUM = 1) "image"
+      FROM zipreg
+      where h_no = #{h_no}
+   </select>
     <select id="facregList" resultType="Fac_reg" parameterType="int">
 	SELECT c_No,c_hNo,c_hsNo
 	FROM Fac_reg
@@ -90,5 +95,11 @@ WHERE num BETWEEN #{start} AND #{end}
 	<select id="reviewCount" resultType="int" parameterType="int">
 		SELECT COUNT(*) FROM review
 		WHERE re_hno=#{re_hno}
+	</select>
+	<!-- 예약목록  -->
+	<select id="reserveCheck" resultType="Reserve" parameterType="String">
+		SELECT r_no,r_addr,r_member,r_start,r_end,r_money,r_person,(SELECT p_file FROM home_photo WHERE p_hno = r_no AND rownum=1) "image"
+		FROM Reserve
+		WHERE r_member=#{r_member}
 	</select>
 </mapper>
