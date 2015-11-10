@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="about_top">
     <div class="container">
     	<div>
@@ -15,7 +16,55 @@
 				</h4>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;">
 			</div>
-			<div style=" margin-bottom: 3%;">
+
+			<c:forEach var="reg" items="${list}" varStatus="status">
+				<c:if test="${status.count % 2 == 1}">
+					<div style=" margin-bottom: 3%;">
+				</c:if>
+					<div class="col-sm-6">
+					<div class="col-sm-6">	
+							<img src="upload/${reg.image}" class="" alt="" style="width: 200px; height: 140px;">
+					</div>
+					<div class="col-sm-6">
+						<h3 style="font-size: 18px; font-weight: bold;">
+							 ${reg.h_nHome } 
+						</h3>
+						<p style="margin-top: 8px; font-size: 13px;">
+						  <i class="fa fa-shield"></i>&nbsp;위치 : ${reg.h_Addr1 }</p>
+						<p style="margin-top: 8px; font-size: 13px;">
+							<i class="fa fa-pencil"></i>&nbsp;집유형: 
+							<c:if test="${reg.h_rType == 1 }">
+								집전체
+							</c:if> 
+							<c:if test="${reg.h_rType == 2 }">
+							      개인실
+							</c:if>
+							<c:if test="${reg.h_rType == 3 }">
+							      다인실
+							</c:if>
+						</p>
+						<p style="margin-top: 8px; font-size: 13px;">
+							<i class="fa fa-star"></i>&nbsp;가격: ${reg.h_Money }
+						</p>
+						<p style="margin-top: 8px; font-size: 13px;">
+							<i class="fa fa-pencil"></i>&nbsp;인원: 1
+						</p>
+						<input type="button" value="수정하기" id="join" class="btn" 
+						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
+						<input type="button" value="삭제하기" id="join" class="btn" 
+						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
+					</div>
+					</div>
+				<c:if test="${status.count % 2 == 0}">
+					<div class="clearfix"></div>
+					</div>
+				</c:if>
+			</c:forEach> 
+
+
+
+
+			<!-- <div style=" margin-bottom: 3%;">
 			<div class="col-sm-6">
 				<div class="row">
 					<div class="col-sm-6">	
@@ -42,7 +91,7 @@
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
 						
 					</div>
-				</div>
+				</div> 
 			</div>
 			<div class="col-sm-6">
 				<div class="row">
@@ -72,9 +121,9 @@
 				</div>
 			</div>
 			<div class="clearfix"></div>
-			</div>
+			</div> -->
 			
-			<div style=" margin-bottom: 3%;">
+			<!-- <div style=" margin-bottom: 3%;">
 			<div class="col-sm-6">
 				<div class="row">
 					<div class="col-sm-6">	
@@ -130,7 +179,7 @@
 				</div>
 			</div>
 			<div class="clearfix"></div>
-			</div>
+			</div> -->
 			
 		</div>
 		
