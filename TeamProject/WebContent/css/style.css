@@ -1790,7 +1790,8 @@ li.selector {
 	width:100%;
 	margin:0 auto;
 	text-align: center;
-	padding-left: 35px;
+	padding-left: 15%;
+	padding-right:15%;
 }
 .join>ul>li
 {
@@ -1843,7 +1844,7 @@ li.selector {
 	border-radius:10px;
 	font-size: 14x;
 	color: #fff;
-	font-weight:700 
+	font-weight:600 
 }
 .btn:LINK {
 	text-decoration: none;
@@ -1978,4 +1979,16 @@ li.selector {
 .jumbotron
 {
 	background-color: #f8f8f8;
+}
+
+.more
+{
+	background-color: #f94b4b;
+	font-size: 12px;
+	color:#fff;
+	font-weight:500;
+	border:1px solid #fff;
+	border-radius:5px;
+	padding:1px 4px;
+	
 }

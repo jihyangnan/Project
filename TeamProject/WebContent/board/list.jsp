@@ -91,7 +91,7 @@ function resizeBoard(){
 					<div class="col-sm-1" style="font-weight: 600">조회</div>
 				</div>
 				<!-- 관리자 -->
-				<c:forEach var="mdto" items="${mlist }" varStatus="status">
+				<c:forEach var="mdto" items="${mlist }" >
 				<div class="row list-group-item" style="margin:0px;">
 					<span class="col-sm-1 mhide">
 						<img src="images/${mdto.sa_img }" /> 

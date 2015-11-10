@@ -139,7 +139,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="dropdown"><a data-toggle="dropdown" style="cursor: pointer;" onclick="location.href='board_list.do'"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
 						<ul class="dropdown-menu" style="min-width: 110px;">
 							<li><a href="board_list.do">자유게시판</a></li>
+							<c:if test="${sessionScope.id!='admin' }">
 							<li><a href="question_insert.do">1:1문의</a></li>
+							</c:if>
+							<c:if test="${sessionScope.id=='admin' }">
+							<li><a href="question_list.do">1:1문의 관리</a></li>
+							</c:if>
+							
 						</ul>
 					</li>
 
@@ -155,7 +161,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</a>
 								<ul class="dropdown-menu" style="min-width: 100px;">
 									<li><a href="mypage_jimList.do">찜하기</a></li>
-									<li><a href="mypage_profile.do">마이페이지</a></li>
+									<li><a href="mypage_profile.do?id=${id }">마이페이지</a></li>
 									<li><a href="mypage_regCheck.do">등록내역</a></li>
 									<li><a href="#">예약내역</a></li>
 									<li><a href="member_logout.do">로그아웃</a></li>

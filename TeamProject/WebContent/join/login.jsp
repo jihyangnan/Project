@@ -28,6 +28,7 @@ $(function(){
 			</ul>
 		</div>
 		<div class="about">
+			
 			<div style="margin-top:20px; margin-bottom:1.5em;">
 			<h1 class="blog_head_login" style="font-size: 30pt; font-weight:700; margin:0px; color:#87d54d;">
 			<img alt="" src="images/loginlogo.png" style="vertical-align: bottom;"> 
@@ -37,7 +38,7 @@ $(function(){
 			<div class="form_l"  style="border:3px solid #e7e7e7; border-radius:10px;">
 				<form action="member_login.do" id="log_frm" method="post">
 					<div class="form2_l" >
-						<div style="width: 100%; margin-top:35px; margin-bottom:35px;">
+						<div style="width: 100%; margin-top:35px; margin-bottom:25px;">
 						<div class="form3_l">
 							<!-- <label for="user" style="font-size: 15px;">아이디</label>  -->
 							<input type="text" id="id" name=id placeholder="아이디" 
@@ -53,17 +54,31 @@ $(function(){
 						</label>
 						</div>
 						<div class="form6_l">
-							<label> <a href="join_join.do"> <input type="button"
+							<font style="font-size:12px;">니집내집 회원이 아니신가요?</font>
+							<a href="join_join.do"> 
+							<input type="button" class="join-btn" 
+							style="font-size: 11px; background-color: #F94B4B; padding:5px 15px; font-weight:400;"
+							value="회원가입" id="join"></a>
+							</button>
+							<!-- <label> <a href="join_join.do"> <input type="button"
 									value="회원가입" id="join"></a>
-							</label> <label> <a href="join_idSearch.do"> <input
+							</label> -->
+						</div>
+						<div class="form6_l" style="padding-bottom: 35px;">
+							<font style="font-size:12px;">아이디/비밀번호를 잊으셨나요?</font>
+							<a href="join_idSearch.do">
+							<input type="button" class="join-btn" 
+							style="font-size: 11px; background-color: #F94B4B; padding:5px 15px; font-weight:400;"
+							value="아이디/비밀번호 찾기" id="join"></a>
+							<!-- <label> <a href="join_idSearch.do"> <input
 									type="button" style="margin-left: 5%" value="아이디/비밀번호 찾기"
 									id="join"></a>
-							</label>
+							</label> -->
 						</div>
-
+						
 						<!-- <form class="form-horizontal">
   
-    <ul><li>
+    <ul><li>	
     <div class="form-group has-success has-feedback">
     <label class="control-label col-sm-3" for="inputSuccess3">아이디</label>
     <div class="col-sm-9" style="width:50%; margin-left:-15px;">
@@ -93,16 +108,18 @@ $(function(){
     </li>
     </ul> -->
 					</div>
+					
 					<div class="clearfix"></div>
 				</form>
 
-
+					
 			</div>
 
 		</div>
-
-
-
+	</div>
+	<div style="text-align:center;">
+		<img src="images/house.png" width=73%;>
 	</div>
 </div>
 
+					

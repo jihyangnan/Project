@@ -1,10 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> 
+<script>
+$(function() {
+	$( "#startDt" ).datepicker({
+        dateFormat: "yy-mm-dd",
+        dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
+        monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
+        monthNamesShort: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
+        defaultDate: "+1w",
+        numberOfMonths: 1,
+        changeMonth: true,
+        showMonthAfterYear: true ,
+        changeYear: true,
+        minDate:0
+    }); 
+     // end Date 설정시 start Date max Date 지정
+    $( "#endDt" ).datepicker({
+        dateFormat: "yy-mm-dd",
+        dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
+        monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
+        monthNamesShort: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
+        defaultDate: "+1w",
+        numberOfMonths: 1,
+        changeMonth: true,
+        showMonthAfterYear: true ,
+        changeYear: true
+        
+    });
+
+    
+    $('#startDt').datepicker();
+    $('#startDt').datepicker("option", "maxDate", $("#endDt").val());
+    $('#startDt').datepicker("option", "onClose", function ( selectedDate ) {
+        $("#endDt").datepicker( "option", "minDate", selectedDate );
+    });
+ 
+    $('#endDt').datepicker();
+    $('#endDt').datepicker("option", "minDate", $("#startDt").val());
+    $('#endDt').datepicker("option", "onClose", function ( selectedDate ) {
+        $("#startDt").datepicker( "option", "maxDate", selectedDate );
+    });
+});
+</script>
 <script type="text/javascript">
 var i=0;
 $(function(){
@@ -19,6 +65,9 @@ $(function(){
 		$('#re_new_frm').submit();
 });
 </script> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <div class="about_top">
 		<div class="container" style="margin: 400;">
 			<div class="jumbotron">
@@ -143,7 +192,7 @@ $(function(){
 											<span data-tooltip-text="침대의 갯수입니다">침대:</span> 
 											<span> </span> <strong>${dto.h_nBed}개</strong>
 										</div>
-										<div><!-- 체크인,체크아웃시간은 집주인과 상의해서 유동적으로 할 수 있게 -->
+										<div>
 											<span data-tooltip-text="예약시작 날짜입니다">예약시작일:</span> 
 											<span> </span> <strong>${dto.h_Startday}</strong>
 										</div>
@@ -309,10 +358,15 @@ $(function(){
 										<span>${rp.re_Id }</span>
 									</div>
 								</div>
-								<div class="col-md-9" style="padding-top: 35px;">
+								<div class="col-md-7" style="padding-top: 35px;">
 									<div>
 										<div class="review-text">${rp.re_Content }</div>
 									</div>
+								</div>
+								<div class="col-md-2">
+									<div>
+									<fmt:formatDate var="date" value="${rp.re_date}" pattern="yyyy-MM-dd" />
+									${date }</div>
 								</div>
 							</div>
 							<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
@@ -328,13 +382,13 @@ $(function(){
 						<div class="col-md-3">
 								<span>${rp.re_Id }</span>
 						</div>						
-						<div class="col-md-9" style="padding-top: 35px;"> 
+						<div class="col-md-9"> 
 						<textarea id="review_content"name="review_content" onclick="if(this.value==this.defaultValue){this.value=''}"
 								onblur="if (this.value == '') { this.value = this.defaultValue; }"
-								style="width: 430px; height: 50px; font-size: 10pt;">후기를 작성해주세요</textarea>
+								style="width: 500px; height: 70px; font-size: 10pt;">후기를 작성해주세요</textarea>
 						<input type=hidden name=re_hNo value="${dto.h_No }">
          				<input type=hidden name=page value="${page }">				
-						<input id="reviewBtn" type="submit" value="후기 입력" style="width: 80px; height: 50px; font-size: 9pt; color: #f08080;">
+						<input id="reviewBtn" type="submit" value="후기 입력" style="width: 80px; height: 50px; font-size: 10pt; color: #f08080;">
 						</div>		
 						</form>				
 				</div>	
@@ -355,10 +409,10 @@ $(function(){
 				<p></p>
 				<div class="row">
 					<div class="col-md-4">
-					<input type="text" class="form-control datepicker" placeholder="체크인">
+					<input type="text" class="form-control" id="startDt" placeholder="체크인">
 					</div> 
 					<div class="col-md-4">
-					<input type="text" class="form-control datepicker" placeholder="체크아웃">
+					<input type="text" class="form-control" id="endDt" placeholder="체크아웃">
 					</div>
 					 <div class="col-md-4">
 					 <select class="form-control">

@@ -48,6 +48,9 @@ public class ZipRegDTO {
 	private String h_Close;
 	private String h_Rule;
 	private String postcode;	// 우편번호 (db에서 쓰진 않음)
+	private String image; 		// 등록된 첫번째 이미지
+	private int replyCount;		// 후기 개수
+	private List<Fac_regDTO> facList;	// 등록된 시설들
 
 	public int getH_No() {
 		return h_No;
@@ -218,4 +221,28 @@ public class ZipRegDTO {
 		this.postcode = postcode;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public int getReplyCount() {
+		return replyCount;
+	}
+
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
+
+	public List<Fac_regDTO> getFacList() {
+		return facList;
+	}
+
+	public void setFacList(List<Fac_regDTO> facList) {
+		this.facList = facList;
+	}
+	
 }

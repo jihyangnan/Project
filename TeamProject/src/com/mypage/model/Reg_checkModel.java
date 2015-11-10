@@ -17,9 +17,9 @@ public class Reg_checkModel implements Model {
 		
 		req.setAttribute("pageNum", 5); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
         req.setAttribute("jsp", "../mypage/Reg_check.jsp");
-        //HttpSession session = req.getSession();
-        //String id = (String)session.getAttribute("id");
-	    List<ZipRegDTO> list=MypageDAO.regcheck("");
+        HttpSession session = req.getSession();
+        String id = (String)session.getAttribute("id");
+	    List<ZipRegDTO> list=MypageDAO.regcheck(id);
 	    req.setAttribute("list", list);
 	    
 		return "main/index.jsp";

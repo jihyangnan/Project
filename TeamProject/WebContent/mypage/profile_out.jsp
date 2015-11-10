@@ -21,10 +21,10 @@
 		 <div class="join" align="center" >
 		 
 		 	<ul>
-		 	<li><img src="images/id.png" alt="">&nbsp;줴훈줴훈	</li>
+		 	<li><font style="color: #565a5c;"><img src="images/id.png" alt="">&nbsp;hong	</li>
 		 	<li><img src="images/pwd.png" alt="">
 			 	<input type="password" size=15 name="pwd" class="inheight">&nbsp;
-			 		<input type="password" size=15 name="pwd2" class="inheight" placeholder="비밀번호 확인"><br>
+			 		<input type="password" size=15 name="pwd2" class="inheight" placeholder="비밀번호 확인"><br></font>
 			 		<font style="color:#a1a1a1; font-size:11px;">
 			 		회원 탈퇴를 원하실 경우, 본인확인을 위해 비밀번호를 한번 더 입력해 주세요
 			 		</font>

@@ -20,31 +20,31 @@
 			<c:forEach var="reg" items="${list}" varStatus="status">
 				<c:if test="${status.count % 2 == 1}">
 					<div style=" margin-bottom: 3%;">
-						
 				</c:if>
+					<div class="col-sm-6">
 					<div class="col-sm-6">	
-							<img src="upload/${reg. }" class="" alt="" style="width: 200px; height: 140px;">
+							<img src="upload/${reg.image}" class="" alt="" style="width: 200px; height: 140px;">
 					</div>
 					<div class="col-sm-6">
 						<h3 style="font-size: 18px; font-weight: bold;">
-							${reg. }
+							 ${reg.h_nHome } 
 						</h3>
 						<p style="margin-top: 8px; font-size: 13px;">
-						  <i class="fa fa-shield"></i>&nbsp;위치 : 광주광역시 광산구</p>
+						  <i class="fa fa-shield"></i>&nbsp;위치 : ${reg.h_Addr1 }</p>
 						<p style="margin-top: 8px; font-size: 13px;">
 							<i class="fa fa-pencil"></i>&nbsp;집유형: 
-							<c:if test="${reg.eeed == 1 }">
-								개인실
+							<c:if test="${reg.h_rType == 1 }">
+								집전체
+							</c:if> 
+							<c:if test="${reg.h_rType == 2 }">
+							      개인실
 							</c:if>
-							<c:if test="">
-							
-							</c:if>
-							<c:if test="">
-							
+							<c:if test="${reg.h_rType == 3 }">
+							      다인실
 							</c:if>
 						</p>
 						<p style="margin-top: 8px; font-size: 13px;">
-							<i class="fa fa-star"></i>&nbsp;가격: 61500
+							<i class="fa fa-star"></i>&nbsp;가격: ${reg.h_Money }
 						</p>
 						<p style="margin-top: 8px; font-size: 13px;">
 							<i class="fa fa-pencil"></i>&nbsp;인원: 1
@@ -53,6 +53,7 @@
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
 						<input type="button" value="삭제하기" id="join" class="btn" 
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
+					</div>
 					</div>
 				<c:if test="${status.count % 2 == 0}">
 					<div class="clearfix"></div>

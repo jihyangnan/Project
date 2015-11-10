@@ -8,13 +8,7 @@ public class ReserveDTO {
 	private Date r_start;
 	private Date r_end;
 	private int r_person;
-	private int reviewCount;	
-	public int getReviewCount() {
-		return reviewCount;
-	}
-	public void setReviewCount(int reviewCount) {
-		this.reviewCount = reviewCount;
-	}
+	
 	public int getR_no() {
 		return r_no;
 	}
