@@ -47,7 +47,7 @@
 					text-align:center; padding-bottom:50px;">
 					1:1 문의 관리 - 답변</h3>
 					
-					<form class="form-horizontal" method="post" id="writeForm" action="question_email.do">
+					<form class="form-horizontal" method="post" id="writeForm" action="question_email_send.do">
 					    <input type="hidden" name="b_no" value="${dto.q_no}" />
 					    <input type="hidden" name="page" value="${requestScope.page}" />
 					     
@@ -66,7 +66,8 @@
 					    <div class="form-group ">
 					      <label for="subject" class="control-label col-sm-1">제목</label>
 					      <div class="col-sm-11" style="padding-top: 7px;" >
-					      	안녕하세요 문의하신 니집내집 관련 답변입니다.
+					      	<input type="hidden" name="title" value="안녕하세요 문의하신 니집내집 관련 답변입니다.">안녕하세요 문의하신 니집내집 관련 답변입니다.
+					      	<input type="hidden" name="email" value=${dto.q_email }>
 					      </div>
 					    </div>
 						<div class="form-group" style="margin-bottom: 0">
@@ -78,7 +79,7 @@
 							<br>
 							안녕하세요. 니집내집 관리자입니다.
 							</div>
-						<textarea name="b_content" id="summercontent" style="display: none;"></textarea>
+						<textarea name="content" id="summercontent" style="display: none;"></textarea>
 						</div>
 						<div class="form-group" style="text-align: center;" >
 							<button type="button" class="btn btn-primary" id="ubtnSub">E-mail 보내기</button>
