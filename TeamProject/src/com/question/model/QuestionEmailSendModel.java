@@ -45,6 +45,7 @@ public class QuestionEmailSendModel implements Model {
 			msg.setRecipient(Message.RecipientType.TO, address);
 			msg.setSubject(title);
 			msg.setText(content);
+			
 			Transport transport = session.getTransport("smtps");
 		    transport.connect(host, from, password);
 		    transport.sendMessage(msg, msg.getAllRecipients());
