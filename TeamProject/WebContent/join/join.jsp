@@ -102,7 +102,7 @@
 			</h2>
 			<form name="join_frm" id="joinForm" action="join_ok.do">
 				<div class="jumbotron"
-					style="padding-top: 20px; background-color: #fff">
+					style="padding-top: 30px; background-color: #fff">
 					<div class="join" align="center">
 						<ul>
 							<li><img src="images/id.png" alt=""> <input
@@ -128,11 +128,11 @@
 								</div></li>
 							<li><img src="images/name.png" alt=""> <input
 								type="text" size=15 name="name" class="inheight"></li>
-							<li><img src="images/joomin.png" alt=""> <input
+							<!-- <li><img src="images/joomin.png" alt=""> <input
 								type="text" size=10 name="rrn1" class="inheight"> - <input
 								type="text" size=10 name="rrn2" class="inheight"> <font
 								style="color: #a1a1a1; font-size: 11px;">
-									(예시=>151012-1234567 입력)</font></li>
+									(예시=>151012-1234567 입력)</font></li> -->
 							<li style="font-size: 13px;"><img src="images/sex.png"
 								alt=""> <label class="radio-inline"> <input
 									type="radio" name="sex" id="inlineRadio1" value="남자"
@@ -202,9 +202,14 @@
 					</div>
 					<div class="joinup">
 
-						<input type=submit value="회원가입" id="btnSub">
+						<input type=submit value="회원가입" id="btnSub"  class="join-btn" 
+						style="font-size: 11px; background-color: #F94B4B; padding:5px 15px; font-weight:400;
+						color:#ffffff; border-radius:10px; border:none;">
 
-						&nbsp;&nbsp;&nbsp; <input type=button value="취소" id="btnCancel">
+						&nbsp;&nbsp;&nbsp; 
+						<input type=button value="취소" id="btnCancel" 
+						style="font-size: 11px; background-color: #F94B4B; padding:5px 15px; font-weight:400;
+						color:#ffffff; border-radius:10px; border:none;">
 
 					</div>
 				</div>

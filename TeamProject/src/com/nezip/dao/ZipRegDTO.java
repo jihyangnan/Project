@@ -50,6 +50,7 @@ public class ZipRegDTO {
 	private String postcode;	// 우편번호 (db에서 쓰진 않음)
 	private String image; 		// 등록된 첫번째 이미지
 	private int replyCount;		// 후기 개수
+	private List<Fac_regDTO> facList;	// 등록된 시설들
 
 	public int getH_No() {
 		return h_No;
@@ -236,6 +237,13 @@ public class ZipRegDTO {
 
 	public void setH_nBath(int h_nBath) {
 		this.h_nBath = h_nBath;
+	}
+	public List<Fac_regDTO> getFacList() {
+		return facList;
+	}
+
+	public void setFacList(List<Fac_regDTO> facList) {
+		this.facList = facList;
 	}
 	
 }

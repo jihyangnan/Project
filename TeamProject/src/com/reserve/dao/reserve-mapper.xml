@@ -55,18 +55,70 @@
 
 	<!-- 맵 이동시 목록가져오기 -->
 	<select id="listByMovingMap" resultType="ZipReg">
-		SELECT h_No, h_rType,
-		h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
-		FROM review
-		WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
-		FROM home_photo
-		WHERE p_hno = h_No AND ROWNUM = 1) "image"
-		FROM (SELECT h_No, h_rType,
-		h_nHome, h_Addr1, h_Money, h_loc, rownum as num
-		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
-		FROM zipreg
-		WHERE h_Endday > SYSDATE AND h_Close = 'n'
-		ORDER BY h_no DESC))
+		SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
+																 FROM review
+																 WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
+																									  FROM home_photo
+																									  WHERE p_hno = h_No AND ROWNUM = 1) "image"
+		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
+			  FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
+			        FROM zipreg
+		            WHERE h_Endday > SYSDATE AND h_Close = 'n'
+				    ORDER BY h_no DESC))
+	</select>
+	
+	<!-- ZipRegDTO에 등록된 시설을 가져올 Fac_regDTO 타입의 리스트를 추가 하여 그 값을 읽기 위한 resultmap을 생성 -->
+	<resultMap type="ZipReg" id="ZipResult">
+		<collection property="facList" column="h_No" ofType="Fac_reg" select="facReg"/>
+	</resultMap>
+	
+	<!-- 필터를 이용한 검색 쿼리 -->
+	<select id="listByFilter" resultMap="ZipResult" parameterType="java.util.Map" >
+		SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
+                                                         		 FROM review
+                                                        		 WHERE re_hNo = h_No) "replyCount", (SELECT p_File
+                                                                                             		 FROM home_photo
+                                                                                              		 WHERE p_hno = h_No AND ROWNUM = 1) "image"
+		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
+      		  FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
+            		FROM zipreg
+            		WHERE h_Endday > SYSDATE AND h_Close = 'n' 
+	            	<if test="loc != null">
+	            		AND h_Addr1 LIKE #{loc} || '%'
+	            	</if>
+	            	<if test="startDay != null">
+	            		AND #{startDay} >= h_startday
+	            	</if>
+	            	<if test="endDay != null">
+	            		AND h_endday >= #{endDay}
+	            	</if>
+	            	<if test="peopleNum != null">
+	            		AND h_nperson >= #{peopleNum}
+	            	</if>
+            		<if test="roomStyle != null">
+            			AND h_rType IN
+	            		<foreach collection="roomStyle" item="item" open="(" separator="," close=")">
+	            			#{item}
+	            		</foreach>
+            		</if>
+            		<if test="roomNum != null">
+            			AND h_nRoom >= #{roomNum}
+            		</if>
+            		<if test="bedNum != null">
+            			AND h_nBed >= #{bedNum}
+            		</if>
+            		<if test="bathNum != null">
+            			AND h_nBath >= #{bathNum}
+            		</if>
+            		ORDER BY h_no DESC))
+		WHERE num BETWEEN 1 AND 10
+	</select>
+	
+	<!-- 집에 등록된 시설가져오기 -->
+	<select id="facReg" resultType="Fac_reg">
+		SELECT * 
+		FROM fac_reg 
+		WHERE c_hno = #{h_No}
 	</select>
 	
 	<!-- 예약 -->

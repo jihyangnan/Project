@@ -30,7 +30,7 @@
 							<li><span>다인실</span></li>
 							</c:if>
 				<li><span>${dto.h_Addr1 }</span></li>
-				<li><span>${dto.replyCount}</span></li>
+				<li><span>후기 ${dto.replyCount}개</span></li>
 			</ul>
 		</div>
 	</div>

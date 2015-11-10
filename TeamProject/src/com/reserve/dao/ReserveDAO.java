@@ -161,5 +161,12 @@ public class ReserveDAO {
 				session.close();
 		}
 		return rd;
+	}	
+	public static List<ZipRegDTO> listByFilter(Map<String, Object> filter){
+		List<ZipRegDTO> list = new ArrayList<>();
+		try(SqlSession session = ssf.openSession()){
+			list = session.selectList("listByFilter", filter);
+		}
+		return list;
 	}
 }

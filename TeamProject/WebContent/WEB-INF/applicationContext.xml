@@ -2,7 +2,7 @@
 <beans>
 	<bean id="index" class="com.main.model.IndexModel"/>	<!-- 첫화면 -->
 	<bean id="main" class="com.main.model.MainModel"/>
-	
+	<bean id="company" class="com.main.model.CompanyModel"/>
 	<!-- 게시판 관련 -->
 	<bean id="board_list" class="com.board.model.BoardListModel"/>
 	<bean id="board_insert" class="com.board.model.BoardInsertModel"/>
@@ -20,9 +20,14 @@
 	<!-- 1:1문의 -->
 	<bean id="question_insert" class="com.question.model.QuestionInsertModel"/>
 	<bean id="question_insert_ok" class="com.question.model.QuestionInsertOkModel"/>
+	<!-- <bean id="question_list" class="com.question.model.QuestionListModel"/>
+	<bean id="question_content" class="com.question.model.QuestionContentModel"/> -->
+	
+	<!-- 1:1문의 관리자 -->
 	<bean id="question_list" class="com.question.model.QuestionListModel"/>
 	<bean id="question_content" class="com.question.model.QuestionContentModel"/>
-	
+	<bean id="question_email" class="com.question.model.QuestionEmailModel"/>
+	<bean id="question_email_send" class="com.question.model.QuestionEmailSendModel"/>
 	<!-- 내집 등록 관련 -->
 	<bean id="nezip_insert1" class="com.nezip.model.Insert1Model"/>
 	<bean id="nezip_insert2" class="com.nezip.model.Insert2Model"/>
@@ -42,6 +47,7 @@
     <bean id="reserve_review_update" class="com.reserve.model.ReviewUpdateModel"/>
     <bean id="reserve_listByMovingMap" class="com.reserve.model.ReserveListByMovingMapModel"/>
     <bean id="reserve_doit" class="com.reserve.model.ReserveDoitModel"/>
+    <bean id="reserve_listByFilter" class="com.reserve.model.ReserveListByFilterModel" />
     
 	<!-- 우리동네 소개 관련 -->
 	<bean id="town_list" class="com.town.model.TownListModel"/>

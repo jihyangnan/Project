@@ -28,6 +28,7 @@ $(function(){
 			</ul>
 		</div>
 		<div class="about">
+			
 			<div style="margin-top:20px; margin-bottom:1.5em;">
 			<h1 class="blog_head_login" style="font-size: 30pt; font-weight:700; margin:0px; color:#87d54d;">
 			<img alt="" src="images/loginlogo.png" style="vertical-align: bottom;"> 
@@ -74,10 +75,10 @@ $(function(){
 									id="join"></a>
 							</label> -->
 						</div>
-
+						
 						<!-- <form class="form-horizontal">
   
-    <ul><li>
+    <ul><li>	
     <div class="form-group has-success has-feedback">
     <label class="control-label col-sm-3" for="inputSuccess3">¾ÆÀÌµð</label>
     <div class="col-sm-9" style="width:50%; margin-left:-15px;">
@@ -107,16 +108,18 @@ $(function(){
     </li>
     </ul> -->
 					</div>
+					
 					<div class="clearfix"></div>
 				</form>
 
-
+					
 			</div>
 
 		</div>
-
-
-
+	</div>
+	<div style="text-align:center;">
+		<img src="images/house.png" width=73%;>
 	</div>
 </div>
 
+					

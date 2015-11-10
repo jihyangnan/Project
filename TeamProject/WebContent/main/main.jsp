@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <div class="slider">
 	  <div class="callbacks_container">
 	      <ul class="rslides" id="slider">
@@ -100,7 +101,7 @@
 
 <div class="content_top">
    <div class="container">
-   	  <h4 class="m_3">★ 인기 숙소 ★</h4>
+   	  <h4 class="m_3">★최신 숙소 ★</h4>
    	  <div class="grid_1">
 		<div class="col-md-3 box_1">
 			<a href="single.html"><img src="images/pic8.jpg" class="img-responsive" alt=""/></a>
@@ -110,7 +111,7 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">유럽풍 펜션</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"></i>
 			      2</span>
@@ -127,7 +128,7 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">House2</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"> </i>
 			      2</span>
@@ -144,7 +145,7 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">House3</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"> </i>
 			      2</span>
@@ -161,11 +162,11 @@
 		   <div class="box_3">
 			 <h3><a href="single.html">House4</a></h3>
 			 <div class="boxed_mini_details clearfix">
-			      <span class="area first"><strong>주차장</strong><i class="fa fa-truck"></i>
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
 			      2</span>
 			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"> </i>
 			      2</span>
-			      <span class="bedrooms last"><strong>침대</strong><i class="fa fa-bell"></i>
+			      <span class="bedrooms last"><strong>침실</strong><i class="fa fa-bell"></i>
 			      2</span>
              </div>
 		   </div>
@@ -186,8 +187,8 @@
                 </ul>
              </div>
              <div class="widget">
-                <div class="title"><h3><i class="fa fa-smile-o"> </i> 우리 동네 소개</h3></div>
-                  <ul class="real-widget"><li><a href="#">서울(3)</a></li>
+                <div class="title"><!-- <h3><i class="fa fa-smile-o"> </i> 우리 동네 소개</h3> --></div>
+                 <!--  <ul class="real-widget"><li><a href="#">서울(3)</a></li>
                 	<li><a href="#">인천(16)</a><ul>
                 		<li><a href="#">경기(16)</a></li>
                 		<li><a href="#">강원(16)</a></li>
@@ -196,16 +197,16 @@
                 		<li><a href="#">제주(16)</a></li>
                 		<li><a href="#">경상(16)</a></li></ul>
                   </ul></li>
-                </ul>
-             </div>
+                </ul> -->
+             </div> 
 		</div>
 		<div class="col-md-7">	
 		   <div class="sap_tabs">
 				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 						 <div class="tab_grid">
 							  <ul class="resp-tabs-list">
-							  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab">
-							  	  <strong>추천숙소</strong></li>
+							  	  <!-- <li class="resp-tab-item" aria-controls="tab_item-0" role="tab">
+							  	  <strong>추천숙소</strong></li> -->
 								  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab">
 								  <strong>추천 우리 동네</strong></li>
 								  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab">
@@ -213,8 +214,8 @@
 								  <div class="clearfix"></div>
 							  </ul>	
 							</div>	
-							    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-							    	<ul class="tab_img tab_1">
+						 <!-- <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+							    	 <ul class="tab_img tab_1">
 									  <li>
 										<div class="client_box1">
 					       				    <img src="images/pic1.jpg" class="img-responsive" alt=""/>
@@ -309,9 +310,9 @@
 					       				 </div>
 										</li>
 										<div class="clearfix"></div>
-									</ul>
-							     </div>	
-							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+									</ul> 
+							     </div>	-->
+							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1"> 
 									
 									<ul class="tab_img">
 										<li>
@@ -320,8 +321,8 @@
 					       				     <!-- <div class="box_type">￦&nbsp;</div> -->
 					       				     <h3 class="m_1"><a href="single.html">홍대</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <span class="area first"><strong>Garage</strong>
-			                                    2</span>
+			                                   <!--  <span class="area first"><strong>Garage</strong>
+			                                    2</span> -->
 			                                     <!-- <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
@@ -335,8 +336,8 @@
 					       				     <!-- <div class="box_type">￦&nbsp;45000</div> -->
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span>
+			                                    <!-- <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span> -->
 			                                   <!--  <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
@@ -345,13 +346,13 @@
 					       				 </div>
 										</li>
 										<li class="last">
-										 <div class="client_box1">
+										 <div class="client_box1"  style="margin-bottom: 20px;">
 					       				    <img src="images/pic6.jpg" class="img-responsive" alt=""/>
 					       				     <!-- <div class="box_type">￦&nbsp;50000</div> -->
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span>
+			                                    <!-- <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span> -->
 			                                    <!-- <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
@@ -365,8 +366,8 @@
 					       				     <!-- <div class="box_type">￦&nbsp;</div> -->
 					       				     <h3 class="m_1"><a href="single.html">홍대</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <span class="area first"><strong>Garage</strong>
-			                                    2</span>
+			                                    <!-- <span class="area first"><strong>Garage</strong>
+			                                    2</span> -->
 			                                     <!-- <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
@@ -380,8 +381,8 @@
 					       				     <!-- <div class="box_type">￦&nbsp;45000</div> -->
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span>
+			                                    <!-- <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span> -->
 			                                   <!--  <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
@@ -395,9 +396,9 @@
 					       				     <!-- <div class="box_type">￦&nbsp;50000</div> -->
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span>
-			                                    <!-- <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
+			                                   <!--  <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span> -->
+			                                  <!--  <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
 			                                    2</span> -->
@@ -444,18 +445,31 @@
 									</ul>
 									 -->
 									<ul>
-									<li><font style="color:#f94b4b; font-weight:700;">
-									고객의 소리 공지사항 & 이벤트</font>
+									<li style="padding-bottom:10px">
+									<font style="color:#f94b4b; font-weight:600; float:left; margin:0 auto;">
+									&nbsp;&nbsp;&nbsp;공지사항 & 이벤트</font>
+									<div align="right">
+										<a href="board_list.do">
+										<button class="more">+More</button>
+										</a>
+									</div>
 									</li>
-									<li><a href="#">공지사항 입니다</a></li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
-									<li>공지사항 2입니다</li>
+									
+									
+									</li>
+									<!-- 관리자 -->
+									<%-- ${mlist.b_title} --%>
+									<c:forEach var="mdto" items="${mlist }" varStatus="status">
+									<div class="row list-group-item" style="margin:0px; padding:5px;">
+										<span class="col-sm-1 mhide">
+											<img src="images/${mdto.sa_img }" /> 
+										</span>
+										<span class="col-sm-10" style="text-align:left; font-size: 13px; padding-top:3px;">
+										  ${mdto.b_title }
+										</span>
+																			
+									</div>
+									</c:forEach>
 									</ul>
 							     </div>	
 				  </div>
@@ -564,7 +578,7 @@
                 </div>
                 <div class="col-md-5 grid_5">
                     <div class="banner2">
-                        <a class="btn2" href="index.jsp?page=main/company.jsp">click here</a>
+                        <a class="btn2" href="company.do">click here</a>
                         <h3>
                             NiZip NeZip <br>
                             Company Intro 

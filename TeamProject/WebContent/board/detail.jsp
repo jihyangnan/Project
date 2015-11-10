@@ -88,7 +88,7 @@ function replyUpdateClick(rw_no)
 					등록일</span> 
 				<span class="col-md-2"
 					style="text-align:left; padding:5px;font-size:10pt; color:#f08080;font-weight:600;">
-					<frm:formatDate value="${dto.b_date }" pattern="yyyy_MM-dd" />
+					<frm:formatDate value="${dto.b_date }" pattern="yyyy-MM-dd" />
 				</span>
 			</div>
 			<div class="row">
