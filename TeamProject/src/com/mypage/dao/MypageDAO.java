@@ -55,6 +55,7 @@ public class MypageDAO {
 		}
 		return d;
 	}
+
 	// 집 예약 리스트
 		public static List<ReserveDTO> reserveCheck(String r_member) {
 			List<ReserveDTO> list = new ArrayList<ReserveDTO>();
@@ -70,4 +71,5 @@ public class MypageDAO {
 			}
 			return list;
 		}
+
 }

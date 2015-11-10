@@ -56,7 +56,7 @@ $(function(){
 <!-- <script>
 $(function(){
 	$('#reser').click(function(){
-		if('${rd.r_addr}'!=null)
+		if('${rd.r_addr}'=='#raddr')
 			{
 			alert("예약이 마감된 날짜입니다");
 			return false;

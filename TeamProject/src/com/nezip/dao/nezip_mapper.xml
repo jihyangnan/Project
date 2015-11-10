@@ -70,17 +70,17 @@ FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
 WHERE num BETWEEN #{start} AND #{end}
 </select>
  <!-- 내용보기 데이터 출력  -->
-   <select id="zipregData" resultType="ZipReg" parameterType="int">
-      SELECT h_No, h_Type, h_rType, h_nPerson, h_nRoom, h_nBed, h_nBath, h_nHome, h_hContent, h_Addr1, h_Addr2, h_Phone,
-      h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday", to_char(h_Endday, 'yyyy-MM-dd') "h_Endday", h_Loc, h_Id, h_Close, h_Rule,
-            (SELECT COUNT(re_no)
-               FROM review
-                  WHERE re_hNo = h_no) "replyCount" , (SELECT p_File
-                                                   FROM home_photo
-                                                   WHERE p_hno = h_no AND ROWNUM = 1) "image"
-      FROM zipreg
-      where h_no = #{h_no}
-   </select>
+    <select id="zipregData" resultType="ZipReg" parameterType="int">
+		SELECT h_No, h_Type, h_rType, h_nPerson, h_nRoom, h_nBed, h_nBath, h_nHome, h_hContent, h_Addr1, h_Addr2, h_Phone,
+		h_Money, to_char(h_Startday, 'yyyy-MM-dd') "h_Startday", to_char(h_Endday, 'yyyy-MM-dd') "h_Endday", h_Loc, h_Id, h_Close, h_Rule,
+				(SELECT COUNT(re_no)
+					FROM review
+						WHERE re_hNo = h_no) "replyCount" , (SELECT p_File
+																	FROM home_photo
+																	WHERE p_hno = h_no AND ROWNUM = 1) "image"
+		FROM zipreg
+		where h_no = #{h_no}
+	</select>
     <select id="facregList" resultType="Fac_reg" parameterType="int">
 	SELECT c_No,c_hNo,c_hsNo
 	FROM Fac_reg
@@ -92,6 +92,19 @@ WHERE num BETWEEN #{start} AND #{end}
 	FROM zipreg
 	WHERE h_id = #{h_id}
 </select>
+
+
+<!-- 마이페이지 게시판 등록 -->
+<select id="myboardListData" resultType="ZipReg" parameterType="java.util.Map">
+SELECT b_sano, b_no, b_id, b_title, dbday, b_hit, b_delete, num
+FROM(SELECT b_sano, b_no, b_id, b_title, TO_char(b_date,'YYYY-MM-DD')as dbday, b_hit, 
+			b_delete, rownum as num
+	FROM(SELECT b_sano, b_no, b_id, b_title, b_date, b_hit, b_delete
+			FROM p_board WHERE b_sano=4 AND b_id=#{b_id}
+    ORDER BY b_no DESC))
+WHERE b_delete='n' AND b_sano=4 AND num BETWEEN 1 AND 10
+</select>
+
 	<select id="reviewCount" resultType="int" parameterType="int">
 		SELECT COUNT(*) FROM review
 		WHERE re_hno=#{re_hno}
@@ -102,4 +115,5 @@ WHERE num BETWEEN #{start} AND #{end}
 		FROM Reserve
 		WHERE r_member=#{r_member}
 	</select>
+
 </mapper>
