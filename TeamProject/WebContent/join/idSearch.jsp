@@ -15,18 +15,21 @@
 
 				
 					<h2 class="blog_head_login" align="center" style="color:#87d54d;">아이디 찾기</h2>
+					
 					 <div class="s_Id_form" style="margin-bottom: 50px;margin-top:10px;border:3px solid #e7e7e7; border-radius:10px;margin-left:300px;margin-right:300px; " align="center" >
 						<!-- <label style="margin: 1% 0% 1% 0%; font-size: 12px; color:#666666;margin-bottom:10px;">
 	                 	찾고자 하는 아이디의 정보를 입력해 주세요. 	</label> -->
 					<div class="form2_s">
 						<div class="form3_s">
-							<label for="user" style="font-size: 15px;margin-top: 20px;">이름</label> <input
-								type="text" style="width: 57%" id="user" placeholder="이름을 입력하세요">
+							<label for="user" style="font-size:15px; margin-top: 20px;">이름</label> <input
+								type="text" style="width:50%" id="user" placeholder="이름을 입력하세요">
 							<div class="clear"></div>
+							
 							<!-- <label for="user" style="font-size: 15px; margin-top: 5px">주민번호</label>
 							<input type="text" style="width: 30%; margin-top: 5px" id="user">
 							- <input type="password" style="width: 30%; margin-top: 5px"
 								id="user"> -->
+								
 							<label for="user" style="font-size: 15px; margin-top: 5px">E-mail</label>
 
 							<input type="text" style="width:25%; margin-top: 5px"
@@ -39,14 +42,13 @@
 							</select>	
 								
 						</div>
-						
-						
-						<div class="clear"></div>
-						
+												
+						<div class="clear"></div>	
+											
 						<div class="s_form6" style="margin-top: 20px;">
 						<label> 
 							<a href="index.jsp?page=join/idSearchCheck.jsp">
-						 	<input type="button" value="확인" id="join">
+						 	<input type="submit" value="확인" id="join">
 							</a>
 						</label>
 						
@@ -93,21 +95,21 @@
  -->
 
 				
-					<h2 class="blog_head_login" align="center" style="color:#87d54d;">비밀번호 찾기</h2>
-						<!-- <label style="margin: 0 3% 3% 20%; font-size: 15px">
+	<!-- 				<h2 class="blog_head_login" align="center" style="color:#87d54d;">비밀번호 찾기</h2>
+						<label style="margin: 0 3% 3% 20%; font-size: 15px">
 				찾고자 하는 아이디와 정보를 입력해 주세요
-				</label> -->
+				</label>
 				<div class="s_Pwd_form" style="margin-bottom:100px;margin-top:10px;border:3px solid #e7e7e7; border-radius:10px;margin-left:300px;margin-right:300px; " align="center"">
 					<div class="form2_s">
 						<div class="form3_s">
 							<label for="user" style="font-size: 15px;margin-top: 20px;">아이디</label> <input
 								type="text" style="width:61%" id="user" placeholder="아이디를 입력하세요">
 							<div class="clear"></div>
-							<!-- <label for="user" style="font-size: 15px; margin-top: 5px">주민번호</label>
+							<label for="user" style="font-size: 15px; margin-top: 5px">주민번호</label>
 							<input type="text" style="width: 30%; margin-top: 5px" id="user">
 							- <input type="password" style="width:30%; margin-top: 5px"
 								id="user">
-							<div class="clear"></div> -->
+							<div class="clear"></div>
 							<label for="user" style="font-size: 15px; margin-top: 5px">E-mail</label>
 
 							<input type="text" style="width:25%; margin-top: 5px"
@@ -136,8 +138,51 @@
 							</label>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
+
+					<h2 class="blog_head_login" align="center" style="color:#87d54d;">비밀번호 찾기</h2>
+					
+		  <div class="s_Pwd_form" style="margin-bottom: 100px;height:240px;">
+						<label style="margin: 5% 3% 3% 20%; font-size: 15px">찾고자 하는 아이디와 정보를 입력해 주세요</label>
+					<div class="form2_s">
+						<div class="form3_s" style="padding-right:40px; float:center;">
+							<label for="user" style="font-size: 15px;">아이디</label> <input
+								type="text" style="width: 60%" id="user" placeholder="아이디를 입력하세요">
+							<div class="clear"></div>
+							
+							<label for="user" style="font-size: 15px; margin-top: 5px">E-mail</label>
+
+							<input type="text" style="width: 30%; margin-top: 5px"
+								name="email" class="inputstyle">@ <select
+								style="width: 40%; padding: 0; margin-top: 5px" name=eaddr>
+								<option selected="selected">naver.com</option>
+								<option>hanmail.net</option>
+								<option>gmail.com</option>
+								<option>nate.com</option>
+							</select>
+					   </div>
+
+                        <div class="clear"></div>	
+                        
+						<div class="s_form6" style="margin-top:10px;">
+						
+							<label> <a href="index.jsp?page=join/pwdCheck.jsp"> 
+							<input type="submit" value="확인" id="join">
+							</a>
+							</label>
+							
+							<label> 
+								<a href="index.jsp?page=join/login.jsp"> 
+								<input type="submit"value="로그인" id="join">
+								</a>
+							</label>
+						</div>	
+						
+						 <div class="clear"></div>	
+							
+					</div>
+				</div>
 
 			</div>
 		</div>
