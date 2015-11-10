@@ -154,4 +154,19 @@ public class NezipDAO {
 		}
 		return list;
 	}
+	
+	public static int countZipByType(int type){
+		int result = 0;
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			result = session.selectOne("countZipByType", type);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return result;
+	}
 }

@@ -122,4 +122,9 @@ WHERE num BETWEEN #{start} AND #{end}
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
 
+	<select id="countZipByType" resultType="int" parameterType="int">
+		SELECT COUNT(h_no)
+		FROM zipreg
+		WHERE h_Endday >= SYSDATE AND h_Close = 'n' AND h_type = #{type}
+	</select>
 </mapper>
