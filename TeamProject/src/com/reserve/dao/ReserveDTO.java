@@ -7,8 +7,15 @@ public class ReserveDTO {
 	private String r_member;
 	private Date r_start;
 	private Date r_end;
+	private int r_money;
 	private int r_person;
 	
+	public int getR_money() {
+		return r_money;
+	}
+	public void setR_money(int r_money) {
+		this.r_money = r_money;
+	}	
 	public int getR_no() {
 		return r_no;
 	}

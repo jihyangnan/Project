@@ -132,7 +132,36 @@ public class ReserveDAO {
 		}
 		return list;
 	}
-	
+	/*
+	 * 예약
+	 */
+	public static void reserveNo(int r_no)
+	{
+		SqlSession session = ssf.openSession(true);
+		session.delete("reserveNo", r_no);
+		session.close();
+	}
+	public static void reserveDoit(ReserveDTO rd)
+	{
+		SqlSession session = ssf.openSession(true);
+		session.insert("reserveDoit", rd);
+		session.close();
+	}
+	//예약 데이터 가져오기
+	public static ReserveDTO reserveData(int no) {
+		SqlSession session = null;
+		ReserveDTO rd = new ReserveDTO();
+		try {
+			session = ssf.openSession(true);
+			rd = session.selectOne("reserveData", no);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return rd;
+	}	
 	public static List<ZipRegDTO> listByFilter(Map<String, Object> filter){
 		List<ZipRegDTO> list = new ArrayList<>();
 		try(SqlSession session = ssf.openSession()){

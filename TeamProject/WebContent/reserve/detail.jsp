@@ -5,50 +5,37 @@
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> 
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>  -->
 <script>
-$(function() {
-	$( "#startDt" ).datepicker({
-        dateFormat: "yy-mm-dd",
-        dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
-        monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
-        monthNamesShort: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
-        defaultDate: "+1w",
-        numberOfMonths: 1,
-        changeMonth: true,
-        showMonthAfterYear: true ,
-        changeYear: true,
-        minDate:0
-    }); 
-     // end Date 설정시 start Date max Date 지정
-    $( "#endDt" ).datepicker({
-        dateFormat: "yy-mm-dd",
-        dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
-        monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
-        monthNamesShort: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
-        defaultDate: "+1w",
-        numberOfMonths: 1,
-        changeMonth: true,
-        showMonthAfterYear: true ,
-        changeYear: true
-        
-    });
-
-    
-    $('#startDt').datepicker();
-    $('#startDt').datepicker("option", "maxDate", $("#endDt").val());
-    $('#startDt').datepicker("option", "onClose", function ( selectedDate ) {
-        $("#endDt").datepicker( "option", "minDate", selectedDate );
-    });
- 
-    $('#endDt').datepicker();
-    $('#endDt').datepicker("option", "minDate", $("#startDt").val());
-    $('#endDt').datepicker("option", "onClose", function ( selectedDate ) {
-        $("#startDt").datepicker( "option", "maxDate", selectedDate );
-    });
+$(document).ready(function(){
+	var t = new Date();
+	var yy = t.getFullYear();
+	var mm = t.getMonth()+1;
+	var dd = t.getDate();
+	$('.startDt').datepicker({
+		format: 'yy/mm/dd',
+		startDate: yy + "/" + mm + "/" + dd,
+		autoclose: true,
+		language: 'kr'
+	}).on('changeDate', function(e){
+		var start = $('.startDt').datepicker('getDate');
+		var end = $('.endDt').datepicker('getDate');
+		$('.endDt').datepicker('setStartDate', start);
+		if(start > end){
+			$('.endDt').datepicker('setDate', $('.startDt').datepicker('getDate'));
+		}
+		$('.endDt').removeAttr('disabled'); 
+	});
+	
+	$('.endDt').datepicker({
+		format: 'yy/mm/dd',
+		autoclose: true,
+		language: 'kr'
+	}).on('changeDate', function(e){
+	});
 });
 </script>
 <script type="text/javascript">
@@ -64,10 +51,22 @@ $(function(){
 		}
 		$('#re_new_frm').submit();
 });
+});	 
+</script>
+<script>
+$(function(){
+	$('#reser').click(function(){
+		if('${rd.r_addr}'!=null)
+			{
+			alert("예약이 마감된 날짜입니다");
+			return false;
+			}		
+	});
+});
 </script> 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> -->
 <div class="about_top">
 		<div class="container" style="margin: 400;">
 			<div class="jumbotron">
@@ -93,9 +92,7 @@ $(function(){
 						<div class="sp-content">
 							<div class="sp-parallax-bg"></div>
 							<ul class="sp-slider clearfix">
-							<c:forEach var="pDto" items="${plist }">
-								<li><img src="${pdto.p_file }" alt="image01"></li> 
-							</c:forEach>
+								<li><img src="upload/${dto.image}" alt="image01"></li> 
 							</ul>
 						</div>
 						<!-- sp-content -->
@@ -116,8 +113,7 @@ $(function(){
 						style="text-align: center; padding: 2px; font-size: 15pt; color: #778899;">
 						상세설명</span>
 				</div>
-				<br> <br> <pre style="padding: 100px; font-size: 10pt;">
-					${dto.h_hContent}</pre>
+				<br> <br> <pre style="padding: 30px; font-size: 10pt;">${dto.h_hContent}</pre>
 				<div>
 					<hr
 						style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
@@ -224,25 +220,25 @@ $(function(){
 								<c:forEach var="flist" items="${ flist}">
 								<div>
 								<c:if test="${flist.c_hsNo==1 }">
-									<span data-tooltip-text="수건, 침대시트, 비누, 화장지">필수품목</span>
-								</c:if>
-								<c:if test="${flist.c_hsNo==2 }">
 									<span>TV</span>
 								</c:if>
+								<c:if test="${flist.c_hsNo==2 }">
+									<span>인터넷</span>
+								</c:if>
 								<c:if test="${flist.c_hsNo==3 }">
-									<span>케이블 TV</span>
-								</c:if>
-								<c:if test="${flist.c_hsNo==4 }">
-									<span>에어콘</span>
-								</c:if>
-								<c:if test="${flist.c_hsNo==5 }">
 									<span data-tooltip-text="숙소 안의 중앙 난방 또는 히터">난방</span>
 								</c:if>
+								<c:if test="${flist.c_hsNo==4 }">
+									<span data-tooltip-text="수건, 침대시트, 비누, 화장지">필수품목</span>
+								</c:if>
+								<c:if test="${flist.c_hsNo==5 }">
+									<span>케이블 TV</span>
+								</c:if>
 								<c:if test="${flist.c_hsNo==6 }">
-									<span data-tooltip-text="게스트가 이용 가능한 부엌">부엌</span>
+									<span>에어콘</span>
 								</c:if>
 								<c:if test="${flist.c_hsNo==7 }">
-									<span>인터넷</span>
+									<span data-tooltip-text="게스트가 이용 가능한 부엌">부엌</span>
 								</c:if>
 								<c:if test="${flist.c_hsNo==8 }">
 									<span data-tooltip-text="숙소 내 인터넷 이용">무선 인터넷</span>
@@ -335,7 +331,7 @@ $(function(){
 						<div class="react-expandable expanded">
 							<div class="expandable-content">
 								<div>
-									<span>숙소내에서는 담배를 피우거나 소란스럽게 해도 됩니다.</span>
+									<span>${dto.h_Rule }</span>
 								</div>
 							</div>
 						</div>
@@ -407,32 +403,43 @@ $(function(){
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
+
+			<form method=post action="reserve_doit.do" id="re_do_frm">
 				<div class="row">
 					<div class="col-md-4">
-					<input type="text" class="form-control" id="startDt" placeholder="체크인">
-					</div> 
-					<div class="col-md-4">
-					<input type="text" class="form-control" id="endDt" placeholder="체크아웃">
+						<input type="text" id="startDt" class="form-control startDt" name="resst"
+							 placeholder="체크인">
 					</div>
-					 <div class="col-md-4">
-					 <select class="form-control">
-					        <option>1</option>
-					        <option>2</option>
-					        <option>3</option>
-					        <option>4</option>
-					        <option>5</option>
-					        <option>6</option>
-					        <option>7</option>
-					      </select></div>
+					<div class="col-md-4">
+						<input type="text" id="endDt" class="form-control endDt" name="resed"
+							 placeholder="체크아웃">
+					</div>
+					<div class="col-md-4">
+						<input type=hidden name="rperson" value="${dto.h_nPerson }">
+						<input type=hidden name="rmoney" value="${dto.h_Money }">
+						<input type=hidden name="raddr" value="${dto.h_No }"> <input
+							type=hidden name=page value="${page }"> 
+							<select class="form-control" name="person" id="per">
+							<c:forEach var="asd" begin="1" end="${dto.h_nPerson}">
+								<option value="${asd}">${asd}명</option>
+							</c:forEach>
+						</select>
+					</div>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<div id="aaa"
-					style="border-color: #98fb98; text-align: center; border: 1pt; border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
-					<a href="reserve.html">예약요청</a>
+					style="border-color: #98fb98; text-align: center; border: 1pt; 
+					border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
+					<input type=submit id="reser" value="예약하기"
+						style="border-color: #98fb98; text-align: center; border: 1pt; 
+						border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
 				</div>
-				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
+			</form>
+
+			<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<div id="jjj"
-					style="border-color: #98fb98; text-align: center; border: 1pt; border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
+					style="border-color: #98fb98; text-align: center; border: 1pt; 
+					border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
 					<a href="jjim.html">찜하기</a>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
