@@ -396,8 +396,8 @@
 					       				     <!-- <div class="box_type">￦&nbsp;50000</div> -->
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span>
+			                                   <!--  <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span> -->
 			                                  <!--  <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
