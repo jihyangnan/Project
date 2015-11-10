@@ -6,26 +6,6 @@
 	$(document).ready(function(){
 		//$('.container').attr('class', 'container-fluid');
 		
-		$('#filterForm').ajaxForm({
-			//보내기전 validation check가 필요할경우
-			beforeSubmit : function(data, frm, opt) {
-				
-				return true;
-			},
-			//submit이후의 처리
-			success : function(data, statusText) {
-				//console.log(data); //응답받은 데이터 콘솔로 출력
-				$('#imagebox > div > div:last-child').html(data);
-				$('#photo').val(null);
-				setData();
-			},
-			//ajax error
-			error : function(e) {
-				alert("필터링 중 에러발생!!");
-				console.log(e);
-			}
-		});
-		
 		$('#myAffix').affix({
 		  offset: {
 		    top: 155,
@@ -105,13 +85,14 @@
 			<div>	
 				<div id="hl_div" class="col-sm-7" style="padding:10 0; min-height: 1000px">
 				  <div>
-				  <form action="" method="post" id="filterForm">
+				  <form action="reserve_listByFilter.do" method="post" id="filterForm">
 					<div class="form-horizontal">
 					  <div class="form-group">
 					    <label class="col-sm-2 control-label" style="text-align: left">지역</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="loc" placeholder="지역 입력">
-
+					      	<input type="text" class="form-control" name="loc" id="loc" placeholder="지역 입력">
+						  	<input type="hidden" id="lat" name="lat" value=""/>
+				  			<input type="hidden" id="lng" name="lng" value=""/>
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -152,19 +133,19 @@
 							</label>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="집전체"> <input type="checkbox" name="roomStyle">집전체
+									<label title="집전체"> <input type="checkbox" name="roomStyle" value="1">집전체
 									</label>
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="개인실"> <input type="checkbox" name="roomStyle">개인실
+									<label title="개인실"> <input type="checkbox" name="roomStyle" value="2">개인실
 									</label>
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="다인실"> <input type="checkbox" name="roomStyle">다인실
+									<label title="다인실"> <input type="checkbox" name="roomStyle" value="3">다인실
 									</label>
 								</div>
 							</div>
@@ -280,7 +261,7 @@
 						      		<button id="detailbtnoff" type="button" class="btn btn-default btn-block">취소</button>
 						   		</div>
 						    	<div class="col-sm-3">
-						      		<button id="" type="button" class="btn btn-info btn-block">필터적용</button>
+						      		<button id="filterBtn" type="button" class="btn btn-info btn-block">필터적용</button>
 						    	</div>
 					  		</div>						
 						</div>
@@ -322,11 +303,9 @@
 						</div>
 					</div>
 				</c:forEach>
+				<jsp:include page="pagingPart.jsp" />
 				</div>
-				  <div class=text-center>
-					<!--span>
-					<img src="images/back.jpg">&nbsp;1  2  3  4  5&nbsp;<img src="images/daum.jpg">
-					</span-->
+				 <%--  <div class=text-center>
 					   <ul class="pagination">
 					    <li>
 					      <a href="reserve_list.do?page=${curpage>1?curpage-1:curpage }" aria-label="Previous">
@@ -344,16 +323,16 @@
 					      </a>
 					    </li>
 					  </ul>
-				 </div>
+				 </div> --%>
 				</div>
 				<div class="col-sm-5 hidden-xs">
 					<div id="myAffix">
 						<div id="map" style="width: 100%; height: 900px" ></div>
 					</div>
 				</div>
-				<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=7f21a870bb940ba4566d23ff69b9820d"></script>
+				<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=37aec586afb9fc326be8b882a49c024d&libraries=services"></script>
+			
 				<script>
-				
 					var container = document.getElementById('map');
 					var options = {
 						center: new daum.maps.LatLng(37.553121, 126.937059),
@@ -513,6 +492,73 @@
 						});
 			     	}
 				
+			     	
+		     		 /* $('#filterForm').ajaxForm({
+		    			//보내기전 validation check가 필요할경우
+		    			beforeSubmit : function(data, frm, opt) {
+		    				// 주소-좌표 변환 객체를 생성합니다
+		    				var geocoder = new daum.maps.services.Geocoder();
+		    				// 주소로 좌표를 검색합니다
+		    				geocoder.addr2coord($('#loc').val(), function(status, result) {
+		    				    // 정상적으로 검색이 완료됐으면 
+		    				     if (status === daum.maps.services.Status.OK) {
+		    				        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+		    				        map.setCenter(coords);
+		    				        cir.setPosition(coords);
+									$('#lat').val(result.addr[0].lat);
+									$('#lng').val(result.addr[0].lng);
+									data[1].value = result.addr[0].lat;
+									data[2].value = result.addr[0].lng;
+									console.log(data);
+									console.log();
+		    				      	//console.log('위도: ' + $('#lat').val() + '경도: ' + $('#lng').val());
+		    				    } else {
+		    				    	alert("주소로 좌표를 가져오는 중 에러 발생");
+		    				    }
+		    				});
+		    				return true;
+		    			}, 
+		    			//submit이후의 처리
+		    			success : function(data, statusText) {
+		    				$('div#items').html(data);
+	     					deleteOverlays();
+				     		insertOverlays();
+		    			},
+		    			//ajax error
+		    			error : function(e) {
+		    				alert("필터링 중 에러발생!!");
+		    				console.log(e);
+		    			}
+		    		});  */
+		     		$('#filterBtn').click(function(){
+		     			// 주소-좌표 변환 객체를 생성합니다
+	    				var geocoder = new daum.maps.services.Geocoder();
+	    				// 주소로 좌표를 검색합니다
+	    				geocoder.addr2coord($('#loc').val(), function(status, result) {
+	    				    // 정상적으로 검색이 완료됐으면 
+	    				     if (status === daum.maps.services.Status.OK) {
+	    				        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+	    				        map.setCenter(coords);
+	    				        cir.setPosition(coords);
+								$('#lat').val(result.addr[0].lat);
+								$('#lng').val(result.addr[0].lng);
+								var data = $('#filterForm').serialize();
+								//console.log(data);
+								$.post(
+					    			"reserve_listByFilter.do",
+					    			data,
+					    			function(data){
+					    				$('div#items').html(data);
+				     					deleteOverlays();
+							     		insertOverlays();
+					    			}
+					    		); 
+	    				    } else {
+	    				    	alert("주소로 좌표를 가져오는 중 에러 발생");
+	    				    }
+	    				});
+		     			
+		     		});
 				</script>
 			</div>
 			<div class="clearfix"></div>

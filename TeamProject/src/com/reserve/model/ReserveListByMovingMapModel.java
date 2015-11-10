@@ -24,9 +24,29 @@ public class ReserveListByMovingMapModel implements Model {
 		filterValue.put("lat", Double.parseDouble(strLat));
 		filterValue.put("lng", Double.parseDouble(strLng));
 		List<ZipRegDTO> resultList = list.stream().filter(d -> calDistance(filterValue, d)).collect(Collectors.toList());
+		
+		// 페이징 처리...
+		String strPage=req.getParameter("page");
+	    if(strPage==null){
+	    	strPage="1";
+	    }
+	    int curpage=Integer.parseInt(strPage);
+	    int rowSize=5;
+		
+	    int totalCount = list.size();	// 전체 개수
+		int totalPage = (int)Math.ceil((totalCount/(rowSize*1.0)));	// 전체 페이지
+		int blockSize = 5;	// 페이징 처리 부분에서 한 블록당 표시할 페이지 수
+		int pageStartNum = (curpage-1)/rowSize * rowSize + 1;	// 페이징 처리 부분에서 시작하는 페이지 번호
+		int pageEndNum = pageStartNum + blockSize - 1;	// 페이징 처리 부분에서 끝나는 페이지 번호
+		
+		req.setAttribute("totalPage", totalPage);
+		req.setAttribute("pageStartNum", pageStartNum);
+		req.setAttribute("pageEndNum", pageEndNum);
+		req.setAttribute("pageNo", curpage);
+		
 		req.setAttribute("zipRegList", resultList);
 		
-		return "reserve/listByMovingMap.jsp";
+		return "reserve/listByAjax.jsp";
 	}
 
 	private boolean calDistance(Map<String, Double> start, ZipRegDTO end) {
