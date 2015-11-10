@@ -150,13 +150,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 
 					<li class="dropdown">
-						<a data-toggle="dropdown" style="cursor: pointer;" onclick="location.href='join_login.do'">
-							<i class="fa fa-user"></i>
+						
 							<c:if test="${empty sessionScope.id}">
+							<a data-toggle="dropdown" style="cursor: pointer;" onclick="location.href='join_login.do'">
+							<i class="fa fa-user"></i>
 								<b>로그인</b>
 								</a>
 							</c:if>
 							<c:if test="${not empty sessionScope.id}">
+							<a data-toggle="dropdown" style="cursor: pointer;">
+							<i class="fa fa-user"></i>
 								<b>${sessionScope.id}님</b>
 								</a>
 								<ul class="dropdown-menu" style="min-width: 100px;">
