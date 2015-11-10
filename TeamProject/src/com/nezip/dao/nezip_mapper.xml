@@ -90,10 +90,6 @@ WHERE num BETWEEN #{start} AND #{end}
 		WHERE c_hno=#{c_hno}
 	</select>
 	
-	<select id="reviewCount" resultType="int" parameterType="int">
-    	SELECT COUNT(*) FROM review
-    	WHERE re_hno=#{re_hno}
-    </select>  
    
    <select id="regcheck" resultType="ZipReg" parameterType="String">
 		SELECT h_no, h_type, h_rtype, h_nperson, h_nroom, h_nBed, h_nBath, h_nHome, h_hContent, h_Addr1, h_Addr2, h_Phone, h_Money, h_Startday,
@@ -132,5 +128,12 @@ WHERE num BETWEEN #{start} AND #{end}
 		SELECT COUNT(h_no)
 		FROM zipreg
 		WHERE h_Endday >= SYSDATE AND h_Close = 'n' AND h_type = #{type}
+	</select>
+	
+	<!-- 예약목록  -->
+	<select id="reserveCheck" resultType="Reserve" parameterType="String">
+		SELECT r_no,r_addr,r_member,r_start,r_end,r_money,r_person,(SELECT p_file FROM home_photo WHERE p_hno = r_no AND rownum=1) "image"
+		FROM Reserve
+		WHERE r_member=#{r_member}
 	</select>
 </mapper>
