@@ -5,6 +5,9 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.board.dao.BoardDTO;
+
 import java.io.Reader;
 
 public class NezipDAO {
@@ -135,4 +138,20 @@ public class NezipDAO {
 		return list;
 	}
 
+	// mypage 회원 데이터 가져오기
+	public static List<ZipRegDTO> mybaordListData(Map map) {
+		List<ZipRegDTO> list = new ArrayList<ZipRegDTO>();
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("myboardListData", map);
+
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}
 }

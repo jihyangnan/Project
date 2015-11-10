@@ -19,16 +19,15 @@
 		border-radius: 10px;
 		color: #f94b4b;
 		font-weight: 700;
-		
 		height: 60px;
-		width: 80px;
+		width: 20%;
 		margin-left: 10px;
 	}
 	.form3_s {
 		float: left;
 	}
 	.form3_s label {
-		width: 80px;
+		width: 20%;
 		height: 20px;
 		float: left;
 	}
@@ -44,14 +43,14 @@
 	.s_Pwd_form {
 		/* background-color: #EAEAEA; */
 		border: 2px solid #D5D5D5;
-		width: 500px;
+		width: 40%;
 		height: 220px;
 		border-radius: 20px;
 		margin-left: 320px;
 	}
-	/* .s_form6 {
+	 .s_form6 {
 		margin-left: 30px;
-	} */
+
 	.s_form6 input[type="submit"] {
 		margin-top: 5px;
 		background-color: #87d54d;

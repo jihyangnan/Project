@@ -128,11 +128,11 @@
 								</div></li>
 							<li><img src="images/name.png" alt=""> <input
 								type="text" size=15 name="name" class="inheight"></li>
-							<li><img src="images/joomin.png" alt=""> <input
+							<!-- <li><img src="images/joomin.png" alt=""> <input
 								type="text" size=10 name="rrn1" class="inheight"> - <input
 								type="text" size=10 name="rrn2" class="inheight"> <font
 								style="color: #a1a1a1; font-size: 11px;">
-									(예시=>151012-1234567 입력)</font></li>
+									(예시=>151012-1234567 입력)</font></li> -->
 							<li style="font-size: 13px;"><img src="images/sex.png"
 								alt=""> <label class="radio-inline"> <input
 									type="radio" name="sex" id="inlineRadio1" value="남자"

@@ -60,7 +60,7 @@ public class BoardListModel implements Model{
 		
 		req.setAttribute("pageNum", 4); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
 		req.setAttribute("jsp", "../board/list.jsp");
-		/*req.setAttribute("mjsp", "../main/main.jsp");*/
+		
 		HttpSession session = req.getSession();
 		
 		

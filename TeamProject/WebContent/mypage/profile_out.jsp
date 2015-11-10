@@ -21,7 +21,7 @@
 		 <div class="join" align="center" >
 		 
 		 	<ul>
-		 	<li><font style="color: #565a5c;"><img src="images/id.png" alt="">&nbsp;¡‚»∆¡‚»∆	</li>
+		 	<li><font style="color: #565a5c;"><img src="images/id.png" alt="">&nbsp;hong	</li>
 		 	<li><img src="images/pwd.png" alt="">
 			 	<input type="password" size=15 name="pwd" class="inheight">&nbsp;
 			 		<input type="password" size=15 name="pwd2" class="inheight" placeholder="∫Òπ–π¯»£ »Æ¿Œ"><br></font>

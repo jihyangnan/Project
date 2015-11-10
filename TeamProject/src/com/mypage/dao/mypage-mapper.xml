@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.member.dao.mypage-mapper">
+<!-- 마이페이지 프로필 -->
 <select id="prifileData" resultType="Member" parameterType="String">
 	SELECT name, sex, addr1,addr2,tel ,email
 	FROM member1 

@@ -3,10 +3,8 @@ package com.main.model;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.board.dao.BoardDAO;
 import com.board.dao.BoardDTO;
 import com.common.Model;
@@ -31,10 +29,7 @@ public class IndexModel implements Model{
 		req.setAttribute("mlist", mlist);
 		req.setAttribute("pageNum", 0); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
 		req.setAttribute("jsp", "main.jsp");
-
-		req.getSession().setAttribute("id", "admin");
-
-
+		req.getSession().setAttribute("id", "shim");
 		return "main/index.jsp";
 	}
 	

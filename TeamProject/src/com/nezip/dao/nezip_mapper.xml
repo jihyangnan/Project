@@ -49,6 +49,7 @@
 		SELECT ht_No, ht_Name, ht_Content  
 		FROM home_category
 	</select>
+
 <!-- <select id="zipregList" resultType="ZipReg" parameterType="java.util.Map">
 select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,num
 from (select h_No,h_rType,h_nHome,h_Addr1,h_Money,h_loc,rownum as num
@@ -88,6 +89,25 @@ WHERE num BETWEEN #{start} AND #{end}
     	WHERE re_hno=#{re_hno}
     </select>  
    
+   <select id="regcheck" resultType="ZipReg" parameterType="String">
+		SELECT h_no, h_type, h_rtype, h_nperson, h_nroom, h_nBed, h_nBath, h_nHome, h_hContent, h_Addr1, h_Addr2, h_Phone, h_Money, h_Startday,
+	 		 h_Endday, h_Upday, h_Loc, h_Id, h_Close, h_Rule, (SELECT p_file FROM home_photo WHERE p_hno = h_no AND rownum=1) "image"
+		FROM zipreg
+		WHERE h_id = #{h_id}
+	</select>
+
+
+	<!-- 마이페이지 게시판 등록 -->
+	<select id="myboardListData" resultType="ZipReg" parameterType="java.util.Map">
+	SELECT b_sano, b_no, b_id, b_title, dbday, b_hit, b_delete, num
+	FROM(SELECT b_sano, b_no, b_id, b_title, TO_char(b_date,'YYYY-MM-DD')as dbday, b_hit, 
+				b_delete, rownum as num
+		FROM(SELECT b_sano, b_no, b_id, b_title, b_date, b_hit, b_delete
+				FROM p_board WHERE b_sano=4 AND b_id=#{b_id}
+	    ORDER BY b_no DESC))
+	WHERE b_delete='n' AND b_sano=4 AND num BETWEEN 1 AND 10
+	</select>
+   
    
 	<!-- 메인 페이지 항목 -->
 	<select id="ZipListForIndex" resultType="ZipReg" parameterType="java.util.Map">
@@ -101,4 +121,5 @@ WHERE num BETWEEN #{start} AND #{end}
 		            ORDER BY h_no DESC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
+
 </mapper>
