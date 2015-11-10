@@ -269,7 +269,7 @@
 					</form>					
 				  </div>
 				  <div id="items">
-				<c:forEach var="dto" items="${list }">
+				<c:forEach var="dto" items="${list}" varStatus="status">
 					<c:forTokens items="${dto.h_Loc }" delims="," var="loc" varStatus="status" >
 						<c:if test="${status.first }">
 							<c:set var="lat" value="${loc}"></c:set>
@@ -278,6 +278,12 @@
 							<c:set var="lng" value="${loc}"></c:set>
 						</c:if>
 					</c:forTokens>
+					<c:if test="${status.count >= (pageNo-1) * rowSize + 1 &&  status.count <= pageNo* rowSize}">
+						<div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }">
+					</c:if>
+					<c:if test="${status.count < (pageNo-1) * rowSize + 1  || status.count > pageNo * rowSize}">
+						<div class="row list" style="display: none" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }">
+					</c:if>
 					<div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }">
 						<div class="col-sm-8">
 							<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
@@ -341,6 +347,8 @@
 					
 					var map = new daum.maps.Map(container, options);
 					
+					$('#lat').val(37.553121);
+					$('#lng').val(126.937059);
 					var overlays = new Array();
 					insertOverlays();
 					
@@ -381,6 +389,8 @@
 			     		var center = map.getCenter();
 			     		var lat = center.getLat();
 			     		var lng = center.getLng();
+			     		$('#lat').val(lat);
+			     		$('#lng').val(lng);
 			     		$.get(
 		     				"reserve_listByMovingMap.do?lat=" + lat + "&lng=" + lng,
 		     				function(data){
@@ -531,32 +541,45 @@
 		    			}
 		    		});  */
 		     		$('#filterBtn').click(function(){
-		     			// 주소-좌표 변환 객체를 생성합니다
-	    				var geocoder = new daum.maps.services.Geocoder();
-	    				// 주소로 좌표를 검색합니다
-	    				geocoder.addr2coord($('#loc').val(), function(status, result) {
-	    				    // 정상적으로 검색이 완료됐으면 
-	    				     if (status === daum.maps.services.Status.OK) {
-	    				        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
-	    				        map.setCenter(coords);
-	    				        cir.setPosition(coords);
-								$('#lat').val(result.addr[0].lat);
-								$('#lng').val(result.addr[0].lng);
-								var data = $('#filterForm').serialize();
-								//console.log(data);
-								$.post(
-					    			"reserve_listByFilter.do",
-					    			data,
-					    			function(data){
-					    				$('div#items').html(data);
-				     					deleteOverlays();
-							     		insertOverlays();
-					    			}
-					    		); 
-	    				    } else {
-	    				    	alert("주소로 좌표를 가져오는 중 에러 발생");
-	    				    }
-	    				});
+		     			if($('#loc').val().trim() == ''){
+		     				var data = $('#filterForm').serialize();
+							$.post(
+				    			"reserve_listByFilter.do",
+				    			data,
+				    			function(data){
+				    				$('div#items').html(data);
+			     					deleteOverlays();
+						     		insertOverlays();
+				    			}
+				    		); 
+		     			} else {
+			     			// 주소-좌표 변환 객체를 생성합니다
+		    				var geocoder = new daum.maps.services.Geocoder();
+		    				// 주소로 좌표를 검색합니다
+		    				geocoder.addr2coord($('#loc').val(), function(status, result) {
+		    				    // 정상적으로 검색이 완료됐으면 
+		    				     if (status === daum.maps.services.Status.OK) {
+		    				        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+		    				        map.setCenter(coords);
+		    				        cir.setPosition(coords);
+									$('#lat').val(result.addr[0].lat);
+									$('#lng').val(result.addr[0].lng);
+									var data = $('#filterForm').serialize();
+									//console.log(data);
+									$.post(
+						    			"reserve_listByFilter.do",
+						    			data,
+						    			function(data){
+						    				$('div#items').html(data);
+					     					deleteOverlays();
+								     		insertOverlays();
+						    			}
+						    		); 
+		    				    } else {
+		    				    	alert("주소를 찾을 수 없습니다.");
+		    				    }
+		    				});
+		     			}
 		     			
 		     		});
 				</script>

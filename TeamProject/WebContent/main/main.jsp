@@ -234,7 +234,7 @@
 								  <strong>추천 우리 동네</strong></li>
 								  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab">
 								  <strong>공지 사항</strong></li>
-								  <div class="clearfix"></div>
+								  <li class="clearfix"></li>
 							  </ul>	
 							</div>	
 						 <!-- <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
@@ -335,27 +335,33 @@
 										<div class="clearfix"></div>
 									</ul> 
 							     </div>	-->
-							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1"> 
+							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1" style="padding-bottom: 0px"> 
 									
-									<ul class="tab_img">
-									<c:forEach var="town" items="${townList}" varStatus="status">
-										<c:if test="${status.count <= 9}">
-											<c:if test="${status.count % 3 == 0}">
-												<li class="last">
-											</c:if>
-											<c:if test="${status.count % 3 != 0}">
-												<li>
-											</c:if>
-										  <div class="client_box1">
-										  	<a href="town_detail.do?contentId=${town.contentId}&contentTypeId=${town.contentTypeId}">
-					       				    <img src="${town.image}" style="min-height: 130px;" class="img-responsive" alt=""/>
-					       				    </a>
-					       				     <!-- <div class="box_type">￦&nbsp;</div> -->
-					       				     <h3 class="m_1" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap; margin-top: 10px"><a href="town_detail.do?contentId=${town.contentId}&contentTypeId=${town.contentTypeId}">${town.title}</a></h3>
-					       				 	<div class="boxed_mini_details clearfix" style="padding-top: 20px"></div>
-					       				  </div>
-										</li>
+								<c:forEach var="town" items="${townList}" varStatus="status">
+									<c:if test="${status.count <= 9}">
+										<c:if test="${status.count % 3 == 1}">
+											<ul class="tab_img">
 										</c:if>
+										<c:if test="${status.count % 3 == 0}">
+											<li class="last">
+										</c:if>
+										<c:if test="${status.count % 3 != 0}">
+											<li>
+										</c:if>
+											  <div class="client_box1">
+											  	<a href="town_detail.do?contentId=${town.contentId}&contentTypeId=${town.contentTypeId}">
+						       				    <img src="${town.image}" style="min-height: 130px;" class="img-responsive" alt=""/>
+						       				    </a>
+						       				     <!-- <div class="box_type">￦&nbsp;</div> -->
+						       				     <h3 class="m_1" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap; margin-top: 10px"><a href="town_detail.do?contentId=${town.contentId}&contentTypeId=${town.contentTypeId}">${town.title}</a></h3>
+						       				 	<div class="boxed_mini_details clearfix" style="padding-top: 20px"></div>
+						       				  </div>
+											</li>
+										<c:if test="${status.count % 3 == 0 || status.last}">
+											<div class="clearfix"></div>
+											</ul>
+										</c:if>
+									</c:if>
 									</c:forEach>
 										<!-- <li>
 										  <div class="client_box1">
@@ -447,8 +453,8 @@
                                             </div>
 					       				 </div>
 										</li> -->
-										<li class="clearfix"></li>
-									</ul>
+										<!-- <li class="clearfix"></li> -->
+									
 							     </div>	
 							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
 							     	<!--

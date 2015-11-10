@@ -83,6 +83,13 @@ WHERE num BETWEEN #{start} AND #{end}
 		FROM zipreg
 		where h_no = #{h_no}
 	</select>
+	
+	<!-- 사진 가져오기 -->
+	<select id="photoList" resultType="String" parameterType="int">
+		SELECT p_file
+		FROM home_photo
+		WHERE p_hno = #{no}
+	</select>
     
     <select id="facregList" resultType="Fac_reg" parameterType="int">
 		SELECT c_No,c_hNo,c_hsNo

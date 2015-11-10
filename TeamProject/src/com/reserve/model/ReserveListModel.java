@@ -33,6 +33,7 @@ public class ReserveListModel implements Model {
 		int pageStartNum = (curpage-1)/rowSize * rowSize + 1;	// 페이징 처리 부분에서 시작하는 페이지 번호
 		int pageEndNum = pageStartNum + blockSize - 1;	// 페이징 처리 부분에서 끝나는 페이지 번호
 		
+		req.setAttribute("rowSize", rowSize);
 		req.setAttribute("totalPage", totalPage);
 		req.setAttribute("pageStartNum", pageStartNum);
 		req.setAttribute("pageEndNum", pageEndNum);
@@ -45,11 +46,10 @@ public class ReserveListModel implements Model {
 		req.setAttribute("homeCateoryList", homeCateoryList);	// 집유형리스트 - 필터에 사용
 		req.setAttribute("homeFacList", homeFacList);			// 시설 리스트 - 필터에 사용
 	    
-	    int totalpage=ReserveDAO.reserveTotalPage();
-	    req.setAttribute("list", list);
-	    req.setAttribute("totalpage", totalpage);
+	    req.setAttribute("totalpage", totalPage);
 	    req.setAttribute("pageNum", 2); // 현재 선택된 페이지 메뉴를 녹색으로 바꾸기 위한 변수
 		req.setAttribute("jsp", "../reserve/list.jsp");
+		
 		return "main/index.jsp";
 	}
 	

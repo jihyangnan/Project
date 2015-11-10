@@ -79,11 +79,11 @@ public class ReserveListByFilterModel implements Model{
 		int pageStartNum = (curpage-1)/rowSize * rowSize + 1;	// 페이징 처리 부분에서 시작하는 페이지 번호
 		int pageEndNum = pageStartNum + blockSize - 1;	// 페이징 처리 부분에서 끝나는 페이지 번호
 		
+		req.setAttribute("rowSize", rowSize);
 		req.setAttribute("totalPage", totalPage);
 		req.setAttribute("pageStartNum", pageStartNum);
 		req.setAttribute("pageEndNum", pageEndNum);
 		req.setAttribute("pageNo", curpage);
-	    
 		
 		
 		req.setAttribute("zipRegList", list);

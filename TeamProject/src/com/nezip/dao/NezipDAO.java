@@ -100,7 +100,7 @@ public class NezipDAO {
 		SqlSession session = null;
 		ZipRegDTO d = new ZipRegDTO();
 		try {
-			session = ssf.openSession(true);
+			session = ssf.openSession();
 			d = session.selectOne("zipregData", no);
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
@@ -109,6 +109,15 @@ public class NezipDAO {
 				session.close();
 		}
 		return d;
+	}
+	
+	// 사진목록 가져오기
+	public static List<String> photoList(int no){
+		List<String> photoList = new ArrayList<>();
+		try(SqlSession session = ssf.openSession()){
+			photoList = session.selectList("photoList", no);
+		}
+		return photoList;
 	}
 
 	// 숙소 시설 리스트
