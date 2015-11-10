@@ -67,4 +67,7 @@ WHERE num BETWEEN #{start} AND #{end}
 	FROM Fac_reg
 	WHERE c_hno=#{c_hno}
 </select>
+<select id="regcheck" resultType="ZipReg" parameterType="String">
+   select * from zipreg where h_id=#{h_id} 
+</select>
 </mapper>
