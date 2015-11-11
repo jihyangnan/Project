@@ -48,10 +48,10 @@
 							<i class="fa fa-star"></i>&nbsp;가격: ${reg.h_Money }
 						</p>
 						<p style="margin-top: 8px; font-size: 13px;">
-							<i class="fa fa-pencil"></i>&nbsp;인원: 1
+							<i class="fa fa-pencil"></i>&nbsp;인원: ${reg.h_nPerson}
 						</p>
-						<input type="button" value="수정하기" id="join" class="btn" 
-						style=" width: 90px; padding-left: 10px; padding-right: 10px;">
+						<!-- <input type="button" value="수정하기" id="join" class="btn" 
+						style=" width: 90px; padding-left: 10px; padding-right: 10px;"> -->
 						<input type="button" value="예약내역보기" data-toggle="modal" data-target="#myModal${status.count}" id="join" class="btn" 
 						style=" width: 120px; padding-left: 10px; padding-right: 10px;">
 						<!-- Modal -->
@@ -81,12 +81,12 @@
 										</li>
 										<li style="padding-bottom:3px; padding-top:3px;">
 										&nbsp;&nbsp;<b>체크인 날짜</b> &nbsp;&nbsp; 
-										<fmt:formatDate var="date" value="${myreg.r_start }" pattern="yyyy-MM-dd" />
+										<fmt:formatDate var="date" value="${myreg.r_start }" pattern="yy-MM-dd" />
 										<font style="font-size: 13px;">${date }</font>
 										</li>
 										<li style="padding-bottom:3px; padding-top:3px;">
 										&nbsp;&nbsp;<b>체크아웃 날짜</b> &nbsp;&nbsp; 
-										<fmt:formatDate var="date1" value="${myreg.r_end }" pattern="yyyy-MM-dd" />
+										<fmt:formatDate var="date1" value="${myreg.r_end }" pattern="yy-MM-dd" />
 										<font style="font-size: 13px;">${date1}</font>
 										</li>
 										<li style="padding-bottom:3px; padding-top:3px;">

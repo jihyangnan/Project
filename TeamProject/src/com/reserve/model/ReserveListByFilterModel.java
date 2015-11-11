@@ -55,7 +55,7 @@ public class ReserveListByFilterModel implements Model{
 		if(latStr != null && lngStr != null && !latStr.equals("") && !lngStr.equals("")){
 			System.out.println("거리측정 시작함");
 			Map<String, Double> filterValue = new HashMap<>();
-			filterValue.put("limit", 0.5);
+			filterValue.put("limit", 3.0);
 			filterValue.put("lat", Double.parseDouble(latStr));
 			filterValue.put("lng", Double.parseDouble(lngStr));
 			list = list.stream().filter(d -> calDistance(filterValue, d)).collect(Collectors.toList());

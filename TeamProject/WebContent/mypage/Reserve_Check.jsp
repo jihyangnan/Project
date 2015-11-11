@@ -66,8 +66,8 @@
 						</p>
 						<!-- <input type="button" value="수정하기" id="join" class="btn" 
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;"> -->
-						<input type="button" value="예약취소" id="join" class="btn" 
-						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
+						<!-- <input type="button" value="예약취소" id="join" class="btn" 
+						style=" width: 74px; padding-left: 10px; padding-right: 10px;"> -->
 					</div>
 					</div>
 				<c:if test="${status.count % 2 == 0}">
