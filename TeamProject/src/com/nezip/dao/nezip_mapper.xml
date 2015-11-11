@@ -144,4 +144,10 @@ WHERE num BETWEEN #{start} AND #{end}
 		FROM Reserve
 		WHERE r_member=#{r_member}
 	</select>
+<!-- <select id="zipregData2" resultType="ZipReg" parameterType="String">
+		SELECT h_no, h_type, h_rtype, h_nperson, h_nroom, h_nBed, h_nBath, h_nHome, h_hContent, h_Addr1, h_Addr2, h_Phone, h_Money, h_Startday,
+ 		 h_Endday, h_Upday, h_Loc, h_Id, h_Close, h_Rule, (SELECT p_file FROM home_photo WHERE p_hno = h_no AND rownum=1) "image"
+	FROM zipreg
+	WHERE h_id = #{h_id}
+	</select> -->
 </mapper>
