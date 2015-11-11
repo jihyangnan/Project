@@ -27,9 +27,11 @@
 
 		
 		 	<ul><font style="color: #565a5c;">
-		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt=""> ${dto.name }</li>
-		 	
-		 	<li style="margin-bottom:6px;"><img src="images/sex.png" alt=""> ${dto.sex }
+		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt=""> ${dto.name }
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	<img src="images/sex.png" alt=""> ${dto.sex }
 
 		 	</li>
 

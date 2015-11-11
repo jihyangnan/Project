@@ -8,7 +8,6 @@ public class MemberDTO {
 	private String pwd;
 	private String pwhint;
 	private String name;
-	private String rrn;
 	private String sex;
 	private String birth;
 	private String post;
@@ -67,13 +66,6 @@ public class MemberDTO {
 		this.name = name;
 	}
 
-	public String getRrn() {
-		return rrn;
-	}
-
-	public void setRrn(String rrn) {
-		this.rrn = rrn;
-	}
 
 	public String getSex() {
 		return sex;
