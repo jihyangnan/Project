@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.member.dao.MemberDTO;
 import com.nezip.dao.ZipRegDTO;
+import com.reserve.dao.ReserveDTO;
 
 import java.io.Reader;
 
@@ -37,7 +38,21 @@ public class MypageDAO {
 		}
 		return list;
 	}
-
+	public static List<ReserveDTO> reserveCheck2(String h_Id) {
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("reserveCheck2", h_Id);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}
+	
 	// 회원 데이터 가져오기
 	public static MemberDTO prifileData(String id) {
 		MemberDTO d = new MemberDTO();

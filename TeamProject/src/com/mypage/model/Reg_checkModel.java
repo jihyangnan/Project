@@ -17,6 +17,10 @@ import com.common.Model;
 import com.mypage.dao.MypageDAO;
 import com.nezip.dao.NezipDAO;
 import com.nezip.dao.ZipRegDTO;
+import com.reserve.dao.ReserveDAO;
+import com.reserve.dao.ReserveDTO;
+
+
 
 
 public class Reg_checkModel implements Model {
@@ -26,7 +30,6 @@ public class Reg_checkModel implements Model {
 
 		HttpSession session = req.getSession();
         String id = (String)session.getAttribute("id");
-        System.out.println("id="+id);
 		/*회원 페이지*/
 		String strPage=req.getParameter("page");
 		if(strPage==null)
@@ -54,8 +57,16 @@ public class Reg_checkModel implements Model {
         req.setAttribute("jsp", "../mypage/Reg_check.jsp");
                       
 	    List<ZipRegDTO> list=MypageDAO.regcheck(id);
+	    /*ZipRegDTO dto2=NezipDAO.zipregData2(id);*/
+	    
+	    /*req.setAttribute("dto2", dto2);*/
+	    List<ReserveDTO> list2 = MypageDAO.reserveCheck2(id); 
+	    for(int i=0;i<list2.size();i++)
+	    {
+	    	System.out.println(list2.get(i).getR_member());
+	    }
 	    req.setAttribute("list", list);
-		
+	    req.setAttribute("list2", list2); 
 
 		return "main/index.jsp";
 	}

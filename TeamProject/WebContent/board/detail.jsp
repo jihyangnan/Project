@@ -134,7 +134,12 @@ function replyUpdateClick(rw_no)
 				</a>
 				</c:if>
 				
-				<a href="board_list.do?page=${page }">
+				<c:if test="${page == -1}">
+					<a href="javascript:history.back();">
+				</c:if>
+				<c:if test="${page != -1}">
+					<a href="board_list.do?page=${page }">
+				</c:if>
 				<button type="button" class="btn search-btn" style=" padding: 2px 6px; font-size: 12px;">
 				목록</button>
 				<!-- <span
