@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="about_top">
     <div class="container">
     	<div>
@@ -50,12 +51,68 @@
 							<i class="fa fa-pencil"></i>&nbsp;인원: 1
 						</p>
 						<input type="button" value="수정하기" id="join" class="btn" 
-						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
-						<input type="button" value="삭제하기" id="join" class="btn" 
-						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
+						style=" width: 90px; padding-left: 10px; padding-right: 10px;">
+						<input type="button" value="예약내역보기" data-toggle="modal" data-target="#myModal${status.count}" id="join" class="btn" 
+						style=" width: 120px; padding-left: 10px; padding-right: 10px;">
+						<!-- Modal -->
+						<div class="modal fade" id="myModal${status.count}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal-dialog" style="margin-top: 100px">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title" id="myModalLabel">예약 내역</h4>
+						      </div>
+						      <div class="modal-body">
+						      	<c:forEach var="myreg" items="${list2}">
+						      		<c:if test="${myreg.r_addr == reg.h_No}">
+						      			<div class="com-sm-12" style="border:1px solid #adadad; margin-bottom: 20px">
+										<ul style="list-style:none; padding:0px; margin:0px;">
+										<li style="border-bottom:1px solid #adadad; color: #fff; text-align:center; background-color:#f94b4b;
+											font-size: 16px; padding-bottom:3px; padding-top:3px;">
+											<b>예약정보</b>
+										</li>
+										<li style="padding-bottom:3px; padding-top:3px;">
+										&nbsp;&nbsp;<b>예약한 사람</b> &nbsp;&nbsp; 
+										<font style="font-size: 13px;">${myreg.r_member}</font>
+										</li>
+										<li style="padding-bottom:3px; padding-top:3px;">
+										&nbsp;&nbsp;<b>연락처</b> &nbsp;&nbsp; 
+										<font style="font-size: 13px;">${myreg.tel}</font>
+										</li>
+										<li style="padding-bottom:3px; padding-top:3px;">
+										&nbsp;&nbsp;<b>체크인 날짜</b> &nbsp;&nbsp; 
+										<fmt:formatDate var="date" value="${myreg.r_start }" pattern="yyyy-MM-dd" />
+										<font style="font-size: 13px;">${date }</font>
+										</li>
+										<li style="padding-bottom:3px; padding-top:3px;">
+										&nbsp;&nbsp;<b>체크아웃 날짜</b> &nbsp;&nbsp; 
+										<fmt:formatDate var="date1" value="${myreg.r_end }" pattern="yyyy-MM-dd" />
+										<font style="font-size: 13px;">${date1}</font>
+										</li>
+										<li style="padding-bottom:3px; padding-top:3px;">
+										&nbsp;&nbsp;<b>가격</b> &nbsp;&nbsp; 
+										<font style="font-size: 13px;">${myreg.r_money }</font>
+										</li>
+										<li style="padding-bottom:3px; padding-top:3px;">
+										&nbsp;&nbsp;<b>인원</b> &nbsp;&nbsp; 
+										<font style="font-size: 13px;">${myreg.r_person}</font>
+										</li>
+										</ul>
+									</div>
+						      		</c:if>
+						      	</c:forEach>
+						      	
+								
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
 					</div>
 					</div>
-				<c:if test="${status.count % 2 == 0}">
+				<c:if test="${status.count % 2 == 0 || status.last}">
 					<div class="clearfix"></div>
 					</div>
 				</c:if>
@@ -101,10 +158,10 @@
 				
 			</div>	
 		<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-			<div>
+			<%-- <div>
 				<h4 class="blog_head" align="left">
 					<b>예약목록</b>
-					<%-- <input type=hidden name="raddr" id="raddr" value="${dto2.h_No }"> --%>
+					<input type=hidden name="raddr" id="raddr" value="${dto2.h_No }">
 				</h4>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;">
 			</div>
@@ -117,11 +174,11 @@
 				</c:if>
 					<div class="col-sm-6">
 					<div class="col-sm-6">	
-<%-- 							<img src="upload/${myreg.image}" class="" alt="" style="width: 200px; height: 140px;">
- --%>					</div>
+							<img src="upload/${myreg.image}" class="" alt="" style="width: 200px; height: 140px;">
+					</div>
 					<div class="col-sm-6">
 						<h3 style="font-size: 18px; font-weight: bold;">
-							<%--  ${myreg.h_nHome }  --%>
+							 ${myreg.h_nHome } 
 						</h3>
 						<p style="margin-top: 8px; font-size: 13px;">
 						  <i class="fa fa-shield"></i>&nbsp;예약번호 : ${myreg.r_addr }</p>
@@ -139,7 +196,7 @@
 						</p>
 						<input type="button" value="수정하기" id="join" class="btn" 
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
-						<input type="button" value="삭제하기" id="join" class="btn" 
+						<input type="button" value="삭제기하" id="join" class="btn" 
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
 					</div>
 					</div>
@@ -147,7 +204,7 @@
 					<div class="clearfix"></div>
 					</div>
 				</c:if>
-			</c:forEach> 
+			</c:forEach>  --%>
 <!--이전 주석 -->
 
 			<!-- <div style=" margin-bottom: 3%;">

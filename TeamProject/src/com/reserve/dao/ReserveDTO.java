@@ -12,6 +12,7 @@ public class ReserveDTO {
 	private String image;
 	private String houseName;
 	private String houseAddr;
+	private String tel;
 	
 	public int getR_money() {
 		return r_money;
@@ -72,5 +73,11 @@ public class ReserveDTO {
 	}
 	public void setHouseAddr(String houseAddr) {
 		this.houseAddr = houseAddr;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 }

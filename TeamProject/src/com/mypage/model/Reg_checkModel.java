@@ -61,10 +61,7 @@ public class Reg_checkModel implements Model {
 	    
 	    /*req.setAttribute("dto2", dto2);*/
 	    List<ReserveDTO> list2 = MypageDAO.reserveCheck2(id); 
-	    for(int i=0;i<list2.size();i++)
-	    {
-	    	System.out.println(list2.get(i).getR_member());
-	    }
+	   
 	    req.setAttribute("list", list);
 	    req.setAttribute("list2", list2); 
 

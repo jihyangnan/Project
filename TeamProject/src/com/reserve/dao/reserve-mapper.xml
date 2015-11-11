@@ -177,7 +177,7 @@
 	where r_member=#{r_member}
 	</select>
 <select id="reserveCheck2" resultType="Reserve" parameterType="String">
-	select r_no, r_addr, r_member, r_start, r_end, r_money, r_person
+	select r_no, r_addr, r_member, r_start, r_end, r_money, r_person, (select tel from member1 where id = r_member) "tel"
 	from reserve
 	where r_addr in (select h_no
 					from zipreg
