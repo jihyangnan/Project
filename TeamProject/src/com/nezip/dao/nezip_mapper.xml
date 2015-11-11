@@ -139,7 +139,8 @@ WHERE num BETWEEN #{start} AND #{end}
 	
 	<!-- 예약목록  -->
 	<select id="reserveCheck" resultType="Reserve" parameterType="String">
-		SELECT r_no,r_addr,r_member,r_start,r_end,r_money,r_person,(SELECT p_file FROM home_photo WHERE p_hno = r_no AND rownum=1) "image"
+		SELECT r_no,r_addr,r_member,r_start,r_end,r_money,r_person,(SELECT p_file FROM home_photo WHERE p_hno = r_addr AND rownum=1) "image",
+			(select h_nhome FROM zipreg where h_no = r_addr) "houseName", (select h_addr1 FROM zipreg where h_no = r_addr) "houseAddr"
 		FROM Reserve
 		WHERE r_member=#{r_member}
 	</select>

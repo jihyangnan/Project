@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="about_top">
     <div class="container">
     	<div>
@@ -31,12 +32,12 @@
 					</div>
 					<div class="col-sm-6">
 						<h3 style="font-size: 18px; font-weight: bold;">
-							 ${res.r_member } 
+							 ${res.houseName} 
 						</h3>
 						<p style="margin-top: 8px; font-size: 13px;">
-						  <i class="fa fa-shield"></i>&nbsp;위치 : ${res.r_addr }</p>
+						  <i class="fa fa-shield"></i>&nbsp;위치 : ${res.houseAddr}</p>
 						<p style="margin-top: 8px; font-size: 13px;">
-							<i class="fa fa-pencil"></i>&nbsp;예약자: ${res.r_member } 
+							<i class="fa fa-pencil"></i>&nbsp;예약자: ${res.r_member} 
 							<%-- <c:if test="${res.h_rType == 1 }">
 								집전체
 							</c:if> 
@@ -48,10 +49,14 @@
 							</c:if> --%>
 						</p>
 						<p style="margin-top: 8px; font-size: 13px;">
-							<i class="fa fa-star"></i>&nbsp;체크인: ${res.r_start }
+							<i class="fa fa-star"></i>&nbsp;체크인: 
+							<fmt:formatDate var="date" value="${res.r_start}"
+										pattern="yy-MM-dd" />${date}
 						</p>
 						<p style="margin-top: 8px; font-size: 13px;">
-							<i class="fa fa-star"></i>&nbsp;체크아웃: ${res.r_end }
+							<i class="fa fa-star"></i>&nbsp;체크아웃: 
+							<fmt:formatDate var="date1" value="${res.r_end}"
+										pattern="yy-MM-dd" />${date1}
 						</p>
 						<p style="margin-top: 8px; font-size: 13px;">
 							<i class="fa fa-star"></i>&nbsp;가격: ${res.r_money }
@@ -59,9 +64,9 @@
 						<p style="margin-top: 8px; font-size: 13px;">
 							<i class="fa fa-pencil"></i>&nbsp;인원: ${res.r_person }
 						</p>
-						<input type="button" value="수정하기" id="join" class="btn" 
-						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
-						<input type="button" value="삭제하기" id="join" class="btn" 
+						<!-- <input type="button" value="수정하기" id="join" class="btn" 
+						style=" width: 74px; padding-left: 10px; padding-right: 10px;"> -->
+						<input type="button" value="예약취소" id="join" class="btn" 
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
 					</div>
 					</div>
