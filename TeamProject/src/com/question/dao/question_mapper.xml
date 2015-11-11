@@ -32,8 +32,9 @@ WHERE num BETWEEN #{start} AND #{end}
 </sql>
 <!-- 내용보기 -->
 <select id="questionContentData" resultType="Question" parameterType="int">
-	SELECT q_no,q_id,q_title,q_date,q_content,q_email,q_phone
-	FROM question
+	SELECT q_no,q_id,q_title,q_date,q_content,q_email,q_phone,qt_name
+	FROM question q JOIN question_type qt
+	 ON q.q_qtno = qt.qt_no
 	WHERE q_no=#{q_no} 
 </select>
 <!-- 이메일 보내기/값 -->

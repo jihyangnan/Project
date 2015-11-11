@@ -39,7 +39,7 @@ WHERE num BETWEEN 1 AND 5
 </select>
 <!-- 삽입 -->
 <insert id="boardInsert">
-	<selectKey keyProperty="b_No" resultType="int" order="BEFORE">
+	<selectKey keyProperty="b_no" resultType="int" order="BEFORE">
 		 SELECT NVL(MAX(b_no)+1,1) as b_no FROM p_board
 	</selectKey>
 	INSERT INTO p_board values(#{b_no},#{b_id},#{b_title},#{b_content},0,0,SYSDATE,'n',#{b_sano})

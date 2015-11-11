@@ -176,4 +176,12 @@
 	select * from reserve
 	where r_member=#{r_member}
 	</select>
+<select id="reserveCheck2" resultType="Reserve" parameterType="String">
+	select r_no, r_addr, r_member, r_start, r_end, r_money, r_person
+	from reserve
+	where r_addr in (select h_no
+					from zipreg
+					where h_id = #{h_id})
+	order by r_addr, r_no
+	</select>  	 
 </mapper>

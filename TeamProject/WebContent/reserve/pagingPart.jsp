@@ -37,7 +37,7 @@
 	 </form>
 	 <script>
 	 	function movePage(pageNum){
-	 		location.href = "reserve_list.do?pageNum=" + pageNum;
+	 		location.href = "reserve_list.do?page=" + pageNum;
 	 	}
 	 </script>
 </div>

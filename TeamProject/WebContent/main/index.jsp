@@ -131,21 +131,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <span class="menu"></span><div style="clear:both;"></div>
 			<div class="top-menu">
 				<ul>
-					<li><a href="nezip_insert1.do"><i class="fa fa-home"> </i><b>내집 등록</b></a></li>
+					<li>
+					<c:if test="${sessionScope.id!=null}">
+					<a href="nezip_insert1.do"><i class="fa fa-home"> </i><b>내집 등록</b></a>
+					</c:if>
+					<c:if test="${sessionScope.id==null}">
+					<a href="join_login.do"><i class="fa fa-home"> </i><b>내집 등록</b></a>
+					</c:if>
+					</li>
+					
 					<li><a href="reserve_list.do"><i class="fa fa-star"> </i><b>니집 예약</b></a></li>
+					
 					<li class="dropdown"><a href="town_list.do" >
 						<i class="fa fa-map-marker"></i><b>우리 동네 소개</b></a>
 					</li>
+					
 					<li class="dropdown"><a data-toggle="dropdown" style="cursor: pointer;" onclick="location.href='board_list.do'"><i class="fa fa-comments"></i><b>고객의 소리</b></a>
 						<ul class="dropdown-menu" style="min-width: 110px;">
 							<li><a href="board_list.do">자유게시판</a></li>
-							<c:if test="${sessionScope.id!='admin' }">
-							<li><a href="question_insert.do">1:1문의</a></li>
+							<c:if test="${sessionScope.id!=null}">
+								<c:if test="${sessionScope.id!='admin' }">
+								<li><a href="question_insert.do">1:1문의</a></li>
+								</c:if>
+								<c:if test="${sessionScope.id=='admin' }">
+								<li><a href="question_list.do">1:1문의 관리</a></li>
+								</c:if>
 							</c:if>
-							<c:if test="${sessionScope.id=='admin' }">
-							<li><a href="question_list.do">1:1문의 관리</a></li>
+							<c:if test="${sessionScope.id==null}">
+								<li><a href="join_login.do">1:1문의</a></li>
 							</c:if>
-							
 						</ul>
 					</li>
 

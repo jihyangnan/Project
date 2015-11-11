@@ -142,9 +142,18 @@ function resizeBoard(){
 			</div>		
 			
 			<div class="row text-right" style="margin:0px;">
+			<c:if test="${sessionScope.id!=null }">
 			 <!-- <a href="board_insert.do"> -->
 				<button type="button" class="btn search-btn" data-toggle="modal" data-target="#writeModal">글쓰기</button>
 			<!--  </a> -->
+			</c:if>
+			<c:if test="${sessionScope.id==null }">
+			 <!-- <a href="board_insert.do"> -->
+			 <a href="join_login.do">
+				<button type="button" class="btn search-btn" data-toggle="modal">글쓰기</button>
+			<!--  </a> -->
+				</a>
+			</c:if>
 			</div>	
 				
 			<div id="writeModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">

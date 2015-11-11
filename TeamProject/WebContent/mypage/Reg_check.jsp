@@ -61,7 +61,7 @@
 				</c:if>
 			</c:forEach> 
 
-   
+   			<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
               <div>
 				<h4 class="blog_head" align="left">
 					<b>게시판 등록내역</b>
@@ -87,7 +87,7 @@
 					<span class="col-sm-1">${dto.num }</span>
 					<span class="col-sm-8 col-xs-10" style="text-align:left;">
 					  <i></i>
-					  <a href="board_content.do?b_no=${dto.b_no}&page=${curpage}">
+					  <a href="board_content.do?b_no=${dto.b_no}&page=-1">
 					  ${dto.b_title }</a>
 					  <c:if test="${today==dto.dbday }">
 					  <sup><img src="images/neo_new.gif"></sup>
@@ -100,9 +100,54 @@
 				</c:forEach> 
 				
 			</div>	
-
-
-
+		<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
+			<div>
+				<h4 class="blog_head" align="left">
+					<b>예약목록</b>
+					<%-- <input type=hidden name="raddr" id="raddr" value="${dto2.h_No }"> --%>
+				</h4>
+				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;">
+			</div>
+				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;">
+			</div>
+			
+			<c:forEach var="myreg" items="${list2}" varStatus="status">
+				<c:if test="${status.count % 2 == 1}">
+					<div style=" margin-bottom: 3%;">
+				</c:if>
+					<div class="col-sm-6">
+					<div class="col-sm-6">	
+<%-- 							<img src="upload/${myreg.image}" class="" alt="" style="width: 200px; height: 140px;">
+ --%>					</div>
+					<div class="col-sm-6">
+						<h3 style="font-size: 18px; font-weight: bold;">
+							<%--  ${myreg.h_nHome }  --%>
+						</h3>
+						<p style="margin-top: 8px; font-size: 13px;">
+						  <i class="fa fa-shield"></i>&nbsp;예약번호 : ${myreg.r_addr }</p>
+						<p style="margin-top: 8px; font-size: 13px;">
+							<i class="fa fa-pencil"></i>&nbsp;예약시작: ${myreg.r_start }							
+						</p>
+						<p style="margin-top: 8px; font-size: 13px;">
+							<i class="fa fa-pencil"></i>&nbsp;예약마감: ${myreg.r_end }							
+						</p>
+						<p style="margin-top: 8px; font-size: 13px;">
+							<i class="fa fa-star"></i>&nbsp;가격: ${myreg.r_money }
+						</p>
+						<p style="margin-top: 8px; font-size: 13px;">
+							<i class="fa fa-pencil"></i>&nbsp;인원: ${myreg.r_person }
+						</p>
+						<input type="button" value="수정하기" id="join" class="btn" 
+						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
+						<input type="button" value="삭제하기" id="join" class="btn" 
+						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
+					</div>
+					</div>
+				<c:if test="${status.count % 2 == 0}">
+					<div class="clearfix"></div>
+					</div>
+				</c:if>
+			</c:forEach> 
 <!--이전 주석 -->
 
 			<!-- <div style=" margin-bottom: 3%;">

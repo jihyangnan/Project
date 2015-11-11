@@ -10,6 +10,8 @@ public class ReserveDTO {
 	private int r_money;
 	private int r_person;
 	private String image;
+	private String houseName;
+	private String houseAddr;
 	
 	public int getR_money() {
 		return r_money;
@@ -59,5 +61,16 @@ public class ReserveDTO {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+	public String getHouseName() {
+		return houseName;
+	}
+	public void setHouseName(String houseName) {
+		this.houseName = houseName;
+	}
+	public String getHouseAddr() {
+		return houseAddr;
+	}
+	public void setHouseAddr(String houseAddr) {
+		this.houseAddr = houseAddr;
+	}
 }

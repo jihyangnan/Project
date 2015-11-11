@@ -67,7 +67,8 @@ public class ReserveDoitModel implements Model {
 		req.setAttribute("rd", rd);
 		req.setAttribute("no", r_addr);
 		req.setAttribute("page", strPage);			
-		return "reserve_detail.do?no=" + r_addr + "&page="+strPage;
+		//return "reserve_detail.do?no=" + r_addr + "&page="+strPage;
+		return "mypage_reserveCheck.do";
 	}
 
 }
