@@ -41,7 +41,7 @@
 
 		 	<li style="font-size: 13px;">
 		 	<img src="images/hkind.png" alt="">&nbsp;
-			  ■ 아파트 &nbsp; ■ 주택 &nbsp; □ 빌라 &nbsp; □ 호텔 &nbsp; ■ 게스트하우스&nbsp; □ 기타 
+			  ■ 아파트 &nbsp; ■ 주택 &nbsp; □ 빌라 &nbsp; ■ 게스트하우스&nbsp; □ 기타 
 		 	</li></font>
 		 	</ul>
 		  </div>	
