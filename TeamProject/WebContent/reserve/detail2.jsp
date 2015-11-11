@@ -5,10 +5,7 @@
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
-  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>  -->
+<script src="js/jquery.form.min.js"></script>
 <script>
 $(document).ready(function(){
 	var t = new Date();
@@ -40,18 +37,44 @@ $(document).ready(function(){
 </script>
 <script type="text/javascript">
 var i=0;
-$(function(){
-	$('#reviewBtn').click(function(){
-		var re_Content=$('#review_content').val();
-		if(re_Content=="")
-		{
-			alert("후기를 입력하세요");
-			$('#review_content').focus();
-			return;
-		}
-		$('#re_new_frm').submit();
-});
-});	 
+
+	$(function() {
+		/* $('#reviewBtn').click(function() {
+			var re_Content = $('#review_content').val();
+			if (re_Content == "") {
+				alert("후기를 입력하세요");
+				$('#review_content').focus();
+				return;
+			}
+			$('#re_new_frm').submit();
+		}); */
+		
+		
+		 $('#re_new_frm').ajaxForm({
+ 			//보내기전 validation check가 필요할경우
+ 			beforeSubmit : function(data, frm, opt) {
+ 				var re_Content = $('#review_content').val().trim();
+ 				if (re_Content == "") {
+ 					alert("후기를 입력하세요");
+ 					$('#review_content').focus();
+ 					return false;
+ 				}
+ 				return true;
+ 			}, 
+ 			//submit이후의 처리
+ 			success : function(data, statusText) {
+ 				//console.log(data);
+ 				$('#reviewList').html(data);
+ 			},
+ 			//ajax error
+ 			error : function(e) {
+ 				alert("댓글입력 중 에러발생!!");
+ 				console.log(e);
+ 			}
+ 		}); 
+		
+		
+	});
 </script>
 <!-- <script>
 $(function(){
@@ -67,11 +90,11 @@ $(function(){
 <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> -->
-<div class="about_top">
+<div class="about_top detail">
 		<div class="container" style="margin: 400;">
 			<div class="jumbotron">
 				<div class="row">
-					<div class="sp-slideshow">
+					<%-- <div class="sp-slideshow">
 						<input id="button-1" type="radio" name="radio-set"
 							class="sp-selector-1" checked="checked"> <label
 							for="button-1" class="button-label-1"></label> <input
@@ -97,23 +120,64 @@ $(function(){
 						</div>
 						<!-- sp-content -->
 
-					</div>
+					</div> --%>
 
-					<h3 class="col-md-4"
-						style="text-align: center; padpadding: 2px; font-size: 13pt; padding-left: 100px;">
-						${dto.h_nHome}</h3>
-					<span class="col-md-5"
-						style="padding: 2px; font-size: 10pt; color: #f08080;">
-						${dto.h_Addr1}</span> <span class="col-md-2"
-						style="text-align: center; padding: 7px; font-size: 9pt; color: #778899"></span>
+
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<c:forEach items="${photoList}" varStatus="status">
+						<c:if test="${status.first}">
+							<ol class="carousel-indicators">
+						</c:if>
+							<li data-target="#carousel-example-generic" data-slide-to="${status.index}"></li>
+						<c:if test="${status.last}">
+							</ol>
+						</c:if>
+					</c:forEach>
+					
+					<c:forEach var="photo" items="${photoList}" varStatus="status">
+						<c:if test="${status.first}">
+							<div class="carousel-inner" role="listbox">
+							<div class="item active">
+							<img src="upload/${photo}" alt="" class="img-responsive" style="width: 100%; max-height: 500px" />
+								<div class="carousel-caption"></div>
+							</div>
+						</c:if>
+						<c:if test="${not status.first}">
+							<div class="item ">
+							<img src="upload/${photo}" alt="" class="img-responsive" style="width: 100%; max-height: 500px"/>
+								<div class="carousel-caption"></div>
+							</div>
+						</c:if>
+						<c:if test="${status.last}">
+							</div>
+						</c:if>
+					</c:forEach>
+				
+
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic"
+						role="button" data-slide="prev"> <span
+						class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a> <a class="right carousel-control" href="#carousel-example-generic"
+						role="button" data-slide="next"> <span
+						class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+
+
+
+				<h2 class="col-sm-8 col-sm-offset-1" style="color: #82888a; margin-top:20px; font-weight: bold">${dto.h_nHome}</h2><div class="col-sm-2"></div><div class="clearfix"></div>
+						<div class="col-sm-8 col-sm-offset-1" style="font-size: 10pt; color: #f08080;padding-top: 10px">${dto.h_Addr1}</div>
 				</div>
 				<br> <br>
 				<div class="row">
 					<span class="col-md-3"
-						style="text-align: center; padding: 2px; font-size: 15pt; color: #778899;">
+						style="padding-left:20px; font-size: 15pt; color: #82888a; font-weight:bold; margin-bottom: 10px">
 						상세설명</span>
 				</div>
-				<br> <br> <pre style="padding: 30px; font-size: 10pt;">${dto.h_hContent}</pre>
+				<pre style="padding: 30px; font-size: 10pt;">${dto.h_hContent}</pre>
 				<div>
 					<hr
 						style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
@@ -123,7 +187,7 @@ $(function(){
 						<div class="row">
 							<div class="col-md-3 text-muted">
 								<span
-									style="position: relative; min-height: 1px; padding-left: 12.5px; padding-right: 12.5px;">숙소</span>
+									style="position: relative; min-height: 1px; padding-left:15px; padding-right: 12.5px; font-weight: bold">숙소</span>
 							</div>
 							<div class="col-md-9">
 								<div class="row">
@@ -212,13 +276,12 @@ $(function(){
 						<div class="row">
 							<div class="col-md-3">
 								<span
-									style="position: relative; min-height: 1px; padding-left: 12.5px; padding-right: 12.5px;">시설</span>
+									style="position: relative; min-height: 1px; padding-left:15px; padding-right: 12.5px; font-weight: bold">시설</span>
 							</div>							
 							<div class="col-md-9">
 								<div class="row">
+								<c:forEach var="flist" items="${flist}">
 								<div class="col-md-6">
-								<c:forEach var="flist" items="${ flist}">
-								<div>
 								<c:if test="${flist.c_hsNo==1 }">
 									<span>TV</span>
 								</c:if>
@@ -303,18 +366,17 @@ $(function(){
 								<c:if test="${flist.c_hsNo==28 }">
 									<span>소화기</span>
 								</c:if>
-								<c:if test="${flist.c_hsNo==28 }">
+								<c:if test="${flist.c_hsNo==29 }">
 									<span>일산화탄소 탐지기</span>
 								</c:if>
-								<c:if test="${flist.c_hsNo==28 }">
+								<c:if test="${flist.c_hsNo==30 }">
 									<span>구급 상자</span>
 								</c:if>
-								<c:if test="${flist.c_hsNo==28 }">
+								<c:if test="${flist.c_hsNo==31 }">
 									<span>침실문 잠금장치</span>
 								</c:if>
 								</div>
 								</c:forEach>
-								</div>
 							</div>
 							</div>
 						</div>
@@ -324,10 +386,10 @@ $(function(){
 				<div class="row react-house-rules" id="house-rules">
 					<div class="col-md-3 text-muted">
 						<div class="text-muted">
-							<span>숙소 이용규칙</span>
+							<span style="font-weight: bold">숙소 이용규칙</span>
 						</div>
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-9" style="padding-left: 4px">
 						<div class="react-expandable expanded">
 							<div class="expandable-content">
 								<div>
@@ -338,68 +400,65 @@ $(function(){
 					</div>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-				<div style="text-align: center; font-size: 15pt;font-style: oblique;"> 후기 </div>
-				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				
-				
-				<c:forEach var="rp" items="${list }">
-					<div id="review" class="row review">			
-				<div class="col-md-3" style="padding-top: 50px;">
-						<span></span>
-				</div>
-				<div class="col-md-9">
-							<div class="row">
-								<div class="col-md-3">
-									<div class="name">
-										<span>${rp.re_Id }</span>
-									</div>
-								</div>
-								<div class="col-md-7" style="padding-top: 35px;">
-									<div>
-										<div class="review-text">${rp.re_Content }</div>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div>
-									<fmt:formatDate var="date" value="${rp.re_date}" pattern="yyyy-MM-dd" />
-									${date }</div>
+				<div id="reviewList">
+			<c:forEach var="rp" items="${list}" varStatus="status">
+				<div id="review" class="row review">
+					<div class="col-md-3">
+						<c:if test="${status.first}">
+							<span style="color: #82888a; font-weight: bold;">후기</span>
+						</c:if>
+					</div>
+					<div class="col-md-1" style="font-weight: bold; padding-left: 5px; padding-right: 0px">
+						<span>${rp.re_Id }</span>
+					</div>
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-10">
+								<div>
+									<div class="review-text" style="padding-left: 10px">${rp.re_Content }</div>
 								</div>
 							</div>
-							<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-				</div>		
+							<div class="col-md-2">
+								<div style="font-size: .9em; font-weight: bold">
+									<fmt:formatDate var="date" value="${rp.re_date}"
+										pattern="yyyy-MM-dd" />
+									${date }
+								</div>
+							</div>
+						</div>
+						<hr
+							style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
+					</div>
 				</div>
-				</c:forEach>
-				
-				<div id="review" class="row review">			
-				<div class="col-md-3" style="padding-top: 50px;">
-				</div>		
-				<div class="review insert col-md-9">
+			</c:forEach>
+				</div>
+			<div id="review" class="row review" style="margin-top: 20px">
+				<div class="col-md-3"></div>
+				<div class="review insert col-md-9" style="padding-left: 0px">
 					<form method=post action="review_new_insert.do" id="re_new_frm">
-						<div class="col-md-3">
-								<span>${rp.re_Id }</span>
-						</div>						
-						<div class="col-md-9"> 
-						<textarea id="review_content"name="review_content" onclick="if(this.value==this.defaultValue){this.value=''}"
-								onblur="if (this.value == '') { this.value = this.defaultValue; }"
-								style="width: 500px; height: 70px; font-size: 10pt;">후기를 작성해주세요</textarea>
-						<input type=hidden name=re_hNo value="${dto.h_No }">
-         				<input type=hidden name=page value="${page }">				
-						<input id="reviewBtn" type="submit" value="후기 입력" style="width: 80px; height: 50px; font-size: 10pt; color: #f08080;">
-						</div>		
-						</form>				
-				</div>	
-				
+						<div class="col-md-10" style="padding-left: 0px">
+							<textarea class="form-control" id="review_content"
+								name="review_content" style="font-size: 10pt;" placeholder="후기를 작성해주세요" rows="4"></textarea>
+							<input type=hidden name=re_hNo value="${dto.h_No }"> <input
+								type=hidden name=page value="${page }">
+						</div>
+						<div class="col-md-2">
+							<input id="reviewBtn" class="btn btn-success btn-lg btn-block"
+								style="height: 80px;" type="submit" value="입력" />
+						</div>
+					</form>
+				</div>
 			</div>
-			
-				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
+
+			<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
-				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
-				<div class="row"
-					style="width: 1020px; margin-left: 4px; border-color: #98fb98; border: 1pt; border-style: ridge; height: 40px; background-color: #98fb98; color: black; line-height: 35px;">
-					<span class="col-md-3" style="font-size: 12pt; text-align: right;">가격  : </span>
-					<span class="col-md-7" style="padding-left:-30px; font-size: 12pt; text-align: left;">${dto.h_Money }원</span>
-					<span class="col-md-2" style="font-size: 12pt;">1박</span>
+				<div class="row">
+					<div class="col-md-3" style="color: #82888a; font-weight: bold;">가격(1박)  : </div>
+					<div class="col-md-3" style="padding-left: 5px; font-weight: bold; font-size: 1.3em" >
+						${dto.h_Money}원
+					</div>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
 				<p></p>
@@ -427,22 +486,17 @@ $(function(){
 					</div>
 				</div>
 				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-				<div id="aaa"
-					style="border-color: #98fb98; text-align: center; border: 1pt; 
-					border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
-					<input type=submit id="reser" value="예약하기"
-						style="border-color: #98fb98; text-align: center; border: 1pt; 
-						border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
+				<div id="aaa">
+					<input type=submit id="reser" value="예약하기" class="btn btn-success btn-lg btn-block" />
 				</div>
 			</form>
 
 			<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
-				<div id="jjj"
+				<!-- <div id="jjj"
 					style="border-color: #98fb98; text-align: center; border: 1pt; 
 					border-style: ridge; height: 40px; background-color: #98fb98; color: white; line-height: 35px;">
 					<a href="jjim.html">찜하기</a>
-				</div>
-				<hr style="margin-top: 15px; margin-bottom: 15px; border: 0; border-top: 1px solid #dce0e0;" />
+				</div> -->
 			</div>
 			<div class="text-right">
 				<a href="reserve_list.do"><button type="button" class="btn search-btn" >목록보기</button></a>

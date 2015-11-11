@@ -35,3 +35,4 @@
 		</div>
 	</div>
 </c:forEach>
+<jsp:include page="pagingPart.jsp" />

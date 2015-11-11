@@ -29,7 +29,7 @@ FROM(SELECT b_no, b_id, b_title, b_content, To_char(b_date,'YYYY-MM-DD')as dbday
      FROM (SELECT b_no, b_id, b_title, b_content,b_date, b_hit, b_sano, b_delete
            FROM p_board 
            WHERE b_delete = 'n' AND b_sano not in(4)
-           ORDER BY b_no desc)) a JOIN b_word b
+           ORDER BY b_no desc)) a JOIN b_word b 
            ON a.b_sano = b.sa_no
 WHERE num BETWEEN 1 AND 5
 </select>
@@ -39,7 +39,7 @@ WHERE num BETWEEN 1 AND 5
 </select>
 <!-- 삽입 -->
 <insert id="boardInsert">
-	<selectKey keyProperty="b_No" resultType="int" order="BEFORE">
+	<selectKey keyProperty="b_no" resultType="int" order="BEFORE">
 		 SELECT NVL(MAX(b_no)+1,1) as b_no FROM p_board
 	</selectKey>
 	INSERT INTO p_board values(#{b_no},#{b_id},#{b_title},#{b_content},0,0,SYSDATE,'n',#{b_sano})

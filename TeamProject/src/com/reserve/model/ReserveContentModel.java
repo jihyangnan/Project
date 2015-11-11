@@ -13,35 +13,20 @@ import java.util.List;
 import java.util.ArrayList;
 public class ReserveContentModel implements Model {
 
-	
-		@Override
-		public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-			// TODO Auto-generated method stub
-			/*String strNo=req.getParameter("no");
-			String strPage=req.getParameter("page");
-  			ReserveDTO d=ReserveDAO.reserveContentData(
-  					Integer.parseInt(strNo));     // rnoÁý ¹øÈ£
-  			List<ReviewDTO> temp=
-				ReserveDAO.reviewListData(Integer.parseInt(strNo));
-  			List<ReviewDTO> list=
-					new ArrayList<ReviewDTO>();
-			req.setAttribute("rlist", list);
-			req.setAttribute("rDto", list);
-			req.setAttribute("page", strPage);
-			req.setAttribute("dto", d);*/
-			String strNo=req.getParameter("no");
-			String strPage=req.getParameter("page");
-			ZipRegDTO dto=NezipDAO.zipregData(
-					Integer.parseInt(strNo));
-			List<Fac_regDTO> flist=NezipDAO.facregList(Integer.parseInt(strNo));
-			List<ReviewDTO> list=
-					ReserveDAO.reviewListData(Integer.parseInt(strNo));
-			System.out.println("dd"+dto.getImage());
-			req.setAttribute("list", list);
-			req.setAttribute("flist", flist);
-			req.setAttribute("dto", dto);
-			req.setAttribute("jsp", "../reserve/detail.jsp");
-			return "main/index.jsp";
+	@Override
+	public String hanlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		String strNo=req.getParameter("no");
+		//String strPage=req.getParameter("page");
+		ZipRegDTO dto=NezipDAO.zipregData(Integer.parseInt(strNo));
+		List<Fac_regDTO> flist=NezipDAO.facregList(Integer.parseInt(strNo));
+		List<ReviewDTO> list= ReserveDAO.reviewListData(Integer.parseInt(strNo));
+		List<String> photoList = NezipDAO.photoList(Integer.parseInt(strNo));
+		req.setAttribute("photoList", photoList);
+		req.setAttribute("list", list);
+		req.setAttribute("flist", flist);
+		req.setAttribute("dto", dto);
+		req.setAttribute("jsp", "../reserve/detail2.jsp");
+		return "main/index.jsp";
 	}
 
 }

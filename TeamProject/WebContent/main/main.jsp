@@ -103,7 +103,26 @@
    <div class="container">
    	  <h4 class="m_3">★최신 숙소 ★</h4>
    	  <div class="grid_1">
-		<div class="col-md-3 box_1">
+   	  <c:forEach var="zip" items="${zipList}">
+   	  	<div class="col-md-3 box_1">
+			<a href="reserve_detail.do?no=${zip.h_No}"><img src="upload/${zip.image}" class="img-responsive" alt=""/></a>
+		    <div class="box_2">
+			  <div class="special-wrap"><div class="hot_offer"><span class="m_11">Hot Offer</span></div><div class="forclosure"><span class="m_12">Special Offer</span></div></div>
+			</div>
+		   <div class="box_3">
+			 <h3><a href="single.html">${zip.h_nHome}</a></h3>
+			 <div class="boxed_mini_details clearfix">
+			      <span class="area first"><strong>인원</strong><i class="fa fa-user"></i>
+			      ${zip.h_nPerson}</span>
+			      <span class="status"><strong>욕실</strong><i class="fa fa-tint"></i>
+			      ${zip.h_nBath}</span>
+			      <span class="bedrooms last"><strong>침실</strong><i class="fa fa-bell"></i>
+			      ${zip.h_nRoom}</span>
+             </div>
+		   </div>
+		</div>
+   	  </c:forEach>
+		<!-- <div class="col-md-3 box_1">
 			<a href="single.html"><img src="images/pic8.jpg" class="img-responsive" alt=""/></a>
 		    <div class="box_2">
 			  <div class="special-wrap"><div class="hot_offer"><span class="m_11">Hot Offer</span></div><div class="forclosure"><span class="m_12">Special Offer</span></div></div>
@@ -170,20 +189,24 @@
 			      2</span>
              </div>
 		   </div>
-		</div>
+		</div> -->
 		<div class="clearfix"> </div>
 	</div>
 	   <div class="content_bottom">
 		<div class="col-md-2">
 			<div class="widget">
                 <div class="title"><h3><i class="fa fa-smile-o"> </i> 판매중 숙소</h3></div>
-                  <ul class="real-widget"><li><a href="#">아파트(3)</a></li>
-                	<li><a href="#">단독주택(16)</a><ul>
-                		<li><a href="#">호텔(16)</a></li>
-                		<li><a href="#">빌라(16)</a></li>
-                		<li><a href="#">게스트하우스(16)</a></li>
-                		<li><a href="#">기타(16)</a></li></ul>
-                  </ul></li>
+                  <ul class="real-widget">
+                  	<li><a href="reserve_list.do">아파트(${aptCount})</a></li>
+                	<li><a href="reserve_list.do">단독주택(${dadokCount})</a>
+                	<li><a href="reserve_list.do">게스트하우스(${guestHouseCount})</a></li>
+               		<li><a href="reserve_list.do">통나무집(${woodenCount})</a></li>
+               		<li><a href="reserve_list.do">별장/타운하우스(${villaCount})</a></li>
+               		<li><a href="reserve_list.do">기숙사(${gisukCount})</a></li>
+               		<li><a href="reserve_list.do">캠핑카(${campingCarCount})</a></li>
+               		<li><a href="reserve_list.do">텐트(${tentCount})</a></li>
+               		<li><a href="reserve_list.do">오두막(${hutCount})</a></li>
+               		<li><a href="reserve_list.do">기타(${etcCount})</a></li>
                 </ul>
              </div>
              <div class="widget">
@@ -211,7 +234,7 @@
 								  <strong>추천 우리 동네</strong></li>
 								  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab">
 								  <strong>공지 사항</strong></li>
-								  <div class="clearfix"></div>
+								  <li class="clearfix"></li>
 							  </ul>	
 							</div>	
 						 <!-- <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
@@ -312,101 +335,126 @@
 										<div class="clearfix"></div>
 									</ul> 
 							     </div>	-->
-							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1"> 
+							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1" style="padding-bottom: 0px"> 
 									
-									<ul class="tab_img">
-										<li>
+								<c:forEach var="town" items="${townList}" varStatus="status">
+									<c:if test="${status.count <= 9}">
+										<c:if test="${status.count % 3 == 1}">
+											<ul class="tab_img">
+										</c:if>
+										<c:if test="${status.count % 3 == 0}">
+											<li class="last">
+										</c:if>
+										<c:if test="${status.count % 3 != 0}">
+											<li>
+										</c:if>
+											  <div class="client_box1">
+											  	<a href="town_detail.do?contentId=${town.contentId}&contentTypeId=${town.contentTypeId}">
+						       				    <img src="${town.image}" style="min-height: 130px;" class="img-responsive" alt=""/>
+						       				    </a>
+						       				     <!-- <div class="box_type">￦&nbsp;</div> -->
+						       				     <h3 class="m_1" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap; margin-top: 10px"><a href="town_detail.do?contentId=${town.contentId}&contentTypeId=${town.contentTypeId}">${town.title}</a></h3>
+						       				 	<div class="boxed_mini_details clearfix" style="padding-top: 20px"></div>
+						       				  </div>
+											</li>
+										<c:if test="${status.count % 3 == 0 || status.last}">
+											<div class="clearfix"></div>
+											</ul>
+										</c:if>
+									</c:if>
+									</c:forEach>
+										<!-- <li>
 										  <div class="client_box1">
 					       				    <img src="images/pic4.jpg" class="img-responsive" alt=""/>
-					       				     <!-- <div class="box_type">￦&nbsp;</div> -->
+					       				     <div class="box_type">￦&nbsp;</div>
 					       				     <h3 class="m_1"><a href="single.html">홍대</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                   <!--  <span class="area first"><strong>Garage</strong>
-			                                    2</span> -->
-			                                     <!-- <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
+			                                    <span class="area first"><strong>Garage</strong>
+			                                    2</span>
+			                                     <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
-			                                    2</span> -->
+			                                    2</span>
                                             </div>
 					       				  </div>
 										</li>
 										<li>
 										<div class="client_box1">
 					       				    <img src="images/pic5.jpg" class="img-responsive" alt=""/>
-					       				     <!-- <div class="box_type">￦&nbsp;45000</div> -->
+					       				     <div class="box_type">￦&nbsp;45000</div>
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <!-- <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span> -->
-			                                   <!--  <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
+			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span>
+			                                    <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
-			                                    2</span> -->
+			                                    2</span>
                                             </div>
 					       				 </div>
 										</li>
 										<li class="last">
 										 <div class="client_box1"  style="margin-bottom: 20px;">
 					       				    <img src="images/pic6.jpg" class="img-responsive" alt=""/>
-					       				     <!-- <div class="box_type">￦&nbsp;50000</div> -->
+					       				     <div class="box_type">￦&nbsp;50000</div>
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <!-- <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span> -->
-			                                    <!-- <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
+			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span>
+			                                    <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
-			                                    2</span> -->
+			                                    2</span>
                                             </div>
 					       				 </div>
 										</li>
 										<li>
 										  <div class="client_box1">
 					       				    <img src="images/pic4.jpg" class="img-responsive" alt=""/>
-					       				     <!-- <div class="box_type">￦&nbsp;</div> -->
+					       				     <div class="box_type">￦&nbsp;</div>
 					       				     <h3 class="m_1"><a href="single.html">홍대</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <!-- <span class="area first"><strong>Garage</strong>
-			                                    2</span> -->
-			                                     <!-- <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
+			                                    <span class="area first"><strong>Garage</strong>
+			                                    2</span>
+			                                     <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
-			                                    2</span> -->
+			                                    2</span>
                                             </div>
 					       				  </div>
 										</li>
 										<li>
 										<div class="client_box1">
 					       				    <img src="images/pic5.jpg" class="img-responsive" alt=""/>
-					       				     <!-- <div class="box_type">￦&nbsp;45000</div> -->
+					       				     <div class="box_type">￦&nbsp;45000</div>
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                    <!-- <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span> -->
-			                                   <!--  <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
+			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span>
+			                                    <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
-			                                    2</span> -->
+			                                    2</span>
                                             </div>
 					       				 </div>
 										</li>
 										<li class="last">
 										 <div class="client_box1">
 					       				    <img src="images/pic6.jpg" class="img-responsive" alt=""/>
-					       				     <!-- <div class="box_type">￦&nbsp;50000</div> -->
+					       				     <div class="box_type">￦&nbsp;50000</div>
 					       				     <h3 class="m_1"><a href="single.html">Dolor Sit</a></h3>
 					       				    <div class="boxed_mini_details clearfix">
-			                                   <!--  <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
-			                                    2</span> -->
-			                                  <!--  <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
+			                                    <span class="area first"><strong>Garage</strong><i class="fa fa-truck"></i>
+			                                    2</span>
+			                                   <span class="status"><strong>Baths</strong><i class="fa fa-retweet icon1"> </i>
 			                                    2</span>
 			                                    <span class="bedrooms last"><strong>Beds</strong><i class="fa fa-bell"></i>
-			                                    2</span> -->
+			                                    2</span>
                                             </div>
 					       				 </div>
-										</li>
-										<div class="clearfix"></div>
-									</ul>
+										</li> -->
+										<!-- <li class="clearfix"></li> -->
+									
 							     </div>	
 							     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
 							     	<!--
@@ -590,7 +638,7 @@
         </div>
        <div class="grid_7">
        
-        	<div class="col-md-4" id="container2">
+        	<div class="col-md-4 hidden-xs" id="container2">
     
     <div id="weather-icon-holder">
       <img id="weather-icon" src="http://i.imgur.com/yv9XBD0.png" width="150px;"height="200px;">

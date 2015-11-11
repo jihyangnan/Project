@@ -175,10 +175,6 @@ INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '구급 상자', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '침실문 잠금장치', ' ');
 
 
-
-select * from zipreg;
-select * from review;
-SELECT * FROM TAB;
 --INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule) 
 --VALUES(zipreg_SEQ.NEXTVAL,1,1,4,2,2,2,'쌍용sist집','수용인원을 넘어간 인원은 추가요금을 내야합니다','서울시 강남구 역삼동','테헤란로 101길 8','010-5454-3535','100000','2015/5/1','2015/5/3','37.537048,127.005533','noy11', '깨끗이 사용해주세요');
 --
