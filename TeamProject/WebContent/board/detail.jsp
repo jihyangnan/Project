@@ -120,7 +120,7 @@ function replyUpdateClick(rw_no)
 				<li>
 				<div style=" text-align: right;" >
 				
-				<c:if test="${sessionScope.id==dto.b_id }">	
+				<c:if test="${sessionScope.id==dto.b_id ||sessionScope.id=='admin' }">	
 				<a href="board_update.do?b_no=${dto.b_no }&page=${page}">
 				<button type="button" class="btn search-btn" style=" padding: 2px 6px; font-size: 12px;">
 				수정</button>
@@ -212,7 +212,7 @@ function replyUpdateClick(rw_no)
 					<span class="col-sm-1" style="font-size: 8pt; color: #337ab7; padding:0px; text-align: right;">
 						${rDto.dbday }
 					</span> 
-						<c:if test="${sessionScope.id==rDto.rw_id }">
+						<c:if test="${sessionScope.id==rDto.rw_id ||sessionScope.id=='admin' }">
 						<a href="#" name="${rDto.rw_no }" class="reUpdate">
 						<span class="col-xs-1"
 						style="font-size: 8pt; color: #337ab7; text-align: right; float:none; padding-right:0px;"><b>수정</b></span> 
