@@ -20,7 +20,7 @@ public class ReserveListByMovingMapModel implements Model {
 		String strLng = req.getParameter("lng");
 		List<ZipRegDTO> list = ReserveDAO.listByMovingMap();
 		Map<String, Double> filterValue = new HashMap<>();
-		filterValue.put("limit", 0.5);
+		filterValue.put("limit", 3.0);
 		filterValue.put("lat", Double.parseDouble(strLat));
 		filterValue.put("lng", Double.parseDouble(strLng));
 		List<ZipRegDTO> resultList = list.stream().filter(d -> calDistance(filterValue, d)).collect(Collectors.toList());

@@ -105,7 +105,7 @@
    	  <div class="grid_1">
    	  <c:forEach var="zip" items="${zipList}">
    	  	<div class="col-md-3 box_1">
-			<a href="reserve_detail.do?no=${zip.h_No}"><img src="upload/${zip.image}" class="img-responsive" alt=""/></a>
+			<a href="reserve_detail.do?no=${zip.h_No}"><img src="upload/${zip.image}" class="img-responsive" style="width: 100%; max-height: 170px" alt=""/></a>
 		    <div class="box_2">
 			  <div class="special-wrap"><div class="hot_offer"><span class="m_11">Hot Offer</span></div><div class="forclosure"><span class="m_12">Special Offer</span></div></div>
 			</div>

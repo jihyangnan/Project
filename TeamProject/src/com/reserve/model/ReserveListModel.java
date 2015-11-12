@@ -57,7 +57,7 @@ public class ReserveListModel implements Model {
 		// 백범로 18 위치
 		double centerLat = 37.55320241443468;	
 		double centerLng = 126.93689643131309;
-		double limitDistance = 0.5;
+		double limitDistance = 3.0;
 	
 		String[] loc = end.getH_Loc().split(",");
 		String endlat = loc[0];

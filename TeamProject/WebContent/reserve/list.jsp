@@ -287,7 +287,7 @@
 					<%-- <div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }"> --%>
 						<div class="col-sm-8">
 							<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
-								<img class="img-responsive img-rounded" src="upload/${dto.image}" />
+								<img class="img-responsive img-rounded" style="max-height: 300px; width: 100%" src="upload/${dto.image}" />
 							</a>
 						</div>
 						<div class="col-sm-4 desc">
@@ -342,7 +342,7 @@
 					var container = document.getElementById('map');
 					var options = {
 						center: new daum.maps.LatLng(37.553121, 126.937059),
-						level: 4
+						level: 7
 					};
 					
 					var map = new daum.maps.Map(container, options);
@@ -356,7 +356,7 @@
 			        var cir = new daum.maps.Circle({
 			           // center :new daum.maps.LatLng(37.553121, 126.937059),  // 원의 중심좌표 입니다 
 			            center : map.getCenter(),
-			            radius: 500, // 미터 단위의 원의 반지름입니다 
+			            radius: 3000, // 미터 단위의 원의 반지름입니다 
 			            strokeWeight: 2, // 선의 두께입니다 
 			            strokeColor: '#75B8FA', // 선의 색깔입니다
 			            strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
@@ -446,12 +446,13 @@
 							addEventHandle(overcontent, 'click', onClick);
 							 
 							var imgsrc = $(this).find('img').attr('src'); 
+							var href = $(this).find('a').attr('href');
 							var sub = $(this).find('li:first-child a span').text();
 							var sub2 = $(this).find('li:nth-child(2) span').text() + ' | ' + $(this).find('li:nth-child(3) span').text()
 							         + ' | ' + $(this).find('li:last-child span').text();
 							var iwContent = '<div style="padding:10px; width:240px">'
-							              + '<a href="reserve_detail.do"><img class="img-responsive" src="' + imgsrc + '"/></a>'
-							              + '<p style="font-size: .9em; font-weight: bold;"><a href="reserve_detail.do">' + sub + '</a></p>'	
+							              + '<a href="' + href + '"><img class="img-responsive" src="' + imgsrc + '"/></a>'
+							              + '<p style="font-size: .9em; font-weight: bold;"><a href="' + href + '">' + sub + '</a></p>'	
 							              + '<p style="font-size: .7em; font-weight: bold; color: #B7B1B1;">' + sub2 + '</p>'	
 										  +	'</div>'; 
 

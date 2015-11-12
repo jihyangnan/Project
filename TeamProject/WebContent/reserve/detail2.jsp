@@ -65,6 +65,7 @@ var i=0;
  			success : function(data, statusText) {
  				//console.log(data);
  				$('#reviewList').html(data);
+ 				$('#review_content').val(null);
  			},
  			//ajax error
  			error : function(e) {
