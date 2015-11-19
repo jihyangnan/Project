@@ -55,7 +55,7 @@
 						style=" width: 74px; padding-left: 10px; padding-right: 10px;">
 					</div>
 					</div>
-				<c:if test="${status.count % 2 == 0}">
+				<c:if test="${status.count % 2 == 0 || status.last}">
 					<div class="clearfix"></div>
 					</div>
 				</c:if>
