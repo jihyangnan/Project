@@ -17,8 +17,7 @@ public class MemberJoinOkModel implements Model {
 		String pwd=req.getParameter("pwd");
 		String pwhint=req.getParameter("pwhint");
 		String name=req.getParameter("name");
-		String rrn1=req.getParameter("rrn1");
-		String rrn2=req.getParameter("rrn2");
+		
 		String sex=req.getParameter("sex");
 		String birth=req.getParameter("birth");
 		String post=req.getParameter("post");
@@ -34,7 +33,7 @@ public class MemberJoinOkModel implements Model {
 		md.setPwd(pwd);
 		md.setPwhint(pwhint);
 		md.setName(name);
-		md.setRrn(rrn1+"-"+rrn2);
+		
 		md.setSex(sex);
 		md.setBirth(birth);
 		md.setPost(post);
@@ -45,6 +44,7 @@ public class MemberJoinOkModel implements Model {
 		System.out.println(md.getName());
 		
 		MemberDAO.memberJoin(md);
+		
 		return "index.do";
 	}
 }

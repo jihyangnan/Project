@@ -6,26 +6,6 @@
 	$(document).ready(function(){
 		//$('.container').attr('class', 'container-fluid');
 		
-		$('#filterForm').ajaxForm({
-			//보내기전 validation check가 필요할경우
-			beforeSubmit : function(data, frm, opt) {
-				
-				return true;
-			},
-			//submit이후의 처리
-			success : function(data, statusText) {
-				//console.log(data); //응답받은 데이터 콘솔로 출력
-				$('#imagebox > div > div:last-child').html(data);
-				$('#photo').val(null);
-				setData();
-			},
-			//ajax error
-			error : function(e) {
-				alert("필터링 중 에러발생!!");
-				console.log(e);
-			}
-		});
-		
 		$('#myAffix').affix({
 		  offset: {
 		    top: 155,
@@ -105,13 +85,14 @@
 			<div>	
 				<div id="hl_div" class="col-sm-7" style="padding:10 0; min-height: 1000px">
 				  <div>
-				  <form action="" method="post" id="filterForm">
+				  <form action="reserve_listByFilter.do" method="post" id="filterForm">
 					<div class="form-horizontal">
 					  <div class="form-group">
 					    <label class="col-sm-2 control-label" style="text-align: left">지역</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="loc" placeholder="지역 입력">
-
+					      	<input type="text" class="form-control" name="loc" id="loc" placeholder="지역 입력">
+						  	<input type="hidden" id="lat" name="lat" value=""/>
+				  			<input type="hidden" id="lng" name="lng" value=""/>
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -152,19 +133,19 @@
 							</label>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="집전체"> <input type="checkbox" name="roomStyle">집전체
+									<label title="집전체"> <input type="checkbox" name="roomStyle" value="1">집전체
 									</label>
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="개인실"> <input type="checkbox" name="roomStyle">개인실
+									<label title="개인실"> <input type="checkbox" name="roomStyle" value="2">개인실
 									</label>
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="checkbox">
-									<label title="다인실"> <input type="checkbox" name="roomStyle">다인실
+									<label title="다인실"> <input type="checkbox" name="roomStyle" value="3">다인실
 									</label>
 								</div>
 							</div>
@@ -280,7 +261,7 @@
 						      		<button id="detailbtnoff" type="button" class="btn btn-default btn-block">취소</button>
 						   		</div>
 						    	<div class="col-sm-3">
-						      		<button id="" type="button" class="btn btn-info btn-block">필터적용</button>
+						      		<button id="filterBtn" type="button" class="btn btn-info btn-block">필터적용</button>
 						    	</div>
 					  		</div>						
 						</div>
@@ -288,7 +269,7 @@
 					</form>					
 				  </div>
 				  <div id="items">
-				<c:forEach var="dto" items="${list }">
+				<c:forEach var="dto" items="${list}" varStatus="s">
 					<c:forTokens items="${dto.h_Loc }" delims="," var="loc" varStatus="status" >
 						<c:if test="${status.first }">
 							<c:set var="lat" value="${loc}"></c:set>
@@ -297,16 +278,22 @@
 							<c:set var="lng" value="${loc}"></c:set>
 						</c:if>
 					</c:forTokens>
-					<div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }">
+					<c:if test="${s.count >= (pageNo-1) * rowSize + 1 && s.count <= pageNo * rowSize}">
+						<div class="row list" data-price="${dto.h_Money }" data-lat="${lat}" data-lng="${lng}">
+					</c:if>
+					<c:if test="${not (s.count >= (pageNo-1) * rowSize + 1 &&  s.count <= pageNo* rowSize)}">
+						<div class="row list" style="display: none" data-price="${dto.h_Money}" data-lat="${lat}" data-lng="${lng}">
+					</c:if>
+					<%-- <div class="row list" data-price="${dto.h_Money }" data-lat="${lat }" data-lng="${lng }"> --%>
 						<div class="col-sm-8">
 							<a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}">
-								<img class="img-responsive img-rounded" src="upload/${dto.image}" />
+								<img class="img-responsive img-rounded" style="max-height: 300px; width: 100%" src="upload/${dto.image}" />
 							</a>
 						</div>
 						<div class="col-sm-4 desc">
 							<ul>
-								<li><a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}"><span>${dto.h_nHome }</span></a></li>
-								<li><span style="color: #3B9DD6; font-weight: bold;">${dto.h_Money }원</span></li>
+								<li><a href="reserve_detail.do?no=${dto.h_No }&page=${curpage}"><span>${dto.h_nHome}</span></a></li>
+								<li><span style="color: #3B9DD6; font-weight: bold;">${dto.h_Money}원</span></li>
 											<c:if test="${dto.h_rType==1}">
 											<li><span>집전체</span></li>
 											</c:if>
@@ -322,11 +309,9 @@
 						</div>
 					</div>
 				</c:forEach>
+				<jsp:include page="pagingPart.jsp" />
 				</div>
-				  <div class=text-center>
-					<!--span>
-					<img src="images/back.jpg">&nbsp;1  2  3  4  5&nbsp;<img src="images/daum.jpg">
-					</span-->
+				 <%--  <div class=text-center>
 					   <ul class="pagination">
 					    <li>
 					      <a href="reserve_list.do?page=${curpage>1?curpage-1:curpage }" aria-label="Previous">
@@ -344,24 +329,26 @@
 					      </a>
 					    </li>
 					  </ul>
-				 </div>
+				 </div> --%>
 				</div>
 				<div class="col-sm-5 hidden-xs">
 					<div id="myAffix">
 						<div id="map" style="width: 100%; height: 900px" ></div>
 					</div>
 				</div>
-				<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=7f21a870bb940ba4566d23ff69b9820d"></script>
+				<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=37aec586afb9fc326be8b882a49c024d&libraries=services"></script>
+			
 				<script>
-				
 					var container = document.getElementById('map');
 					var options = {
 						center: new daum.maps.LatLng(37.553121, 126.937059),
-						level: 4
+						level: 7
 					};
 					
 					var map = new daum.maps.Map(container, options);
 					
+					$('#lat').val(37.553121);
+					$('#lng').val(126.937059);
 					var overlays = new Array();
 					insertOverlays();
 					
@@ -369,7 +356,7 @@
 			        var cir = new daum.maps.Circle({
 			           // center :new daum.maps.LatLng(37.553121, 126.937059),  // 원의 중심좌표 입니다 
 			            center : map.getCenter(),
-			            radius: 500, // 미터 단위의 원의 반지름입니다 
+			            radius: 3000, // 미터 단위의 원의 반지름입니다 
 			            strokeWeight: 2, // 선의 두께입니다 
 			            strokeColor: '#75B8FA', // 선의 색깔입니다
 			            strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
@@ -402,6 +389,8 @@
 			     		var center = map.getCenter();
 			     		var lat = center.getLat();
 			     		var lng = center.getLng();
+			     		$('#lat').val(lat);
+			     		$('#lng').val(lng);
 			     		$.get(
 		     				"reserve_listByMovingMap.do?lat=" + lat + "&lng=" + lng,
 		     				function(data){
@@ -457,12 +446,13 @@
 							addEventHandle(overcontent, 'click', onClick);
 							 
 							var imgsrc = $(this).find('img').attr('src'); 
+							var href = $(this).find('a').attr('href');
 							var sub = $(this).find('li:first-child a span').text();
 							var sub2 = $(this).find('li:nth-child(2) span').text() + ' | ' + $(this).find('li:nth-child(3) span').text()
 							         + ' | ' + $(this).find('li:last-child span').text();
 							var iwContent = '<div style="padding:10px; width:240px">'
-							              + '<a href="reserve_detail.do"><img class="img-responsive" src="' + imgsrc + '"/></a>'
-							              + '<p style="font-size: .9em; font-weight: bold;"><a href="reserve_detail.do">' + sub + '</a></p>'	
+							              + '<a href="' + href + '"><img class="img-responsive" src="' + imgsrc + '"/></a>'
+							              + '<p style="font-size: .9em; font-weight: bold;"><a href="' + href + '">' + sub + '</a></p>'	
 							              + '<p style="font-size: .7em; font-weight: bold; color: #B7B1B1;">' + sub2 + '</p>'	
 										  +	'</div>'; 
 
@@ -513,6 +503,86 @@
 						});
 			     	}
 				
+			     	
+		     		 /* $('#filterForm').ajaxForm({
+		    			//보내기전 validation check가 필요할경우
+		    			beforeSubmit : function(data, frm, opt) {
+		    				// 주소-좌표 변환 객체를 생성합니다
+		    				var geocoder = new daum.maps.services.Geocoder();
+		    				// 주소로 좌표를 검색합니다
+		    				geocoder.addr2coord($('#loc').val(), function(status, result) {
+		    				    // 정상적으로 검색이 완료됐으면 
+		    				     if (status === daum.maps.services.Status.OK) {
+		    				        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+		    				        map.setCenter(coords);
+		    				        cir.setPosition(coords);
+									$('#lat').val(result.addr[0].lat);
+									$('#lng').val(result.addr[0].lng);
+									data[1].value = result.addr[0].lat;
+									data[2].value = result.addr[0].lng;
+									console.log(data);
+									console.log();
+		    				      	//console.log('위도: ' + $('#lat').val() + '경도: ' + $('#lng').val());
+		    				    } else {
+		    				    	alert("주소로 좌표를 가져오는 중 에러 발생");
+		    				    }
+		    				});
+		    				return true;
+		    			}, 
+		    			//submit이후의 처리
+		    			success : function(data, statusText) {
+		    				$('div#items').html(data);
+	     					deleteOverlays();
+				     		insertOverlays();
+		    			},
+		    			//ajax error
+		    			error : function(e) {
+		    				alert("필터링 중 에러발생!!");
+		    				console.log(e);
+		    			}
+		    		});  */
+		     		$('#filterBtn').click(function(){
+		     			if($('#loc').val().trim() == ''){
+		     				var data = $('#filterForm').serialize();
+							$.post(
+				    			"reserve_listByFilter.do",
+				    			data,
+				    			function(data){
+				    				$('div#items').html(data);
+			     					deleteOverlays();
+						     		insertOverlays();
+				    			}
+				    		); 
+		     			} else {
+			     			// 주소-좌표 변환 객체를 생성합니다
+		    				var geocoder = new daum.maps.services.Geocoder();
+		    				// 주소로 좌표를 검색합니다
+		    				geocoder.addr2coord($('#loc').val(), function(status, result) {
+		    				    // 정상적으로 검색이 완료됐으면 
+		    				     if (status === daum.maps.services.Status.OK) {
+		    				        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+		    				        map.setCenter(coords);
+		    				        cir.setPosition(coords);
+									$('#lat').val(result.addr[0].lat);
+									$('#lng').val(result.addr[0].lng);
+									var data = $('#filterForm').serialize();
+									//console.log(data);
+									$.post(
+						    			"reserve_listByFilter.do",
+						    			data,
+						    			function(data){
+						    				$('div#items').html(data);
+					     					deleteOverlays();
+								     		insertOverlays();
+						    			}
+						    		); 
+		    				    } else {
+		    				    	alert("주소를 찾을 수 없습니다.");
+		    				    }
+		    				});
+		     			}
+		     			
+		     		});
 				</script>
 			</div>
 			<div class="clearfix"></div>

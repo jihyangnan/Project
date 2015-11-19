@@ -95,9 +95,9 @@
 				<div class="form-inline">
 				  <div class="form-group">
 				    <input type="text" class="form-control" id="phone1" name="phone1" value="${phone1}" placeholder="">
-				    <label>¡ª</label>
+				    <label>-</label>
 				    <input type="text" class="form-control" id="phone2" name="phone2" value="${phone2}" placeholder="">
-				    <label>¡ª</label>
+				    <label>-</label>
 				    <input type="text" class="form-control" id="phone3" name="phone3" value="${phone3}" placeholder="">
 				  </div>
 				    

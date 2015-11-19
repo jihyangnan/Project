@@ -8,26 +8,6 @@ DROP TABLE room_category;
 DROP TABLE home_fac;
 DROP TABLE fac_kind;
 
-/* 후기 */
-CREATE TABLE Reserve(
-	r_No NUMBER primary key , /* 예약번호 */
-	r_Addr NUMBER , /* 예약장소  foreign key */
-	r_Member VARCHAR2(20) , /* 아이디 foreign key */
-	r_Start DATE, /* 예약시작 */
-	r_End DATE, /* 예약종료 */
-	r_Money NUMBER , /* 예약비 */
-	r_Person NUMBER /* 예약인원 */
-);
-ALTER TABLE reserve
-	ADD
-		CONSTRAINT FK_zipreg_TO_reserve
-		FOREIGN KEY (
-			r_Addr
-		)
-		REFERENCES zipreg (
-			h_No
-		);
-
 
 --숙소유형
 create table room_category 
@@ -67,8 +47,8 @@ h_nPerson NUMBER NOT NULL, --수용인원
 h_nRoom NUMBER NOT NULL, --침실수
 h_nBed NUMBER NOT NULL, --침대수
 h_nBath NUMBER NOT NULL, --욕실수
-h_nHome VARCHAR2(40) NOT NULL, --숙소이름
-h_hContent VARCHAR2(100) NOT NULL, --숙소세부사항
+h_nHome VARCHAR2(200) NOT NULL, --숙소이름
+h_hContent VARCHAR2(1000) NOT NULL, --숙소세부사항
 h_Addr1 VARCHAR2(100) NOT NULL, --주소
 h_Addr2 VARCHAR2(100) NOT NULL, --상세주소
 h_Phone VARCHAR2(20) NOT NULL, --비상연락처
@@ -86,13 +66,6 @@ CONSTRAINT zipreg_no_pk PRIMARY KEY(h_no)
 DROP SEQUENCE zipreg_SEQ;
 CREATE SEQUENCE zipreg_SEQ;
 
-CREATE TABLE Review (
-	re_No NUMBER primary key , /* 후기번호 */
-	re_Id VARCHAR2(30) , /* 작성자 */
-	re_hNo NUMBER references zipreg(h_no), /* 숙소번호 foreign key */
-	re_Content VARCHAR2(2000) , /* 내용 */
-	re_Date DATE   /* 작성일 */
-);
 
 -- 집사진
 create table home_photo 
@@ -175,10 +148,6 @@ INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '구급 상자', ' ');
 INSERT INTO home_fac VALUES( home_fac_seq.nextval,4, '침실문 잠금장치', ' ');
 
 
-
-select * from zipreg;
-select * from review;
-SELECT * FROM TAB;
 --INSERT INTO zipreg(h_No,h_Type,h_rType,h_nPerson,h_nRoom,h_nBed,h_nBath,h_nHome,h_hContent,h_Addr1,h_Addr2,h_Phone,h_Money,h_Startday,h_Endday,h_Loc,h_Id, h_Rule) 
 --VALUES(zipreg_SEQ.NEXTVAL,1,1,4,2,2,2,'쌍용sist집','수용인원을 넘어간 인원은 추가요금을 내야합니다','서울시 강남구 역삼동','테헤란로 101길 8','010-5454-3535','100000','2015/5/1','2015/5/3','37.537048,127.005533','noy11', '깨끗이 사용해주세요');
 --
@@ -292,8 +261,105 @@ CREATE TABLE member1(
 --INSERT INTO member1 VALUES ('2','aaa','1234','서울','홍길동','111111-1111111','남자','2015-11-03','111-111','서울특별시 뷁','미화빌딩','010-1111-1111','aaa@naver.com','2015-11-03','n');
 
 INSERT INTO member1 VALUES ('1','hong','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
-INSERT INTO member1 VALUES ('2','aaa','1234','서울','홍길동','남자','2015-11-03','468541','서울특별시 노고산동 미화빌딩','2층 C강의장','010-8565-5438','shim@naver.com','2015-11-03','n');
+INSERT INTO member1 VALUES ('2','aaa','1234','서울','김밥','여자','2015-11-05','468541','서울특별시 노고산동 미화빌딩','2층 C강의장','010-8565-5438','shim@naver.com','2015-11-03','n');
+INSERT INTO member1 VALUES ('3','admin','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('4','ha','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('5','nan','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('6','jung','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('7','lee','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('9','park','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
+INSERT INTO member1 VALUES ('9','sist','1234','서울','홍길동','남자','2015-11-03','42511','서울특별시 마포구 백범로 미화빌딩','2층 C강의장','010-7998-4162','hong@naver.com','2015-11-03','y');
 
+DROP table re_board;
+drop table p_board;
+drop table b_word;
+drop table question;
+drop table question_type;
+
+CREATE TABLE p_board(
+  b_no NUMBER PRIMARY KEY NOT NULL, --글번호(pk)
+  b_Id VARCHAR2(20), -- 작성자(fk)
+  b_Title VARCHAR2(50) NOT NULL, -- 제목
+  b_Content CLOB NOT NULL, -- 내용
+  b_Hit NUMBER, -- 조회수
+  b_Renum NUMBER, -- 답변수
+  b_Date DATE, --등록일
+  b_Delete CHAR(2), --삭제여부
+  b_saNo NUMBER REFERENCES b_Word(sa_No) -- 말머리 번호 (fk)
+);
+
+CREATE TABLE b_Word(
+  sa_No NUMBER PRIMARY KEY NOT NULL,--말머리 번호 (pk)
+  sa_Name VARCHAR2(20), -- 말머리 이름
+  sa_img VARCHAR2(50)
+);
+
+CREATE TABLE Re_board(
+  rw_No NUMBER PRIMARY KEY NOT NULL, --답글번호 (pk)
+  rw_Order NUMBER , --순서번호
+  rw_Content VARCHAR2(200) NOT NULL, --내용
+  rw_Id VARCHAR2(20), -- 작성자 (fk)
+  rw_Date DATE NOT NULL, --등록일
+  rw_Delete CHAR(2), --삭제여부
+  rw_bNo NUMBER REFERENCES p_Board(b_No) --그룹번호(fk)
+);
+
+alter table re_board add(group_id number);
+alter table re_board add(group_tab number);
+alter table re_board add(group_step number);
+alter table re_board add(root number);
+alter table re_board add(depth number);
+
+CREATE TABLE question(
+  q_No NUMBER PRIMARY KEY NOT NULL, --문의번호(pk)
+  q_Id VARCHAR2(20) NOT NULL, -- 작성자(fk)
+  q_Title VARCHAR2(30) NOT NULL, -- 제목
+  q_Content VARCHAR2(200) NOT NULL, --내용
+  q_Date DATE NOT NULL, --등록일
+  q_Phone VARCHAR2(30), --휴대전화
+  q_Email VARCHAR2(30) NOT NULL, --이메일
+  q_qtNo NUMBER REFERENCES question_type(qt_No) -- 문의유형 번호(fk)
+);
+
+
+CREATE TABLE question_type(
+  qt_No NUMBER PRIMARY KEY NOT NULL, -- 문의 유형 종류(pk)
+  qt_Name VARCHAR2(30) NOT NULL --문의 유형 이름
+);
+
+insert into b_Word values(1,'공지사항','ico-list-notice.gif');
+insert into b_Word values(2,'이벤트','ico-list-event.png');
+insert into b_Word values(3,'기타','ico-list-etc.png');
+insert into b_Word (sa_no,sa_name) values(4,' '); --회원들꺼는 공백으로 말머리 넣음
+
+INSERT INTO p_board values(1,'hong','질문있습니다1.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(2,'shim','질문있습니다2.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(3,'hong','질문있습니다3.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(4,'shim','질문있습니다4.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(5,'hong','질문있습니다5.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(6,'hong','질문있습니다6.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(7,'shim','질문있습니다7.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(8,'shim','질문있습니다8.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(9,'hong','질문있습니다9.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(10,'shim','질문있습니다10.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(11,'hong','질문있습니다11.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(12,'shim','질문있습니다12.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(13,'shim','질문있습니다13.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(14,'hong','질문있습니다14.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+INSERT INTO p_board values(15,'shim','질문있습니다15.','질문이 있었습니다.',0,0,SYSDATE,'n',4);
+
+INSERT INTO p_board values(16,'admin','공지사항입니다.','공지사항 있었습니다.',0,0,SYSDATE,'n',1);
+INSERT INTO p_board values(17,'admin','이번달 이벤트 입니다.','이벤트 있었습니다.',0,0,SYSDATE,'n',2);
+INSERT INTO p_board values(18,'admin','공지사항입니다.','공지사항 있었습니다.',0,0,SYSDATE,'n',1);
+INSERT INTO p_board values(19,'admin','자유 게시판 작성시 주의 사항입니다.','욕설은 자제해 주시길 바랍니다.',0,0,SYSDATE,'n',3);
+INSERT INTO p_board values(20,'admin','이번달 이벤트 입니다.','이벤트 있었습니다.',0,0,SYSDATE,'n',2);
+INSERT INTO p_board values(21,'admin','공지사항입니다.','공지사항 있었습니다.',0,0,SYSDATE,'n',1);
+
+insert into question_type values(1,'문의');
+insert into question_type values(2,'불만');
+insert into question_type values(3,'칭찬');
+insert into question_type values(4,'제안');
+insert into question_type values(5,'수정');
 
 
 COMMIT;

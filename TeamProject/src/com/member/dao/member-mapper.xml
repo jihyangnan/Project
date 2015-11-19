@@ -18,7 +18,7 @@
    <selectKey keyProperty="m_no" resultType="int" order="BEFORE">
        SELECT NVL(MAX(m_no)+1,1) as m_no FROM member1
    </selectKey>
-   INSERT INTO member1 VALUES(#{m_no},#{id},#{pwd},#{pwhint},#{name},#{rrn},#{sex},#{birth},#{post},#{addr1},#{addr2},#{tel},#{email},SYSDATE,'n')
+   INSERT INTO member1 VALUES(#{m_no},#{id},#{pwd},#{pwhint},#{name},#{sex},#{birth},#{post},#{addr1},#{addr2},#{tel},#{email},SYSDATE,'n')
   </insert>
   <select id="memberGetInfo" resultType="Member" parameterType="String">
   SELECT pwd,name,admin FROM member1

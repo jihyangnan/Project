@@ -50,21 +50,20 @@
 		SELECT re_No,re_Id,re_hNo,re_Content,re_Date
 		FROM review
 		WHERE
-		re_hno=#{re_hno}
+		re_hno=#{re_hno}		
+		order by re_no desc  
 	</select>
 
 	<!-- 맵 이동시 목록가져오기 -->
 	<select id="listByMovingMap" resultType="ZipReg">
 		SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
-																 FROM review
-																 WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
-																									  FROM home_photo
-																									  WHERE p_hno = h_No AND ROWNUM = 1) "image"
-		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
-			  FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
-			        FROM zipreg
-		            WHERE h_Endday > SYSDATE AND h_Close = 'n'
-				    ORDER BY h_no DESC))
+		                                                         FROM review 
+		                                                         WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
+		                                                                                              FROM home_photo
+		                                                                                              WHERE p_hno = h_No AND ROWNUM = 1) "image"
+		FROM zipreg 
+		WHERE h_Endday >= SYSDATE AND h_Close = 'n'
+		ORDER BY h_no DESC
 	</select>
 	
 	<!-- ZipRegDTO에 등록된 시설을 가져올 Fac_regDTO 타입의 리스트를 추가 하여 그 값을 읽기 위한 resultmap을 생성 -->
@@ -75,6 +74,44 @@
 	<!-- 필터를 이용한 검색 쿼리 -->
 	<select id="listByFilter" resultMap="ZipResult" parameterType="java.util.Map" >
 		SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
+		                                                         FROM review 
+		                                                         WHERE re_hNo = h_No) "replyCount" , (SELECT p_File
+		                                                                                              FROM home_photo
+		                                                                                              WHERE p_hno = h_No AND ROWNUM = 1) "image"
+		FROM zipreg 
+		WHERE h_Endday >= SYSDATE AND h_Close = 'n'
+		<if test="startDay != null">
+         	AND #{startDay} >= h_startday
+        </if>
+        <if test="endDay != null">
+         	AND h_endday >= #{endDay}
+        </if>
+        <if test="peopleNum != null">
+         	AND h_nperson >= #{peopleNum}
+        </if>
+        <if test="roomStyle != null">
+        	AND h_rType IN
+	        <foreach collection="roomStyle" item="item" open="(" separator="," close=")">
+	         	#{item}
+	        </foreach>
+        </if>
+        <if test="homeCategory != null">
+        	AND h_type IN
+         	<foreach collection="homeCategory" item="item" open="(" separator="," close=")">
+         		#{item}
+         	</foreach>
+        </if>
+        <if test="roomNum != null">
+        	AND h_nRoom >= #{roomNum}
+        </if>
+        <if test="bedNum != null">
+        	AND h_nBed >= #{bedNum}
+        </if>
+        <if test="bathNum != null">
+        	AND h_nBath >= #{bathNum}
+        </if>
+		ORDER BY h_no DESC
+		<!-- SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, (SELECT COUNT(re_no)
                                                          		 FROM review
                                                         		 WHERE re_hNo = h_No) "replyCount", (SELECT p_File
                                                                                              		 FROM home_photo
@@ -82,10 +119,7 @@
 		FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc, rownum as num
       		  FROM (SELECT h_No, h_rType, h_nHome, h_Addr1, h_Money, h_loc
             		FROM zipreg
-            		WHERE h_Endday > SYSDATE AND h_Close = 'n' 
-	            	<if test="loc != null">
-	            		AND h_Addr1 LIKE #{loc} || '%'
-	            	</if>
+            		WHERE h_Endday >= SYSDATE AND h_Close = 'n' 
 	            	<if test="startDay != null">
 	            		AND #{startDay} >= h_startday
 	            	</if>
@@ -101,6 +135,12 @@
 	            			#{item}
 	            		</foreach>
             		</if>
+            		<if test="homeCategory != null">
+            			AND h_type IN
+	            		<foreach collection="homeCategory" item="item" open="(" separator="," close=")">
+	            			#{item}
+	            		</foreach>
+            		</if>
             		<if test="roomNum != null">
             			AND h_nRoom >= #{roomNum}
             		</if>
@@ -111,7 +151,7 @@
             			AND h_nBath >= #{bathNum}
             		</if>
             		ORDER BY h_no DESC))
-		WHERE num BETWEEN 1 AND 10
+		WHERE num BETWEEN 1 AND 10 -->
 	</select>
 	
 	<!-- 집에 등록된 시설가져오기 -->
@@ -136,4 +176,12 @@
 	select * from reserve
 	where r_member=#{r_member}
 	</select>
+<select id="reserveCheck2" resultType="Reserve" parameterType="String">
+	select r_no, r_addr, r_member, r_start, r_end, r_money, r_person, (select tel from member1 where id = r_member) "tel"
+	from reserve
+	where r_addr in (select h_no
+					from zipreg
+					where h_id = #{h_id})
+	order by r_addr, r_no
+	</select>  	 
 </mapper>

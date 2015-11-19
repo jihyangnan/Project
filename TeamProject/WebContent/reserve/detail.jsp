@@ -53,17 +53,17 @@ $(function(){
 });
 });	 
 </script>
-<script>
+<!-- <script>
 $(function(){
 	$('#reser').click(function(){
-		if('${rd.r_addr}'!=null)
+		if('${rd.r_addr}'=='#raddr')
 			{
 			alert("예약이 마감된 날짜입니다");
 			return false;
 			}		
 	});
 });
-</script> 
+</script>  -->
 <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> -->

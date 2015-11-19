@@ -43,6 +43,18 @@ div.list .col-sm-8, div.list .col-sm-8 {
     border-color: #5cb85c;
 }
 
+.detail .btn-success {
+	color: #fff;
+    background-color: #87d54d;
+    border-color: #87d54d;
+}
+
+.detail .btn-success:hover {
+	color: #fff;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
 .photo-item:HOVER .overlay-btn{
 	display: block;
 }

@@ -27,9 +27,11 @@
 
 		
 		 	<ul><font style="color: #565a5c;">
-		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt=""> ${dto.name }</li>
-		 	
-		 	<li style="margin-bottom:6px;"><img src="images/sex.png" alt=""> ${dto.sex }
+		 	<li style="margin-bottom:6px;"><img src="images/name.png" alt=""> ${dto.name }
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 	<img src="images/sex.png" alt=""> ${dto.sex }
 
 		 	</li>
 
@@ -39,7 +41,7 @@
 
 		 	<li style="font-size: 13px;">
 		 	<img src="images/hkind.png" alt="">&nbsp;
-			  ■ 아파트 &nbsp; ■ 주택 &nbsp; □ 빌라 &nbsp; □ 호텔 &nbsp; ■ 게스트하우스&nbsp; □ 기타 
+			  ■ 아파트 &nbsp; ■ 주택 &nbsp; □ 빌라 &nbsp; ■ 게스트하우스&nbsp; □ 기타 
 		 	</li></font>
 		 	</ul>
 		  </div>	

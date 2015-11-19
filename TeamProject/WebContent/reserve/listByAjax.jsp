@@ -13,7 +13,7 @@
 	<div class="row list" data-price="${dto.h_Money }" data-lat="${lat}" data-lng="${lng}">
 		<div class="col-sm-8">
 			<a href="reserve_detail.do?no=${dto.h_No}&page=${curpage}">
-				<img class="img-responsive img-rounded" src="upload/${dto.image}" />
+				<img class="img-responsive img-rounded" style="max-height: 300px; width: 100%" src="upload/${dto.image}" />
 			</a>
 		</div>
 		<div class="col-sm-4 desc">
@@ -35,3 +35,4 @@
 		</div>
 	</div>
 </c:forEach>
+<jsp:include page="pagingPart.jsp" />
